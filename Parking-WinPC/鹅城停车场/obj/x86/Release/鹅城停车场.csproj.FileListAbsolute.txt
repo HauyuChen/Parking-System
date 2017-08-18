@@ -1,0 +1,9 @@
+C:\Users\goku\Desktop\鹅城停车场\鹅城停车场\bin\Release\鹅城停车场.exe
+C:\Users\goku\Desktop\鹅城停车场\鹅城停车场\bin\Release\鹅城停车场.pdb
+C:\Users\goku\Desktop\鹅城停车场\鹅城停车场\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Users\goku\Desktop\鹅城停车场\鹅城停车场\obj\x86\Release\鹅城停车场.Form1.resources
+C:\Users\goku\Desktop\鹅城停车场\鹅城停车场\obj\x86\Release\鹅城停车场.Properties.Resources.resources
+C:\Users\goku\Desktop\鹅城停车场\鹅城停车场\obj\x86\Release\GenerateResource.read.1.tlog
+C:\Users\goku\Desktop\鹅城停车场\鹅城停车场\obj\x86\Release\GenerateResource.write.1.tlog
+C:\Users\goku\Desktop\鹅城停车场\鹅城停车场\obj\x86\Release\鹅城停车场.exe
+C:\Users\goku\Desktop\鹅城停车场\鹅城停车场\obj\x86\Release\鹅城停车场.pdb
