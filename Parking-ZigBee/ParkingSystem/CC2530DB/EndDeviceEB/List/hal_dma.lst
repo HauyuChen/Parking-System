@@ -1,0 +1,430 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V7.51A/W32 for 8051                30/May/2015  21:45:57 #
+# Copyright 2004-2009 IAR Systems AB.                                         #
+#                                                                             #
+#    Core               =  plain                                              #
+#    Code model         =  banked                                             #
+#    Data model         =  large                                              #
+#    Calling convention =  xdata reentrant                                    #
+#    Constant location  =  data_rom                                           #
+#    Dptr setup         =  1,16                                               #
+#    Source file        =  C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Com #
+#                          ponents\hal\target\CC2530EB\hal_dma.c              #
+#    Command line       =  -f "C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0 #
+#                          \Projects\zstack\Samples\ParkingS\CC2530DB\..\..\. #
+#                          .\Tools\CC2530DB\f8wEndev.cfg" (-DCPU32MHZ         #
+#                          -DROOT=__near_func -DBLINK_LEDS) -f "C:\Texas      #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\Tools\CC253 #
+#                          0DB\f8wConfig.cfg" (-DSECURE=0                     #
+#                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                  #
+#                          -DDEFAULT_CHANLIST=0x00000800                      #
+#                          -DZDAPP_CONFIG_PAN_ID=0xFFFF                       #
+#                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MA #
+#                          SK=0x007F -DBEACON_REQUEST_DELAY=100               #
+#                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
+#                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_PO #
+#                          LLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7             #
+#                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3    #
+#                          -DNWK_MAX_DATA_RETRIES=2                           #
+#                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9         #
+#                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40           #
+#                          -DNWK_MAX_BINDING_ENTRIES=4                        #
+#                          -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,  #
+#                          0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00,    #
+#                          0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"         #
+#                          -DMAC_MAX_FRAME_SIZE=116 "-DCONST=const __code"    #
+#                          -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE     #
+#                          -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100            #
+#                          -DRESPONSE_POLL_RATE=100) -DREJOIN_POLL_RATE=440   #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Co #
+#                          mponents\hal\target\CC2530EB\hal_dma.c" -D         #
+#                          NWK_AUTO_POLL -D ENDDEVICE -D ZTOOL_P1 -D MT_TASK  #
+#                          -D MT_SYS_FUNC -D MT_ZDO_FUNC -D                   #
+#                          SerialApp_CallBack -D xLCD_SUPPORTED=DEBUG -lC     #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Pr #
+#                          ojects\zstack\Samples\ParkingS\CC2530DB\EndDeviceE #
+#                          B\List\" -lA "C:\Texas Instruments\ZStack-CC2530-2 #
+#                          .3.0-1.4.0\Projects\zstack\Samples\ParkingS\CC2530 #
+#                          DB\EndDeviceEB\List\" --diag_suppress Pe001,Pa010  #
+#                          -o "C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0 #
+#                          \Projects\zstack\Samples\ParkingS\CC2530DB\EndDevi #
+#                          ceEB\Obj\" -e --require_prototypes --debug         #
+#                          --core=plain --dptr=16,1 --data_model=large        #
+#                          --code_model=banked --calling_convention=xdata_ree #
+#                          ntrant --place_constants=data_rom                  #
+#                          --nr_virtual_regs 16 -I "C:\Texas                  #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\" -I "C:\Texas       #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\SOURCE\" -I       #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Pr #
+#                          ojects\zstack\Samples\ParkingS\CC2530DB\..\..\..\Z #
+#                          MAIN\TI2530DB\" -I "C:\Texas                       #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\MT\" -I "C:\Texas Instruments\ZStack-CC2530- #
+#                          2.3.0-1.4.0\Projects\zstack\Samples\ParkingS\CC253 #
+#                          0DB\..\..\..\..\..\COMPONENTS\HAL\INCLUDE\" -I     #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Pr #
+#                          ojects\zstack\Samples\ParkingS\CC2530DB\..\..\..\. #
+#                          .\..\COMPONENTS\HAL\TARGET\CC2530EB\" -I           #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Pr #
+#                          ojects\zstack\Samples\ParkingS\CC2530DB\..\..\..\. #
+#                          .\..\COMPONENTS\OSAL\MCU\CCSOC\" -I "C:\Texas      #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\OSAL\INCLUDE\" -I "C:\Texas                  #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\STACK\AF\" -I "C:\Texas                      #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\STACK\NWK\" -I "C:\Texas                     #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\STACK\SEC\" -I "C:\Texas                     #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\STACK\SAPI\" -I "C:\Texas                    #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\STACK\SYS\" -I "C:\Texas                     #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\STACK\ZDO\" -I "C:\Texas                     #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\ZMAC\F8W\" -I "C:\Texas                      #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\ZMAC\" -I "C:\Texas                          #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\SERVICES\SADDR\" -I "C:\Texas                #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\SERVICES\SDATA\" -I "C:\Texas                #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\MAC\INCLUDE\" -I "C:\Texas                   #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\MAC\HIGH_LEVEL\" -I "C:\Texas                #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\MAC\LOW_LEVEL\srf04\" -I "C:\Texas           #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\MAC\LOW_LEVEL\srf04\SINGLE_CHIP\" -I         #
+#                          "C:\Program Files\IAR Systems\Embedded Workbench   #
+#                          5.3\8051\INC\" -I "C:\Program Files\IAR            #
+#                          Systems\Embedded Workbench 5.3\8051\INC\CLIB\"     #
+#                          -Ohz                                               #
+#    List file          =  C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Pro #
+#                          jects\zstack\Samples\ParkingS\CC2530DB\EndDeviceEB #
+#                          \List\hal_dma.lst                                  #
+#    Object file        =  C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Pro #
+#                          jects\zstack\Samples\ParkingS\CC2530DB\EndDeviceEB #
+#                          \Obj\hal_dma.r51                                   #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Components\hal\target\CC2530EB\hal_dma.c
+      1          /**************************************************************************************************
+      2            Filename:       hal_dma.c
+      3            Revised:        $Date: 2009-08-05 18:23:26 -0700 (Wed, 05 Aug 2009) $
+      4            Revision:       $Revision: 20480 $
+      5          
+      6            Description:    This file contains the interface to the DMA.
+      7          
+      8          
+      9            Copyright 2007-2009 Texas Instruments Incorporated. All rights reserved.
+     10          
+     11            IMPORTANT: Your use of this Software is limited to those specific rights
+     12            granted under the terms of a software license agreement between the user
+     13            who downloaded the software, his/her employer (which must be your employer)
+     14            and Texas Instruments Incorporated (the "License").  You may not use this
+     15            Software unless you agree to abide by the terms of the License. The License
+     16            limits your use, and you acknowledge, that the Software may not be modified,
+     17            copied or distributed unless embedded on a Texas Instruments microcontroller
+     18            or used solely and exclusively in conjunction with a Texas Instruments radio
+     19            frequency transceiver, which is integrated into your product.  Other than for
+     20            the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+     21            works of, modify, distribute, perform, display or sell this Software and/or
+     22            its documentation for any purpose.
+     23          
+     24            YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+     25            PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, 
+     26            INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE, 
+     27            NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+     28            TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+     29            NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+     30            LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+     31            INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+     32            OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+     33            OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+     34            (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+     35          
+     36            Should you have any questions regarding your right to use this Software,
+     37            contact Texas Instruments Incorporated at www.TI.com. 
+     38          **************************************************************************************************/
+     39          
+     40          /*********************************************************************
+     41           * INCLUDES
+     42           */
+     43          
+     44          #include "hal_types.h"
+     45          #include "hal_defs.h"
+     46          #include "hal_dma.h"
+
+   \                                 In  segment SFR_AN, at 0xb8
+   \   union <unnamed> volatile __sfr _A_IEN1
+   \                     _A_IEN1:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xc0
+   \   union <unnamed> volatile __sfr _A_IRCON
+   \                     _A_IRCON:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xd1
+   \   unsigned char volatile __sfr DMAIRQ
+   \                     DMAIRQ:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xd2
+   \   unsigned char volatile __sfr DMA1CFGL
+   \                     DMA1CFGL:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xd3
+   \   unsigned char volatile __sfr DMA1CFGH
+   \                     DMA1CFGH:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xd4
+   \   unsigned char volatile __sfr DMA0CFGL
+   \                     DMA0CFGL:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xd5
+   \   unsigned char volatile __sfr DMA0CFGH
+   \                     DMA0CFGH:
+   \   000000                DS 1
+     47          #include "hal_mcu.h"
+     48          #include "hal_uart.h"
+     49          
+     50          #if (defined HAL_IRGEN) && (HAL_IRGEN == TRUE)
+     51          #include "hal_irgen.h"
+     52          #endif
+     53          
+     54          #if (defined HAL_SPI) && (HAL_SPI == TRUE)
+     55          #include "hal_spi.h"
+     56          #endif
+     57          
+     58          
+     59          #if ((defined HAL_DMA) && (HAL_DMA == TRUE))
+     60          
+     61          /*********************************************************************
+     62           * MACROS
+     63           */
+     64          
+     65          /*********************************************************************
+     66           * CONSTANTS
+     67           */
+     68          
+     69          /*********************************************************************
+     70           * TYPEDEFS
+     71           */
+     72          
+     73          /*********************************************************************
+     74           * GLOBAL VARIABLES
+     75           */
+     76          
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     77          halDMADesc_t dmaCh0;
+   \                     dmaCh0:
+   \   000000                DS 8
+   \   000008                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     78          halDMADesc_t dmaCh1234[4];
+   \                     dmaCh1234:
+   \   000000                DS 32
+   \   000020                REQUIRE __INIT_XDATA_Z
+     79          
+     80          /*********************************************************************
+     81           * GLOBAL FUNCTIONS
+     82           */
+     83          
+     84          /*********************************************************************
+     85           * LOCAL VARIABLES
+     86           */
+     87          
+     88          /*********************************************************************
+     89           * LOCAL FUNCTIONS
+     90           */
+     91          
+     92          /******************************************************************************
+     93           * @fn      HalDMAInit
+     94           *
+     95           * @brief   DMA Interrupt Service Routine
+     96           *
+     97           * @param   None
+     98           *
+     99           * @return  None
+    100           *****************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    101          void HalDmaInit( void )
+   \                     HalDmaInit:
+    102          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+    103            HAL_DMA_SET_ADDR_DESC0( &dmaCh0 );
+   \   000000   74..         MOV     A,#((dmaCh0 >> 8) & 0xff)
+   \   000002   F5D5         MOV     0xd5,A
+   \   000004   75D4..       MOV     0xd4,#(dmaCh0 & 0xff)
+    104            HAL_DMA_SET_ADDR_DESC1234( dmaCh1234 );
+   \   000007   74..         MOV     A,#((dmaCh1234 >> 8) & 0xff)
+   \   000009   F5D3         MOV     0xd3,A
+   \   00000B   75D2..       MOV     0xd2,#(dmaCh1234 & 0xff)
+    105          #if (HAL_UART_DMA || \
+    106             ((defined HAL_SPI) && (HAL_SPI == TRUE))  || \
+    107             ((defined HAL_IRGEN) && (HAL_IRGEN == TRUE)))
+    108            DMAIE = 1;
+   \   00000E   D2B8         SETB    0xb8.0
+    109          #endif
+    110          }
+   \   000010   02....       LJMP    ?BRET
+   \   000013                REQUIRE _A_IEN1
+   \   000013                REQUIRE DMA1CFGL
+   \   000013                REQUIRE DMA1CFGH
+   \   000013                REQUIRE DMA0CFGL
+   \   000013                REQUIRE DMA0CFGH
+    111          
+    112          #if (HAL_UART_DMA || \
+    113             ((defined HAL_SPI) && (HAL_SPI == TRUE))  || \
+    114             ((defined HAL_IRGEN) && (HAL_IRGEN == TRUE)))
+    115          /******************************************************************************
+    116           * @fn      HalDMAInit
+    117           *
+    118           * @brief   DMA Interrupt Service Routine
+    119           *
+    120           * @param   None
+    121           *
+    122           * @return  None
+    123           *****************************************************************************/
+
+   \                                 In  segment NEAR_CODE, align 1, keep-with-next
+    124          HAL_ISR_FUNCTION( halDmaIsr, DMA_VECTOR )
+   \                     halDmaIsr:
+    125          {
+   \   000000   C0E0         PUSH    A
+   \   000002   74F2         MOV     A,#-0xe
+   \   000004   12....       LCALL   ?INTERRUPT_ENTER_XSP
+   \   000007                ; Saved register size: 15
+   \   000007                ; Auto size: 0
+    126            extern void HalUARTIsrDMA(void);
+    127          
+    128            DMAIF = 0;
+   \   000007   C2C0         CLR     0xc0.0
+    129          
+    130          #if HAL_UART_DMA
+    131            if (HAL_DMA_CHECK_IRQ(HAL_DMA_CH_TX))
+   \   000009   E5D1         MOV     A,0xd1
+   \   00000B   A2E4         MOV     C,0xE0 /* A   */.4
+   \   00000D   5003         JNC     ??halDmaIsr_0
+    132            {
+    133              HalUARTIsrDMA();
+   \   00000F                ; Setup parameters for call to function HalUARTIsrDMA
+   \   00000F   12....       LCALL   ??HalUARTIsrDMA?relay
+    134            }
+    135          #endif // HAL_UART_DMA
+    136          
+    137          #if (defined HAL_SPI) && (HAL_SPI == TRUE)
+    138            if ( HAL_DMA_CHECK_IRQ( HAL_DMA_CH_RX ) )
+    139            {
+    140              HAL_DMA_CLEAR_IRQ( HAL_DMA_CH_RX );
+    141              HalSpiRxIsr();
+    142            }
+    143          
+    144            if ( HAL_DMA_CHECK_IRQ( HAL_DMA_CH_TX ) )
+    145            {
+    146              HAL_DMA_CLEAR_IRQ( HAL_DMA_CH_TX );
+    147              HalSpiTxIsr();
+    148            }
+    149          #endif // (defined HAL_SPI) && (HAL_SPI == TRUE)
+    150          
+    151          #if (defined HAL_IRGEN) && (HAL_IRGEN == TRUE)
+    152            if ( HAL_IRGEN == TRUE && HAL_DMA_CHECK_IRQ( HAL_IRGEN_DMA_CH ) )
+    153            {
+    154              HAL_DMA_CLEAR_IRQ( HAL_IRGEN_DMA_CH );
+    155              HalIrGenDmaIsr();
+    156            }
+    157          #endif // (defined HAL_IRGEN) && (HAL_IRGEN == TRUE)
+    158          }
+   \                     ??halDmaIsr_0:
+   \   000012   7F01         MOV     R7,#0x1
+   \   000014   02....       LJMP    ?INTERRUPT_LEAVE_XSP
+   \   000017                REQUIRE _A_IRCON
+   \   000017                REQUIRE DMAIRQ
+
+   \                                 In  segment INTVEC, offset 0x43, root
+   \                     `??halDmaIsr??INTVEC 67`:
+   \   000043   02....       LJMP       (halDmaIsr)
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??HalDmaInit?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    HalDmaInit
+    159          #endif
+    160          #endif  // #if ((defined HAL_DMA) && (HAL_DMA == TRUE))
+    161          /******************************************************************************
+    162          ******************************************************************************/
+
+   Maximum stack usage in bytes:
+
+     Function           ISTACK PSTACK XSTACK
+     --------           ------ ------ ------
+     HalDmaInit             0      0      0
+     halDmaIsr             15      0      0
+       -> HalUARTIsrDMA    30      0      0
+
+
+   Segment part sizes:
+
+     Function/Label         Bytes
+     --------------         -----
+     _A_IEN1                   1
+     _A_IRCON                  1
+     DMAIRQ                    1
+     DMA1CFGL                  1
+     DMA1CFGH                  1
+     DMA0CFGL                  1
+     DMA0CFGH                  1
+     dmaCh0                    8
+     dmaCh1234                32
+     HalDmaInit               19
+     halDmaIsr                23
+     ??halDmaIsr??INTVEC 67    3
+     ??HalDmaInit?relay        6
+
+ 
+ 19 bytes in segment BANKED_CODE
+  6 bytes in segment BANK_RELAYS
+  3 bytes in segment INTVEC
+ 23 bytes in segment NEAR_CODE
+  7 bytes in segment SFR_AN
+ 40 bytes in segment XDATA_Z
+ 
+ 48 bytes of CODE  memory (+ 3 bytes shared)
+  0 bytes of DATA  memory (+ 7 bytes shared)
+ 40 bytes of XDATA memory
+
+Errors: none
+Warnings: none

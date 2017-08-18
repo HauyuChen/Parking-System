@@ -1,0 +1,634 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V7.51A/W32 for 8051                07/May/2015  10:56:05 #
+# Copyright 2004-2009 IAR Systems AB.                                         #
+#                                                                             #
+#    Core               =  plain                                              #
+#    Code model         =  banked                                             #
+#    Data model         =  large                                              #
+#    Calling convention =  xdata reentrant                                    #
+#    Constant location  =  data_rom                                           #
+#    Dptr setup         =  1,16                                               #
+#    Source file        =  C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Com #
+#                          ponents\mt\MT_APP.c                                #
+#    Command line       =  -f "C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0 #
+#                          \Projects\zstack\Samples\ParkingS\CC2530DB\..\..\. #
+#                          .\Tools\CC2530DB\f8wEndev.cfg" (-DCPU32MHZ         #
+#                          -DROOT=__near_func -DBLINK_LEDS) -f "C:\Texas      #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\Tools\CC253 #
+#                          0DB\f8wConfig.cfg" (-DSECURE=0                     #
+#                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                  #
+#                          -DDEFAULT_CHANLIST=0x00000800                      #
+#                          -DZDAPP_CONFIG_PAN_ID=0xFFFF                       #
+#                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MA #
+#                          SK=0x007F -DBEACON_REQUEST_DELAY=100               #
+#                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
+#                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_PO #
+#                          LLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7             #
+#                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3    #
+#                          -DNWK_MAX_DATA_RETRIES=2                           #
+#                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9         #
+#                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40           #
+#                          -DNWK_MAX_BINDING_ENTRIES=4                        #
+#                          -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,  #
+#                          0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00,    #
+#                          0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"         #
+#                          -DMAC_MAX_FRAME_SIZE=116 "-DCONST=const __code"    #
+#                          -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE     #
+#                          -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100            #
+#                          -DRESPONSE_POLL_RATE=100) -DREJOIN_POLL_RATE=440   #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Co #
+#                          mponents\mt\MT_APP.c" -D ZIGBEEPRO -D              #
+#                          NWK_AUTO_POLL -D ZTOOL_P1 -D MT_TASK -D            #
+#                          MT_SYS_FUNC -D MT_ZDO_FUNC -D LCD_SUPPORTED=DEBUG  #
+#                          -lC "C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4. #
+#                          0\Projects\zstack\Samples\ParkingS\CC2530DB\EndDev #
+#                          iceEB-Pro\List\" -lA "C:\Texas                     #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\EndDeviceEB-Pro\List #
+#                          \" --diag_suppress Pe001,Pa010 -o "C:\Texas        #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\EndDeviceEB-Pro\Obj\ #
+#                          " -e --require_prototypes --debug --core=plain     #
+#                          --dptr=16,1 --data_model=large                     #
+#                          --code_model=banked --calling_convention=xdata_ree #
+#                          ntrant --place_constants=data_rom                  #
+#                          --nr_virtual_regs 16 -I "C:\Texas                  #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\" -I "C:\Texas       #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\SOURCE\" -I       #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Pr #
+#                          ojects\zstack\Samples\ParkingS\CC2530DB\..\..\..\Z #
+#                          MAIN\TI2530DB\" -I "C:\Texas                       #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\MT\" -I "C:\Texas Instruments\ZStack-CC2530- #
+#                          2.3.0-1.4.0\Projects\zstack\Samples\ParkingS\CC253 #
+#                          0DB\..\..\..\..\..\COMPONENTS\HAL\INCLUDE\" -I     #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Pr #
+#                          ojects\zstack\Samples\ParkingS\CC2530DB\..\..\..\. #
+#                          .\..\COMPONENTS\HAL\TARGET\CC2530EB\" -I           #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Pr #
+#                          ojects\zstack\Samples\ParkingS\CC2530DB\..\..\..\. #
+#                          .\..\COMPONENTS\OSAL\MCU\CCSOC\" -I "C:\Texas      #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\OSAL\INCLUDE\" -I "C:\Texas                  #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\STACK\AF\" -I "C:\Texas                      #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\STACK\NWK\" -I "C:\Texas                     #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\STACK\SEC\" -I "C:\Texas                     #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\STACK\SAPI\" -I "C:\Texas                    #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\STACK\SYS\" -I "C:\Texas                     #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\STACK\ZDO\" -I "C:\Texas                     #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\ZMAC\F8W\" -I "C:\Texas                      #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\ZMAC\" -I "C:\Texas                          #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\SERVICES\SADDR\" -I "C:\Texas                #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\SERVICES\SDATA\" -I "C:\Texas                #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\MAC\INCLUDE\" -I "C:\Texas                   #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\MAC\HIGH_LEVEL\" -I "C:\Texas                #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\MAC\LOW_LEVEL\srf04\" -I "C:\Texas           #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\MAC\LOW_LEVEL\srf04\SINGLE_CHIP\" -I         #
+#                          "C:\Program Files\IAR Systems\Embedded Workbench   #
+#                          5.3\8051\INC\" -I "C:\Program Files\IAR            #
+#                          Systems\Embedded Workbench 5.3\8051\INC\CLIB\"     #
+#                          -Ohz                                               #
+#    List file          =  C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Pro #
+#                          jects\zstack\Samples\ParkingS\CC2530DB\EndDeviceEB #
+#                          -Pro\List\MT_APP.lst                               #
+#    Object file        =  C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Pro #
+#                          jects\zstack\Samples\ParkingS\CC2530DB\EndDeviceEB #
+#                          -Pro\Obj\MT_APP.r51                                #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Components\mt\MT_APP.c
+      1          /***************************************************************************************************
+      2            Filename:       MT_APP.c
+      3            Revised:        $Date: 2010-01-06 15:16:46 -0800 (Wed, 06 Jan 2010) $
+      4            Revision:       $Revision: 21443 $
+      5          
+      6            Description:    MonitorTest processing for APP commands
+      7          
+      8            Copyright 2007-2009 Texas Instruments Incorporated. All rights reserved.
+      9          
+     10            IMPORTANT: Your use of this Software is limited to those specific rights
+     11            granted under the terms of a software license agreement between the user
+     12            who downloaded the software, his/her employer (which must be your employer)
+     13            and Texas Instruments Incorporated (the "License").  You may not use this
+     14            Software unless you agree to abide by the terms of the License. The License
+     15            limits your use, and you acknowledge, that the Software may not be modified,
+     16            copied or distributed unless embedded on a Texas Instruments microcontroller
+     17            or used solely and exclusively in conjunction with a Texas Instruments radio
+     18            frequency transceiver, which is integrated into your product.  Other than for
+     19            the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+     20            works of, modify, distribute, perform, display or sell this Software and/or
+     21            its documentation for any purpose.
+     22          
+     23            YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+     24            PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+     25            INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+     26            NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+     27            TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+     28            NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+     29            LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+     30            INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+     31            OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+     32            OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+     33            (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+     34          
+     35            Should you have any questions regarding your right to use this Software,
+     36            contact Texas Instruments Incorporated at www.TI.com.
+     37          
+     38           ***************************************************************************************************/
+     39          
+     40          /***************************************************************************************************
+     41           * INCLUDES
+     42           ***************************************************************************************************/
+     43          #include "ZComDef.h"
+     44          #include "MT.h"        /* This is here because all the SPI_CMD_XXX are defined in this header */
+     45          #include "MT_APP.h"
+     46          #include "MT_AF.h"     /* This is here because this MT_APP makes some routine call to AF */
+     47          
+     48          #if defined( APP_TP )
+     49           #include "TestProfile.h"
+     50          #endif
+     51          #if defined( APP_TP2 )
+     52           #include "TestProfile2.h"
+     53           #include "nwk_util.h"
+     54          #endif
+     55          
+     56          /***************************************************************************************************
+     57           * LOCAL FUNCTIONS
+     58           ***************************************************************************************************/
+     59          #if defined (MT_APP_FUNC)
+     60          void MT_AppMsg(uint8 *pBuf);
+     61          void MT_AppUserCmd(byte *pData);
+     62          #endif
+     63          
+     64          #if defined (MT_APP_FUNC)
+     65          /***************************************************************************************************
+     66           * @fn      MT_AppCommandProcessing
+     67           *
+     68           * @brief  Process all the APP commands that are issued by test tool
+     69           *
+     70           * @param   pBuf - pointer to the received buffer
+     71           *
+     72           * @return  status
+     73           ***************************************************************************************************/
+     74          uint8 MT_AppCommandProcessing(uint8 *pBuf)
+     75          {
+     76            uint8 status = MT_RPC_SUCCESS;
+     77          
+     78            switch (pBuf[MT_RPC_POS_CMD1])
+     79            {
+     80              case MT_APP_MSG:
+     81                MT_AppMsg(pBuf);
+     82                break;
+     83          
+     84              case MT_APP_USER_TEST:
+     85                MT_AppUserCmd(pBuf);
+     86                break;
+     87          
+     88              default:
+     89                status = MT_RPC_ERR_COMMAND_ID;
+     90                break;
+     91            }
+     92          
+     93            return status;
+     94          }
+     95          
+     96          /***************************************************************************************************
+     97           * @fn      MT_AppMsg
+     98           *
+     99           * @brief   Process APP_MSG command
+    100           *
+    101           * @param   pBuf - pointer to the received buffer
+    102           *
+    103           * @return  void
+    104           ***************************************************************************************************/
+    105          void MT_AppMsg(uint8 *pBuf)
+    106          {
+    107            uint8 retValue = ZFailure;
+    108            uint8 endpoint;
+    109            endPointDesc_t *epDesc;
+    110            mtSysAppMsg_t *msg;
+    111            uint8 cmdId, dataLen;
+    112          
+    113            /* parse header */
+    114            dataLen = pBuf[MT_RPC_POS_LEN];
+    115            cmdId = pBuf[MT_RPC_POS_CMD1];
+    116            pBuf += MT_RPC_FRAME_HDR_SZ;
+    117          
+    118            /* Get the endpoint and skip past it.*/
+    119            endpoint = *pBuf++;
+    120            dataLen--;
+    121          
+    122            /* Look up the endpoint */
+    123            epDesc = afFindEndPointDesc( endpoint );
+    124          
+    125            if (epDesc)
+    126            {
+    127              /* Build and send the message to the APP */
+    128              msg = (mtSysAppMsg_t *)osal_msg_allocate(sizeof(mtSysAppMsg_t) + (dataLen));
+    129              if ( msg )
+    130              {
+    131                /* Build and send message up the app */
+    132                msg->hdr.event = MT_SYS_APP_MSG;
+    133                msg->endpoint = endpoint;
+    134                msg->appDataLen = dataLen;
+    135                msg->appData = (uint8*)(msg+1);
+    136                osal_memcpy( msg->appData, pBuf, dataLen);
+    137                osal_msg_send( *(epDesc->task_id), (uint8 *)msg );
+    138          
+    139                /* Info for response */
+    140                retValue = ZSuccess;
+    141              }
+    142            }
+    143          
+    144            /* Build and send back the response */
+    145            MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_APP), cmdId, 1, &retValue);
+    146          }
+    147          
+    148          /***************************************************************************************************
+    149           * @fn      MT_AppMsg
+    150           *
+    151           * @brief   Process APP_MSG command
+    152           *
+    153           * @param   pBuf - pointer to the received buffer
+    154           *
+    155           * @return  void
+    156           ***************************************************************************************************/
+    157          void MT_AppUserCmd(uint8 *pBuf) 						
+    158          {
+    159          
+    160            uint8 retValue, cmdId;
+    161          
+    162          #if defined (APP_TGEN) || defined (NWK_TEST) || defined (APP_TP) || defined (APP_TP2) || defined (OSAL_TOTAL_MEM) || defined (APP_DEBUG)
+    163            uint16 app_cmd;
+    164            uint8 srcEp;
+    165            uint16 param1;
+    166            uint16 param2;
+    167          #endif
+    168          #if defined (OSAL_TOTAL_MEM)
+    169            uint8 pData[2];
+    170          #endif
+    171          
+    172            /* parse header */
+    173            cmdId = pBuf[MT_RPC_POS_CMD1];
+    174            pBuf += MT_RPC_FRAME_HDR_SZ;
+    175          
+    176            retValue = INVALID_TASK;     //should be changed later
+    177          
+    178          #if defined (APP_TGEN) || defined (NWK_TEST) || defined (APP_TP) || defined (APP_TP2) || defined (OSAL_TOTAL_MEM) || defined (APP_DEBUG)
+    179          
+    180            srcEp = *pBuf++;
+    181          
+    182            app_cmd = BUILD_UINT16( pBuf[0] , pBuf[1] );
+    183            pBuf = pBuf + sizeof( uint16 );
+    184          
+    185            param1 = BUILD_UINT16( pBuf[0] , pBuf[1] );
+    186            pBuf = pBuf + sizeof( uint16 );
+    187          
+    188            param2 = BUILD_UINT16( pBuf[0] , pBuf[1] );
+    189          
+    190            switch ( app_cmd )
+    191            {
+    192          
+    193          #if defined (APP_TGEN)
+    194              case TGEN_START:
+    195                TrafficGenApp_SendCmdMSG( param1, param2, TRAFFICGENAPP_CMD_START );
+    196                retValue = ZSUCCESS;
+    197                break;
+    198          
+    199              case TGEN_STOP:
+    200                TrafficGenApp_SendCmdMSG( param1, param2, TRAFFICGENAPP_CMD_STOP );
+    201                retValue = ZSUCCESS;
+    202                break;
+    203          
+    204              case TGEN_COUNT:
+    205                retValue = TrafficGenApp_CountPkt( param1, param2 );
+    206                return;	
+    207                break;				
+    208          #endif
+    209          
+    210          #if defined (NWK_TEST)
+    211              case HW_TEST:
+    212                HwApp_Start( HI_UINT16(param1), LO_UINT16(param1), HI_UINT16(param2),
+    213                              1000, LO_UINT16(param2), 3, 0 );
+    214                break;
+    215          
+    216              case HW_DISPLAY_RESULT:
+    217                HwApp_TestInfo();
+    218                break;
+    219          
+    220              case HW_SEND_STATUS:
+    221                HwApp_SendStats();
+    222                break;
+    223          #endif
+    224          
+    225          #if defined( APP_TP ) || defined ( APP_TP2 )
+    226            #if defined( APP_TP )
+    227              case TP_SEND_NODATA:
+    228                retValue = TestProfileApp_SendNoData( srcEp, (byte)param1 );
+    229                break;
+    230            #endif // APP_TP
+    231          			
+    232              case TP_SEND_BUFFERTEST:
+    233                retValue = TestProfileApp_SendBufferReq( srcEp, (byte)param1 );
+    234                break;
+    235          			
+    236            #if defined( APP_TP )
+    237              case TP_SEND_UINT8:
+    238                retValue = TestProfileApp_SendUint8( srcEp, (byte)param1 );
+    239                break;
+    240          
+    241              case TP_SEND_INT8:
+    242                retValue = TestProfileApp_SendInt8( srcEp, (byte)param1 );
+    243                break;
+    244          
+    245              case TP_SEND_UINT16:
+    246                retValue = TestProfileApp_SendUint16( srcEp, (byte)param1 );
+    247                break;
+    248          
+    249              case TP_SEND_INT16:
+    250                retValue = TestProfileApp_SendInt16( srcEp, (byte)param1 );
+    251                break;
+    252          
+    253              case TP_SEND_SEMIPREC:
+    254                retValue = TestProfileApp_SendSemiPrec( srcEp, (byte)param1 );
+    255                break;
+    256          
+    257              case TP_SEND_FREEFORM:
+    258                retValue = TestProfileApp_SendFreeFormReq( srcEp, (byte)param1 );
+    259                break;
+    260          			
+    261            #else // APP_TP
+    262              case TP_SEND_FREEFORM:
+    263                retValue = TestProfileApp_SendFreeFormReq(srcEp, (byte)param1, (byte)param2);
+    264                break;
+    265            #endif
+    266          			
+    267            #if defined( APP_TP )
+    268              case TP_SEND_ABS_TIME:
+    269                retValue = TestProfileApp_SendAbsTime( srcEp, (byte)param1 );
+    270                break;
+    271          
+    272              case TP_SEND_REL_TIME:
+    273                retValue = TestProfileApp_SendRelativeTime( srcEp, (byte)param1 );
+    274                break;
+    275          
+    276              case TP_SEND_CHAR_STRING:
+    277                retValue = TestProfileApp_SendCharString( srcEp, (byte)param1 );
+    278                break;
+    279          
+    280              case TP_SEND_OCTET_STRING:
+    281                retValue = TestProfileApp_SendOctetString( srcEp, (byte)param1 );
+    282                break;		
+    283            #endif // APP_TP
+    284          				
+    285              case TP_SET_DSTADDRESS:			
+    286                retValue = TestProfileApp_SetDestAddress(HI_UINT16(param1), LO_UINT16(param1), param2);
+    287                break;	
+    288          
+    289            #if defined( APP_TP2 )
+    290              case TP_SEND_BUFFER_GROUP:
+    291                retValue = TestProfileApp_SendBufferGroup( srcEp, (byte)param1 );
+    292                break;
+    293            #endif // APP_TP
+    294          
+    295              case TP_SEND_BUFFER:
+    296                retValue = TestProfileApp_SendBuffer( srcEp, (byte)param1 );
+    297                break;
+    298          				
+    299            #if defined( APP_TP )
+    300              case TP_SEND_MULT_KVP_8BIT:
+    301                TestProfileApp_SendMultiKVP_8bit( srcEp, (byte)param1 );
+    302                retValue = ZSuccess;
+    303                break;
+    304          
+    305              case TP_SEND_MULT_KVP_16BIT:
+    306                TestProfileApp_SendMultiKVP_16bit( srcEp, (byte)param1 );
+    307                retValue = ZSuccess;
+    308                break;
+    309          
+    310              case TP_SEND_MULT_KVP_TIME:
+    311                TestProfileApp_SendMultiKVP_Time( srcEp, (byte)param1 );
+    312                retValue = ZSuccess;
+    313                break;
+    314          
+    315              case TP_SEND_MULT_KVP_STRING:
+    316                TestProfileApp_SendMultiKVP_String( srcEp, (byte)param1 );
+    317                retValue = ZSuccess;
+    318                break;
+    319          
+    320              case TP_SEND_MULTI_KVP_STR_TIME:
+    321                retValue = ZSuccess;
+    322                TestProfileApp_SendMultiKVP_String_Time( srcEp, (byte)param1 );
+    323                break;
+    324            #endif // APP_TP
+    325          				
+    326              case TP_SEND_COUNTED_PKTS:
+    327                TestProfileApp_SendCountedPktsReq(HI_UINT16(param1), LO_UINT16(param1), param2);
+    328                retValue = ZSuccess;
+    329                break;
+    330          
+    331              case TP_SEND_RESET_COUNTER:
+    332                TestProfileApp_CountedPakts_ResetCounterReq( (byte)param1 );
+    333                retValue = ZSuccess;
+    334                break;
+    335          
+    336              case TP_SEND_GET_COUNTER:
+    337                TestProfileApp_CountedPakts_GetCounterReq( srcEp, (byte)param1 );
+    338                retValue = ZSuccess;
+    339                break;
+    340          				
+    341              case TP_SET_PERMIT_JOIN:
+    342                if ( ZG_BUILD_RTR_TYPE && ZG_DEVICE_RTR_TYPE )
+    343                {
+    344                  NLME_PermitJoiningRequest( (byte)param1 );
+    345                  retValue = ZSuccess;
+    346                }
+    347                else
+    348                {
+    349                  retValue = ZFailure;
+    350                }
+    351                break;
+    352          
+    353            #if defined ( APP_TP2 )
+    354              case TP_ADD_GROUP:
+    355                retValue = TestProfileApp_SetGroup( srcEp, param1 );
+    356                break;
+    357          
+    358              case TP_REMOVE_GROUP:
+    359                retValue = TestProfileApp_RemoveGroup( srcEp, param1 );
+    360                break;
+    361          
+    362              case TP_SEND_UPDATE_KEY:
+    363                retValue = TestProfileApp_UpdateKey( srcEp, (uint8)param1, param2 );
+    364                break;
+    365          
+    366              case TP_SEND_SWITCH_KEY:
+    367                retValue = TestProfileApp_SwitchKey(  srcEp, (uint8)param1, param2 );
+    368                break;
+    369          			
+    370              case TP_SEND_BUFFERTEST_GROUP:
+    371                retValue = TestProfileApp_SendBufferGroupReq( srcEp, (byte)param1, (byte)param2 );
+    372                break;
+    373          
+    374              case TP_SEND_ROUTE_DISC_REQ:
+    375                retValue = TestProfileApp_SendRouteDiscReq( srcEp, param1,
+    376                                            HI_UINT16( param2 ), LO_UINT16( param2 ) );
+    377                break;
+    378          
+    379              case TP_SEND_ROUTE_DISCOVERY:
+    380                if ( ZG_BUILD_RTR_TYPE && ZG_DEVICE_RTR_TYPE )
+    381                {
+    382                  retValue = TestProfileApp_SendRouteDiscovery( param1,
+    383                                              HI_UINT16( param2 ), LO_UINT16( param2 ) );
+    384                }
+    385                break;
+    386          
+    387              case TP_SEND_NEW_ADDR:
+    388                retValue = TestProfileApp_ChangeShortAddr( param1, LO_UINT16(param2) );
+    389                break;
+    390          
+    391              case TP_SEND_NWK_UPDATE:
+    392                /* Send out a Network Update command. */
+    393                retValue = NLME_SendNetworkUpdate( NWK_BROADCAST_SHORTADDR, NWKUPDATE_PANID_UPDATE,
+    394                                                  _NIB.extendedPANID, _NIB.nwkUpdateId+1, param1 );
+    395                break;
+    396                
+    397              case TP_NWK_ADDR_CONFLICT:
+    398                retValue = NLME_SendNetworkStatus( NWK_BROADCAST_SHORTADDR_DEVZCZR,
+    399                                   param1, NWKSTAT_ADDRESS_CONFLICT );
+    400                break;  
+    401          
+    402           #if (ZG_BUILD_JOINING_TYPE)
+    403              case TP_AK_SETUP_PARTNER:
+    404                retValue = TestProfileApp_AppKeySetupPartner( srcEp, param1, param2 );
+    405                break;
+    406          
+    407              case TP_AK_REQ_KEY:
+    408                retValue = TestProfileApp_AppKeyRequest( srcEp, param1, param2 );
+    409                break;
+    410          
+    411              case TP_AK_PARTNER_NWKADDR:
+    412                retValue = TestProfileApp_SetPartnerNwkAddr( srcEp, param1, param2 );
+    413                break;
+    414          
+    415              case TP_AK_PARTNER_EXTADDR7654:
+    416                 retValue = TestProfileApp_SetPartnerExtAddr7654( srcEp, param1, param2 );
+    417                break;
+    418          
+    419              case TP_AK_PARTNER_EXTADDR3210:
+    420                retValue = TestProfileApp_SetPartnerExtAddr3210( srcEp, param1, param2 );
+    421                break;
+    422          
+    423              case TP_AK_PARTNER_SET:
+    424                retValue = TestProfileApp_SetPartner( srcEp, param1, param2 );
+    425                break;
+    426          #endif /* ZG_BUILD_JOINING_TYPE */
+    427          
+    428          #if (ZG_BUILD_COORDINATOR_TYPE)
+    429              case TP_AK_TYPE_SET:
+    430                retValue = TestProfileApp_AppKeyTypeSet( srcEp, param1, param2 );
+    431                break;
+    432          #endif /* ZG_BUILD_COORDINATOR_TYPE */
+    433          
+    434          #if defined ( ZIGBEE_FRAGMENTATION )
+    435              case TP_FRAG_SKIP_BLOCK:
+    436                retValue = TestProfileApp_FragSkipBlock( (uint8)param1 );
+    437                break;
+    438          #endif
+    439          
+    440              case TP_APS_REMOVE:
+    441                retValue = TestProfileApp_APSRemove( param1, param2 );
+    442                break;
+    443          #endif // APP_TP2
+    444          
+    445          #endif  // APP_TP || APP_TP2
+    446          
+    447          #if defined ( OSAL_TOTAL_MEM )
+    448              case OSAL_MEM_STACK_HIGH_WATER:
+    449              case OSAL_MEM_HEAP_HIGH_WATER:
+    450                if ( app_cmd == OSAL_MEM_STACK_HIGH_WATER)
+    451                {
+    452                  param1 = osal_stack_used();
+    453                }
+    454                else
+    455                {
+    456                  param1 = osal_heap_high_water();
+    457                }
+    458          
+    459                pData[0] = LO_UINT16( param1 );
+    460                pData[1] = HI_UINT16( param1 );
+    461          
+    462                MT_BuildAndSendZToolResponse((MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_APP), cmdId, 2, pData);
+    463                return;
+    464          #endif
+    465          
+    466          #if defined ( APP_DEBUG )
+    467              case DEBUG_GET:
+    468                DebugApp_SendQuery( param1 );
+    469                retValue = ZSUCCESS;
+    470                break;
+    471          #endif
+    472          
+    473          #if defined ( APP_TP2 )
+    474              case TP_SEND_BCAST_RSP:
+    475                retValue = TestProfileApp_SendBcastRsp( srcEp, (byte)param1 );
+    476                break;
+    477          #endif
+    478          			
+    479              default:
+    480                break;
+    481            }
+    482          #endif // (APP_TGEN) || (NWK_TEST) || (APP_TP) || (APP_TP2) || (OSAL_TOTAL_MEM) || (APP_DEBUG)
+    483          
+    484            /* Build and send back the response */
+    485            MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_APP), cmdId, 1, &retValue);
+    486          }
+    487          
+    488          #endif /* MT_APP_FUNC */
+    489          
+    490          /***************************************************************************************************
+    491           ***************************************************************************************************/
+
+
+ 
+ 
+ 0 bytes of memory
+
+Errors: none
+Warnings: none

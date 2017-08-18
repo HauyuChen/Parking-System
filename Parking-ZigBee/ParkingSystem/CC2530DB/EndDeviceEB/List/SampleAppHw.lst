@@ -1,0 +1,339 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V7.51A/W32 for 8051                30/May/2015  21:45:51 #
+# Copyright 2004-2009 IAR Systems AB.                                         #
+#                                                                             #
+#    Core               =  plain                                              #
+#    Code model         =  banked                                             #
+#    Data model         =  large                                              #
+#    Calling convention =  xdata reentrant                                    #
+#    Constant location  =  data_rom                                           #
+#    Dptr setup         =  1,16                                               #
+#    Source file        =  C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Pro #
+#                          jects\zstack\Samples\ParkingS\CC2530DB\Source\Samp #
+#                          leAppHw.c                                          #
+#    Command line       =  -f "C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0 #
+#                          \Projects\zstack\Samples\ParkingS\CC2530DB\..\..\. #
+#                          .\Tools\CC2530DB\f8wEndev.cfg" (-DCPU32MHZ         #
+#                          -DROOT=__near_func -DBLINK_LEDS) -f "C:\Texas      #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\Tools\CC253 #
+#                          0DB\f8wConfig.cfg" (-DSECURE=0                     #
+#                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                  #
+#                          -DDEFAULT_CHANLIST=0x00000800                      #
+#                          -DZDAPP_CONFIG_PAN_ID=0xFFFF                       #
+#                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MA #
+#                          SK=0x007F -DBEACON_REQUEST_DELAY=100               #
+#                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
+#                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_PO #
+#                          LLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7             #
+#                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3    #
+#                          -DNWK_MAX_DATA_RETRIES=2                           #
+#                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9         #
+#                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40           #
+#                          -DNWK_MAX_BINDING_ENTRIES=4                        #
+#                          -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,  #
+#                          0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00,    #
+#                          0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"         #
+#                          -DMAC_MAX_FRAME_SIZE=116 "-DCONST=const __code"    #
+#                          -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE     #
+#                          -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100            #
+#                          -DRESPONSE_POLL_RATE=100) -DREJOIN_POLL_RATE=440   #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Pr #
+#                          ojects\zstack\Samples\ParkingS\CC2530DB\Source\Sam #
+#                          pleAppHw.c" -D NWK_AUTO_POLL -D ENDDEVICE -D       #
+#                          ZTOOL_P1 -D MT_TASK -D MT_SYS_FUNC -D MT_ZDO_FUNC  #
+#                          -D SerialApp_CallBack -D xLCD_SUPPORTED=DEBUG -lC  #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Pr #
+#                          ojects\zstack\Samples\ParkingS\CC2530DB\EndDeviceE #
+#                          B\List\" -lA "C:\Texas Instruments\ZStack-CC2530-2 #
+#                          .3.0-1.4.0\Projects\zstack\Samples\ParkingS\CC2530 #
+#                          DB\EndDeviceEB\List\" --diag_suppress Pe001,Pa010  #
+#                          -o "C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0 #
+#                          \Projects\zstack\Samples\ParkingS\CC2530DB\EndDevi #
+#                          ceEB\Obj\" -e --require_prototypes --debug         #
+#                          --core=plain --dptr=16,1 --data_model=large        #
+#                          --code_model=banked --calling_convention=xdata_ree #
+#                          ntrant --place_constants=data_rom                  #
+#                          --nr_virtual_regs 16 -I "C:\Texas                  #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\" -I "C:\Texas       #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\SOURCE\" -I       #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Pr #
+#                          ojects\zstack\Samples\ParkingS\CC2530DB\..\..\..\Z #
+#                          MAIN\TI2530DB\" -I "C:\Texas                       #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\MT\" -I "C:\Texas Instruments\ZStack-CC2530- #
+#                          2.3.0-1.4.0\Projects\zstack\Samples\ParkingS\CC253 #
+#                          0DB\..\..\..\..\..\COMPONENTS\HAL\INCLUDE\" -I     #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Pr #
+#                          ojects\zstack\Samples\ParkingS\CC2530DB\..\..\..\. #
+#                          .\..\COMPONENTS\HAL\TARGET\CC2530EB\" -I           #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Pr #
+#                          ojects\zstack\Samples\ParkingS\CC2530DB\..\..\..\. #
+#                          .\..\COMPONENTS\OSAL\MCU\CCSOC\" -I "C:\Texas      #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\OSAL\INCLUDE\" -I "C:\Texas                  #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\STACK\AF\" -I "C:\Texas                      #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\STACK\NWK\" -I "C:\Texas                     #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\STACK\SEC\" -I "C:\Texas                     #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\STACK\SAPI\" -I "C:\Texas                    #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\STACK\SYS\" -I "C:\Texas                     #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\STACK\ZDO\" -I "C:\Texas                     #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\ZMAC\F8W\" -I "C:\Texas                      #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\ZMAC\" -I "C:\Texas                          #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\SERVICES\SADDR\" -I "C:\Texas                #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\SERVICES\SDATA\" -I "C:\Texas                #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\MAC\INCLUDE\" -I "C:\Texas                   #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\MAC\HIGH_LEVEL\" -I "C:\Texas                #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\MAC\LOW_LEVEL\srf04\" -I "C:\Texas           #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\MAC\LOW_LEVEL\srf04\SINGLE_CHIP\" -I         #
+#                          "C:\Program Files\IAR Systems\Embedded Workbench   #
+#                          5.3\8051\INC\" -I "C:\Program Files\IAR            #
+#                          Systems\Embedded Workbench 5.3\8051\INC\CLIB\"     #
+#                          -Ohz                                               #
+#    List file          =  C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Pro #
+#                          jects\zstack\Samples\ParkingS\CC2530DB\EndDeviceEB #
+#                          \List\SampleAppHw.lst                              #
+#    Object file        =  C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Pro #
+#                          jects\zstack\Samples\ParkingS\CC2530DB\EndDeviceEB #
+#                          \Obj\SampleAppHw.r51                               #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zstack\Samples\ParkingS\CC2530DB\Source\SampleAppHw.c
+      1          /**************************************************************************************************
+      2            Filename:       SampleAppHw.c
+      3            Revised:        $Date: 2009-03-18 15:56:27 -0700 (Wed, 18 Mar 2009) $
+      4            Revision:       $Revision: 19453 $
+      5          
+      6            Description:    Hardware setup for SampleApp
+      7          
+      8          
+      9            Copyright 2007 Texas Instruments Incorporated. All rights reserved.
+     10          
+     11            IMPORTANT: Your use of this Software is limited to those specific rights
+     12            granted under the terms of a software license agreement between the user
+     13            who downloaded the software, his/her employer (which must be your employer)
+     14            and Texas Instruments Incorporated (the "License").  You may not use this
+     15            Software unless you agree to abide by the terms of the License. The License
+     16            limits your use, and you acknowledge, that the Software may not be modified,
+     17            copied or distributed unless embedded on a Texas Instruments microcontroller
+     18            or used solely and exclusively in conjunction with a Texas Instruments radio
+     19            frequency transceiver, which is integrated into your product.  Other than for
+     20            the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+     21            works of, modify, distribute, perform, display or sell this Software and/or
+     22            its documentation for any purpose.
+     23          
+     24            YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+     25            PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+     26            INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+     27            NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+     28            TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+     29            NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+     30            LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+     31            INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+     32            OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+     33            OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+     34            (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+     35          
+     36            Should you have any questions regarding your right to use this Software,
+     37            contact Texas Instruments Incorporated at www.TI.com.
+     38          **************************************************************************************************/
+     39          
+     40          /**************************************************************************************************
+     41           * INCLUDES
+     42           **************************************************************************************************/
+     43          #include "ZComDef.h"
+     44          #include "hal_mcu.h"
+
+   \                                 In  segment SFR_AN, at 0x80
+   \   union <unnamed> volatile __sfr _A_P0
+   \                     _A_P0:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xf3
+   \   unsigned char volatile __sfr P0SEL
+   \                     P0SEL:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xfd
+   \   unsigned char volatile __sfr P0DIR
+   \                     P0DIR:
+   \   000000                DS 1
+     45          #include "hal_defs.h"
+     46          
+     47          #include "SampleAppHw.h"
+     48          
+     49          
+     50          /**************************************************************************************************
+     51           * CONSTANTS
+     52           **************************************************************************************************/
+     53          /* NOTES:   Jumper should be between Header P18 pin 7 and header P18 pin 9 on the SmartRF05
+     54           *          P0_2 - P18 pin 7
+     55           *          P0_3 - P18 pin 9
+     56           */
+     57          #define JUMPERIN_BIT  BV(2)  //P0.2
+     58          #define JUMPERIN_SEL  P0SEL
+     59          #define JUMPERIN_DIR  P0DIR
+     60          #define JUMPERIN      P0
+     61          
+     62          #define JUMPEROUT_BIT BV(3)  //P0.3
+     63          #define JUMPEROUT_SEL P0SEL
+     64          #define JUMPEROUT_DIR P0DIR
+     65          #define JUMPEROUT     P0
+     66          
+     67          
+     68          /**************************************************************************************************
+     69           * @fn      readCoordinatorJumper
+     70           *
+     71           * @brief   Checks for a jumper to determine if the device should
+     72           *          become a coordinator
+     73           *
+     74           * @return  TRUE if the jumper is there, FALSE if not
+     75           **************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     76          uint8 readCoordinatorJumper( void )
+   \                     readCoordinatorJumper:
+     77          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+     78          
+     79            uint8 jumpered = TRUE;
+     80            uint8 result;
+     81            uint8 x,y;
+     82          
+     83            JUMPERIN_SEL  &= ~(JUMPERIN_BIT);
+   \   000000   53F3FB       ANL     0xf3,#0xfb
+     84            JUMPEROUT_SEL &= ~(JUMPEROUT_BIT);
+   \   000003   53F3F7       ANL     0xf3,#0xf7
+     85            JUMPERIN_DIR  &= ~(JUMPERIN_BIT);
+   \   000006   53FDFB       ANL     0xfd,#0xfb
+     86            JUMPEROUT_DIR |= JUMPEROUT_BIT;
+   \   000009   43FD08       ORL     0xfd,#0x8
+     87          
+     88            jumpered = TRUE;
+   \   00000C   7901         MOV     R1,#0x1
+     89          
+     90            for ( x = 0; x < 8; x++ )
+   \   00000E   7A00         MOV     R2,#0x0
+     91            {
+     92              if ( x & 0x01 )
+     93              {
+     94                JUMPEROUT |= JUMPEROUT_BIT;
+     95                for ( y = 0; y < 8; y++ );
+     96                result = JUMPERIN & JUMPERIN_BIT;
+     97                if ( result != JUMPERIN_BIT )
+     98                  jumpered = FALSE;
+     99              }
+    100              else
+    101              {
+    102                JUMPEROUT &= ~(JUMPEROUT_BIT);
+   \                     ??readCoordinatorJumper_0:
+   \   000010   C283         CLR     0x80.3
+    103                for ( y = 0; y < 8; y++ );
+    104                result = JUMPERIN & JUMPERIN_BIT;
+   \   000012   7404         MOV     A,#0x4
+   \   000014   5580         ANL     A,0x80
+    105                if ( result != 0x00 )
+   \   000016   7018         JNZ     ??readCoordinatorJumper_1
+    106                  jumpered = FALSE;
+    107              }
+   \                     ??readCoordinatorJumper_2:
+   \   000018   0A           INC     R2
+   \   000019   EA           MOV     A,R2
+   \   00001A   C3           CLR     C
+   \   00001B   9408         SUBB    A,#0x8
+   \   00001D   5015         JNC     ??readCoordinatorJumper_3
+   \   00001F   EA           MOV     A,R2
+   \   000020   A2E0         MOV     C,0xE0 /* A   */.0
+   \   000022   50EC         JNC     ??readCoordinatorJumper_0
+   \   000024   D283         SETB    0x80.3
+   \   000026   7404         MOV     A,#0x4
+   \   000028   5580         ANL     A,0x80
+   \   00002A   FB           MOV     R3,A
+   \   00002B   7404         MOV     A,#0x4
+   \   00002D   6B           XRL     A,R3
+   \   00002E   60E8         JZ      ??readCoordinatorJumper_2
+   \                     ??readCoordinatorJumper_1:
+   \   000030   7900         MOV     R1,#0x0
+   \   000032   80E4         SJMP    ??readCoordinatorJumper_2
+    108            }
+    109          
+    110            return ( jumpered );
+   \                     ??readCoordinatorJumper_3:
+   \   000034   02....       LJMP    ?BRET
+   \   000037                REQUIRE _A_P0
+   \   000037                REQUIRE P0SEL
+   \   000037                REQUIRE P0DIR
+    111          
+    112          }
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??readCoordinatorJumper?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    readCoordinatorJumper
+    113          
+    114          /**************************************************************************************************
+    115          **************************************************************************************************/
+
+   Maximum stack usage in bytes:
+
+     Function              ISTACK PSTACK XSTACK
+     --------              ------ ------ ------
+     readCoordinatorJumper     0      0      0
+
+
+   Segment part sizes:
+
+     Function/Label                Bytes
+     --------------                -----
+     _A_P0                            1
+     P0SEL                            1
+     P0DIR                            1
+     readCoordinatorJumper           55
+     ??readCoordinatorJumper?relay    6
+
+ 
+ 55 bytes in segment BANKED_CODE
+  6 bytes in segment BANK_RELAYS
+  3 bytes in segment SFR_AN
+ 
+ 61 bytes of CODE memory
+  0 bytes of DATA memory (+ 3 bytes shared)
+
+Errors: none
+Warnings: none

@@ -1,0 +1,377 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V7.51A/W32 for 8051                07/May/2015  10:56:08 #
+# Copyright 2004-2009 IAR Systems AB.                                         #
+#                                                                             #
+#    Core               =  plain                                              #
+#    Code model         =  banked                                             #
+#    Data model         =  large                                              #
+#    Calling convention =  xdata reentrant                                    #
+#    Constant location  =  data_rom                                           #
+#    Dptr setup         =  1,16                                               #
+#    Source file        =  C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Pro #
+#                          jects\zstack\Samples\ParkingS\Source\OSAL_SampleAp #
+#                          p.c                                                #
+#    Command line       =  -f "C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0 #
+#                          \Projects\zstack\Samples\ParkingS\CC2530DB\..\..\. #
+#                          .\Tools\CC2530DB\f8wEndev.cfg" (-DCPU32MHZ         #
+#                          -DROOT=__near_func -DBLINK_LEDS) -f "C:\Texas      #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\Tools\CC253 #
+#                          0DB\f8wConfig.cfg" (-DSECURE=0                     #
+#                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                  #
+#                          -DDEFAULT_CHANLIST=0x00000800                      #
+#                          -DZDAPP_CONFIG_PAN_ID=0xFFFF                       #
+#                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MA #
+#                          SK=0x007F -DBEACON_REQUEST_DELAY=100               #
+#                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
+#                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_PO #
+#                          LLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7             #
+#                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3    #
+#                          -DNWK_MAX_DATA_RETRIES=2                           #
+#                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9         #
+#                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40           #
+#                          -DNWK_MAX_BINDING_ENTRIES=4                        #
+#                          -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,  #
+#                          0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00,    #
+#                          0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"         #
+#                          -DMAC_MAX_FRAME_SIZE=116 "-DCONST=const __code"    #
+#                          -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE     #
+#                          -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100            #
+#                          -DRESPONSE_POLL_RATE=100) -DREJOIN_POLL_RATE=440   #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Pr #
+#                          ojects\zstack\Samples\ParkingS\Source\OSAL_SampleA #
+#                          pp.c" -D ZIGBEEPRO -D NWK_AUTO_POLL -D ZTOOL_P1    #
+#                          -D MT_TASK -D MT_SYS_FUNC -D MT_ZDO_FUNC -D        #
+#                          LCD_SUPPORTED=DEBUG -lC "C:\Texas                  #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\EndDeviceEB-Pro\List #
+#                          \" -lA "C:\Texas Instruments\ZStack-CC2530-2.3.0-1 #
+#                          .4.0\Projects\zstack\Samples\ParkingS\CC2530DB\End #
+#                          DeviceEB-Pro\List\" --diag_suppress Pe001,Pa010    #
+#                          -o "C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0 #
+#                          \Projects\zstack\Samples\ParkingS\CC2530DB\EndDevi #
+#                          ceEB-Pro\Obj\" -e --require_prototypes --debug     #
+#                          --core=plain --dptr=16,1 --data_model=large        #
+#                          --code_model=banked --calling_convention=xdata_ree #
+#                          ntrant --place_constants=data_rom                  #
+#                          --nr_virtual_regs 16 -I "C:\Texas                  #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\" -I "C:\Texas       #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\SOURCE\" -I       #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Pr #
+#                          ojects\zstack\Samples\ParkingS\CC2530DB\..\..\..\Z #
+#                          MAIN\TI2530DB\" -I "C:\Texas                       #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\MT\" -I "C:\Texas Instruments\ZStack-CC2530- #
+#                          2.3.0-1.4.0\Projects\zstack\Samples\ParkingS\CC253 #
+#                          0DB\..\..\..\..\..\COMPONENTS\HAL\INCLUDE\" -I     #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Pr #
+#                          ojects\zstack\Samples\ParkingS\CC2530DB\..\..\..\. #
+#                          .\..\COMPONENTS\HAL\TARGET\CC2530EB\" -I           #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Pr #
+#                          ojects\zstack\Samples\ParkingS\CC2530DB\..\..\..\. #
+#                          .\..\COMPONENTS\OSAL\MCU\CCSOC\" -I "C:\Texas      #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\OSAL\INCLUDE\" -I "C:\Texas                  #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\STACK\AF\" -I "C:\Texas                      #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\STACK\NWK\" -I "C:\Texas                     #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\STACK\SEC\" -I "C:\Texas                     #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\STACK\SAPI\" -I "C:\Texas                    #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\STACK\SYS\" -I "C:\Texas                     #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\STACK\ZDO\" -I "C:\Texas                     #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\ZMAC\F8W\" -I "C:\Texas                      #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\ZMAC\" -I "C:\Texas                          #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\SERVICES\SADDR\" -I "C:\Texas                #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\SERVICES\SDATA\" -I "C:\Texas                #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\MAC\INCLUDE\" -I "C:\Texas                   #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\MAC\HIGH_LEVEL\" -I "C:\Texas                #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\MAC\LOW_LEVEL\srf04\" -I "C:\Texas           #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\MAC\LOW_LEVEL\srf04\SINGLE_CHIP\" -I         #
+#                          "C:\Program Files\IAR Systems\Embedded Workbench   #
+#                          5.3\8051\INC\" -I "C:\Program Files\IAR            #
+#                          Systems\Embedded Workbench 5.3\8051\INC\CLIB\"     #
+#                          -Ohz                                               #
+#    List file          =  C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Pro #
+#                          jects\zstack\Samples\ParkingS\CC2530DB\EndDeviceEB #
+#                          -Pro\List\OSAL_SampleApp.lst                       #
+#    Object file        =  C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Pro #
+#                          jects\zstack\Samples\ParkingS\CC2530DB\EndDeviceEB #
+#                          -Pro\Obj\OSAL_SampleApp.r51                        #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zstack\Samples\ParkingS\Source\OSAL_SampleApp.c
+      1          /**************************************************************************************************
+      2            Filename:       OSAL_SampleApp.c
+      3            Revised:        $Date: 2008-02-07 12:10:00 -0800 (Thu, 07 Feb 2008) $
+      4            Revision:       $Revision: 16360 $
+      5          
+      6            Description:    This file contains all the settings and other functions
+      7                            that the user should set and change.
+      8          
+      9          
+     10            Copyright 2007 Texas Instruments Incorporated. All rights reserved.
+     11          
+     12            IMPORTANT: Your use of this Software is limited to those specific rights
+     13            granted under the terms of a software license agreement between the user
+     14            who downloaded the software, his/her employer (which must be your employer)
+     15            and Texas Instruments Incorporated (the "License").  You may not use this
+     16            Software unless you agree to abide by the terms of the License. The License
+     17            limits your use, and you acknowledge, that the Software may not be modified,
+     18            copied or distributed unless embedded on a Texas Instruments microcontroller
+     19            or used solely and exclusively in conjunction with a Texas Instruments radio
+     20            frequency transceiver, which is integrated into your product.  Other than for
+     21            the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+     22            works of, modify, distribute, perform, display or sell this Software and/or
+     23            its documentation for any purpose.
+     24          
+     25            YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+     26            PROVIDED “AS IS?WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+     27            INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+     28            NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+     29            TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+     30            NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+     31            LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+     32            INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+     33            OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+     34            OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+     35            (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+     36          
+     37            Should you have any questions regarding your right to use this Software,
+     38            contact Texas Instruments Incorporated at www.TI.com.
+     39          **************************************************************************************************/
+     40          
+     41          /*********************************************************************
+     42           * INCLUDES
+     43           */
+     44          
+     45          #include "ZComDef.h"
+     46          #include "hal_drivers.h"
+     47          #include "OSAL.h"
+     48          #include "OSAL_Tasks.h"
+     49          
+     50          #if defined ( MT_TASK )
+     51            #include "MT.h"
+     52            #include "MT_TASK.h"
+     53          #endif
+     54          
+     55          #include "nwk.h"
+     56          #include "APS.h"
+     57          #include "ZDApp.h"
+     58          #if defined ( ZIGBEE_FREQ_AGILITY ) || defined ( ZIGBEE_PANID_CONFLICT )
+     59            #include "ZDNwkMgr.h"
+     60          #endif
+     61          #if defined ( ZIGBEE_FRAGMENTATION )
+     62            #include "aps_frag.h"
+     63          #endif
+     64          
+     65          #include "ParkingSystem.h"
+     66          
+     67          /*********************************************************************
+     68           * GLOBAL VARIABLES
+     69           */
+     70          
+     71          // The order in this table must be identical to the task initialization calls below in osalInitTask.
+
+   \                                 In  segment XDATA_ROM_C, align 1
+     72          const pTaskEventHandlerFn tasksArr[] = {
+   \                     tasksArr:
+   \   000000   ........     DW ??macEventLoop?relay, ??nwk_event_loop?relay
+   \   000004   ........     DW ??Hal_ProcessEvent?relay, ??MT_ProcessEvent?relay
+   \   000008   ........     DW ??APS_event_loop?relay, ??APSF_ProcessEvent?relay
+   \   00000C   ........     DW ??ZDApp_event_loop?relay, ??SampleApp_ProcessEvent?relay
+     73            macEventLoop,
+     74            nwk_event_loop,
+     75            Hal_ProcessEvent,
+     76          #if defined( MT_TASK )
+     77            MT_ProcessEvent,
+     78          #endif
+     79            APS_event_loop,
+     80          #if defined ( ZIGBEE_FRAGMENTATION )
+     81            APSF_ProcessEvent,
+     82          #endif
+     83            ZDApp_event_loop,
+     84          #if defined ( ZIGBEE_FREQ_AGILITY ) || defined ( ZIGBEE_PANID_CONFLICT )
+     85            ZDNwkMgr_event_loop,
+     86          #endif
+     87            SampleApp_ProcessEvent
+     88          };
+     89          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+     90          const uint8 tasksCnt = sizeof( tasksArr ) / sizeof( tasksArr[0] );
+   \                     tasksCnt:
+   \   000000   08           DB 8
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     91          uint16 *tasksEvents;
+   \                     tasksEvents:
+   \   000000                DS 2
+   \   000002                REQUIRE __INIT_XDATA_Z
+     92          
+     93          /*********************************************************************
+     94           * FUNCTIONS
+     95           *********************************************************************/
+     96          
+     97          /*********************************************************************
+     98           * @fn      osalInitTasks
+     99           *
+    100           * @brief   This function invokes the initialization function for each task.
+    101           *
+    102           * @param   void
+    103           *
+    104           * @return  none
+    105           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    106          void osalInitTasks( void )
+   \                     osalInitTasks:
+    107          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    108            uint8 taskID = 0;
+    109          
+    110            tasksEvents = (uint16 *)osal_mem_alloc( sizeof( uint16 ) * tasksCnt);
+   \   000004                ; Setup parameters for call to function osal_mem_alloc
+   \   000004   7A10         MOV     R2,#0x10
+   \   000006   7B00         MOV     R3,#0x0
+   \   000008   12....       LCALL   ??osal_mem_alloc?relay
+   \   00000B   90....       MOV     DPTR,#tasksEvents
+   \   00000E   EA           MOV     A,R2
+   \   00000F   F0           MOVX    @DPTR,A
+   \   000010   A3           INC     DPTR
+   \   000011   EB           MOV     A,R3
+   \   000012   F0           MOVX    @DPTR,A
+    111            osal_memset( tasksEvents, 0, (sizeof( uint16 ) * tasksCnt));
+   \   000013                ; Setup parameters for call to function osal_memset
+   \   000013   7C10         MOV     R4,#0x10
+   \   000015   7D00         MOV     R5,#0x0
+   \   000017   7900         MOV     R1,#0x0
+   \   000019   12....       LCALL   ??osal_memset?relay
+    112          
+    113            macTaskInit( taskID++ );
+   \   00001C                ; Setup parameters for call to function macTaskInit
+   \   00001C   7900         MOV     R1,#0x0
+   \   00001E   12....       LCALL   ??macTaskInit?relay
+    114            nwk_init( taskID++ );
+   \   000021                ; Setup parameters for call to function nwk_init
+   \   000021   7901         MOV     R1,#0x1
+   \   000023   12....       LCALL   ??nwk_init?relay
+    115            Hal_Init( taskID++ );
+   \   000026                ; Setup parameters for call to function Hal_Init
+   \   000026   7902         MOV     R1,#0x2
+   \   000028   12....       LCALL   ??Hal_Init?relay
+    116          #if defined( MT_TASK )
+    117            MT_TaskInit( taskID++ );
+   \   00002B                ; Setup parameters for call to function MT_TaskInit
+   \   00002B   7903         MOV     R1,#0x3
+   \   00002D   12....       LCALL   ??MT_TaskInit?relay
+    118          #endif
+    119            APS_Init( taskID++ );
+   \   000030                ; Setup parameters for call to function APS_Init
+   \   000030   7904         MOV     R1,#0x4
+   \   000032   12....       LCALL   ??APS_Init?relay
+    120          #if defined ( ZIGBEE_FRAGMENTATION )
+    121            APSF_Init( taskID++ );
+   \   000035                ; Setup parameters for call to function APSF_Init
+   \   000035   7905         MOV     R1,#0x5
+   \   000037   12....       LCALL   ??APSF_Init?relay
+    122          #endif
+    123            ZDApp_Init( taskID++ );
+   \   00003A                ; Setup parameters for call to function ZDApp_Init
+   \   00003A   7906         MOV     R1,#0x6
+   \   00003C   12....       LCALL   ??ZDApp_Init?relay
+    124          #if defined ( ZIGBEE_FREQ_AGILITY ) || defined ( ZIGBEE_PANID_CONFLICT )
+    125            ZDNwkMgr_Init( taskID++ );
+    126          #endif
+    127            SampleApp_Init( taskID );
+   \   00003F                ; Setup parameters for call to function SampleApp_Init
+   \   00003F   7907         MOV     R1,#0x7
+   \   000041   12....       LCALL   ??SampleApp_Init?relay
+    128          }
+   \   000044   D083         POP     DPH
+   \   000046   D082         POP     DPL
+   \   000048   02....       LJMP    ?BRET
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??osalInitTasks?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    osalInitTasks
+    129          
+    130          /*********************************************************************
+    131          *********************************************************************/
+
+   Maximum stack usage in bytes:
+
+     Function            ISTACK PSTACK XSTACK
+     --------            ------ ------ ------
+     osalInitTasks           2      0      0
+       -> osal_mem_alloc     4      0      0
+       -> osal_memset        4      0      0
+       -> macTaskInit        4      0      0
+       -> nwk_init           4      0      0
+       -> Hal_Init           4      0      0
+       -> MT_TaskInit        4      0      0
+       -> APS_Init           4      0      0
+       -> APSF_Init          4      0      0
+       -> ZDApp_Init         4      0      0
+       -> SampleApp_Init     4      0      0
+
+
+   Segment part sizes:
+
+     Function/Label        Bytes
+     --------------        -----
+     tasksArr                16
+     tasksCnt                 1
+     tasksEvents              2
+     osalInitTasks           75
+     ??osalInitTasks?relay    6
+
+ 
+ 75 bytes in segment BANKED_CODE
+  6 bytes in segment BANK_RELAYS
+ 17 bytes in segment XDATA_ROM_C
+  2 bytes in segment XDATA_Z
+ 
+ 81 bytes of CODE  memory
+ 17 bytes of CONST memory
+  2 bytes of XDATA memory
+
+Errors: none
+Warnings: none

@@ -1,0 +1,1429 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V7.51A/W32 for 8051                30/May/2015  21:45:59 #
+# Copyright 2004-2009 IAR Systems AB.                                         #
+#                                                                             #
+#    Core               =  plain                                              #
+#    Code model         =  banked                                             #
+#    Data model         =  large                                              #
+#    Calling convention =  xdata reentrant                                    #
+#    Constant location  =  data_rom                                           #
+#    Dptr setup         =  1,16                                               #
+#    Source file        =  C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Com #
+#                          ponents\mac\low_level\srf04\mac_backoff_timer.c    #
+#    Command line       =  -f "C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0 #
+#                          \Projects\zstack\Samples\ParkingS\CC2530DB\..\..\. #
+#                          .\Tools\CC2530DB\f8wEndev.cfg" (-DCPU32MHZ         #
+#                          -DROOT=__near_func -DBLINK_LEDS) -f "C:\Texas      #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\Tools\CC253 #
+#                          0DB\f8wConfig.cfg" (-DSECURE=0                     #
+#                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                  #
+#                          -DDEFAULT_CHANLIST=0x00000800                      #
+#                          -DZDAPP_CONFIG_PAN_ID=0xFFFF                       #
+#                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MA #
+#                          SK=0x007F -DBEACON_REQUEST_DELAY=100               #
+#                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
+#                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_PO #
+#                          LLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7             #
+#                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3    #
+#                          -DNWK_MAX_DATA_RETRIES=2                           #
+#                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9         #
+#                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40           #
+#                          -DNWK_MAX_BINDING_ENTRIES=4                        #
+#                          -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,  #
+#                          0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00,    #
+#                          0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"         #
+#                          -DMAC_MAX_FRAME_SIZE=116 "-DCONST=const __code"    #
+#                          -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE     #
+#                          -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100            #
+#                          -DRESPONSE_POLL_RATE=100) -DREJOIN_POLL_RATE=440   #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Co #
+#                          mponents\mac\low_level\srf04\mac_backoff_timer.c"  #
+#                          -D NWK_AUTO_POLL -D ENDDEVICE -D ZTOOL_P1 -D       #
+#                          MT_TASK -D MT_SYS_FUNC -D MT_ZDO_FUNC -D           #
+#                          SerialApp_CallBack -D xLCD_SUPPORTED=DEBUG -lC     #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Pr #
+#                          ojects\zstack\Samples\ParkingS\CC2530DB\EndDeviceE #
+#                          B\List\" -lA "C:\Texas Instruments\ZStack-CC2530-2 #
+#                          .3.0-1.4.0\Projects\zstack\Samples\ParkingS\CC2530 #
+#                          DB\EndDeviceEB\List\" --diag_suppress Pe001,Pa010  #
+#                          -o "C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0 #
+#                          \Projects\zstack\Samples\ParkingS\CC2530DB\EndDevi #
+#                          ceEB\Obj\" -e --require_prototypes --debug         #
+#                          --core=plain --dptr=16,1 --data_model=large        #
+#                          --code_model=banked --calling_convention=xdata_ree #
+#                          ntrant --place_constants=data_rom                  #
+#                          --nr_virtual_regs 16 -I "C:\Texas                  #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\" -I "C:\Texas       #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\SOURCE\" -I       #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Pr #
+#                          ojects\zstack\Samples\ParkingS\CC2530DB\..\..\..\Z #
+#                          MAIN\TI2530DB\" -I "C:\Texas                       #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\MT\" -I "C:\Texas Instruments\ZStack-CC2530- #
+#                          2.3.0-1.4.0\Projects\zstack\Samples\ParkingS\CC253 #
+#                          0DB\..\..\..\..\..\COMPONENTS\HAL\INCLUDE\" -I     #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Pr #
+#                          ojects\zstack\Samples\ParkingS\CC2530DB\..\..\..\. #
+#                          .\..\COMPONENTS\HAL\TARGET\CC2530EB\" -I           #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Pr #
+#                          ojects\zstack\Samples\ParkingS\CC2530DB\..\..\..\. #
+#                          .\..\COMPONENTS\OSAL\MCU\CCSOC\" -I "C:\Texas      #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\OSAL\INCLUDE\" -I "C:\Texas                  #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\STACK\AF\" -I "C:\Texas                      #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\STACK\NWK\" -I "C:\Texas                     #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\STACK\SEC\" -I "C:\Texas                     #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\STACK\SAPI\" -I "C:\Texas                    #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\STACK\SYS\" -I "C:\Texas                     #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\STACK\ZDO\" -I "C:\Texas                     #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\ZMAC\F8W\" -I "C:\Texas                      #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\ZMAC\" -I "C:\Texas                          #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\SERVICES\SADDR\" -I "C:\Texas                #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\SERVICES\SDATA\" -I "C:\Texas                #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\MAC\INCLUDE\" -I "C:\Texas                   #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\MAC\HIGH_LEVEL\" -I "C:\Texas                #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\MAC\LOW_LEVEL\srf04\" -I "C:\Texas           #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\MAC\LOW_LEVEL\srf04\SINGLE_CHIP\" -I         #
+#                          "C:\Program Files\IAR Systems\Embedded Workbench   #
+#                          5.3\8051\INC\" -I "C:\Program Files\IAR            #
+#                          Systems\Embedded Workbench 5.3\8051\INC\CLIB\"     #
+#                          -Ohz                                               #
+#    List file          =  C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Pro #
+#                          jects\zstack\Samples\ParkingS\CC2530DB\EndDeviceEB #
+#                          \List\mac_backoff_timer.lst                        #
+#    Object file        =  C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Pro #
+#                          jects\zstack\Samples\ParkingS\CC2530DB\EndDeviceEB #
+#                          \Obj\mac_backoff_timer.r51                         #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Components\mac\low_level\srf04\mac_backoff_timer.c
+      1          /**************************************************************************************************
+      2            Filename:       mac_backoff_timer.c
+      3            Revised:        $Date: 2007-09-11 10:58:41 -0700 (Tue, 11 Sep 2007) $
+      4            Revision:       $Revision: 15371 $
+      5          
+      6            Description:    Describe the purpose and contents of the file.
+      7          
+      8          
+      9            Copyright 2006-2009 Texas Instruments Incorporated. All rights reserved.
+     10          
+     11            IMPORTANT: Your use of this Software is limited to those specific rights
+     12            granted under the terms of a software license agreement between the user
+     13            who downloaded the software, his/her employer (which must be your employer)
+     14            and Texas Instruments Incorporated (the "License").  You may not use this
+     15            Software unless you agree to abide by the terms of the License. The License
+     16            limits your use, and you acknowledge, that the Software may not be modified,
+     17            copied or distributed unless embedded on a Texas Instruments microcontroller
+     18            or used solely and exclusively in conjunction with a Texas Instruments radio
+     19            frequency transceiver, which is integrated into your product.  Other than for
+     20            the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+     21            works of, modify, distribute, perform, display or sell this Software and/or
+     22            its documentation for any purpose.
+     23          
+     24            YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+     25            PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, 
+     26            INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE, 
+     27            NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+     28            TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+     29            NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+     30            LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+     31            INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+     32            OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+     33            OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+     34            (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+     35          
+     36            Should you have any questions regarding your right to use this Software,
+     37            contact Texas Instruments Incorporated at www.TI.com. 
+     38          **************************************************************************************************/
+     39          
+     40          /* ------------------------------------------------------------------------------------------------
+     41           *                                           Includes
+     42           * ------------------------------------------------------------------------------------------------
+     43           */
+     44          
+     45          /* hal */
+     46          #include "hal_types.h"
+     47          #include "hal_mcu.h"
+
+   \                                 In  segment SFR_AN, at 0x94
+   \   unsigned char volatile __sfr T2CTRL
+   \                     T2CTRL:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xa1
+   \   unsigned char volatile __sfr T2IRQF
+   \                     T2IRQF:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xa7
+   \   unsigned char volatile __sfr T2IRQM
+   \                     T2IRQM:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xa8
+   \   union <unnamed> volatile __sfr _A_IEN0
+   \                     _A_IEN0:
+   \   000000                DS 1
+     48          
+     49          /* high-level specific */
+     50          #include "mac_spec.h"
+     51          
+     52          /* exported low-level */
+     53          #include "mac_low_level.h"
+     54          
+     55          /* low-level specific */
+     56          #include "mac_backoff_timer.h"
+     57          #include "mac_tx.h"
+     58          
+     59          /* target specific */
+     60          #include "mac_radio_defs.h"
+     61          
+     62          /* debug */
+     63          #include "mac_assert.h"
+     64          
+     65          
+     66          /* ------------------------------------------------------------------------------------------------
+     67           *                                            Defines
+     68           * ------------------------------------------------------------------------------------------------
+     69           */
+     70          #define COMPARE_STATE_ROLLOVER_BV                 BV(0)
+     71          #define COMPARE_STATE_TRIGGER_BV                  BV(1)
+     72          #define COMPARE_STATE_ARM_BV                      BV(2)
+     73          
+     74          #define COMPARE_STATE_TRIGGER                     COMPARE_STATE_TRIGGER_BV
+     75          #define COMPARE_STATE_ROLLOVER                    COMPARE_STATE_ROLLOVER_BV
+     76          #define COMPARE_STATE_ROLLOVER_AND_TRIGGER        (COMPARE_STATE_ROLLOVER_BV | COMPARE_STATE_TRIGGER_BV)
+     77          #define COMPARE_STATE_ROLLOVER_AND_ARM_TRIGGER    (COMPARE_STATE_ROLLOVER_BV | COMPARE_STATE_ARM_BV)
+     78          
+     79          
+     80          /*
+     81           *  The datasheet mentions a small delay on both receive and transmit side of approximately
+     82           *  two microseconds.  The precise characterization is given below.
+     83           *  (This data is not given in rev 1.03 datasheet)
+     84           */
+     85          #define RX_TX_PROP_DELAY_AVG_USEC         ((MAC_RADIO_RX_TX_PROP_DELAY_MIN_USEC + MAC_RADIO_RX_TX_PROP_DELAY_MAX_USEC) / 2)
+     86          #define RX_TX_PROP_DELAY_AVG_TIMER_TICKS  ((uint16)(MAC_RADIO_TIMER_TICKS_PER_USEC() * RX_TX_PROP_DELAY_AVG_USEC + 0.5))
+     87          
+     88          /*
+     89           *  For slotted receives, the SFD signal is expected to occur on a specifc symbol boundary.
+     90           *  This does *not* correspond to the backoff boundary.  The SFD signal occurs at an
+     91           *  offset from the backoff boundary.  This is done for efficiency of related algorithms.
+     92           *
+     93           *  Once transmit is strobed there is a fixed delay until the SFD signal occurs.  The frame
+     94           *  does not start over-the-air transmit until after an internal radio delay of 12 symbols.
+     95           *  Once transmitting over-the-air, the preamble is sent (8 symbols) followed by the
+     96           *  SFD field (2 symbols). After the SFD field completes, the SFD signal occurs.  This
+     97           *  adds up to a total of 22 symbols from strobe to SFD signal.
+     98           *
+     99           *  Since 22 symbols spans more than a backoff (20 symbols) the modulus operation is used
+    100           *  to find the symbol offset which is 2 symbols.
+    101           *
+    102           *  This math is derived formally via the pre-processor.
+    103           */
+    104          #define SYMBOLS_FROM_STROBE_TO_PREAMBLE   12 /* from datasheet */
+    105          #define SYMBOLS_FROM_PREAMBLE_TO_SFD      (MAC_SPEC_PREAMBLE_FIELD_LENGTH + MAC_SPEC_SFD_FIELD_LENGTH)
+    106          #define SYMBOLS_FROM_STROBE_TO_SFD        (SYMBOLS_FROM_STROBE_TO_PREAMBLE + SYMBOLS_FROM_PREAMBLE_TO_SFD)
+    107          #define SYMBOLS_EXPECTED_AT_SFD           (SYMBOLS_FROM_STROBE_TO_SFD % MAC_A_UNIT_BACKOFF_PERIOD)
+    108          
+    109          /* after all that formal math, make sure the result is as expected */
+    110          #if (SYMBOLS_EXPECTED_AT_SFD != 2)
+    111          #error "ERROR! Internal problem with pre-processor math of slotted alignment."
+    112          #endif
+    113          
+    114          
+    115          /*
+    116           *  The expected SFD signal occurs at the symbol offset *plus* a small internal propagation delay
+    117           *  internal to the radio.  This delay is given as the sum of a receive side delay and a transmit
+    118           *  side delay.  When this delay is subtracted from the internal timer, the internal time base
+    119           *  actually becomes the actual receive time *minus* the transmit delay.  This works out though.
+    120           *  The transmit logic does *not* take into account this delay.  Since the timer is skewed by the
+    121           *  transmit delay already, the transmits go out precisely on time.
+    122           */
+    123          #define TIMER_TICKS_EXPECTED_AT_SFD   ((SYMBOLS_EXPECTED_AT_SFD * MAC_RADIO_TIMER_TICKS_PER_SYMBOL()) \
+    124                                                    + RX_TX_PROP_DELAY_AVG_TIMER_TICKS)
+    125          
+    126          
+    127          /* ------------------------------------------------------------------------------------------------
+    128           *                                         Local Variables
+    129           * ------------------------------------------------------------------------------------------------
+    130           */
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    131          static uint32 backoffTimerRollover;
+   \                     backoffTimerRollover:
+   \   000000                DS 4
+   \   000004                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    132          static uint32 backoffTimerTrigger;
+   \                     backoffTimerTrigger:
+   \   000000                DS 4
+   \   000004                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    133          static uint8 compareState;
+   \                     compareState:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+    134          
+    135          
+    136          /**************************************************************************************************
+    137           * @fn          macBackoffTimerInit
+    138           *
+    139           * @brief       Intializes backoff timer.
+    140           *
+    141           * @param       none
+    142           *
+    143           * @return      none
+    144           **************************************************************************************************
+    145           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    146          MAC_INTERNAL_API void macBackoffTimerInit(void)
+   \                     macBackoffTimerInit:
+    147          {
+   \   000000   74F4         MOV     A,#-0xc
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 12
+   \   000005                ; Auto size: 0
+    148            compareState = COMPARE_STATE_ROLLOVER;
+   \   000005   7401         MOV     A,#0x1
+   \   000007   90....       MOV     DPTR,#compareState
+   \   00000A   F0           MOVX    @DPTR,A
+    149            MAC_RADIO_BACKOFF_SET_COUNT(0);
+   \   00000B                ; Setup parameters for call to function macMcuOverflowSetCount
+   \   00000B   90....       MOV     DPTR,#__Constant_0
+   \   00000E   78..         MOV     R0,#?V0 + 0
+   \   000010   12....       LCALL   ?L_MOV_X
+   \   000013   AA..         MOV     R2,?V0 + 0
+   \   000015   AB..         MOV     R3,?V0 + 1
+   \   000017   AC..         MOV     R4,?V0 + 2
+   \   000019   AD..         MOV     R5,?V0 + 3
+   \   00001B   12....       LCALL   ??macMcuOverflowSetCount?relay
+    150            macBackoffTimerSetRollover(MAC_BACKOFF_TIMER_DEFAULT_ROLLOVER);
+   \   00001E                ; Setup parameters for call to function macBackoffTimerSetRollover
+   \   00001E   90....       MOV     DPTR,#__Constant_c0000
+   \   000021   78..         MOV     R0,#?V0 + 0
+   \   000023   12....       LCALL   ?L_MOV_X
+   \   000026   AA..         MOV     R2,?V0 + 0
+   \   000028   AB..         MOV     R3,?V0 + 1
+   \   00002A   AC..         MOV     R4,?V0 + 2
+   \   00002C   AD..         MOV     R5,?V0 + 3
+   \   00002E   12....       LCALL   ??macBackoffTimerSetRollover?relay
+    151            MAC_RADIO_BACKOFF_COMPARE_CLEAR_INTERRUPT();
+   \   000031   53A1EF       ANL     0xa1,#0xef
+   \   000034   439401       ORL     0x94,#0x1
+   \                     ??macBackoffTimerInit_0:
+   \   000037   E594         MOV     A,0x94
+   \   000039   A2E2         MOV     C,0xE0 /* A   */.2
+   \   00003B   50FA         JNC     ??macBackoffTimerInit_0
+    152            MAC_RADIO_BACKOFF_COMPARE_ENABLE_INTERRUPT();
+   \   00003D   43A710       ORL     0xa7,#0x10
+    153          }
+   \   000040   02....       LJMP    ?Subroutine6 & 0xFFFF
+   \   000043                REQUIRE T2IRQM
+   \   000043                REQUIRE T2CTRL
+   \   000043                REQUIRE T2IRQF
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine6:
+   \   000000   7F04         MOV     R7,#0x4
+   \   000002   02....       LJMP    ?BANKED_LEAVE_XDATA
+    154          
+    155          
+    156          /**************************************************************************************************
+    157           * @fn          macBackoffTimerReset
+    158           *
+    159           * @brief       Resets backoff timer.
+    160           *
+    161           * @param       none
+    162           *
+    163           * @return      none
+    164           **************************************************************************************************
+    165           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    166          MAC_INTERNAL_API void macBackoffTimerReset(void)
+   \                     macBackoffTimerReset:
+    167          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    168            MAC_RADIO_BACKOFF_COMPARE_DISABLE_INTERRUPT();
+   \   000004   53A7EF       ANL     0xa7,#0xef
+    169            macBackoffTimerInit();
+   \   000007                ; Setup parameters for call to function macBackoffTimerInit
+   \   000007   12....       LCALL   ??macBackoffTimerInit?relay
+    170          }
+   \   00000A   D083         POP     DPH
+   \   00000C   D082         POP     DPL
+   \   00000E   02....       LJMP    ?BRET
+   \   000011                REQUIRE T2IRQM
+    171          
+    172          
+    173          /**************************************************************************************************
+    174           * @fn          macBackoffTimerSetRollover
+    175           *
+    176           * @brief       Set rollover count of backoff timer.
+    177           *
+    178           * @param       rolloverBackoff - backoff count where count is reset to zero
+    179           *
+    180           * @return      none
+    181           **************************************************************************************************
+    182           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    183          MAC_INTERNAL_API void macBackoffTimerSetRollover(uint32 rolloverBackoff)
+   \                     macBackoffTimerSetRollover:
+    184          {
+   \   000000   74F0         MOV     A,#-0x10
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 16
+   \   000005                ; Auto size: 0
+   \   000005   8A..         MOV     ?V0 + 0,R2
+   \   000007   8B..         MOV     ?V0 + 1,R3
+   \   000009   8C..         MOV     ?V0 + 2,R4
+   \   00000B   8D..         MOV     ?V0 + 3,R5
+    185            halIntState_t  s;
+    186          
+    187            MAC_ASSERT(rolloverBackoff > MAC_RADIO_BACKOFF_COUNT());  /* rollover value must be greater than count */
+   \   00000D                ; Setup parameters for call to function macMcuOverflowCount
+   \   00000D   12....       LCALL   ?Subroutine0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_0:
+   \   000010   12....       LCALL   ?UL_GT
+   \   000013   4003         JC      ??macBackoffTimerSetRollover_0
+   \   000015                ; Setup parameters for call to function halAssertHandler
+   \   000015   12....       LCALL   ??halAssertHandler?relay
+    188          
+    189            HAL_ENTER_CRITICAL_SECTION(s);
+   \                     ??macBackoffTimerSetRollover_0:
+   \   000018   A2AF         MOV     C,0xa8.7
+   \   00001A   E4           CLR     A
+   \   00001B   92E0         MOV     0xE0 /* A   */.0,C
+   \   00001D   FE           MOV     R6,A
+   \   00001E   C2AF         CLR     0xa8.7
+    190            backoffTimerRollover = rolloverBackoff;
+   \   000020   90....       MOV     DPTR,#backoffTimerRollover
+   \   000023   78..         MOV     R0,#?V0 + 0
+   \   000025   12....       LCALL   ?L_MOV_TO_X
+    191            MAC_RADIO_BACKOFF_SET_COMPARE(rolloverBackoff);
+   \   000028                ; Setup parameters for call to function macMcuOverflowSetCompare
+   \   000028                REQUIRE ?Subroutine7
+   \   000028                REQUIRE _A_IEN0
+   \   000028                ; // Fall through to label ?Subroutine7
+    192            HAL_EXIT_CRITICAL_SECTION(s);
+    193          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine7:
+   \   000000   12....       LCALL   ?Subroutine1 & 0xFFFF
+   \                     ??CrossCallReturnLabel_6:
+   \   000003   02....       LJMP    ?BANKED_LEAVE_XDATA
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine1:
+   \   000000   12....       LCALL   ?Subroutine5 & 0xFFFF
+   \                     ??CrossCallReturnLabel_7:
+   \   000003   7F08         MOV     R7,#0x8
+   \   000005   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   12....       LCALL   ?Subroutine4 & 0xFFFF
+   \                     ??CrossCallReturnLabel_4:
+   \   000003   78..         MOV     R0,#?V0 + 0
+   \   000005   79..         MOV     R1,#?V0 + 4
+   \   000007   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine4:
+   \   000000   12....       LCALL   ??macMcuOverflowCount?relay
+   \   000003   8A..         MOV     ?V0 + 4,R2
+   \   000005   8B..         MOV     ?V0 + 5,R3
+   \   000007   8C..         MOV     ?V0 + 6,R4
+   \   000009   8D..         MOV     ?V0 + 7,R5
+   \   00000B   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine5:
+   \   000000   AA..         MOV     R2,?V0 + 0
+   \   000002   AB..         MOV     R3,?V0 + 1
+   \   000004   AC..         MOV     R4,?V0 + 2
+   \   000006   AD..         MOV     R5,?V0 + 3
+   \   000008   12....       LCALL   ??macMcuOverflowSetCompare?relay
+   \   00000B   EE           MOV     A,R6
+   \   00000C   A2E0         MOV     C,0xE0 /* A   */.0
+   \   00000E   92AF         MOV     0xa8.7,C
+   \   000010   22           RET
+    194          
+    195          
+    196          /**************************************************************************************************
+    197           * @fn          macBackoffTimerSetCount
+    198           *
+    199           * @brief       Sets the count of the backoff timer.
+    200           *
+    201           * @param       backoff - new count
+    202           *
+    203           * @return      none
+    204           **************************************************************************************************
+    205           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    206          MAC_INTERNAL_API void macBackoffTimerSetCount(uint32 backoff)
+   \                     macBackoffTimerSetCount:
+    207          {
+   \   000000   74F0         MOV     A,#-0x10
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 16
+   \   000005                ; Auto size: 0
+   \   000005   8A..         MOV     ?V0 + 4,R2
+   \   000007   8B..         MOV     ?V0 + 5,R3
+   \   000009   8C..         MOV     ?V0 + 6,R4
+   \   00000B   8D..         MOV     ?V0 + 7,R5
+    208            halIntState_t  s;
+    209          
+    210            MAC_ASSERT(compareState == COMPARE_STATE_ROLLOVER);   /* trigger cannot be active if changing count */
+   \   00000D   90....       MOV     DPTR,#compareState
+   \   000010   E0           MOVX    A,@DPTR
+   \   000011   6401         XRL     A,#0x1
+   \   000013   6003         JZ      ??macBackoffTimerSetCount_0
+   \   000015                ; Setup parameters for call to function halAssertHandler
+   \   000015   12....       LCALL   ??halAssertHandler?relay
+    211            MAC_ASSERT(backoff < backoffTimerRollover);  /* count must be less than rollover value */
+   \                     ??macBackoffTimerSetCount_0:
+   \   000018   90....       MOV     DPTR,#backoffTimerRollover
+   \   00001B   78..         MOV     R0,#?V0 + 0
+   \   00001D   12....       LCALL   ?L_MOV_X
+   \   000020   78..         MOV     R0,#?V0 + 0
+   \   000022   79..         MOV     R1,#?V0 + 4
+   \   000024   12....       LCALL   ?UL_GT
+   \   000027   4003         JC      ??macBackoffTimerSetCount_1
+   \   000029                ; Setup parameters for call to function halAssertHandler
+   \   000029   12....       LCALL   ??halAssertHandler?relay
+    212            MAC_ASSERT(!(backoff & 0x80000000));  /* count must not represent negative value for int32 */
+   \                     ??macBackoffTimerSetCount_1:
+   \   00002C   85....       MOV     ?V0 + 0,?V0 + 4
+   \   00002F   85....       MOV     ?V0 + 1,?V0 + 5
+   \   000032   85....       MOV     ?V0 + 2,?V0 + 6
+   \   000035   85....       MOV     ?V0 + 3,?V0 + 7
+   \   000038   90....       MOV     DPTR,#__Constant_80000000
+   \   00003B   78..         MOV     R0,#?V0 + 0
+   \   00003D   12....       LCALL   ?L_AND_X
+   \   000040   90....       MOV     DPTR,#__Constant_0
+   \   000043   78..         MOV     R0,#?V0 + 0
+   \   000045   12....       LCALL   ?L_EQ_X
+   \   000048   6003         JZ      ??macBackoffTimerSetCount_2
+   \   00004A                ; Setup parameters for call to function halAssertHandler
+   \   00004A   12....       LCALL   ??halAssertHandler?relay
+    213          
+    214            HAL_ENTER_CRITICAL_SECTION(s);
+   \                     ??macBackoffTimerSetCount_2:
+   \   00004D   A2AF         MOV     C,0xa8.7
+   \   00004F   E4           CLR     A
+   \   000050   92E0         MOV     0xE0 /* A   */.0,C
+   \   000052   FE           MOV     R6,A
+   \   000053   C2AF         CLR     0xa8.7
+    215            MAC_RADIO_BACKOFF_SET_COUNT(backoff);
+   \   000055                ; Setup parameters for call to function macMcuOverflowSetCount
+   \   000055   AA..         MOV     R2,?V0 + 4
+   \   000057   AB..         MOV     R3,?V0 + 5
+   \   000059   AC..         MOV     R4,?V0 + 6
+   \   00005B   AD..         MOV     R5,?V0 + 7
+   \   00005D   12....       LCALL   ??macMcuOverflowSetCount?relay
+    216            HAL_EXIT_CRITICAL_SECTION(s);
+   \   000060   EE           MOV     A,R6
+   \   000061   A2E0         MOV     C,0xE0 /* A   */.0
+   \   000063   92AF         MOV     0xa8.7,C
+    217          }
+   \   000065                REQUIRE ?Subroutine8
+   \   000065                REQUIRE _A_IEN0
+   \   000065                ; // Fall through to label ?Subroutine8
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine8:
+   \   000000   7F08         MOV     R7,#0x8
+   \   000002   02....       LJMP    ?BANKED_LEAVE_XDATA
+    218          
+    219          
+    220          /**************************************************************************************************
+    221           * @fn          macBackoffTimerCount
+    222           *
+    223           * @brief       Returns the current backoff count.
+    224           *
+    225           * @param       none
+    226           *
+    227           * @return      current backoff count
+    228           **************************************************************************************************
+    229           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    230          MAC_INTERNAL_API uint32 macBackoffTimerCount(void)
+   \                     macBackoffTimerCount:
+    231          {
+   \   000000   74F0         MOV     A,#-0x10
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 16
+   \   000005                ; Auto size: 0
+    232            halIntState_t  s;
+    233            uint32 backoffCount;
+    234          
+    235            HAL_ENTER_CRITICAL_SECTION(s);
+   \   000005   A2AF         MOV     C,0xa8.7
+   \   000007   E4           CLR     A
+   \   000008   92E0         MOV     0xE0 /* A   */.0,C
+   \   00000A   FE           MOV     R6,A
+   \   00000B   C2AF         CLR     0xa8.7
+    236            backoffCount = MAC_RADIO_BACKOFF_COUNT();
+   \   00000D                ; Setup parameters for call to function macMcuOverflowCount
+   \   00000D   12....       LCALL   ??macMcuOverflowCount?relay
+   \   000010   8A..         MOV     ?V0 + 0,R2
+   \   000012   8B..         MOV     ?V0 + 1,R3
+   \   000014   8C..         MOV     ?V0 + 2,R4
+   \   000016   8D..         MOV     ?V0 + 3,R5
+    237            HAL_EXIT_CRITICAL_SECTION(s);
+   \   000018   EE           MOV     A,R6
+   \   000019   A2E0         MOV     C,0xE0 /* A   */.0
+   \   00001B   92AF         MOV     0xa8.7,C
+    238            
+    239          #ifdef MAC_RADIO_FEATURE_HARDWARE_OVERFLOW_NO_ROLLOVER
+    240            /*
+    241             *  Extra processing is required if the radio has a special hardware overflow
+    242             *  count feature.  Unfortunately this feature does not provide for setting a
+    243             *  rollover value.  This must be done manually.
+    244             *
+    245             *  This means there is a small window in time when reading the hardware count
+    246             *  will be inaccurate.  It's possible it could be one more than the allowable
+    247             *  count.  This happens if the count has just incremented beyond the maximum
+    248             *  and is queried before the ISR has a chance to run and reset the backoff
+    249             *  count back to zero.  (Pure software implementation of backoff count does
+    250             *  not have this problem.)
+    251             *
+    252             *  To solve this, before returning a value for the backoff count, the value
+    253             *  must be tested to see if it is beyond the maximum value.  If so, a rollover
+    254             *  interrupt that will set backoff count to zero is imminent.  In that case,
+    255             *  the correct backoff count of zero is returned.
+    256             */
+    257            if (backoffCount >= backoffTimerRollover)
+   \   00001D   90....       MOV     DPTR,#backoffTimerRollover
+   \   000020   78..         MOV     R0,#?V0 + 4
+   \   000022   12....       LCALL   ?L_MOV_X
+   \   000025   78..         MOV     R0,#?V0 + 4
+   \   000027   79..         MOV     R1,#?V0 + 0
+   \   000029   12....       LCALL   ?UL_GT
+   \   00002C   4008         JC      ??macBackoffTimerCount_0
+    258            {
+    259              return(0);
+   \   00002E   7A00         MOV     R2,#0x0
+   \   000030   7B00         MOV     R3,#0x0
+   \   000032   7C00         MOV     R4,#0x0
+   \   000034   7D00         MOV     R5,#0x0
+    260            }
+    261          #endif
+    262            
+    263            return(backoffCount);
+   \                     ??macBackoffTimerCount_0:
+   \   000036   80..         SJMP    ?Subroutine8
+   \   000038                REQUIRE _A_IEN0
+    264          }
+    265          
+    266          
+    267          /**************************************************************************************************
+    268           * @fn          macBackoffTimerCapture
+    269           *
+    270           * @brief       Returns the most recently captured backoff count
+    271           *
+    272           * @param       none
+    273           *
+    274           * @return      last backoff count that was captured
+    275           **************************************************************************************************
+    276           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    277          MAC_INTERNAL_API uint32 macBackoffTimerCapture(void)
+   \                     macBackoffTimerCapture:
+    278          {
+   \   000000   74F0         MOV     A,#-0x10
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 16
+   \   000005                ; Auto size: 0
+    279            halIntState_t  s;
+    280            uint32 backoffCapture;
+    281          
+    282            HAL_ENTER_CRITICAL_SECTION(s);
+   \   000005   A2AF         MOV     C,0xa8.7
+   \   000007   E4           CLR     A
+   \   000008   92E0         MOV     0xE0 /* A   */.0,C
+   \   00000A   FE           MOV     R6,A
+   \   00000B   C2AF         CLR     0xa8.7
+    283            backoffCapture = MAC_RADIO_BACKOFF_CAPTURE();
+   \   00000D                ; Setup parameters for call to function macMcuOverflowCapture
+   \   00000D   12....       LCALL   ??macMcuOverflowCapture?relay
+   \   000010   8A..         MOV     ?V0 + 0,R2
+   \   000012   8B..         MOV     ?V0 + 1,R3
+   \   000014   8C..         MOV     ?V0 + 2,R4
+   \   000016   8D..         MOV     ?V0 + 3,R5
+    284            HAL_EXIT_CRITICAL_SECTION(s);
+   \   000018   EE           MOV     A,R6
+   \   000019   A2E0         MOV     C,0xE0 /* A   */.0
+   \   00001B   92AF         MOV     0xa8.7,C
+    285          
+    286          #ifdef MAC_RADIO_FEATURE_HARDWARE_OVERFLOW_NO_ROLLOVER
+    287            /*
+    288             *  See other instance of this #ifdef for detailed comments.
+    289             *  Those comments apply to the backoff capture value too.
+    290             */
+    291            if (backoffCapture >= backoffTimerRollover)
+   \   00001D   90....       MOV     DPTR,#backoffTimerRollover
+   \   000020   78..         MOV     R0,#?V0 + 4
+   \   000022   12....       LCALL   ?L_MOV_X
+   \   000025   78..         MOV     R0,#?V0 + 4
+   \   000027   79..         MOV     R1,#?V0 + 0
+   \   000029   12....       LCALL   ?UL_GT
+   \   00002C   4008         JC      ??macBackoffTimerCapture_0
+    292            {
+    293              return(0);
+   \   00002E   7A00         MOV     R2,#0x0
+   \   000030   7B00         MOV     R3,#0x0
+   \   000032   7C00         MOV     R4,#0x0
+   \   000034   7D00         MOV     R5,#0x0
+    294            }
+    295          #endif
+    296            
+    297            return(backoffCapture);
+   \                     ??macBackoffTimerCapture_0:
+   \   000036   80..         SJMP    ?Subroutine8
+   \   000038                REQUIRE _A_IEN0
+    298          }
+    299          
+    300          
+    301          /**************************************************************************************************
+    302           * @fn          macBackoffTimerGetTrigger
+    303           *
+    304           * @brief       Returns the trigger set for the backoff timer.
+    305           *
+    306           * @param       none
+    307           *
+    308           * @return      backoff count of trigger
+    309           **************************************************************************************************
+    310           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    311          MAC_INTERNAL_API uint32 macBackoffTimerGetTrigger(void)
+   \                     macBackoffTimerGetTrigger:
+    312          {
+   \   000000   74F4         MOV     A,#-0xc
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 12
+   \   000005                ; Auto size: 0
+    313            return(backoffTimerTrigger);
+   \   000005   90....       MOV     DPTR,#backoffTimerTrigger
+   \   000008   78..         MOV     R0,#?V0 + 0
+   \   00000A   12....       LCALL   ?L_MOV_X
+   \   00000D   AA..         MOV     R2,?V0 + 0
+   \   00000F   AB..         MOV     R3,?V0 + 1
+   \   000011   AC..         MOV     R4,?V0 + 2
+   \   000013   AD..         MOV     R5,?V0 + 3
+   \   000015   80..         SJMP    ?Subroutine6
+    314          }
+    315          
+    316          
+    317          /**************************************************************************************************
+    318           * @fn          macBackoffTimerSetTrigger
+    319           *
+    320           * @brief       Sets the trigger count for the backoff counter.  A callback is exectuted when
+    321           *              the backoff count reaches the trigger
+    322           *
+    323           * @param       triggerBackoff - backoff count for new trigger
+    324           *
+    325           * @return      none
+    326           **************************************************************************************************
+    327           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    328          MAC_INTERNAL_API void macBackoffTimerSetTrigger(uint32 triggerBackoff)
+   \                     macBackoffTimerSetTrigger:
+    329          {
+   \   000000   74F0         MOV     A,#-0x10
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 16
+   \   000005                ; Auto size: 0
+   \   000005   8A..         MOV     ?V0 + 0,R2
+   \   000007   8B..         MOV     ?V0 + 1,R3
+   \   000009   8C..         MOV     ?V0 + 2,R4
+   \   00000B   8D..         MOV     ?V0 + 3,R5
+    330            halIntState_t  s;
+    331          
+    332            MAC_ASSERT(triggerBackoff < backoffTimerRollover); /* trigger backoff must be less than rollover backoff */
+   \   00000D   90....       MOV     DPTR,#backoffTimerRollover
+   \   000010   78..         MOV     R0,#?V0 + 4
+   \   000012   12....       LCALL   ?L_MOV_X
+   \   000015   78..         MOV     R0,#?V0 + 4
+   \   000017   79..         MOV     R1,#?V0 + 0
+   \   000019   12....       LCALL   ?UL_GT
+   \   00001C   4003         JC      ??macBackoffTimerSetTrigger_0
+   \   00001E                ; Setup parameters for call to function halAssertHandler
+   \   00001E   12....       LCALL   ??halAssertHandler?relay
+    333          
+    334            HAL_ENTER_CRITICAL_SECTION(s);
+   \                     ??macBackoffTimerSetTrigger_0:
+   \   000021   A2AF         MOV     C,0xa8.7
+   \   000023   E4           CLR     A
+   \   000024   92E0         MOV     0xE0 /* A   */.0,C
+   \   000026   FE           MOV     R6,A
+   \   000027   C2AF         CLR     0xa8.7
+    335            backoffTimerTrigger = triggerBackoff;
+   \   000029   90....       MOV     DPTR,#backoffTimerTrigger
+   \   00002C   78..         MOV     R0,#?V0 + 0
+   \   00002E   12....       LCALL   ?L_MOV_TO_X
+    336            if (triggerBackoff > MAC_RADIO_BACKOFF_COUNT())
+   \   000031                ; Setup parameters for call to function macMcuOverflowCount
+   \   000031   12....       LCALL   ?Subroutine0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_1:
+   \   000034   12....       LCALL   ?UL_GT
+   \   000037   5008         JNC     ??macBackoffTimerSetTrigger_1
+    337            {
+    338              compareState = COMPARE_STATE_TRIGGER;
+   \   000039   7402         MOV     A,#0x2
+   \   00003B   90....       MOV     DPTR,#compareState
+   \   00003E   F0           MOVX    @DPTR,A
+    339              MAC_RADIO_BACKOFF_SET_COMPARE(triggerBackoff);
+   \   00003F                ; Setup parameters for call to function macMcuOverflowSetCompare
+   \   00003F   8016         SJMP    ??macBackoffTimerSetTrigger_2
+    340            }
+    341            else
+    342            {
+    343              if (triggerBackoff == 0)
+   \                     ??macBackoffTimerSetTrigger_1:
+   \   000041   90....       MOV     DPTR,#__Constant_0
+   \   000044   78..         MOV     R0,#?V0 + 0
+   \   000046   12....       LCALL   ?L_EQ_X
+   \   000049   7004         JNZ     ??macBackoffTimerSetTrigger_3
+    344              {
+    345                compareState = COMPARE_STATE_ROLLOVER_AND_TRIGGER;
+   \   00004B   7403         MOV     A,#0x3
+   \   00004D   8002         SJMP    ??macBackoffTimerSetTrigger_4
+    346              }
+    347              else
+    348              {
+    349                compareState = COMPARE_STATE_ROLLOVER_AND_ARM_TRIGGER;
+   \                     ??macBackoffTimerSetTrigger_3:
+   \   00004F   7405         MOV     A,#0x5
+    350              }
+    351              MAC_RADIO_BACKOFF_SET_COMPARE(backoffTimerRollover);
+    352            }
+   \                     ??macBackoffTimerSetTrigger_4:
+   \   000051   12....       LCALL   ??Subroutine9_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_11:
+   \   000054   12....       LCALL   ?L_MOV_X
+   \                     ??macBackoffTimerSetTrigger_2:
+   \   000057   02....       LJMP    ?Subroutine7 & 0xFFFF
+   \   00005A                REQUIRE _A_IEN0
+    353            HAL_EXIT_CRITICAL_SECTION(s);
+    354          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine9_0:
+   \   000000   90....       MOV     DPTR,#compareState
+   \   000003   F0           MOVX    @DPTR,A
+   \   000004                ; Setup parameters for call to function macMcuOverflowSetCompare
+   \   000004                ; Setup parameters for call to function macMcuOverflowSetCompare
+   \   000004                ; Setup parameters for call to function macMcuOverflowSetCompare
+   \   000004   90....       MOV     DPTR,#backoffTimerRollover
+   \   000007   78..         MOV     R0,#?V0 + 0
+   \   000009   22           RET
+    355          
+    356          
+    357          /**************************************************************************************************
+    358           * @fn          macBackoffTimerCancelTrigger
+    359           *
+    360           * @brief       Cancels the trigger for the backoff counter.
+    361           *
+    362           * @param       none
+    363           *
+    364           * @return      none
+    365           **************************************************************************************************
+    366           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    367          MAC_INTERNAL_API void macBackoffTimerCancelTrigger(void)
+   \                     macBackoffTimerCancelTrigger:
+    368          {
+   \   000000   74F4         MOV     A,#-0xc
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 12
+   \   000005                ; Auto size: 0
+    369            halIntState_t  s;
+    370          
+    371            HAL_ENTER_CRITICAL_SECTION(s);
+   \   000005   A2AF         MOV     C,0xa8.7
+   \   000007   E4           CLR     A
+   \   000008   92E0         MOV     0xE0 /* A   */.0,C
+   \   00000A   FE           MOV     R6,A
+   \   00000B   C2AF         CLR     0xa8.7
+    372            compareState = COMPARE_STATE_ROLLOVER;
+   \   00000D   12....       LCALL   ?Subroutine2 & 0xFFFF
+    373            MAC_RADIO_BACKOFF_SET_COMPARE(backoffTimerRollover);
+   \                     ??CrossCallReturnLabel_9:
+   \   000010   12....       LCALL   ?L_MOV_X
+   \   000013   12....       LCALL   ?Subroutine3 & 0xFFFF
+    374            HAL_EXIT_CRITICAL_SECTION(s);
+    375          }
+   \                     ??CrossCallReturnLabel_2:
+   \   000016                REQUIRE ?Subroutine6
+   \   000016                REQUIRE _A_IEN0
+   \   000016                ; // Fall through to label ?Subroutine6
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine2:
+   \   000000   7401         MOV     A,#0x1
+   \   000002                REQUIRE ??Subroutine9_0
+   \   000002                ; // Fall through to label ??Subroutine9_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine3:
+   \   000000   12....       LCALL   ?Subroutine5 & 0xFFFF
+   \                     ??CrossCallReturnLabel_8:
+   \   000003   22           RET
+    376          
+    377          
+    378          /**************************************************************************************************
+    379           * @fn          macBackoffTimerRealign
+    380           *
+    381           * @brief       
+    382           *
+    383           *  Realignment is accomplished by adjusting the internal time base to align with the expected
+    384           *  reception time of an incoming frame.  The difference between the expected reception time and
+    385           *  the actual reception time is computed and this difference is used to adjust the hardware
+    386           *  timer count and backoff count.
+    387           *
+    388           *  The realignment is based on the SFD signal for the incoming frame.  The timer is aligned
+    389           *  by adjusting it with the difference between the expected SFD time and the actual SFD time.
+    390           *
+    391           * @param       none
+    392           *
+    393           * @return      none
+    394           **************************************************************************************************
+    395           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    396          MAC_INTERNAL_API int32 macBackoffTimerRealign(macRx_t *pMsg)
+   \                     macBackoffTimerRealign:
+    397          {
+   \   000000   74EC         MOV     A,#-0x14
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 20
+   \   000005                ; Auto size: 0
+   \   000005   EA           MOV     A,R2
+   \   000006   FE           MOV     R6,A
+   \   000007   EB           MOV     A,R3
+   \   000008   FF           MOV     R7,A
+    398            uint16 timerDelayTicks;
+    399            int32 backoffDelta;
+    400            int32 backoffCount;
+    401          
+    402            MAC_ASSERT(!MAC_TX_IS_PHYSICALLY_ACTIVE()); /* realignment during actual transmit corrupts timing */
+   \   000009   90....       MOV     DPTR,#macTxActive
+   \   00000C   E0           MOVX    A,@DPTR
+   \   00000D   A2E7         MOV     C,0xE0 /* A   */.7
+   \   00000F   5003         JNC     ??macBackoffTimerRealign_0
+   \   000011                ; Setup parameters for call to function halAssertHandler
+   \   000011   12....       LCALL   ??halAssertHandler?relay
+    403          
+    404            /*-------------------------------------------------------------------------------
+    405             *  Calculate the delta backoff difference between expected backoff count,
+    406             *  which is zero, and the backoff count of the received frame.
+    407             */
+    408          
+    409            /* since expected receive time is zero, the delta is simply the receive time */
+    410            backoffDelta = pMsg->mac.timestamp;
+   \                     ??macBackoffTimerRealign_0:
+   \   000014   EE           MOV     A,R6
+   \   000015   2424         ADD     A,#0x24
+   \   000017   F582         MOV     DPL,A
+   \   000019   EF           MOV     A,R7
+   \   00001A   3400         ADDC    A,#0x0
+   \   00001C   F583         MOV     DPH,A
+   \   00001E   78..         MOV     R0,#?V0 + 0
+   \   000020   12....       LCALL   ?L_MOV_X
+    411          
+    412            /* if the frame was received more than halfway to the rollover count, use a negative delta value */
+    413            if (((uint32) backoffDelta) > (backoffTimerRollover / 2))
+   \   000023   90....       MOV     DPTR,#backoffTimerRollover
+   \   000026   78..         MOV     R0,#?V0 + 4
+   \   000028   12....       LCALL   ?L_MOV_X
+   \   00002B   7401         MOV     A,#0x1
+   \   00002D   78..         MOV     R0,#?V0 + 4
+   \   00002F   12....       LCALL   ?UL_SHR
+   \   000032   78..         MOV     R0,#?V0 + 0
+   \   000034   79..         MOV     R1,#?V0 + 4
+   \   000036   12....       LCALL   ?UL_GT
+   \   000039   5008         JNC     ??macBackoffTimerRealign_1
+    414            {
+    415              backoffDelta = backoffDelta - backoffTimerRollover;    /* result will be negative */
+   \   00003B   90....       MOV     DPTR,#backoffTimerRollover
+   \   00003E   78..         MOV     R0,#?V0 + 0
+   \   000040   12....       LCALL   ?L_SUB_X
+    416            }
+    417          
+    418            /*-------------------------------------------------------------------------------
+    419             *  Calculate the number of timer ticks to delay that will align the internal
+    420             *  time base with the received frame.
+    421             */
+    422          
+    423            /* retrieve the timer count when frame was received */
+    424            timerDelayTicks = pMsg->mac.timestamp2;
+   \                     ??macBackoffTimerRealign_1:
+   \   000043   EE           MOV     A,R6
+   \   000044   2428         ADD     A,#0x28
+   \   000046   F582         MOV     DPL,A
+   \   000048   EF           MOV     A,R7
+   \   000049   3400         ADDC    A,#0x0
+   \   00004B   F583         MOV     DPH,A
+   \   00004D   E0           MOVX    A,@DPTR
+   \   00004E   FE           MOV     R6,A
+   \   00004F   A3           INC     DPTR
+   \   000050   E0           MOVX    A,@DPTR
+   \   000051   FF           MOV     R7,A
+    425          
+    426            /*
+    427             *  Subtract the expected SFD time from the actual SFD time to find the needed
+    428             *  timer adjustment. If subtracting the offset would result in a negative value,
+    429             *  the tick delay must wrap around.
+    430             */
+    431            if (timerDelayTicks >= TIMER_TICKS_EXPECTED_AT_SFD)
+   \   000052   C3           CLR     C
+   \   000053   EE           MOV     A,R6
+   \   000054   9466         SUBB    A,#0x66
+   \   000056   EF           MOV     A,R7
+   \   000057   9404         SUBB    A,#0x4
+   \   000059   EE           MOV     A,R6
+   \   00005A   4009         JC      ??macBackoffTimerRealign_2
+    432            {
+    433              /* since delay count is greater than or equal to offset, subtract it directly */
+    434              timerDelayTicks = timerDelayTicks - TIMER_TICKS_EXPECTED_AT_SFD;
+   \   00005C   249A         ADD     A,#-0x66
+   \   00005E   FE           MOV     R6,A
+   \   00005F   EF           MOV     A,R7
+   \   000060   34FB         ADDC    A,#-0x5
+   \   000062   FF           MOV     R7,A
+   \   000063   800F         SJMP    ??macBackoffTimerRealign_3
+    435            }
+    436            else
+    437            {
+    438              /*
+    439               *  The expected time is greater that actualy time so it cannot be subtracted directly.
+    440               *  The tick count per backoff is added to wrap around within the backoff.
+    441               *  Since a wrap around did happen, the backoff delta is adjusted by one.
+    442               */
+    443              timerDelayTicks = timerDelayTicks - TIMER_TICKS_EXPECTED_AT_SFD + MAC_RADIO_TIMER_TICKS_PER_BACKOFF();
+   \                     ??macBackoffTimerRealign_2:
+   \   000065   249A         ADD     A,#-0x66
+   \   000067   FE           MOV     R6,A
+   \   000068   EF           MOV     A,R7
+   \   000069   3423         ADDC    A,#0x23
+   \   00006B   FF           MOV     R7,A
+    444              backoffDelta--;
+   \   00006C   90....       MOV     DPTR,#__Constant_ffffffff
+   \   00006F   78..         MOV     R0,#?V0 + 0
+   \   000071   12....       LCALL   ?L_ADD_X
+    445            }
+    446          
+    447            /*-------------------------------------------------------------------------------
+    448             *  Calculate the new backoff count.
+    449             */
+    450          
+    451            backoffCount = MAC_RADIO_BACKOFF_COUNT() - backoffDelta;
+   \                     ??macBackoffTimerRealign_3:
+   \   000074                ; Setup parameters for call to function macMcuOverflowCount
+   \   000074   12....       LCALL   ?Subroutine4 & 0xFFFF
+   \                     ??CrossCallReturnLabel_5:
+   \   000077   78..         MOV     R0,#?V0 + 4
+   \   000079   79..         MOV     R1,#?V0 + 0
+   \   00007B   12....       LCALL   ?L_SUB
+    452          
+    453            if (backoffCount >= ((int32) backoffTimerRollover))
+   \   00007E   90....       MOV     DPTR,#backoffTimerRollover
+   \   000081   78..         MOV     R0,#?V0 + 8
+   \   000083   12....       LCALL   ?L_MOV_X
+   \   000086   78..         MOV     R0,#?V0 + 8
+   \   000088   79..         MOV     R1,#?V0 + 4
+   \   00008A   12....       LCALL   ?SL_GT
+   \   00008D   400A         JC      ??macBackoffTimerRealign_4
+    454            {
+    455              backoffCount -= backoffTimerRollover;
+   \   00008F   90....       MOV     DPTR,#backoffTimerRollover
+   \   000092   78..         MOV     R0,#?V0 + 4
+   \   000094   12....       LCALL   ?L_SUB_X
+   \   000097   8019         SJMP    ??macBackoffTimerRealign_5
+    456            }
+    457            else if (backoffCount < 0)
+   \                     ??macBackoffTimerRealign_4:
+   \   000099   90....       MOV     DPTR,#__Constant_0
+   \   00009C   78..         MOV     R0,#?V0 + 8
+   \   00009E   12....       LCALL   ?L_MOV_X
+   \   0000A1   78..         MOV     R0,#?V0 + 8
+   \   0000A3   79..         MOV     R1,#?V0 + 4
+   \   0000A5   12....       LCALL   ?SL_GT
+   \   0000A8   5008         JNC     ??macBackoffTimerRealign_5
+    458            {
+    459              backoffCount += backoffTimerRollover;
+   \   0000AA   90....       MOV     DPTR,#backoffTimerRollover
+   \   0000AD   78..         MOV     R0,#?V0 + 4
+   \   0000AF   12....       LCALL   ?L_ADD_X
+    460            }
+    461          
+    462            MAC_RADIO_TIMER_FORCE_DELAY(timerDelayTicks);
+   \                     ??macBackoffTimerRealign_5:
+   \   0000B2                ; Setup parameters for call to function macMcuTimerForceDelay
+   \   0000B2   EE           MOV     A,R6
+   \   0000B3   FA           MOV     R2,A
+   \   0000B4   EF           MOV     A,R7
+   \   0000B5   FB           MOV     R3,A
+   \   0000B6   12....       LCALL   ??macMcuTimerForceDelay?relay
+    463            MAC_RADIO_BACKOFF_SET_COUNT(backoffCount);
+   \   0000B9                ; Setup parameters for call to function macMcuOverflowSetCount
+   \   0000B9   AA..         MOV     R2,?V0 + 4
+   \   0000BB   AB..         MOV     R3,?V0 + 5
+   \   0000BD   AC..         MOV     R4,?V0 + 6
+   \   0000BF   AD..         MOV     R5,?V0 + 7
+   \   0000C1   12....       LCALL   ??macMcuOverflowSetCount?relay
+    464          
+    465            return(backoffDelta);
+   \   0000C4   AA..         MOV     R2,?V0 + 0
+   \   0000C6   AB..         MOV     R3,?V0 + 1
+   \   0000C8   AC..         MOV     R4,?V0 + 2
+   \   0000CA   AD..         MOV     R5,?V0 + 3
+   \   0000CC   7F0C         MOV     R7,#0xc
+   \   0000CE   02....       LJMP    ?BANKED_LEAVE_XDATA
+    466          }
+    467          
+    468          
+    469          /**************************************************************************************************
+    470           * @fn          macBackoffTimerCompareIsr
+    471           *
+    472           * @brief       Interrupt service routine that fires when the backoff count is equal
+    473           *              to the trigger count.
+    474           *
+    475           * @param       none
+    476           *
+    477           * @return      none
+    478           **************************************************************************************************
+    479           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    480          MAC_INTERNAL_API void macBackoffTimerCompareIsr(void)
+   \                     macBackoffTimerCompareIsr:
+    481          {
+   \   000000   74F4         MOV     A,#-0xc
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 12
+   \   000005                ; Auto size: 0
+    482            uint8 oldState;
+    483            halIntState_t  s;
+    484          
+    485            HAL_ENTER_CRITICAL_SECTION(s);
+   \   000005   A2AF         MOV     C,0xa8.7
+   \   000007   E4           CLR     A
+   \   000008   92E0         MOV     0xE0 /* A   */.0,C
+   \   00000A   FE           MOV     R6,A
+   \   00000B   C2AF         CLR     0xa8.7
+    486            oldState = compareState;
+   \   00000D   90....       MOV     DPTR,#compareState
+   \   000010   E0           MOVX    A,@DPTR
+   \   000011   FF           MOV     R7,A
+    487          
+    488            /* if compare is a rollover, set count to zero */
+    489            if (oldState & COMPARE_STATE_ROLLOVER_BV)
+   \   000012   A2E0         MOV     C,0xE0 /* A   */.0
+   \   000014   5016         JNC     ??macBackoffTimerCompareIsr_0
+    490            {
+    491              MAC_RADIO_BACKOFF_SET_COUNT(0);
+   \   000016                ; Setup parameters for call to function macMcuOverflowSetCount
+   \   000016   90....       MOV     DPTR,#__Constant_0
+   \   000019   78..         MOV     R0,#?V0 + 0
+   \   00001B   12....       LCALL   ?L_MOV_X
+   \   00001E   AA..         MOV     R2,?V0 + 0
+   \   000020   AB..         MOV     R3,?V0 + 1
+   \   000022   AC..         MOV     R4,?V0 + 2
+   \   000024   AD..         MOV     R5,?V0 + 3
+   \   000026   12....       LCALL   ??macMcuOverflowSetCount?relay
+    492              macBackoffTimerRolloverCallback();
+   \   000029                ; Setup parameters for call to function macBackoffTimerRolloverCallback
+   \   000029   12....       LCALL   ??macBackoffTimerRolloverCallback?relay
+    493            }
+    494          
+    495            /* if compare is a trigger, reset for rollover and run the trigger callback */
+    496            if (oldState & COMPARE_STATE_TRIGGER_BV)
+   \                     ??macBackoffTimerCompareIsr_0:
+   \   00002C   EF           MOV     A,R7
+   \   00002D   A2E1         MOV     C,0xE0 /* A   */.1
+   \   00002F   500E         JNC     ??macBackoffTimerCompareIsr_1
+    497            {
+    498              compareState = COMPARE_STATE_ROLLOVER;
+   \   000031   12....       LCALL   ?Subroutine2 & 0xFFFF
+    499              MAC_RADIO_BACKOFF_SET_COMPARE(backoffTimerRollover);
+   \                     ??CrossCallReturnLabel_10:
+   \   000034   12....       LCALL   ?L_MOV_X
+   \   000037   12....       LCALL   ?Subroutine3 & 0xFFFF
+    500              HAL_EXIT_CRITICAL_SECTION(s);
+    501              macBackoffTimerTriggerCallback();
+   \                     ??CrossCallReturnLabel_3:
+   \   00003A                ; Setup parameters for call to function macBackoffTimerTriggerCallback
+   \   00003A   12....       LCALL   ??macBackoffTimerTriggerCallback?relay
+   \   00003D   8023         SJMP    ??macBackoffTimerCompareIsr_2
+    502            }
+    503            else if (oldState == COMPARE_STATE_ROLLOVER_AND_ARM_TRIGGER)
+   \                     ??macBackoffTimerCompareIsr_1:
+   \   00003F   7405         MOV     A,#0x5
+   \   000041   6F           XRL     A,R7
+   \   000042   7019         JNZ     ??macBackoffTimerCompareIsr_3
+    504            {
+    505              compareState = COMPARE_STATE_TRIGGER;
+   \   000044   7402         MOV     A,#0x2
+   \   000046   90....       MOV     DPTR,#compareState
+   \   000049   F0           MOVX    @DPTR,A
+    506              MAC_RADIO_BACKOFF_SET_COMPARE(backoffTimerTrigger);
+   \   00004A                ; Setup parameters for call to function macMcuOverflowSetCompare
+   \   00004A   90....       MOV     DPTR,#backoffTimerTrigger
+   \   00004D   78..         MOV     R0,#?V0 + 0
+   \   00004F   12....       LCALL   ?L_MOV_X
+   \   000052   AA..         MOV     R2,?V0 + 0
+   \   000054   AB..         MOV     R3,?V0 + 1
+   \   000056   AC..         MOV     R4,?V0 + 2
+   \   000058   AD..         MOV     R5,?V0 + 3
+   \   00005A   12....       LCALL   ??macMcuOverflowSetCompare?relay
+    507              HAL_EXIT_CRITICAL_SECTION(s);
+    508            }
+    509            else
+    510            {
+    511              HAL_EXIT_CRITICAL_SECTION(s);
+   \                     ??macBackoffTimerCompareIsr_3:
+   \   00005D   EE           MOV     A,R6
+   \   00005E   A2E0         MOV     C,0xE0 /* A   */.0
+   \   000060   92AF         MOV     0xa8.7,C
+    512            }
+    513          }
+   \                     ??macBackoffTimerCompareIsr_2:
+   \   000062   02....       LJMP    ?Subroutine6 & 0xFFFF
+   \   000065                REQUIRE _A_IEN0
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_0:
+   \   000000   00000000     DD 0
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_c0000:
+   \   000000   00000C00     DD 786432
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_80000000:
+   \   000000   00000080     DD 2147483648
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_ffffffff:
+   \   000000   FFFFFFFF     DD -1
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??macBackoffTimerInit?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    macBackoffTimerInit
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??macBackoffTimerReset?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    macBackoffTimerReset
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??macBackoffTimerSetRollover?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    macBackoffTimerSetRollover
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??macBackoffTimerSetCount?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    macBackoffTimerSetCount
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??macBackoffTimerCount?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    macBackoffTimerCount
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??macBackoffTimerCapture?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    macBackoffTimerCapture
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??macBackoffTimerGetTrigger?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    macBackoffTimerGetTrigger
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??macBackoffTimerSetTrigger?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    macBackoffTimerSetTrigger
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??macBackoffTimerCancelTrigger?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    macBackoffTimerCancelTrigger
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??macBackoffTimerRealign?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    macBackoffTimerRealign
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??macBackoffTimerCompareIsr?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    macBackoffTimerCompareIsr
+    514          
+    515          
+    516          /**************************************************************************************************
+    517          */
+
+   Maximum stack usage in bytes:
+
+     Function                       ISTACK PSTACK XSTACK
+     --------                       ------ ------ ------
+     macBackoffTimerCancelTrigger       0      0     12
+       -> macMcuOverflowSetCompare      0      0     24
+     macBackoffTimerCapture             0      0     16
+       -> macMcuOverflowCapture         0      0     32
+     macBackoffTimerCompareIsr          0      0     12
+       -> macMcuOverflowSetCount        0      0     24
+       -> macBackoffTimerRolloverCallback
+                                        0      0     24
+       -> macMcuOverflowSetCompare      0      0     24
+       -> macBackoffTimerTriggerCallback
+                                        0      0     24
+       -> macMcuOverflowSetCompare      0      0     24
+     macBackoffTimerCount               0      0     16
+       -> macMcuOverflowCount           0      0     32
+     macBackoffTimerGetTrigger          0      0     12
+     macBackoffTimerInit                0      0     12
+       -> macMcuOverflowSetCount        0      0     24
+       -> macBackoffTimerSetRollover
+                                        0      0     24
+     macBackoffTimerRealign             0      0     20
+       -> halAssertHandler              0      0     40
+       -> macMcuOverflowCount           0      0     40
+       -> macMcuTimerForceDelay         0      0     40
+       -> macMcuOverflowSetCount        0      0     40
+     macBackoffTimerReset               2      0      0
+       -> macBackoffTimerInit           4      0      0
+     macBackoffTimerSetCount            0      0     16
+       -> halAssertHandler              0      0     32
+       -> halAssertHandler              0      0     32
+       -> halAssertHandler              0      0     32
+       -> macMcuOverflowSetCount        0      0     32
+     macBackoffTimerSetRollover         0      0     28
+       -> macMcuOverflowCount           0      0     32
+       -> halAssertHandler              0      0     32
+       -> macMcuOverflowSetCompare      0      0     32
+     macBackoffTimerSetTrigger          0      0     16
+       -> halAssertHandler              0      0     32
+       -> macMcuOverflowCount           0      0     32
+       -> macMcuOverflowSetCompare      0      0     32
+       -> macMcuOverflowSetCompare      0      0     32
+
+
+   Segment part sizes:
+
+     Function/Label                       Bytes
+     --------------                       -----
+     T2CTRL                                  1
+     T2IRQF                                  1
+     T2IRQM                                  1
+     _A_IEN0                                 1
+     backoffTimerRollover                    4
+     backoffTimerTrigger                     4
+     compareState                            1
+     macBackoffTimerInit                    67
+     ?Subroutine6                            5
+     macBackoffTimerReset                   17
+     macBackoffTimerSetRollover             40
+     ?Subroutine7                            6
+     ?Subroutine1                            6
+     ?Subroutine0                            8
+     ?Subroutine4                           12
+     ?Subroutine5                           17
+     macBackoffTimerSetCount               101
+     ?Subroutine8                            5
+     macBackoffTimerCount                   56
+     macBackoffTimerCapture                 56
+     macBackoffTimerGetTrigger              23
+     macBackoffTimerSetTrigger              90
+     ??Subroutine9_0                        10
+     macBackoffTimerCancelTrigger           22
+     ?Subroutine2                            2
+     ?Subroutine3                            4
+     macBackoffTimerRealign                209
+     macBackoffTimerCompareIsr             101
+     __Constant_0                            4
+     __Constant_c0000                        4
+     __Constant_80000000                     4
+     __Constant_ffffffff                     4
+     ??macBackoffTimerInit?relay             6
+     ??macBackoffTimerReset?relay            6
+     ??macBackoffTimerSetRollover?relay      6
+     ??macBackoffTimerSetCount?relay         6
+     ??macBackoffTimerCount?relay            6
+     ??macBackoffTimerCapture?relay          6
+     ??macBackoffTimerGetTrigger?relay       6
+     ??macBackoffTimerSetTrigger?relay       6
+     ??macBackoffTimerCancelTrigger?relay    6
+     ??macBackoffTimerRealign?relay          6
+     ??macBackoffTimerCompareIsr?relay       6
+
+ 
+ 857 bytes in segment BANKED_CODE
+  66 bytes in segment BANK_RELAYS
+   4 bytes in segment SFR_AN
+  16 bytes in segment XDATA_ROM_C
+   9 bytes in segment XDATA_Z
+ 
+ 923 bytes of CODE  memory
+   0 bytes of CONST memory (+ 16 bytes shared)
+   0 bytes of DATA  memory (+  4 bytes shared)
+   9 bytes of XDATA memory
+
+Errors: none
+Warnings: none

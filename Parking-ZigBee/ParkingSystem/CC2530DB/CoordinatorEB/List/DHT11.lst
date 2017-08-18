@@ -1,0 +1,324 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V7.51A/W32 for 8051                25/Mar/2015  21:06:18 #
+# Copyright 2004-2009 IAR Systems AB.                                         #
+#                                                                             #
+#    Core               =  plain                                              #
+#    Code model         =  banked                                             #
+#    Data model         =  large                                              #
+#    Calling convention =  xdata reentrant                                    #
+#    Constant location  =  data_rom                                           #
+#    Dptr setup         =  1,16                                               #
+#    Source file        =  C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Pro #
+#                          jects\zstack\Samples\ZigBee_FAN_PRO1\Source\DHT11. #
+#                          C                                                  #
+#    Command line       =  -f "C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0 #
+#                          \Projects\zstack\Samples\ZigBee_FAN_PRO1\CC2530DB\ #
+#                          ..\..\..\Tools\CC2530DB\f8wCoord.cfg" (-DCPU32MHZ  #
+#                          -DROOT=__near_func -DMAC_CFG_APP_PENDING_QUEUE=TRU #
+#                          E -DZDO_COORDINATOR -DRTR_NWK -DBLINK_LEDS) -f     #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Pr #
+#                          ojects\zstack\Samples\ZigBee_FAN_PRO1\CC2530DB\..\ #
+#                          ..\..\Tools\CC2530DB\f8wConfig.cfg" (-DSECURE=0    #
+#                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                  #
+#                          -DDEFAULT_CHANLIST=0x00000800                      #
+#                          -DZDAPP_CONFIG_PAN_ID=0xFFFF                       #
+#                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MA #
+#                          SK=0x007F -DBEACON_REQUEST_DELAY=100               #
+#                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
+#                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_PO #
+#                          LLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7             #
+#                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3    #
+#                          -DNWK_MAX_DATA_RETRIES=2                           #
+#                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9         #
+#                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40           #
+#                          -DNWK_MAX_BINDING_ENTRIES=4                        #
+#                          -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,  #
+#                          0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00,    #
+#                          0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"         #
+#                          -DMAC_MAX_FRAME_SIZE=116 "-DCONST=const __code"    #
+#                          -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE     #
+#                          -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100            #
+#                          -DRESPONSE_POLL_RATE=100) -DREJOIN_POLL_RATE=440   #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Pr #
+#                          ojects\zstack\Samples\ZigBee_FAN_PRO1\Source\DHT11 #
+#                          .C" -D ZTOOL_P1 -D COORDINATOR -D MT_TASK -D       #
+#                          MT_SYS_FUNC -D MT_ZDO_FUNC -D                      #
+#                          xLCD_SUPPORTED=DEBUG -lC "C:\Texas                 #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ZigBee_FAN_PRO1\CC2530DB\CoordinatorEB #
+#                          \List\" -lA "C:\Texas Instruments\ZStack-CC2530-2. #
+#                          3.0-1.4.0\Projects\zstack\Samples\ZigBee_FAN_PRO1\ #
+#                          CC2530DB\CoordinatorEB\List\" --diag_suppress      #
+#                          Pe001,Pa010 -o "C:\Texas                           #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ZigBee_FAN_PRO1\CC2530DB\CoordinatorEB #
+#                          \Obj\" -e --require_prototypes --debug             #
+#                          --core=plain --dptr=16,1 --data_model=large        #
+#                          --code_model=banked --calling_convention=xdata_ree #
+#                          ntrant --place_constants=data_rom                  #
+#                          --nr_virtual_regs 16 -I "C:\Texas                  #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ZigBee_FAN_PRO1\CC2530DB\" -I          #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Pr #
+#                          ojects\zstack\Samples\ZigBee_FAN_PRO1\CC2530DB\..\ #
+#                          SOURCE\" -I "C:\Texas Instruments\ZStack-CC2530-2. #
+#                          3.0-1.4.0\Projects\zstack\Samples\ZigBee_FAN_PRO1\ #
+#                          CC2530DB\..\..\..\ZMAIN\TI2530DB\" -I "C:\Texas    #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ZigBee_FAN_PRO1\CC2530DB\..\..\..\..\. #
+#                          .\COMPONENTS\MT\" -I "C:\Texas                     #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ZigBee_FAN_PRO1\CC2530DB\..\..\..\..\. #
+#                          .\COMPONENTS\HAL\INCLUDE\" -I "C:\Texas            #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ZigBee_FAN_PRO1\CC2530DB\..\..\..\..\. #
+#                          .\COMPONENTS\HAL\TARGET\CC2530EB\" -I "C:\Texas    #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ZigBee_FAN_PRO1\CC2530DB\..\..\..\..\. #
+#                          .\COMPONENTS\OSAL\MCU\CCSOC\" -I "C:\Texas         #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ZigBee_FAN_PRO1\CC2530DB\..\..\..\..\. #
+#                          .\COMPONENTS\OSAL\INCLUDE\" -I "C:\Texas           #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ZigBee_FAN_PRO1\CC2530DB\..\..\..\..\. #
+#                          .\COMPONENTS\STACK\AF\" -I "C:\Texas               #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ZigBee_FAN_PRO1\CC2530DB\..\..\..\..\. #
+#                          .\COMPONENTS\STACK\NWK\" -I "C:\Texas              #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ZigBee_FAN_PRO1\CC2530DB\..\..\..\..\. #
+#                          .\COMPONENTS\STACK\SEC\" -I "C:\Texas              #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ZigBee_FAN_PRO1\CC2530DB\..\..\..\..\. #
+#                          .\COMPONENTS\STACK\SAPI\" -I "C:\Texas             #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ZigBee_FAN_PRO1\CC2530DB\..\..\..\..\. #
+#                          .\COMPONENTS\STACK\SYS\" -I "C:\Texas              #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ZigBee_FAN_PRO1\CC2530DB\..\..\..\..\. #
+#                          .\COMPONENTS\STACK\ZDO\" -I "C:\Texas              #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ZigBee_FAN_PRO1\CC2530DB\..\..\..\..\. #
+#                          .\COMPONENTS\ZMAC\F8W\" -I "C:\Texas               #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ZigBee_FAN_PRO1\CC2530DB\..\..\..\..\. #
+#                          .\COMPONENTS\ZMAC\" -I "C:\Texas                   #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ZigBee_FAN_PRO1\CC2530DB\..\..\..\..\. #
+#                          .\COMPONENTS\SERVICES\SADDR\" -I "C:\Texas         #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ZigBee_FAN_PRO1\CC2530DB\..\..\..\..\. #
+#                          .\COMPONENTS\SERVICES\SDATA\" -I "C:\Texas         #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ZigBee_FAN_PRO1\CC2530DB\..\..\..\..\. #
+#                          .\COMPONENTS\MAC\INCLUDE\" -I "C:\Texas            #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ZigBee_FAN_PRO1\CC2530DB\..\..\..\..\. #
+#                          .\COMPONENTS\MAC\HIGH_LEVEL\" -I "C:\Texas         #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ZigBee_FAN_PRO1\CC2530DB\..\..\..\..\. #
+#                          .\COMPONENTS\MAC\LOW_LEVEL\srf04\" -I "C:\Texas    #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ZigBee_FAN_PRO1\CC2530DB\..\..\..\..\. #
+#                          .\COMPONENTS\MAC\LOW_LEVEL\srf04\SINGLE_CHIP\" -I  #
+#                          "C:\Program Files\IAR Systems\Embedded Workbench   #
+#                          5.3\8051\INC\" -I "C:\Program Files\IAR            #
+#                          Systems\Embedded Workbench 5.3\8051\INC\CLIB\"     #
+#                          -Ohz                                               #
+#    List file          =  C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Pro #
+#                          jects\zstack\Samples\ZigBee_FAN_PRO1\CC2530DB\Coor #
+#                          dinatorEB\List\DHT11.lst                           #
+#    Object file        =  C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Pro #
+#                          jects\zstack\Samples\ZigBee_FAN_PRO1\CC2530DB\Coor #
+#                          dinatorEB\Obj\DHT11.r51                            #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zstack\Samples\ZigBee_FAN_PRO1\Source\DHT11.C
+      1          #include <ioCC2530.h>
+
+   \                                 In  segment SFR_AN, at 0x80
+   \   union <unnamed> volatile __sfr _A_P0
+   \                     _A_P0:
+   \   000000                DS 1
+      2          #include "OnBoard.h"
+      3          
+      4          #define uint unsigned int
+      5          #define uchar unsigned char
+      6          
+      7          #define P001 P0_0
+      8          #define P002 P0_1
+      9          #define P003 P0_2
+     10          #define P004 P0_3
+     11          #define P005 P0_4
+     12          
+     13          /*******函数声明*********/
+     14          void Delay_us(void); //1 us延时
+     15          
+     16          void PARKING(void) ;  //温湿传感启动
+     17          
+     18          void init(void);
+     19          
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     20          uchar S001,S002,S003,S004=4;
+   \                     S001:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+   \                     S002:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+   \                     S003:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_I, align 1, keep-with-next
+   \                     S004:
+   \   000000                DS 1
+   \   000001                REQUIRE `?<Initializer for S004>`
+   \   000001                REQUIRE __INIT_XDATA_I
+     21          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     22          void init(void)
+   \                     init:
+     23          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+     24            P001 = 1;
+   \   000000   D280         SETB    0x80.0
+     25            P002 = 1;
+   \   000002   D281         SETB    0x80.1
+     26            P003 = 1;
+   \   000004   D282         SETB    0x80.2
+     27            P004 = 1;
+   \   000006   D283         SETB    0x80.3
+     28          }
+   \   000008   02....       LJMP    ?BRET
+   \   00000B                REQUIRE _A_P0
+     29          
+     30          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     31          void PARKING()   //温湿传感启动
+   \                     PARKING:
+     32          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+     33            init();
+   \   000004                ; Setup parameters for call to function init
+   \   000004   12....       LCALL   ??init?relay
+     34            
+     35            S001 = P001==0?1:0;
+   \   000007   A280         MOV     C,0x80.0
+   \   000009   B3           CPL     C
+   \   00000A   E4           CLR     A
+   \   00000B   92E0         MOV     0xE0 /* A   */.0,C
+   \   00000D   90....       MOV     DPTR,#S001
+   \   000010   F0           MOVX    @DPTR,A
+     36            S002 = P002==0?1:0;
+   \   000011   A281         MOV     C,0x80.1
+   \   000013   4004         JC      ??PARKING_0
+   \   000015   D2F0         SETB    B.0
+   \   000017   8002         SJMP    ??PARKING_1
+   \                     ??PARKING_0:
+   \   000019   C2F0         CLR     B.0
+   \                     ??PARKING_1:
+   \   00001B   A2F0         MOV     C,B.0
+   \   00001D   E4           CLR     A
+   \   00001E   92E0         MOV     0xE0 /* A   */.0,C
+   \   000020   90....       MOV     DPTR,#S002
+   \   000023   F0           MOVX    @DPTR,A
+     37            S003 = P003==0?1:0;
+   \   000024   A282         MOV     C,0x80.2
+   \   000026   4004         JC      ??PARKING_2
+   \   000028   D2F0         SETB    B.0
+   \   00002A   8002         SJMP    ??PARKING_3
+   \                     ??PARKING_2:
+   \   00002C   C2F0         CLR     B.0
+   \                     ??PARKING_3:
+   \   00002E   A2F0         MOV     C,B.0
+   \   000030   E4           CLR     A
+   \   000031   92E0         MOV     0xE0 /* A   */.0,C
+   \   000033   90....       MOV     DPTR,#S003
+   \   000036   F0           MOVX    @DPTR,A
+     38            S004 = P004==0?1:0;
+   \   000037   A283         MOV     C,0x80.3
+   \   000039   4004         JC      ??PARKING_4
+   \   00003B   D2F0         SETB    B.0
+   \   00003D   8002         SJMP    ??PARKING_5
+   \                     ??PARKING_4:
+   \   00003F   C2F0         CLR     B.0
+   \                     ??PARKING_5:
+   \   000041   A2F0         MOV     C,B.0
+   \   000043   E4           CLR     A
+   \   000044   92E0         MOV     0xE0 /* A   */.0,C
+   \   000046   90....       MOV     DPTR,#S004
+   \   000049   F0           MOVX    @DPTR,A
+     39            
+     40          }
+   \   00004A   D083         POP     DPH
+   \   00004C   D082         POP     DPL
+   \   00004E   02....       LJMP    ?BRET
+   \   000051                REQUIRE _A_P0
+
+   \                                 In  segment XDATA_ID, align 1, keep-with-next
+   \                     `?<Initializer for S004>`:
+   \   000000   04           DB 4
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??init?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    init
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??PARKING?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    PARKING
+
+   Maximum stack usage in bytes:
+
+     Function  ISTACK PSTACK XSTACK
+     --------  ------ ------ ------
+     PARKING       2      0      0
+       -> init     4      0      0
+     init          0      0      0
+
+
+   Segment part sizes:
+
+     Function/Label          Bytes
+     --------------          -----
+     _A_P0                      1
+     S001                       1
+     S002                       1
+     S003                       1
+     S004                       1
+     init                      11
+     PARKING                   81
+     ?<Initializer for S004>    1
+     ??init?relay               6
+     ??PARKING?relay            6
+
+ 
+ 92 bytes in segment BANKED_CODE
+ 12 bytes in segment BANK_RELAYS
+  1 byte  in segment SFR_AN
+  1 byte  in segment XDATA_I
+  1 byte  in segment XDATA_ID
+  3 bytes in segment XDATA_Z
+ 
+ 105 bytes of CODE  memory
+   0 bytes of DATA  memory (+ 1 byte shared)
+   4 bytes of XDATA memory
+
+Errors: none
+Warnings: none

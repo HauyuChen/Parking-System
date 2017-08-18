@@ -1,0 +1,480 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V7.51A/W32 for 8051                30/May/2015  21:45:51 #
+# Copyright 2004-2009 IAR Systems AB.                                         #
+#                                                                             #
+#    Core               =  plain                                              #
+#    Code model         =  banked                                             #
+#    Data model         =  large                                              #
+#    Calling convention =  xdata reentrant                                    #
+#    Constant location  =  data_rom                                           #
+#    Dptr setup         =  1,16                                               #
+#    Source file        =  C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Pro #
+#                          jects\zstack\Samples\ParkingS\Source\ParkingStatus #
+#                          .C                                                 #
+#    Command line       =  -f "C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0 #
+#                          \Projects\zstack\Samples\ParkingS\CC2530DB\..\..\. #
+#                          .\Tools\CC2530DB\f8wEndev.cfg" (-DCPU32MHZ         #
+#                          -DROOT=__near_func -DBLINK_LEDS) -f "C:\Texas      #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\Tools\CC253 #
+#                          0DB\f8wConfig.cfg" (-DSECURE=0                     #
+#                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                  #
+#                          -DDEFAULT_CHANLIST=0x00000800                      #
+#                          -DZDAPP_CONFIG_PAN_ID=0xFFFF                       #
+#                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MA #
+#                          SK=0x007F -DBEACON_REQUEST_DELAY=100               #
+#                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
+#                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_PO #
+#                          LLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7             #
+#                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3    #
+#                          -DNWK_MAX_DATA_RETRIES=2                           #
+#                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9         #
+#                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40           #
+#                          -DNWK_MAX_BINDING_ENTRIES=4                        #
+#                          -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,  #
+#                          0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00,    #
+#                          0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"         #
+#                          -DMAC_MAX_FRAME_SIZE=116 "-DCONST=const __code"    #
+#                          -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE     #
+#                          -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100            #
+#                          -DRESPONSE_POLL_RATE=100) -DREJOIN_POLL_RATE=440   #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Pr #
+#                          ojects\zstack\Samples\ParkingS\Source\ParkingStatu #
+#                          s.C" -D NWK_AUTO_POLL -D ENDDEVICE -D ZTOOL_P1 -D  #
+#                          MT_TASK -D MT_SYS_FUNC -D MT_ZDO_FUNC -D           #
+#                          SerialApp_CallBack -D xLCD_SUPPORTED=DEBUG -lC     #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Pr #
+#                          ojects\zstack\Samples\ParkingS\CC2530DB\EndDeviceE #
+#                          B\List\" -lA "C:\Texas Instruments\ZStack-CC2530-2 #
+#                          .3.0-1.4.0\Projects\zstack\Samples\ParkingS\CC2530 #
+#                          DB\EndDeviceEB\List\" --diag_suppress Pe001,Pa010  #
+#                          -o "C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0 #
+#                          \Projects\zstack\Samples\ParkingS\CC2530DB\EndDevi #
+#                          ceEB\Obj\" -e --require_prototypes --debug         #
+#                          --core=plain --dptr=16,1 --data_model=large        #
+#                          --code_model=banked --calling_convention=xdata_ree #
+#                          ntrant --place_constants=data_rom                  #
+#                          --nr_virtual_regs 16 -I "C:\Texas                  #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\" -I "C:\Texas       #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\SOURCE\" -I       #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Pr #
+#                          ojects\zstack\Samples\ParkingS\CC2530DB\..\..\..\Z #
+#                          MAIN\TI2530DB\" -I "C:\Texas                       #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\MT\" -I "C:\Texas Instruments\ZStack-CC2530- #
+#                          2.3.0-1.4.0\Projects\zstack\Samples\ParkingS\CC253 #
+#                          0DB\..\..\..\..\..\COMPONENTS\HAL\INCLUDE\" -I     #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Pr #
+#                          ojects\zstack\Samples\ParkingS\CC2530DB\..\..\..\. #
+#                          .\..\COMPONENTS\HAL\TARGET\CC2530EB\" -I           #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Pr #
+#                          ojects\zstack\Samples\ParkingS\CC2530DB\..\..\..\. #
+#                          .\..\COMPONENTS\OSAL\MCU\CCSOC\" -I "C:\Texas      #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\OSAL\INCLUDE\" -I "C:\Texas                  #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\STACK\AF\" -I "C:\Texas                      #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\STACK\NWK\" -I "C:\Texas                     #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\STACK\SEC\" -I "C:\Texas                     #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\STACK\SAPI\" -I "C:\Texas                    #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\STACK\SYS\" -I "C:\Texas                     #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\STACK\ZDO\" -I "C:\Texas                     #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\ZMAC\F8W\" -I "C:\Texas                      #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\ZMAC\" -I "C:\Texas                          #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\SERVICES\SADDR\" -I "C:\Texas                #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\SERVICES\SDATA\" -I "C:\Texas                #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\MAC\INCLUDE\" -I "C:\Texas                   #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\MAC\HIGH_LEVEL\" -I "C:\Texas                #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\MAC\LOW_LEVEL\srf04\" -I "C:\Texas           #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\MAC\LOW_LEVEL\srf04\SINGLE_CHIP\" -I         #
+#                          "C:\Program Files\IAR Systems\Embedded Workbench   #
+#                          5.3\8051\INC\" -I "C:\Program Files\IAR            #
+#                          Systems\Embedded Workbench 5.3\8051\INC\CLIB\"     #
+#                          -Ohz                                               #
+#    List file          =  C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Pro #
+#                          jects\zstack\Samples\ParkingS\CC2530DB\EndDeviceEB #
+#                          \List\ParkingStatus.lst                            #
+#    Object file        =  C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Pro #
+#                          jects\zstack\Samples\ParkingS\CC2530DB\EndDeviceEB #
+#                          \Obj\ParkingStatus.r51                             #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zstack\Samples\ParkingS\Source\ParkingStatus.C
+      1          /**************************************************
+      2          ** 功能：车位状态采集、LED车位状态灯控制
+      3          ** 硬件：红外光电传感器
+      4          ** 日期：2015-5-8
+      5          **************************************************/
+      6          #include <ioCC2530.h>
+
+   \                                 In  segment SFR_AN, at 0x80
+   \   union <unnamed> volatile __sfr _A_P0
+   \                     _A_P0:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0x90
+   \   union <unnamed> volatile __sfr _A_P1
+   \                     _A_P1:
+   \   000000                DS 1
+      7          #include "OnBoard.h"
+      8          
+      9          #define uint unsigned int
+     10          #define uchar unsigned char
+     11          
+     12          /* 相关IO口定义 */
+     13          #define CAR_001 P0_1    //红外传感器
+     14          #define LED_G_001 P0_0  //绿灯
+     15          #define LED_R_001 P0_7  //红灯
+     16          
+     17          #define CAR_002 P0_2    //红外传感器
+     18          #define LED_G_002 P1_2  //绿灯
+     19          #define LED_R_002 P1_4  //红灯
+     20          
+     21          #define CAR_003 P0_3    //红外传感器
+     22          #define LED_G_003 P1_3  //绿灯
+     23          #define LED_R_003 P1_7  //红灯
+     24          
+     25          /* 车位变量 */
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     26          uchar S001,S002,S003=3;
+   \                     S001:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+   \                     S002:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_I, align 1, keep-with-next
+   \                     S003:
+   \   000000                DS 1
+   \   000001                REQUIRE `?<Initializer for S003>`
+   \   000001                REQUIRE __INIT_XDATA_I
+     27          
+     28          /* 函数原型 */
+     29          void Delay_ms(uint Time);
+     30          void Parking_Status(void) ;  
+     31          void init(void);
+     32          
+     33          /* 初始化 */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     34          void init(void)
+   \                     init:
+     35          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+     36            CAR_001 = 0;
+   \   000000   C281         CLR     0x80.1
+     37            LED_G_001 = 0;
+   \   000002   C280         CLR     0x80.0
+     38            LED_R_001 = 0;
+   \   000004   C287         CLR     0x80.7
+     39            CAR_002 = 0;
+   \   000006   C282         CLR     0x80.2
+     40            LED_G_002 = 0;
+   \   000008   C292         CLR     0x90.2
+     41            LED_R_002 = 0;
+   \   00000A   C294         CLR     0x90.4
+     42            CAR_003 = 0;
+   \   00000C   C283         CLR     0x80.3
+     43            LED_G_003 = 0;
+   \   00000E   C293         CLR     0x90.3
+     44            LED_R_003 = 0;
+   \   000010   C297         CLR     0x90.7
+     45          
+     46          }
+   \   000012   02....       LJMP    ?BRET
+   \   000015                REQUIRE _A_P0
+   \   000015                REQUIRE _A_P1
+     47          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     48          void Delay_ms(uint Time)  //延时ms
+   \                     Delay_ms:
+     49          {
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+   \   000005   EA           MOV     A,R2
+   \   000006   FE           MOV     R6,A
+   \   000007   EB           MOV     A,R3
+   \   000008   FF           MOV     R7,A
+   \   000009   8007         SJMP    ??Delay_ms_0
+     50            while(Time--)
+     51            {
+     52                MicroWait(1);
+   \                     ??Delay_ms_1:
+   \   00000B                ; Setup parameters for call to function Onboard_wait
+   \   00000B   7A01         MOV     R2,#0x1
+   \   00000D   7B00         MOV     R3,#0x0
+   \   00000F   12....       LCALL   ??Onboard_wait?relay
+     53            }
+   \                     ??Delay_ms_0:
+   \   000012   EE           MOV     A,R6
+   \   000013   F8           MOV     R0,A
+   \   000014   EF           MOV     A,R7
+   \   000015   F9           MOV     R1,A
+   \   000016   74FF         MOV     A,#-0x1
+   \   000018   28           ADD     A,R0
+   \   000019   1E           DEC     R6
+   \   00001A   74FF         MOV     A,#-0x1
+   \   00001C   39           ADDC    A,R1
+   \   00001D   FF           MOV     R7,A
+   \   00001E   E8           MOV     A,R0
+   \   00001F   7001         JNZ     ??Delay_ms_2
+   \   000021   E9           MOV     A,R1
+   \                     ??Delay_ms_2:
+   \   000022   70E7         JNZ     ??Delay_ms_1
+     54          }
+   \   000024   7F01         MOV     R7,#0x1
+   \   000026   02....       LJMP    ?BANKED_LEAVE_XDATA
+     55          
+     56          /* 车位状态 */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     57          void Parking_Status()   
+   \                     Parking_Status:
+     58          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+     59            init(); //初始化
+   \   000004                ; Setup parameters for call to function init
+   \   000004   12....       LCALL   ??init?relay
+     60            
+     61            S001 = CAR_001==1?1:0;
+   \   000007   A281         MOV     C,0x80.1
+   \   000009   5004         JNC     ??Parking_Status_0
+   \   00000B   D2F0         SETB    B.0
+   \   00000D   8002         SJMP    ??Parking_Status_1
+   \                     ??Parking_Status_0:
+   \   00000F   C2F0         CLR     B.0
+   \                     ??Parking_Status_1:
+   \   000011   A2F0         MOV     C,B.0
+   \   000013   E4           CLR     A
+   \   000014   92E0         MOV     0xE0 /* A   */.0,C
+   \   000016   90....       MOV     DPTR,#S001
+   \   000019   F0           MOVX    @DPTR,A
+     62            LED_G_001 = CAR_001==0?1:0;
+   \   00001A   E580         MOV     A,0x80
+   \   00001C   FA           MOV     R2,A
+   \   00001D   E580         MOV     A,0x80
+   \   00001F   FB           MOV     R3,A
+   \   000020   EA           MOV     A,R2
+   \   000021   A2E1         MOV     C,0xE0 /* A   */.1
+   \   000023   4004         JC      ??Parking_Status_2
+   \   000025   D2F0         SETB    B.0
+   \   000027   8002         SJMP    ??Parking_Status_3
+   \                     ??Parking_Status_2:
+   \   000029   C2F0         CLR     B.0
+   \                     ??Parking_Status_3:
+   \   00002B   A2F0         MOV     C,B.0
+   \   00002D   E4           CLR     A
+   \   00002E   92E0         MOV     0xE0 /* A   */.0,C
+   \   000030   C0E0         PUSH    A
+   \   000032   74FE         MOV     A,#-0x2
+   \   000034   5B           ANL     A,R3
+   \   000035   FA           MOV     R2,A
+   \   000036   D0E0         POP     A
+   \   000038   4A           ORL     A,R2
+   \   000039   F580         MOV     0x80,A
+     63            LED_R_001 = CAR_001==1?1:0;
+   \   00003B   A281         MOV     C,0x80.1
+   \   00003D   9287         MOV     0x80.7,C
+     64            
+     65            S002 = CAR_002==1?1:0;
+   \   00003F   A282         MOV     C,0x80.2
+   \   000041   5004         JNC     ??Parking_Status_4
+   \   000043   D2F0         SETB    B.0
+   \   000045   8002         SJMP    ??Parking_Status_5
+   \                     ??Parking_Status_4:
+   \   000047   C2F0         CLR     B.0
+   \                     ??Parking_Status_5:
+   \   000049   A2F0         MOV     C,B.0
+   \   00004B   E4           CLR     A
+   \   00004C   92E0         MOV     0xE0 /* A   */.0,C
+   \   00004E   90....       MOV     DPTR,#S002
+   \   000051   12....       LCALL   ?Subroutine0 & 0xFFFF
+     66            LED_G_002 = CAR_002==0?1:0;
+   \                     ??CrossCallReturnLabel_0:
+   \   000054   A2E2         MOV     C,0xE0 /* A   */.2
+   \   000056   4004         JC      ??Parking_Status_6
+   \   000058   D2F0         SETB    B.0
+   \   00005A   8002         SJMP    ??Parking_Status_7
+   \                     ??Parking_Status_6:
+   \   00005C   C2F0         CLR     B.0
+   \                     ??Parking_Status_7:
+   \   00005E   A2F0         MOV     C,B.0
+   \   000060   E4           CLR     A
+   \   000061   92E0         MOV     0xE0 /* A   */.0,C
+   \   000063   33           RLC     A
+   \   000064   33           RLC     A
+   \   000065   54FC         ANL     A,#0xfc
+   \   000067   C0E0         PUSH    A
+   \   000069   74FB         MOV     A,#-0x5
+   \   00006B   5B           ANL     A,R3
+   \   00006C   FA           MOV     R2,A
+   \   00006D   D0E0         POP     A
+   \   00006F   4A           ORL     A,R2
+   \   000070   F590         MOV     0x90,A
+     67            LED_R_002 = CAR_002==1?1:0;
+   \   000072   A282         MOV     C,0x80.2
+   \   000074   9294         MOV     0x90.4,C
+     68            
+     69            S003 = CAR_003==1?1:0;
+   \   000076   A283         MOV     C,0x80.3
+   \   000078   5004         JNC     ??Parking_Status_8
+   \   00007A   D2F0         SETB    B.0
+   \   00007C   8002         SJMP    ??Parking_Status_9
+   \                     ??Parking_Status_8:
+   \   00007E   C2F0         CLR     B.0
+   \                     ??Parking_Status_9:
+   \   000080   A2F0         MOV     C,B.0
+   \   000082   E4           CLR     A
+   \   000083   92E0         MOV     0xE0 /* A   */.0,C
+   \   000085   90....       MOV     DPTR,#S003
+   \   000088   12....       LCALL   ?Subroutine0 & 0xFFFF
+     70            LED_G_003 = CAR_003==0?1:0;
+   \                     ??CrossCallReturnLabel_1:
+   \   00008B   A2E3         MOV     C,0xE0 /* A   */.3
+   \   00008D   4004         JC      ??Parking_Status_10
+   \   00008F   D2F0         SETB    B.0
+   \   000091   8002         SJMP    ??Parking_Status_11
+   \                     ??Parking_Status_10:
+   \   000093   C2F0         CLR     B.0
+   \                     ??Parking_Status_11:
+   \   000095   A2F0         MOV     C,B.0
+   \   000097   E4           CLR     A
+   \   000098   92E0         MOV     0xE0 /* A   */.0,C
+   \   00009A   33           RLC     A
+   \   00009B   33           RLC     A
+   \   00009C   33           RLC     A
+   \   00009D   54F8         ANL     A,#0xf8
+   \   00009F   C0E0         PUSH    A
+   \   0000A1   74F7         MOV     A,#-0x9
+   \   0000A3   5B           ANL     A,R3
+   \   0000A4   FA           MOV     R2,A
+   \   0000A5   D0E0         POP     A
+   \   0000A7   4A           ORL     A,R2
+   \   0000A8   F590         MOV     0x90,A
+     71            LED_R_003 = CAR_003==1?1:0;
+   \   0000AA   A283         MOV     C,0x80.3
+   \   0000AC   9297         MOV     0x90.7,C
+     72          }
+   \   0000AE   D083         POP     DPH
+   \   0000B0   D082         POP     DPL
+   \   0000B2   02....       LJMP    ?BRET
+   \   0000B5                REQUIRE _A_P0
+   \   0000B5                REQUIRE _A_P1
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   F0           MOVX    @DPTR,A
+   \   000001   E580         MOV     A,0x80
+   \   000003   FA           MOV     R2,A
+   \   000004   E590         MOV     A,0x90
+   \   000006   FB           MOV     R3,A
+   \   000007   EA           MOV     A,R2
+   \   000008   22           RET
+
+   \                                 In  segment XDATA_ID, align 1, keep-with-next
+   \                     `?<Initializer for S003>`:
+   \   000000   03           DB 3
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??init?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    init
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??Delay_ms?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    Delay_ms
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??Parking_Status?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    Parking_Status
+
+   Maximum stack usage in bytes:
+
+     Function          ISTACK PSTACK XSTACK
+     --------          ------ ------ ------
+     Delay_ms              0      0      9
+       -> Onboard_wait     0      0     18
+     Parking_Status        3      0      0
+       -> init             4      0      0
+     init                  0      0      0
+
+
+   Segment part sizes:
+
+     Function/Label          Bytes
+     --------------          -----
+     _A_P0                      1
+     _A_P1                      1
+     S001                       1
+     S002                       1
+     S003                       1
+     init                      21
+     Delay_ms                  41
+     Parking_Status           181
+     ?Subroutine0               9
+     ?<Initializer for S003>    1
+     ??init?relay               6
+     ??Delay_ms?relay           6
+     ??Parking_Status?relay     6
+
+ 
+ 252 bytes in segment BANKED_CODE
+  18 bytes in segment BANK_RELAYS
+   2 bytes in segment SFR_AN
+   1 byte  in segment XDATA_I
+   1 byte  in segment XDATA_ID
+   2 bytes in segment XDATA_Z
+ 
+ 271 bytes of CODE  memory
+   0 bytes of DATA  memory (+ 2 bytes shared)
+   3 bytes of XDATA memory
+
+Errors: none
+Warnings: none

@@ -1,0 +1,1150 @@
+///////////////////////////////////////////////////////////////////////////////
+//                                                                            /
+// IAR C/C++ Compiler V7.51A/W32 for 8051               30/May/2015  21:45:48 /
+// Copyright 2004-2009 IAR Systems AB.                                        /
+//                                                                            /
+//    Core               =  plain                                             /
+//    Code model         =  banked                                            /
+//    Data model         =  large                                             /
+//    Calling convention =  xdata reentrant                                   /
+//    Constant location  =  data_rom                                          /
+//    Dptr setup         =  1,16                                              /
+//    Source file        =  C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Co /
+//                          mponents\mt\MT_NWK.c                              /
+//    Command line       =  -f "C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4. /
+//                          0\Projects\zstack\Samples\ParkingS\CC2530DB\..\.. /
+//                          \..\Tools\CC2530DB\f8wEndev.cfg" (-DCPU32MHZ      /
+//                          -DROOT=__near_func -DBLINK_LEDS) -f "C:\Texas     /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\..\..\..\Tools\CC2 /
+//                          530DB\f8wConfig.cfg" (-DSECURE=0                  /
+//                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                 /
+//                          -DDEFAULT_CHANLIST=0x00000800                     /
+//                          -DZDAPP_CONFIG_PAN_ID=0xFFFF                      /
+//                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_M /
+//                          ASK=0x007F -DBEACON_REQUEST_DELAY=100             /
+//                          -DBEACON_REQ_DELAY_MASK=0x00FF                    /
+//                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_P /
+//                          OLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7           /
+//                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3   /
+//                          -DNWK_MAX_DATA_RETRIES=2                          /
+//                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9        /
+//                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40          /
+//                          -DNWK_MAX_BINDING_ENTRIES=4                       /
+//                          -DMAX_BINDING_CLUSTER_IDS=4                       /
+//                          "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07, 0x09,     /
+//                          0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08,   /
+//                          0x0A, 0x0C, 0x0D}" -DMAC_MAX_FRAME_SIZE=116       /
+//                          "-DCONST=const __code" -DGENERIC=__generic        /
+//                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000       /
+//                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)  /
+//                          -DREJOIN_POLL_RATE=440 "C:\Texas                  /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Components\ /
+//                          mt\MT_NWK.c" -D NWK_AUTO_POLL -D ENDDEVICE -D     /
+//                          ZTOOL_P1 -D MT_TASK -D MT_SYS_FUNC -D             /
+//                          MT_ZDO_FUNC -D SerialApp_CallBack -D              /
+//                          xLCD_SUPPORTED=DEBUG -lC "C:\Texas                /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\EndDeviceEB\List\" /
+//                           -lA "C:\Texas Instruments\ZStack-CC2530-2.3.0-1. /
+//                          4.0\Projects\zstack\Samples\ParkingS\CC2530DB\End /
+//                          DeviceEB\List\" --diag_suppress Pe001,Pa010 -o    /
+//                          "C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\P /
+//                          rojects\zstack\Samples\ParkingS\CC2530DB\EndDevic /
+//                          eEB\Obj\" -e --require_prototypes --debug         /
+//                          --core=plain --dptr=16,1 --data_model=large       /
+//                          --code_model=banked --calling_convention=xdata_re /
+//                          entrant --place_constants=data_rom                /
+//                          --nr_virtual_regs 16 -I "C:\Texas                 /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\" -I "C:\Texas     /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\..\SOURCE\" -I     /
+//                          "C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\P /
+//                          rojects\zstack\Samples\ParkingS\CC2530DB\..\..\.. /
+//                          \ZMAIN\TI2530DB\" -I "C:\Texas                    /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COM /
+//                          PONENTS\MT\" -I "C:\Texas                         /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COM /
+//                          PONENTS\HAL\INCLUDE\" -I "C:\Texas                /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COM /
+//                          PONENTS\HAL\TARGET\CC2530EB\" -I "C:\Texas        /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COM /
+//                          PONENTS\OSAL\MCU\CCSOC\" -I "C:\Texas             /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COM /
+//                          PONENTS\OSAL\INCLUDE\" -I "C:\Texas               /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COM /
+//                          PONENTS\STACK\AF\" -I "C:\Texas                   /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COM /
+//                          PONENTS\STACK\NWK\" -I "C:\Texas                  /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COM /
+//                          PONENTS\STACK\SEC\" -I "C:\Texas                  /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COM /
+//                          PONENTS\STACK\SAPI\" -I "C:\Texas                 /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COM /
+//                          PONENTS\STACK\SYS\" -I "C:\Texas                  /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COM /
+//                          PONENTS\STACK\ZDO\" -I "C:\Texas                  /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COM /
+//                          PONENTS\ZMAC\F8W\" -I "C:\Texas                   /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COM /
+//                          PONENTS\ZMAC\" -I "C:\Texas                       /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COM /
+//                          PONENTS\SERVICES\SADDR\" -I "C:\Texas             /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COM /
+//                          PONENTS\SERVICES\SDATA\" -I "C:\Texas             /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COM /
+//                          PONENTS\MAC\INCLUDE\" -I "C:\Texas                /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COM /
+//                          PONENTS\MAC\HIGH_LEVEL\" -I "C:\Texas             /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COM /
+//                          PONENTS\MAC\LOW_LEVEL\srf04\" -I "C:\Texas        /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COM /
+//                          PONENTS\MAC\LOW_LEVEL\srf04\SINGLE_CHIP\" -I      /
+//                          "C:\Program Files\IAR Systems\Embedded Workbench  /
+//                          5.3\8051\INC\" -I "C:\Program Files\IAR           /
+//                          Systems\Embedded Workbench 5.3\8051\INC\CLIB\"    /
+//                          -Ohz                                              /
+//    List file          =  C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Pr /
+//                          ojects\zstack\Samples\ParkingS\CC2530DB\EndDevice /
+//                          EB\List\MT_NWK.s51                                /
+//                                                                            /
+//                                                                            /
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME MT_NWK
+
+        RTMODEL "__calling_convention", "xdata_reentrant"
+        RTMODEL "__code_model", "banked"
+        RTMODEL "__core", "plain"
+        RTMODEL "__data_model", "large"
+        RTMODEL "__dptr_size", "16"
+        RTMODEL "__extended_stack", "disabled"
+        RTMODEL "__location_for_constants", "data"
+        RTMODEL "__number_of_dptrs", "1"
+        RTMODEL "__rt_version", "1"
+
+        RSEG DOVERLAY:DATA:NOROOT(0)
+        RSEG IOVERLAY:IDATA:NOROOT(0)
+        RSEG ISTACK:IDATA:NOROOT(0)
+        RSEG PSTACK:XDATA:NOROOT(0)
+        RSEG XSTACK:XDATA:NOROOT(0)
+
+        EXTERN __INIT_XDATA_Z
+
+        PUBLIC _nwkCallbackSub
+// C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Components\mt\MT_NWK.c
+//    1 /**************************************************************************************************
+//    2   Filename:       MT_NWK.c
+//    3   Revised:        $Date: 2009-08-26 14:17:16 -0700 (Wed, 26 Aug 2009) $
+//    4   Revision:       $Revision: 20661 $
+//    5 
+//    6 
+//    7     Description:    MonitorTest functions for the NWK layer.
+//    8 
+//    9     Copyright 2007-2009 Texas Instruments Incorporated. All rights reserved.
+//   10 
+//   11     IMPORTANT: Your use of this Software is limited to those specific rights
+//   12     granted under the terms of a software license agreement between the user
+//   13     who downloaded the software, his/her employer (which must be your employer)
+//   14     and Texas Instruments Incorporated (the "License").  You may not use this
+//   15     Software unless you agree to abide by the terms of the License. The License
+//   16     limits your use, and you acknowledge, that the Software may not be modified,
+//   17     copied or distributed unless embedded on a Texas Instruments microcontroller
+//   18     or used solely and exclusively in conjunction with a Texas Instruments radio
+//   19     frequency transceiver, which is integrated into your product.  Other than for
+//   20     the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+//   21     works of, modify, distribute, perform, display or sell this Software and/or
+//   22     its documentation for any purpose.
+//   23 
+//   24     YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+//   25     PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+//   26     INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+//   27     NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+//   28     TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+//   29     NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+//   30     LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+//   31     INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+//   32     OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+//   33     OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+//   34     (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+//   35 
+//   36     Should you have any questions regarding your right to use this Software,
+//   37     contact Texas Instruments Incorporated at www.TI.com.
+//   38 
+//   39 **************************************************************************************************/
+//   40 
+//   41 /***************************************************************************************************
+//   42  * INCLUDES
+//   43  ***************************************************************************************************/
+//   44 #include "ZComDef.h"
+//   45 #include "MT.h"
+//   46 #include "MT_NWK.h"
+//   47 #include "NLMEDE.h"
+//   48 #include "nwk.h"
+//   49 #include "nwk_globals.h"
+//   50 #include "nwk_util.h"
+//   51 #include "OSAL.h"
+//   52 #include "ZDApp.h"
+//   53 
+//   54 #if !defined( WIN32 )
+//   55   #include "OnBoard.h"
+//   56 #endif
+//   57 
+//   58 /***************************************************************************************************
+//   59  * GLOBAL VARIABLES
+//   60  ***************************************************************************************************/
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+//   61 uint16 _nwkCallbackSub;
+_nwkCallbackSub:
+        DS 2
+        REQUIRE __INIT_XDATA_Z
+
+        END
+//   62 
+//   63 /*********************************************************************
+//   64  * TYPEDEFS
+//   65  */
+//   66 
+//   67 /***************************************************************************************************
+//   68  * LOCAL FUNCTIONS
+//   69  ***************************************************************************************************/
+//   70 #if defined (MT_NWK_FUNC)
+//   71 void MT_NldeDataRequest(uint8 *pBuf);
+//   72 void MT_NlmeNetworkFormationRequest(uint8 *pBuf);
+//   73 void MT_NlmePermitJoiningRequest(uint8 *pBuf);
+//   74 void MT_NlmeStartRouterRequest(uint8 *pBuf);
+//   75 void MT_NlmeJoinRequest(uint8 *pBuf);
+//   76 void MT_NlmeLeaveRequest(uint8 *pBuf);
+//   77 void MT_NlmeResetRequest(uint8 *pBuf);
+//   78 void MT_NlmeGetRequest(uint8 *pBuf);
+//   79 void MT_NlmeSetRequest(uint8 *pBuf);
+//   80 void MT_NlmeNetworkDiscoveryRequest(uint8 *pBuf);
+//   81 void MT_NlmeRouteDiscoveryRequest(uint8 *pBuf);
+//   82 void MT_NlmeDirectJoinRequest(uint8 *pBuf);
+//   83 void MT_NlmeOrphanJoinRequest(uint8 *pBuf);
+//   84 
+//   85 uint8 MT_Nwk_DataRequest( uint16 dstAddr, uint8 nsduLen, uint8* nsdu,
+//   86                          uint8 nsduHandle, uint16 nsduHandleOptions,
+//   87                          uint8 secure, uint8 discoverRoute,
+//   88                          uint8 radius);
+//   89 #endif /* MT_NWK_FUNC */
+//   90 
+//   91 #if defined (MT_NWK_FUNC)
+//   92 /***************************************************************************************************
+//   93  * @fn      MT_NwkCommandProcessing
+//   94  *
+//   95  * @brief
+//   96  *
+//   97  *   Process all the NWK commands that are issued by test tool
+//   98  *
+//   99  * @param   cmd_id - Command ID
+//  100  * @param   len    - Length of received SPI data message
+//  101  * @param   pData  - pointer to received SPI data message
+//  102  *
+//  103  * @return  status
+//  104  ***************************************************************************************************/
+//  105 uint8 MT_NwkCommandProcessing(uint8 *pBuf)
+//  106 {
+//  107   uint8 status = MT_RPC_SUCCESS;
+//  108 
+//  109   switch (pBuf[MT_RPC_POS_CMD1])
+//  110   {
+//  111     case MT_NWK_INIT:
+//  112       nwk_init(NWK_TaskID);
+//  113       break;
+//  114 
+//  115     case MT_NLDE_DATA_REQ:
+//  116       MT_NldeDataRequest(pBuf);
+//  117       break;
+//  118 
+//  119     case MT_NLME_NETWORK_FORMATION_REQ:
+//  120       MT_NlmeNetworkFormationRequest(pBuf);
+//  121       break;
+//  122 
+//  123     case MT_NLME_PERMIT_JOINING_REQ:
+//  124        MT_NlmePermitJoiningRequest(pBuf);
+//  125       break;
+//  126 
+//  127      case MT_NLME_JOIN_REQ:
+//  128        MT_NlmeJoinRequest(pBuf);
+//  129        break;
+//  130 
+//  131      case MT_NLME_LEAVE_REQ:
+//  132        MT_NlmeLeaveRequest(pBuf);
+//  133        break;
+//  134 
+//  135      case MT_NLME_RESET_REQ:
+//  136        MT_NlmeResetRequest(pBuf);
+//  137        break;
+//  138 
+//  139      case MT_NLME_GET_REQ:
+//  140        MT_NlmeGetRequest(pBuf);
+//  141        break;
+//  142 
+//  143      case MT_NLME_SET_REQ:
+//  144        MT_NlmeSetRequest(pBuf);
+//  145        break;
+//  146 
+//  147      case MT_NLME_NETWORK_DISCOVERY_REQ:
+//  148        MT_NlmeNetworkDiscoveryRequest(pBuf);
+//  149        break;
+//  150 
+//  151      case MT_NLME_ROUTE_DISCOVERY_REQ:
+//  152        MT_NlmeRouteDiscoveryRequest(pBuf);
+//  153        break;
+//  154 
+//  155      case MT_NLME_DIRECT_JOIN_REQ:
+//  156        MT_NlmeDirectJoinRequest(pBuf);
+//  157        break;
+//  158 
+//  159      case MT_NLME_ORPHAN_JOIN_REQ:
+//  160        MT_NlmeOrphanJoinRequest(pBuf);
+//  161        break;
+//  162 
+//  163     case MT_NLME_START_ROUTER_REQ:
+//  164       MT_NlmeStartRouterRequest(pBuf);
+//  165       break;
+//  166 
+//  167     default:
+//  168       status = MT_RPC_ERR_COMMAND_ID;
+//  169       break;
+//  170   }
+//  171 
+//  172   return status;
+//  173 }
+//  174 
+//  175 /***************************************************************************************************
+//  176  * @fn      MT_NldeDataReq
+//  177  *
+//  178  * @brief   Process NLDE Data Request commands
+//  179  *
+//  180  * @param   pBuf - pointer to received buffer
+//  181  *
+//  182  * @return  void
+//  183  ***************************************************************************************************/
+//  184 void MT_NldeDataRequest(uint8 *pBuf)
+//  185 {
+//  186   uint8 retValue = ZFailure;
+//  187   uint16 dstAddr;
+//  188   uint8 dataLen = 0;
+//  189   uint8 *dataPtr;
+//  190   uint8 cmdId;
+//  191 
+//  192   /* parse header */
+//  193   cmdId = pBuf[MT_RPC_POS_CMD1];
+//  194   pBuf += MT_RPC_FRAME_HDR_SZ;
+//  195 
+//  196   /* First read the DstAddr */
+//  197   dstAddr = BUILD_UINT16( pBuf[0], pBuf[1] );
+//  198   pBuf += sizeof( dstAddr );
+//  199 
+//  200   /* Get the NSDU details */
+//  201   dataLen = *pBuf++;
+//  202   dataPtr = pBuf;
+//  203 
+//  204   /* Skip a length of ZTEST_DEFAULT_DATA_LEN */
+//  205   pBuf += ZTEST_DEFAULT_DATA_LEN;
+//  206 
+//  207   /* Send out Data Request */
+//  208   retValue = MT_Nwk_DataRequest(dstAddr, dataLen, dataPtr, pBuf[0], BUILD_UINT16(pBuf[1], pBuf[2]),
+//  209                                 pBuf[3], pBuf[4], pBuf[5]);
+//  210 
+//  211   /* Build and send back the response */
+//  212   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_NWK), cmdId, 1, &retValue);
+//  213 }
+//  214 
+//  215 
+//  216 /***************************************************************************************************
+//  217  * @fn      MT_NlmeNetworkFormationRequest
+//  218  *
+//  219  * @brief   Network Formation Request
+//  220  *
+//  221  * @param   pBuf - pointer to the received buffer
+//  222  *
+//  223  * @return  void
+//  224  ***************************************************************************************************/
+//  225 void MT_NlmeNetworkFormationRequest(uint8 *pBuf)
+//  226 {
+//  227   uint8 retValue = ZFailure;
+//  228 	uint16 panId;
+//  229   uint32 channelList;
+//  230   uint8 cmdId;
+//  231 
+//  232   /* parse header */
+//  233   cmdId = pBuf[MT_RPC_POS_CMD1];
+//  234   pBuf += MT_RPC_FRAME_HDR_SZ;
+//  235 
+//  236   /* Build panId */
+//  237   panId = BUILD_UINT16( pBuf[0], pBuf[1]);
+//  238   pBuf += sizeof(uint16);
+//  239 			
+//  240   /* Build the channel list */
+//  241   channelList = osal_build_uint32(pBuf, 4);
+//  242   pBuf += sizeof(uint32);
+//  243 
+//  244   if ( ZG_BUILD_COORDINATOR_TYPE && ZG_DEVICE_COORDINATOR_TYPE )
+//  245   {
+//  246     retValue = NLME_NetworkFormationRequest( panId, NULL, channelList, pBuf[0], pBuf[1], pBuf[2], pBuf[3] );
+//  247   }
+//  248   else
+//  249   {
+//  250     retValue = ZUnsupportedMode;
+//  251   }
+//  252 
+//  253   /* Build and send back the response */
+//  254   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_NWK), cmdId, 1, &retValue);
+//  255 }
+//  256 
+//  257 /***************************************************************************************************
+//  258  * @fn      MT_NlmePermitJoiningRequest
+//  259  *
+//  260  * @brief   Permit Joining Request
+//  261  *
+//  262  * @param   pBuf - pointer to the received buffer
+//  263  *
+//  264  * @return  void
+//  265  ***************************************************************************************************/
+//  266 void MT_NlmePermitJoiningRequest(uint8 *pBuf)
+//  267 {
+//  268   uint8 retValue = ZFailure;
+//  269   uint8 cmdId;
+//  270 
+//  271   /* parse header */
+//  272   cmdId = pBuf[MT_RPC_POS_CMD1];
+//  273   pBuf += MT_RPC_FRAME_HDR_SZ;
+//  274 
+//  275   if (ZSTACK_ROUTER_BUILD)
+//  276   {
+//  277     retValue = NLME_PermitJoiningRequest(*pBuf);
+//  278   }
+//  279   else
+//  280   {
+//  281     retValue = ZUnsupportedMode;
+//  282   }
+//  283 
+//  284   /* Build and send back the response */
+//  285   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_NWK), cmdId, 1, &retValue);
+//  286 }
+//  287 
+//  288 /***************************************************************************************************
+//  289  * @fn      MT_NlmeStartRouterRequest
+//  290  *
+//  291  * @brief   Start Router Request
+//  292  *
+//  293  * @param   pBuf - pointer to the received buffer
+//  294  *
+//  295  * @return  void
+//  296  ***************************************************************************************************/
+//  297 void MT_NlmeStartRouterRequest(uint8 *pBuf)
+//  298 {
+//  299   uint8 retValue = ZFailure;
+//  300   uint8 cmdId;
+//  301 
+//  302   /* parse header */
+//  303   cmdId = pBuf[MT_RPC_POS_CMD1];
+//  304   pBuf += MT_RPC_FRAME_HDR_SZ;
+//  305 
+//  306   if ( ZSTACK_ROUTER_BUILD )
+//  307   {
+//  308     retValue = (uint8)NLME_StartRouterRequest(pBuf[0], pBuf[1], pBuf[2]);
+//  309   }
+//  310   else
+//  311   {
+//  312     retValue = ZUnsupportedMode;
+//  313   }
+//  314 
+//  315   /* Build and send back the response */
+//  316   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_NWK), cmdId, 1, &retValue);
+//  317 }
+//  318 
+//  319 /***************************************************************************************************
+//  320  * @fn      MT_NlmeJoinRequest
+//  321  *
+//  322  * @brief   Join Request
+//  323  *
+//  324  * @param   pBuf - pointer to the received buffer
+//  325  *
+//  326  * @return  void
+//  327  ***************************************************************************************************/
+//  328 void MT_NlmeJoinRequest(uint8 *pBuf)
+//  329 {
+//  330   uint8 retValue = ZFailure;
+//  331   uint8 dummyExPANID[Z_EXTADDR_LEN] = {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF};
+//  332   uint8 cmdId;
+//  333 
+//  334   /* parse header */
+//  335   cmdId = pBuf[MT_RPC_POS_CMD1];
+//  336   pBuf += MT_RPC_FRAME_HDR_SZ;
+//  337 
+//  338 	retValue = NLME_JoinRequest(dummyExPANID, BUILD_UINT16(pBuf[0], pBuf[1]), pBuf[2], pBuf[3]);
+//  339 
+//  340   if ( pBuf[6] & CAPINFO_RCVR_ON_IDLE )
+//  341   {
+//  342     /* The receiver is on, turn network layer polling off. */
+//  343     NLME_SetPollRate( 0 );
+//  344     NLME_SetQueuedPollRate( 0 );
+//  345     NLME_SetResponseRate( 0 );
+//  346   }
+//  347 
+//  348   /* Build and send back the response */
+//  349   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_NWK), cmdId, 1, &retValue);
+//  350 }
+//  351 
+//  352 /***************************************************************************************************
+//  353  * @fn      MT_NlmeLeaveRequest
+//  354  *
+//  355  * @brief   Leave Request
+//  356  *
+//  357  * @param   pBuf - pointer to the received buffer
+//  358  *
+//  359  * @return  void
+//  360  ***************************************************************************************************/
+//  361 void MT_NlmeLeaveRequest(uint8 *pBuf)
+//  362 {
+//  363   NLME_LeaveReq_t req;
+//  364   uint8 retValue = ZFailure;
+//  365   uint8 index, cmdId;
+//  366 
+//  367   /* parse header */
+//  368   cmdId = pBuf[MT_RPC_POS_CMD1];
+//  369   pBuf += MT_RPC_FRAME_HDR_SZ;
+//  370 
+//  371   /* If extAddr is all zeros, it means null pointer */
+//  372   for(index=0;((index < Z_EXTADDR_LEN) && (pBuf[index] == 0));index++);
+//  373 
+//  374   if (index == Z_EXTADDR_LEN)
+//  375   {
+//  376     req.extAddr = NULL;
+//  377   }
+//  378   else
+//  379   {
+//  380     req.extAddr = pBuf;
+//  381   }
+//  382 
+//  383   /* Increment the pointer */
+//  384   pBuf += Z_EXTADDR_LEN;
+//  385 
+//  386   req.removeChildren = FALSE;
+//  387   req.rejoin         = FALSE;
+//  388   req.silent         = FALSE;
+//  389 
+//  390   retValue = NLME_LeaveReq(&req);
+//  391 
+//  392   /* Build and send back the response */
+//  393   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_NWK), cmdId, 1, &retValue);
+//  394 }
+//  395 
+//  396 
+//  397 /***************************************************************************************************
+//  398  * @fn      MT_NlmeResetRequest
+//  399  *
+//  400  * @brief   Leave Request
+//  401  *
+//  402  * @param   pBuf - pointer to the received buffer
+//  403  *
+//  404  * @return  void
+//  405  ***************************************************************************************************/
+//  406 void MT_NlmeResetRequest(uint8 *pBuf)
+//  407 {
+//  408   uint8 retValue = NLME_ResetRequest();
+//  409 
+//  410   /* Build and send back the response */
+//  411   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_NWK), MT_NLME_RESET_REQ, 1, &retValue);
+//  412 }
+//  413 
+//  414 /***************************************************************************************************
+//  415  * @fn      MT_NlmeGetRequest
+//  416  *
+//  417  * @brief   Get Request
+//  418  *
+//  419  * @param   pBuf - pointer to the received buffer
+//  420  *
+//  421  * @return  void
+//  422  ***************************************************************************************************/
+//  423 void MT_NlmeGetRequest(uint8 *pBuf)
+//  424 {
+//  425   uint8 dataBuf[11];
+//  426   uint8 attr, index, cmdId;
+//  427 
+//  428   /* parse header */
+//  429   cmdId = pBuf[MT_RPC_POS_CMD1];
+//  430   pBuf += MT_RPC_FRAME_HDR_SZ;
+//  431 
+//  432   attr = *pBuf++;
+//  433   index = *pBuf;
+//  434 
+//  435   dataBuf[0] = NLME_GetRequest((ZNwkAttributes_t )attr, index, &dataBuf[1]);
+//  436 
+//  437   /* Build and send back the response */
+//  438   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_NWK), cmdId,
+//  439                                11, dataBuf );
+//  440 }
+//  441 
+//  442 /***************************************************************************************************
+//  443  * @fn      MT_NlmeSetRequest
+//  444  *
+//  445  * @brief   Set Request
+//  446  *
+//  447  * @param   pBuf - pointer to the received buffer
+//  448  *
+//  449  * @return  void
+//  450  ***************************************************************************************************/
+//  451 void MT_NlmeSetRequest(uint8 *pBuf)
+//  452 {
+//  453   uint8 retValue = ZFailure;
+//  454   uint8 cmdId;
+//  455 
+//  456   /* parse header */
+//  457   cmdId = pBuf[MT_RPC_POS_CMD1];
+//  458   pBuf += MT_RPC_FRAME_HDR_SZ;
+//  459 
+//  460   retValue = NLME_SetRequest((ZNwkAttributes_t)pBuf[0], pBuf[1], &pBuf[2]);
+//  461 
+//  462   /* Update NV */
+//  463   ZDApp_NVUpdate();
+//  464 
+//  465   /* Build and send back the response */
+//  466   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_NWK), cmdId, 1, &retValue );
+//  467 }
+//  468 
+//  469 /***************************************************************************************************
+//  470  * @fn      MT_NlmeNetworkDiscoveryRequest
+//  471  *
+//  472  * @brief   Network Discovery Request
+//  473  *
+//  474  * @param   pBuf - pointer to the received buffer
+//  475  *
+//  476  * @return  void
+//  477  ***************************************************************************************************/
+//  478 void MT_NlmeNetworkDiscoveryRequest(uint8 *pBuf)
+//  479 {
+//  480   uint8 retValue = ZFailure;
+//  481   uint8 cmdId;
+//  482   uint32 scanChannels;
+//  483 
+//  484   /* parse header */
+//  485   cmdId = pBuf[MT_RPC_POS_CMD1];
+//  486   pBuf += MT_RPC_FRAME_HDR_SZ;
+//  487 
+//  488   /* Scan channels */
+//  489   scanChannels = osal_build_uint32(pBuf, 4);
+//  490   pBuf += sizeof(uint32);
+//  491 
+//  492   retValue = NLME_NetworkDiscoveryRequest(scanChannels, *pBuf);
+//  493 
+//  494   /* Build and send back the response */
+//  495   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_NWK), cmdId, 1, &retValue );
+//  496 }
+//  497 
+//  498 /***************************************************************************************************
+//  499  * @fn      MT_NlmeRouteDiscoveryRequest
+//  500  *
+//  501  * @brief   Route Discovery Request
+//  502  *
+//  503  * @param   pBuf - pointer to the received buffer
+//  504  *
+//  505  * @return  void
+//  506  ***************************************************************************************************/
+//  507 void MT_NlmeRouteDiscoveryRequest(uint8 *pBuf)
+//  508 {
+//  509   uint8 retValue = ZFailure;
+//  510   uint8 cmdId;
+//  511 
+//  512   /* parse header */
+//  513   cmdId = pBuf[MT_RPC_POS_CMD1];
+//  514   pBuf += MT_RPC_FRAME_HDR_SZ;
+//  515 
+//  516   if ( ZSTACK_ROUTER_BUILD )
+//  517   {
+//  518     retValue = NLME_RouteDiscoveryRequest(BUILD_UINT16(pBuf[0], pBuf[1]), pBuf[2], pBuf[3]);
+//  519   }
+//  520   else
+//  521   {
+//  522     retValue = ZUnsupportedMode;
+//  523   }
+//  524 
+//  525   /* Build and send back the response */
+//  526   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_NWK), cmdId, 1, &retValue);
+//  527 }
+//  528 
+//  529 /***************************************************************************************************
+//  530  * @fn      MT_NlmeDirectJoinRequest
+//  531  *
+//  532  * @brief   Direct Join Request
+//  533  *
+//  534  * @param   pBuf - pointer to the received buffer
+//  535  *
+//  536  * @return  void
+//  537  ***************************************************************************************************/
+//  538 void MT_NlmeDirectJoinRequest(uint8 *pBuf)
+//  539 {
+//  540   uint8 retValue = ZFailure;
+//  541   uint8 cmdId;
+//  542 
+//  543   /* parse header */
+//  544   cmdId = pBuf[MT_RPC_POS_CMD1];
+//  545   pBuf += MT_RPC_FRAME_HDR_SZ;
+//  546 
+//  547   if ( ZSTACK_ROUTER_BUILD )
+//  548   {
+//  549     retValue = NLME_DirectJoinRequest( pBuf, pBuf[8] );
+//  550   }
+//  551   else
+//  552   {
+//  553     retValue = ZUnsupportedMode;
+//  554   }
+//  555 
+//  556   /* Build and send back the response */
+//  557   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_NWK), cmdId, 1, &retValue);
+//  558 }
+//  559 
+//  560 /***************************************************************************************************
+//  561  * @fn      MT_NlmeOrphanJoinRequest
+//  562  *
+//  563  * @brief   Orphan Join Request
+//  564  *
+//  565  * @param   pBuf - pointer to the received buffer
+//  566  *
+//  567  * @return  void
+//  568  ***************************************************************************************************/
+//  569 void MT_NlmeOrphanJoinRequest(uint8 *pBuf)
+//  570 {
+//  571   uint8 i, j, attr;
+//  572   uint8 retValue = ZFailure;
+//  573   uint32 channelList;
+//  574   uint8 cmdId;
+//  575 
+//  576   if ( ZSTACK_END_DEVICE_BUILD )
+//  577   {
+//  578     /* parse header */
+//  579     cmdId = pBuf[MT_RPC_POS_CMD1];
+//  580     pBuf += MT_RPC_FRAME_HDR_SZ;
+//  581 
+//  582     /* Channel list bit mask */
+//  583     channelList = osal_build_uint32(pBuf, 4);
+//  584     pBuf += sizeof(uint32);
+//  585 
+//  586     /* Count number of channels */
+//  587     j = attr = 0;
+//  588 
+//  589     for (i = 0; i < ED_SCAN_MAXCHANNELS; i++)
+//  590     {
+//  591       if (channelList & (1 << i))
+//  592       {
+//  593         j++;
+//  594         attr = i;
+//  595       }
+//  596     }
+//  597 
+//  598     /* If only one channel specified */
+//  599     if (j == 1)
+//  600     {
+//  601       _NIB.scanDuration = *pBuf;
+//  602       _NIB.nwkLogicalChannel = attr;
+//  603       _NIB.channelList = channelList;
+//  604       if ( !_NIB.CapabilityInfo )
+//  605       {
+//  606         _NIB.CapabilityInfo = ZDO_Config_Node_Descriptor.CapabilityFlags;
+//  607       }
+//  608 
+//  609       devState = DEV_NWK_ORPHAN;
+//  610       retValue = (uint8)NLME_OrphanJoinRequest(channelList, *pBuf);
+//  611     }
+//  612     else
+//  613     {
+//  614       retValue = ZNwkInvalidParam;
+//  615     }
+//  616    }
+//  617    else
+//  618    {
+//  619      retValue = ZUnsupportedMode;
+//  620    }
+//  621 
+//  622   /* Build and send back the response */
+//  623   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_NWK), cmdId, 1, &retValue);
+//  624 }
+//  625 
+//  626 /***************************************************************************************************
+//  627  * @fn      MT_Nwk_DataRequest
+//  628  *
+//  629  * @brief   Nwk Data Request
+//  630  *
+//  631  * @param   dstAddr, nsduLen, nsdu, nsduHandle, nsduHandleOptions, secure, discoverRoute, radius
+//  632  *
+//  633  * @return  void
+//  634  ***************************************************************************************************/
+//  635 uint8 MT_Nwk_DataRequest(uint16 dstAddr, uint8 nsduLen, uint8* nsdu,
+//  636                          uint8 nsduHandle, uint16 nsduHandleOptions,
+//  637                          uint8 secure, uint8 discoverRoute,
+//  638                          uint8 radius)
+//  639 {
+//  640     uint8               status;
+//  641     NLDE_DataReqAlloc_t dra;
+//  642     NLDE_DataReq_t*     req;
+//  643 
+//  644 
+//  645     dra.overhead = sizeof(NLDE_DataReq_t);
+//  646     dra.nsduLen  = nsduLen;
+//  647     dra.secure   = secure;
+//  648 
+//  649     req = NLDE_DataReqAlloc(&dra);
+//  650 
+//  651     if ( req != NULL )
+//  652     {
+//  653       osal_memcpy(req->nfd.nsdu, nsdu, nsduLen);
+//  654 
+//  655       req->nfd.dstAddr           = dstAddr;
+//  656       req->nfd.nsduHandleOptions = nsduHandleOptions;
+//  657       req->nfd.discoverRoute     = discoverRoute;
+//  658       req->nfd.radius            = radius;
+//  659 
+//  660       status = NLDE_DataReq( req );
+//  661     }
+//  662     else
+//  663     {
+//  664       status = ZMemError;
+//  665     }
+//  666 
+//  667     return status;
+//  668 }
+//  669 #endif /* MT_NWK_FUNC */
+//  670 
+//  671 #if defined ( MT_NWK_CB_FUNC )             //NWK callback commands
+//  672 /***************************************************************************************************
+//  673  * @fn          nwk_MTCallbackSubDataConfirm
+//  674  *
+//  675  * @brief       Process the callback subscription for NLDE-DATA.confirm
+//  676  *
+//  677  * @param       nsduHandle  - APS handle
+//  678  * @param       Status      - result of data request
+//  679  *
+//  680  * @return      none
+//  681  ***************************************************************************************************/
+//  682 void nwk_MTCallbackSubDataConfirm(uint8 nsduHandle, ZStatus_t status)
+//  683 {
+//  684   uint8 buf[2];
+//  685 
+//  686   buf[0] = nsduHandle;
+//  687   buf[1] = (uint8)status;
+//  688 
+//  689   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_AREQ | (uint8)MT_RPC_SYS_NWK), MT_NLDE_DATA_CONF, 2, buf );
+//  690 }
+//  691 
+//  692 /***************************************************************************************************
+//  693  * @fn          nwk_MTCallbackSubDataIndication
+//  694  *
+//  695  * @brief       Process the callback subscription for NLDE-DATA.indication
+//  696  *
+//  697  * @param       SrcAddress      - 16 bit address
+//  698  * @param       nsduLength      - Length of incoming data
+//  699  * @param       nsdu            - Pointer to incoming data
+//  700  * @param       LinkQuality     - Link quality measured during
+//  701  *                                reception.
+//  702  *
+//  703  * @return      none
+//  704  ***************************************************************************************************/
+//  705 void nwk_MTCallbackSubDataIndication(uint16 SrcAddress, int16 nsduLength, uint8 *nsdu, uint8 LinkQuality)
+//  706 {
+//  707   uint8 *msgPtr;
+//  708   uint8 *msg;
+//  709   uint8 msgLen;
+//  710 
+//  711   msgLen = sizeof( uint16 ) + sizeof( uint8 ) + ZTEST_DEFAULT_DATA_LEN
+//  712             + sizeof( uint8);
+//  713 
+//  714   msgPtr = osal_mem_alloc( msgLen );
+//  715   if ( msgPtr )
+//  716   {
+//  717     //Fill up the data bytes
+//  718     msg = msgPtr;
+//  719 
+//  720     //First fill in details
+//  721     *msg++ = LO_UINT16( SrcAddress );
+//  722     *msg++ = HI_UINT16( SrcAddress );
+//  723 
+//  724     //Since the max packet size is less than 255 bytes, a byte is enough
+//  725     //to represent nsdu length
+//  726     *msg++ = ( uint8 ) nsduLength;
+//  727 
+//  728     osal_memset( msg, NULL, ZTEST_DEFAULT_DATA_LEN ); // Clear the mem
+//  729     osal_memcpy( msg, nsdu, nsduLength );
+//  730     msg += ZTEST_DEFAULT_DATA_LEN;
+//  731 
+//  732     *msg++ = LinkQuality;
+//  733 
+//  734     MT_BuildAndSendZToolResponse( ((uint8)MT_RPC_CMD_AREQ | (uint8)MT_RPC_SYS_NWK), MT_NLDE_DATA_IND, msgLen, msgPtr );
+//  735 
+//  736     osal_mem_free( msgPtr );
+//  737   }
+//  738 }
+//  739 
+//  740 /***************************************************************************************************
+//  741  * @fn          nwk_MTCallbackSubInitCoordConfirm
+//  742  *
+//  743  * @brief       Process the callback subscription for NLME-INIT-COORD.confirm
+//  744  *
+//  745  * @param       Status - Result of NLME_InitCoordinatorRequest()
+//  746  *
+//  747  * @return      none
+//  748  ***************************************************************************************************/
+//  749 void nwk_MTCallbackSubInitCoordConfirm( ZStatus_t Status )
+//  750 {
+//  751   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_AREQ | (uint8)MT_RPC_SYS_NWK), MT_NLME_NETWORK_FORMATION_CONF,
+//  752                           sizeof(uint8), (uint8*)&Status);
+//  753 }
+//  754 
+//  755 /***************************************************************************************************
+//  756  * @fn          nwk_MTCallbackSubStartRouterConfirm
+//  757  *
+//  758  * @brief       Process the callback subscription for NLME-START-ROUTER.confirm
+//  759  *
+//  760  * @param       Status - Result of NLME_StartRouterRequest()
+//  761  *
+//  762  * @return      none
+//  763  ***************************************************************************************************/
+//  764 void nwk_MTCallbackSubStartRouterConfirm( ZStatus_t Status )
+//  765 {
+//  766   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_AREQ | (uint8)MT_RPC_SYS_NWK), MT_NLME_START_ROUTER_CONF,
+//  767                           sizeof(uint8), (uint8*)&Status);
+//  768 }
+//  769 
+//  770 /***************************************************************************************************
+//  771  * @fn          nwk_MTCallbackSubJoinConfirm
+//  772  *
+//  773  * @brief       Process the callback subscription for NLME-JOIN.confirm
+//  774  *
+//  775  * @param       Status - Result of NLME_JoinRequest()
+//  776  *
+//  777  * @return      none
+//  778  ***************************************************************************************************/
+//  779 void nwk_MTCallbackSubJoinConfirm(uint16 PanId, ZStatus_t Status)
+//  780 {
+//  781   uint8 msg[Z_EXTADDR_LEN + 3];
+//  782 
+//  783   /* This device's 64-bit address */
+//  784   ZMacGetReq( ZMacExtAddr, msg );
+//  785 
+//  786   msg[Z_EXTADDR_LEN + 0] = LO_UINT16(PanId);
+//  787   msg[Z_EXTADDR_LEN + 1] = HI_UINT16(PanId);
+//  788   msg[Z_EXTADDR_LEN + 2] = (uint8)Status;
+//  789 
+//  790   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_AREQ | (uint8)MT_RPC_SYS_NWK), MT_NLME_JOIN_CONF, Z_EXTADDR_LEN + 3, msg );
+//  791 }
+//  792 /***************************************************************************************************
+//  793  * @fn          nwk_MTCallbackSubNetworkDiscoveryConfirm
+//  794  *
+//  795  * @brief       Process the callback subscription for NLME-NWK_DISC.confirm
+//  796  *
+//  797  * @param       ResultCount			- number of networks discovered
+//  798  * @param				NetworkList			- pointer to list of network descriptors
+//  799  *
+//  800  * @return      void
+//  801  ***************************************************************************************************/
+//  802 void nwk_MTCallbackSubNetworkDiscoveryConfirm( uint8 ResultCount, networkDesc_t *NetworkList )
+//  803 {
+//  804 	uint8 len;
+//  805 	uint8 *msgPtr;
+//  806 	uint8 *msg;
+//  807 	uint8 i;
+//  808 
+//  809   // The message cannot be bigger then SPI_TX_BUFF_MAX.  Reduce resultCount if necessary
+//  810   if (ResultCount * sizeof(networkDesc_t) > MT_UART_TX_BUFF_MAX - (1 + SPI_0DATA_MSG_LEN))
+//  811   {
+//  812     ResultCount = (MT_UART_TX_BUFF_MAX - (1 + SPI_0DATA_MSG_LEN)) / sizeof(networkDesc_t);
+//  813   }
+//  814 
+//  815 	len = 1 + ResultCount * sizeof(networkDesc_t);
+//  816   msgPtr = osal_mem_alloc( len );
+//  817 	if ( msgPtr )
+//  818 	{
+//  819 	  /* Fill up the data bytes */
+//  820     msg = msgPtr;
+//  821 
+//  822 		*msg++ = ResultCount;
+//  823 
+//  824 		for ( i = 0; i < ResultCount; i++ )
+//  825 		{
+//  826 		  *msg++ = LO_UINT16( NetworkList->panId );
+//  827 		  *msg++ = HI_UINT16( NetworkList->panId );
+//  828 		  *msg++ = NetworkList->logicalChannel;
+//  829 		  *msg++ = NetworkList->beaconOrder;
+//  830 		  *msg++ = NetworkList->superFrameOrder;
+//  831 		  *msg++ = NetworkList->routerCapacity;
+//  832 		  *msg++ = NetworkList->deviceCapacity;
+//  833 		  *msg++ = NetworkList->version;
+//  834 		  *msg++ = NetworkList->stackProfile;
+//  835 		  //*msg++ = NetworkList->securityLevel;
+//  836 		
+//  837 			NetworkList = (networkDesc_t*)NetworkList->nextDesc;
+//  838 		}
+//  839 
+//  840     MT_BuildAndSendZToolResponse (((uint8)MT_RPC_CMD_AREQ | (uint8)MT_RPC_SYS_NWK), MT_NLME_NETWORK_DISCOVERY_CONF, len, msgPtr);
+//  841 
+//  842     osal_mem_free( msgPtr );
+//  843 	}
+//  844 }
+//  845 /***************************************************************************************************
+//  846  * @fn          nwk_MTCallbackSubJoinIndication
+//  847  *
+//  848  * @brief       Process the callback subscription for NLME-INIT-COORD.indication
+//  849  *
+//  850  * @param       ShortAddress - 16-bit address
+//  851  * @param       ExtendedAddress - IEEE (64-bit) address
+//  852  * @param       CapabilityInformation - Association Capability Information
+//  853  *
+//  854  * @return      ZStatus_t
+//  855  ***************************************************************************************************/
+//  856 void nwk_MTCallbackSubJoinIndication( uint16 ShortAddress, uint8 *ExtendedAddress,
+//  857                                       uint8 CapabilityInformation )
+//  858 {
+//  859   uint8 *msgPtr;
+//  860   uint8 *msg;
+//  861   uint8 len;
+//  862 
+//  863   len = sizeof( uint16 ) + Z_EXTADDR_LEN + sizeof( uint8 );
+//  864   msgPtr = osal_mem_alloc( len );
+//  865 
+//  866   if ( msgPtr )
+//  867   {
+//  868     /* Fill up the data bytes */
+//  869     msg = msgPtr;
+//  870 
+//  871     /* First fill in details */
+//  872     *msg++ = LO_UINT16( ShortAddress );
+//  873     *msg++ = HI_UINT16( ShortAddress );
+//  874 
+//  875     osal_cpyExtAddr( msg, ExtendedAddress );
+//  876     msg += Z_EXTADDR_LEN;
+//  877 
+//  878     *msg = CapabilityInformation;
+//  879 
+//  880     MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_AREQ | (uint8)MT_RPC_SYS_NWK), MT_NLME_JOIN_IND, len, msgPtr );
+//  881 
+//  882     osal_mem_free( msgPtr );
+//  883   }
+//  884 }
+//  885 
+//  886 /***************************************************************************************************
+//  887  * @fn          nwk_MTCallbackSubLeaveConfirm
+//  888  *
+//  889  * @brief       Process the callback subscription for NLME-LEAVE.confirm
+//  890  *
+//  891  * @param       DeviceAddress - IEEE (64-bit) address
+//  892  * @param       Status - Result of NLME_LeaveRequest()
+//  893  *
+//  894  * @return      none
+//  895  ***************************************************************************************************/
+//  896 void nwk_MTCallbackSubLeaveConfirm( uint8 *DeviceAddress, ZStatus_t Status )
+//  897 {
+//  898   uint8 *msgPtr;
+//  899   uint8 *msg;
+//  900 
+//  901   msgPtr = osal_mem_alloc( Z_EXTADDR_LEN + sizeof( uint8 ) );
+//  902   if ( msgPtr )
+//  903   {
+//  904     /* Fill up the data bytes */
+//  905     msg = msgPtr;
+//  906 
+//  907     /* First fill in details */
+//  908     osal_cpyExtAddr( msg, DeviceAddress );
+//  909     msg += Z_EXTADDR_LEN;
+//  910 
+//  911     *msg = (uint8)Status;
+//  912 
+//  913     MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_AREQ | (uint8)MT_RPC_SYS_NWK), MT_NLME_LEAVE_CONF,
+//  914                             Z_EXTADDR_LEN + sizeof( uint8 ), msgPtr );
+//  915 
+//  916     osal_mem_free( msgPtr );
+//  917   }
+//  918 }
+//  919 /***************************************************************************************************
+//  920  * @fn          nwk_MTCallbackSubLeaveIndication
+//  921  *
+//  922  * @brief       Process the callback subscription for NLME-LEAVE.indication
+//  923  *
+//  924  * @param       DeviceAddress - IEEE (64-bit) address
+//  925  *
+//  926  * @return      NULL
+//  927  ***************************************************************************************************/
+//  928 void nwk_MTCallbackSubLeaveIndication( uint8 *DeviceAddress )
+//  929 {
+//  930   uint8 msg[Z_EXTADDR_LEN+1];
+//  931 
+//  932   /* First fill in details */
+//  933   if ( DeviceAddress )
+//  934   {
+//  935     osal_cpyExtAddr( msg, DeviceAddress );
+//  936   }
+//  937   else
+//  938   {
+//  939     osal_memset( msg, 0, Z_EXTADDR_LEN );
+//  940   }
+//  941 
+//  942   /* Status, assume good if we get this far */
+//  943   msg[Z_EXTADDR_LEN] = 0;
+//  944 
+//  945   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_AREQ | (uint8)MT_RPC_SYS_NWK), MT_NLME_LEAVE_IND, Z_EXTADDR_LEN+1, msg );
+//  946 }
+//  947 /***************************************************************************************************
+//  948  * @fn          nwk_MTCallbackSubSyncIndication
+//  949  *
+//  950  * @brief       Process the callback subscription for NLME-SYNC.indication
+//  951  *
+//  952  * @param       none
+//  953  *
+//  954  * @return      none
+//  955  ***************************************************************************************************/
+//  956 void nwk_MTCallbackSubSyncIndication( void )
+//  957 {
+//  958   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_AREQ | (uint8)MT_RPC_SYS_NWK), MT_NLME_SYNC_IND, 0, NULL );
+//  959 }
+//  960 
+//  961 /***************************************************************************************************
+//  962  * @fn          nwk_MTCallbackSubPollConfirm
+//  963  *
+//  964  * @brief       Process the callback subscription for NLME-POLL.confirm
+//  965  *
+//  966  * @param       status - status of the poll operation
+//  967  *
+//  968  * @return      none
+//  969  ***************************************************************************************************/
+//  970 void nwk_MTCallbackSubPollConfirm( uint8 status )
+//  971 {
+//  972   uint8 msg = status;
+//  973 
+//  974   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_AREQ | (uint8)MT_RPC_SYS_NWK), MT_NLME_POLL_CONF, 1, &msg );
+//  975 }
+//  976 
+//  977 #endif /* NWK Callback commands */
+//  978 
+//  979 /***************************************************************************************************
+//  980  ***************************************************************************************************/
+//  981 
+// 
+// 2 bytes in segment XDATA_Z
+// 
+// 2 bytes of XDATA memory
+//
+//Errors: none
+//Warnings: none

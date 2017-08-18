@@ -1,0 +1,775 @@
+///////////////////////////////////////////////////////////////////////////////
+//                                                                            /
+// IAR C/C++ Compiler V7.51A/W32 for 8051               07/May/2015  10:56:08 /
+// Copyright 2004-2009 IAR Systems AB.                                        /
+//                                                                            /
+//    Core               =  plain                                             /
+//    Code model         =  banked                                            /
+//    Data model         =  large                                             /
+//    Calling convention =  xdata reentrant                                   /
+//    Constant location  =  data_rom                                          /
+//    Dptr setup         =  1,16                                              /
+//    Source file        =  C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Pr /
+//                          ojects\zstack\Samples\ParkingS\Source\ParkingStat /
+//                          us.C                                              /
+//    Command line       =  -f "C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4. /
+//                          0\Projects\zstack\Samples\ParkingS\CC2530DB\..\.. /
+//                          \..\Tools\CC2530DB\f8wEndev.cfg" (-DCPU32MHZ      /
+//                          -DROOT=__near_func -DBLINK_LEDS) -f "C:\Texas     /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\..\..\..\Tools\CC2 /
+//                          530DB\f8wConfig.cfg" (-DSECURE=0                  /
+//                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                 /
+//                          -DDEFAULT_CHANLIST=0x00000800                     /
+//                          -DZDAPP_CONFIG_PAN_ID=0xFFFF                      /
+//                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_M /
+//                          ASK=0x007F -DBEACON_REQUEST_DELAY=100             /
+//                          -DBEACON_REQ_DELAY_MASK=0x00FF                    /
+//                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_P /
+//                          OLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7           /
+//                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3   /
+//                          -DNWK_MAX_DATA_RETRIES=2                          /
+//                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9        /
+//                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40          /
+//                          -DNWK_MAX_BINDING_ENTRIES=4                       /
+//                          -DMAX_BINDING_CLUSTER_IDS=4                       /
+//                          "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07, 0x09,     /
+//                          0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08,   /
+//                          0x0A, 0x0C, 0x0D}" -DMAC_MAX_FRAME_SIZE=116       /
+//                          "-DCONST=const __code" -DGENERIC=__generic        /
+//                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000       /
+//                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)  /
+//                          -DREJOIN_POLL_RATE=440 "C:\Texas                  /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\Source\ParkingStatus.C" -D  /
+//                          ZIGBEEPRO -D NWK_AUTO_POLL -D ZTOOL_P1 -D         /
+//                          MT_TASK -D MT_SYS_FUNC -D MT_ZDO_FUNC -D          /
+//                          LCD_SUPPORTED=DEBUG -lC "C:\Texas                 /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\EndDeviceEB-Pro\Li /
+//                          st\" -lA "C:\Texas Instruments\ZStack-CC2530-2.3. /
+//                          0-1.4.0\Projects\zstack\Samples\ParkingS\CC2530DB /
+//                          \EndDeviceEB-Pro\List\" --diag_suppress           /
+//                          Pe001,Pa010 -o "C:\Texas                          /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\EndDeviceEB-Pro\Ob /
+//                          j\" -e --require_prototypes --debug --core=plain  /
+//                          --dptr=16,1 --data_model=large                    /
+//                          --code_model=banked --calling_convention=xdata_re /
+//                          entrant --place_constants=data_rom                /
+//                          --nr_virtual_regs 16 -I "C:\Texas                 /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\" -I "C:\Texas     /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\..\SOURCE\" -I     /
+//                          "C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\P /
+//                          rojects\zstack\Samples\ParkingS\CC2530DB\..\..\.. /
+//                          \ZMAIN\TI2530DB\" -I "C:\Texas                    /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COM /
+//                          PONENTS\MT\" -I "C:\Texas                         /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COM /
+//                          PONENTS\HAL\INCLUDE\" -I "C:\Texas                /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COM /
+//                          PONENTS\HAL\TARGET\CC2530EB\" -I "C:\Texas        /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COM /
+//                          PONENTS\OSAL\MCU\CCSOC\" -I "C:\Texas             /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COM /
+//                          PONENTS\OSAL\INCLUDE\" -I "C:\Texas               /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COM /
+//                          PONENTS\STACK\AF\" -I "C:\Texas                   /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COM /
+//                          PONENTS\STACK\NWK\" -I "C:\Texas                  /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COM /
+//                          PONENTS\STACK\SEC\" -I "C:\Texas                  /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COM /
+//                          PONENTS\STACK\SAPI\" -I "C:\Texas                 /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COM /
+//                          PONENTS\STACK\SYS\" -I "C:\Texas                  /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COM /
+//                          PONENTS\STACK\ZDO\" -I "C:\Texas                  /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COM /
+//                          PONENTS\ZMAC\F8W\" -I "C:\Texas                   /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COM /
+//                          PONENTS\ZMAC\" -I "C:\Texas                       /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COM /
+//                          PONENTS\SERVICES\SADDR\" -I "C:\Texas             /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COM /
+//                          PONENTS\SERVICES\SDATA\" -I "C:\Texas             /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COM /
+//                          PONENTS\MAC\INCLUDE\" -I "C:\Texas                /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COM /
+//                          PONENTS\MAC\HIGH_LEVEL\" -I "C:\Texas             /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COM /
+//                          PONENTS\MAC\LOW_LEVEL\srf04\" -I "C:\Texas        /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COM /
+//                          PONENTS\MAC\LOW_LEVEL\srf04\SINGLE_CHIP\" -I      /
+//                          "C:\Program Files\IAR Systems\Embedded Workbench  /
+//                          5.3\8051\INC\" -I "C:\Program Files\IAR           /
+//                          Systems\Embedded Workbench 5.3\8051\INC\CLIB\"    /
+//                          -Ohz                                              /
+//    List file          =  C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Pr /
+//                          ojects\zstack\Samples\ParkingS\CC2530DB\EndDevice /
+//                          EB-Pro\List\ParkingStatus.s51                     /
+//                                                                            /
+//                                                                            /
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME ParkingStatus
+
+        RTMODEL "__calling_convention", "xdata_reentrant"
+        RTMODEL "__code_model", "banked"
+        RTMODEL "__core", "plain"
+        RTMODEL "__data_model", "large"
+        RTMODEL "__dptr_size", "16"
+        RTMODEL "__extended_stack", "disabled"
+        RTMODEL "__location_for_constants", "data"
+        RTMODEL "__number_of_dptrs", "1"
+        RTMODEL "__rt_version", "1"
+
+        RSEG DOVERLAY:DATA:NOROOT(0)
+        RSEG IOVERLAY:IDATA:NOROOT(0)
+        RSEG ISTACK:IDATA:NOROOT(0)
+        RSEG PSTACK:XDATA:NOROOT(0)
+        RSEG XSTACK:XDATA:NOROOT(0)
+
+        EXTERN ??init?relay
+        EXTERN ?BANKED_ENTER_XDATA
+        EXTERN ?BANKED_LEAVE_XDATA
+        EXTERN ?BDISPATCH
+        EXTERN ?BRET
+        EXTERN __INIT_XDATA_I
+        EXTERN __INIT_XDATA_Z
+
+        PUBLIC ??Delay_ms?relay
+        FUNCTION ??Delay_ms?relay,0203H
+        PUBLIC ??PARKING?relay
+        FUNCTION ??PARKING?relay,0203H
+        PUBLIC ??init?relay
+        FUNCTION ??init?relay,0203H
+        PUBLIC Delay_ms
+        FUNCTION Delay_ms,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        PUBLIC PARKING
+        FUNCTION PARKING,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 3, STACK
+        PUBLIC S001
+        PUBLIC S002
+        PUBLIC S003
+        PUBLIC S004
+        PUBLIC S005
+        PUBWEAK _A_P0
+        PUBWEAK _A_P1
+        PUBLIC init
+        FUNCTION init,0203H
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        
+        CFI Names cfiNames0
+        CFI StackFrame CFA_SP SP IDATA
+        CFI StackFrame CFA_PSP16 PSP16 XDATA
+        CFI StackFrame CFA_XSP16 XSP16 XDATA
+        CFI StaticOverlayFrame CFA_IOVERLAY IOVERLAY
+        CFI StaticOverlayFrame CFA_DOVERLAY DOVERLAY
+        CFI Resource `PSW.CY`:1, `B.BR0`:1, `B.BR1`:1, `B.BR2`:1, `B.BR3`:1
+        CFI Resource `B.BR4`:1, `B.BR5`:1, `B.BR6`:1, `B.BR7`:1, `VB.BR8`:1
+        CFI Resource `VB.BR9`:1, `VB.BR10`:1, `VB.BR11`:1, `VB.BR12`:1
+        CFI Resource `VB.BR13`:1, `VB.BR14`:1, `VB.BR15`:1, VB:8, B:8, A:8
+        CFI Resource PSW:8, DPL0:8, DPH0:8, R0:8, R1:8, R2:8, R3:8, R4:8, R5:8
+        CFI Resource R6:8, R7:8, V0:8, V1:8, V2:8, V3:8, V4:8, V5:8, V6:8, V7:8
+        CFI Resource V8:8, V9:8, V10:8, V11:8, V12:8, V13:8, V14:8, V15:8, SP:8
+        CFI Resource PSPH:8, PSPL:8, PSP16:16, XSPH:8, XSPL:8, XSP16:16
+        CFI VirtualResource ?RET:24
+        CFI Resource ?BRET_EXT:8
+        CFI VirtualResource ?RET_HIGH:8, ?RET_LOW:8
+        CFI ResourceParts PSP16 PSPH, PSPL
+        CFI ResourceParts XSP16 XSPH, XSPL
+        CFI ResourceParts ?RET ?BRET_EXT, ?RET_HIGH, ?RET_LOW
+        CFI EndNames cfiNames0
+        
+        CFI Common cfiCommon0 Using cfiNames0
+        CFI CodeAlign 1
+        CFI DataAlign -1
+        CFI ReturnAddress ?RET CODE
+        CFI CFA_DOVERLAY Used
+        CFI CFA_IOVERLAY Used
+        CFI CFA_SP SP+-3
+        CFI CFA_PSP16 PSP16+0
+        CFI CFA_XSP16 XSP16+0
+        CFI `PSW.CY` SameValue
+        CFI `B.BR0` SameValue
+        CFI `B.BR1` SameValue
+        CFI `B.BR2` SameValue
+        CFI `B.BR3` SameValue
+        CFI `B.BR4` SameValue
+        CFI `B.BR5` SameValue
+        CFI `B.BR6` SameValue
+        CFI `B.BR7` SameValue
+        CFI `VB.BR8` SameValue
+        CFI `VB.BR9` SameValue
+        CFI `VB.BR10` SameValue
+        CFI `VB.BR11` SameValue
+        CFI `VB.BR12` SameValue
+        CFI `VB.BR13` SameValue
+        CFI `VB.BR14` SameValue
+        CFI `VB.BR15` SameValue
+        CFI VB SameValue
+        CFI B Undefined
+        CFI A Undefined
+        CFI PSW SameValue
+        CFI DPL0 SameValue
+        CFI DPH0 SameValue
+        CFI R0 Undefined
+        CFI R1 Undefined
+        CFI R2 Undefined
+        CFI R3 Undefined
+        CFI R4 Undefined
+        CFI R5 Undefined
+        CFI R6 SameValue
+        CFI R7 SameValue
+        CFI V0 SameValue
+        CFI V1 SameValue
+        CFI V2 SameValue
+        CFI V3 SameValue
+        CFI V4 SameValue
+        CFI V5 SameValue
+        CFI V6 SameValue
+        CFI V7 SameValue
+        CFI V8 SameValue
+        CFI V9 SameValue
+        CFI V10 SameValue
+        CFI V11 SameValue
+        CFI V12 SameValue
+        CFI V13 SameValue
+        CFI V14 SameValue
+        CFI V15 SameValue
+        CFI PSPH Undefined
+        CFI PSPL Undefined
+        CFI XSPH Undefined
+        CFI XSPL Undefined
+        CFI ?RET Concat
+        CFI ?BRET_EXT Frame(CFA_SP, 3)
+        CFI ?RET_HIGH Frame(CFA_SP, 2)
+        CFI ?RET_LOW Frame(CFA_SP, 1)
+        CFI EndCommon cfiCommon0
+        
+        
+        CFI Common cfiCommon1 Using cfiNames0
+        CFI CodeAlign 1
+        CFI DataAlign -1
+        CFI ReturnAddress ?RET CODE
+        CFI CFA_DOVERLAY Used
+        CFI CFA_IOVERLAY Used
+        CFI CFA_SP SP+-2
+        CFI CFA_PSP16 PSP16+0
+        CFI CFA_XSP16 XSP16+0
+        CFI `PSW.CY` SameValue
+        CFI `B.BR0` SameValue
+        CFI `B.BR1` SameValue
+        CFI `B.BR2` SameValue
+        CFI `B.BR3` SameValue
+        CFI `B.BR4` SameValue
+        CFI `B.BR5` SameValue
+        CFI `B.BR6` SameValue
+        CFI `B.BR7` SameValue
+        CFI `VB.BR8` SameValue
+        CFI `VB.BR9` SameValue
+        CFI `VB.BR10` SameValue
+        CFI `VB.BR11` SameValue
+        CFI `VB.BR12` SameValue
+        CFI `VB.BR13` SameValue
+        CFI `VB.BR14` SameValue
+        CFI `VB.BR15` SameValue
+        CFI VB SameValue
+        CFI B SameValue
+        CFI A SameValue
+        CFI PSW SameValue
+        CFI DPL0 SameValue
+        CFI DPH0 SameValue
+        CFI R0 SameValue
+        CFI R1 SameValue
+        CFI R2 SameValue
+        CFI R3 SameValue
+        CFI R4 SameValue
+        CFI R5 SameValue
+        CFI R6 SameValue
+        CFI R7 SameValue
+        CFI V0 SameValue
+        CFI V1 SameValue
+        CFI V2 SameValue
+        CFI V3 SameValue
+        CFI V4 SameValue
+        CFI V5 SameValue
+        CFI V6 SameValue
+        CFI V7 SameValue
+        CFI V8 SameValue
+        CFI V9 SameValue
+        CFI V10 SameValue
+        CFI V11 SameValue
+        CFI V12 SameValue
+        CFI V13 SameValue
+        CFI V14 SameValue
+        CFI V15 SameValue
+        CFI PSPH Undefined
+        CFI PSPL Undefined
+        CFI XSPH Undefined
+        CFI XSPL Undefined
+        CFI ?RET Concat
+        CFI ?BRET_EXT SameValue
+        CFI ?RET_HIGH Frame(CFA_SP, 2)
+        CFI ?RET_LOW Frame(CFA_SP, 1)
+        CFI EndCommon cfiCommon1
+        
+Onboard_wait        SYMBOL "Onboard_wait"
+??Onboard_wait?relay SYMBOL "?relay", Onboard_wait
+Delay_ms            SYMBOL "Delay_ms"
+??Delay_ms?relay    SYMBOL "?relay", Delay_ms
+PARKING             SYMBOL "PARKING"
+??PARKING?relay     SYMBOL "?relay", PARKING
+init                SYMBOL "init"
+??init?relay        SYMBOL "?relay", init
+
+        EXTERN Onboard_wait
+        FUNCTION Onboard_wait,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN ??Onboard_wait?relay
+        FUNCTION ??Onboard_wait?relay,00H
+
+// C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zstack\Samples\ParkingS\Source\ParkingStatus.C
+//    1 /**************************************************
+//    2 ** 功能：车位状态采集
+//    3 ** 结果：车位信息,如S001
+//    4 ** 硬件：红外光电传感器
+//    5 ** 日期：2015-4-5
+//    6 **************************************************/
+//    7 
+//    8 #include <ioCC2530.h>
+
+        ASEGN SFR_AN:DATA:NOROOT,080H
+// union <unnamed> volatile __sfr _A_P0
+_A_P0:
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,090H
+// union <unnamed> volatile __sfr _A_P1
+_A_P1:
+        DS 1
+//    9 #include "OnBoard.h"
+//   10 
+//   11 #define uint unsigned int
+//   12 #define uchar unsigned char
+//   13 
+//   14 /**********************************************
+//   15 ** IO口定义
+//   16 */
+//   17 #define CAR_001 P0_1
+//   18 #define LED_G_001 P0_0  //OK
+//   19 #define LED_R_001 P0_7  //OK
+//   20 
+//   21 #define CAR_002 P0_2
+//   22 #define LED_G_002 P1_2  //OK
+//   23 #define LED_R_002 P1_3  //OK
+//   24 
+//   25 #define CAR_003 P0_3
+//   26 #define LED_G_003 P1_4  //OK
+//   27 #define LED_R_003 P1_7  //OK
+//   28 
+//   29 
+//   30 
+//   31 
+//   32 
+//   33 /**********************************************
+//   34 ** 函数原型
+//   35 */
+//   36 void Delay_ms(uint Time);
+//   37 void PARKING(void) ;  
+//   38 void init(void);
+//   39 
+//   40 
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+//   41 uchar S001,S002,S003,S004,S005=5;
+S001:
+        DS 1
+        REQUIRE __INIT_XDATA_Z
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+S002:
+        DS 1
+        REQUIRE __INIT_XDATA_Z
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+S003:
+        DS 1
+        REQUIRE __INIT_XDATA_Z
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+S004:
+        DS 1
+        REQUIRE __INIT_XDATA_Z
+
+        RSEG XDATA_I:XDATA:NOROOT(0)
+        DATA
+S005:
+        DS 1
+        REQUIRE `?<Initializer for S005>`
+        REQUIRE __INIT_XDATA_I
+//   42 
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//   43 void init(void)
+init:
+        CFI Block cfiBlock0 Using cfiCommon0
+        CFI Function init
+//   44 {
+        ; Saved register size: 0
+        ; Auto size: 0
+//   45   CAR_001 = 0;
+        CLR     0x80.1
+//   46   LED_G_001 = 0;
+        CLR     0x80.0
+//   47   LED_R_001 = 0;
+        CLR     0x80.7
+//   48   CAR_002 = 0;
+        CLR     0x80.2
+//   49   LED_G_002 = 0;
+        CLR     0x90.2
+//   50   LED_R_002 = 0;
+        CLR     0x90.3
+//   51   CAR_003 = 0;
+        CLR     0x80.3
+//   52   LED_G_003 = 0;
+        CLR     0x90.4
+//   53   LED_R_003 = 0;
+        CLR     0x90.7
+//   54 
+//   55 }
+        LJMP    ?BRET
+        CFI EndBlock cfiBlock0
+        REQUIRE _A_P0
+        REQUIRE _A_P1
+//   56 
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//   57 void Delay_ms(uint Time)//n ms延时
+Delay_ms:
+        CFI Block cfiBlock1 Using cfiCommon0
+        CFI Function Delay_ms
+//   58 {
+        FUNCALL Delay_ms, Onboard_wait
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        MOV     A,#-0x9
+        LCALL   ?BANKED_ENTER_XDATA
+        CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI CFA_SP SP+0
+        CFI CFA_XSP16 add(XSP16, 9)
+        ; Saved register size: 9
+        ; Auto size: 0
+        MOV     A,R2
+        MOV     R6,A
+        MOV     A,R3
+        MOV     R7,A
+        SJMP    ??Delay_ms_0
+//   59   while(Time--)
+//   60   {
+//   61       MicroWait(1);
+??Delay_ms_1:
+        ; Setup parameters for call to function Onboard_wait
+        MOV     R2,#0x1
+        MOV     R3,#0x0
+        LCALL   ??Onboard_wait?relay
+//   62   }
+??Delay_ms_0:
+        MOV     A,R6
+        MOV     R0,A
+        MOV     A,R7
+        MOV     R1,A
+        MOV     A,#-0x1
+        ADD     A,R0
+        DEC     R6
+        MOV     A,#-0x1
+        ADDC    A,R1
+        MOV     R7,A
+        MOV     A,R0
+        JNZ     ??Delay_ms_2
+        MOV     A,R1
+??Delay_ms_2:
+        JNZ     ??Delay_ms_1
+//   63 }
+        MOV     R7,#0x1
+        LJMP    ?BANKED_LEAVE_XDATA
+        CFI EndBlock cfiBlock1
+//   64 
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//   65 void PARKING()   
+PARKING:
+        CFI Block cfiBlock2 Using cfiCommon0
+        CFI Function PARKING
+//   66 {
+        FUNCALL PARKING, init
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        PUSH    DPL
+        CFI DPL0 Frame(CFA_SP, 4)
+        CFI CFA_SP SP+-4
+        PUSH    DPH
+        CFI DPH0 Frame(CFA_SP, 5)
+        CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 0
+//   67   
+//   68   init();
+        ; Setup parameters for call to function init
+        LCALL   ??init?relay
+//   69   
+//   70   S001 = CAR_001==1?1:0;
+        MOV     C,0x80.1
+        JNC     ??PARKING_0
+        SETB    B.0
+        SJMP    ??PARKING_1
+??PARKING_0:
+        CLR     B.0
+??PARKING_1:
+        MOV     C,B.0
+        CLR     A
+        MOV     0xE0 /* A   */.0,C
+        MOV     DPTR,#S001
+        MOVX    @DPTR,A
+//   71   LED_G_001 = CAR_001==0?1:0;
+        MOV     A,0x80
+        MOV     R2,A
+        MOV     A,0x80
+        MOV     R3,A
+        MOV     A,R2
+        MOV     C,0xE0 /* A   */.1
+        JC      ??PARKING_2
+        SETB    B.0
+        SJMP    ??PARKING_3
+??PARKING_2:
+        CLR     B.0
+??PARKING_3:
+        MOV     C,B.0
+        CLR     A
+        MOV     0xE0 /* A   */.0,C
+        PUSH    A
+        CFI CFA_SP SP+-6
+        MOV     A,#-0x2
+        ANL     A,R3
+        MOV     R2,A
+        POP     A
+        CFI CFA_SP SP+-5
+        ORL     A,R2
+        MOV     0x80,A
+//   72   LED_R_001 = CAR_001==1?1:0;
+        MOV     C,0x80.1
+        MOV     0x80.7,C
+//   73   
+//   74   S002 = CAR_002==1?1:0;
+        MOV     C,0x80.2
+        JNC     ??PARKING_4
+        SETB    B.0
+        SJMP    ??PARKING_5
+??PARKING_4:
+        CLR     B.0
+??PARKING_5:
+        MOV     C,B.0
+        CLR     A
+        MOV     0xE0 /* A   */.0,C
+        MOV     DPTR,#S002
+        LCALL   ?Subroutine0 & 0xFFFF
+//   75   LED_G_002 = CAR_002==0?1:0;
+??CrossCallReturnLabel_0:
+        MOV     C,0xE0 /* A   */.2
+        JC      ??PARKING_6
+        SETB    B.0
+        SJMP    ??PARKING_7
+??PARKING_6:
+        CLR     B.0
+??PARKING_7:
+        MOV     C,B.0
+        CLR     A
+        MOV     0xE0 /* A   */.0,C
+        RLC     A
+        RLC     A
+        ANL     A,#0xfc
+        PUSH    A
+        CFI CFA_SP SP+-6
+        MOV     A,#-0x5
+        ANL     A,R3
+        MOV     R2,A
+        POP     A
+        CFI CFA_SP SP+-5
+        ORL     A,R2
+        MOV     0x90,A
+//   76   LED_R_002 = CAR_002==1?1:0;
+        MOV     C,0x80.2
+        MOV     0x90.3,C
+//   77   
+//   78   S003 = CAR_003==1?1:0;
+        MOV     C,0x80.3
+        JNC     ??PARKING_8
+        SETB    B.0
+        SJMP    ??PARKING_9
+??PARKING_8:
+        CLR     B.0
+??PARKING_9:
+        MOV     C,B.0
+        CLR     A
+        MOV     0xE0 /* A   */.0,C
+        MOV     DPTR,#S003
+        LCALL   ?Subroutine0 & 0xFFFF
+//   79   LED_G_003 = CAR_003==0?1:0;
+??CrossCallReturnLabel_1:
+        MOV     C,0xE0 /* A   */.3
+        JC      ??PARKING_10
+        SETB    B.0
+        SJMP    ??PARKING_11
+??PARKING_10:
+        CLR     B.0
+??PARKING_11:
+        MOV     C,B.0
+        CLR     A
+        MOV     0xE0 /* A   */.0,C
+        SWAP    A
+        PUSH    A
+        CFI CFA_SP SP+-6
+        MOV     A,#-0x11
+        ANL     A,R3
+        MOV     R2,A
+        POP     A
+        CFI CFA_SP SP+-5
+        ORL     A,R2
+        MOV     0x90,A
+//   80   LED_R_003 = CAR_003==1?1:0;
+        MOV     C,0x80.3
+        MOV     0x90.7,C
+//   81 
+//   82 }
+        POP     DPH
+        CFI DPH0 SameValue
+        CFI CFA_SP SP+-4
+        POP     DPL
+        CFI DPL0 SameValue
+        CFI CFA_SP SP+-3
+        LJMP    ?BRET
+        CFI EndBlock cfiBlock2
+        REQUIRE _A_P0
+        REQUIRE _A_P1
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+?Subroutine0:
+        CFI Block cfiCond3 Using cfiCommon0
+        CFI NoFunction
+        CFI Conditional ??CrossCallReturnLabel_0
+        CFI DPL0 Frame(CFA_SP, 4)
+        CFI DPH0 Frame(CFA_SP, 5)
+        CFI CFA_SP SP+-5
+        CFI Block cfiCond4 Using cfiCommon0
+        CFI (cfiCond4) NoFunction
+        CFI (cfiCond4) Conditional ??CrossCallReturnLabel_1
+        CFI (cfiCond4) DPL0 Frame(CFA_SP, 4)
+        CFI (cfiCond4) DPH0 Frame(CFA_SP, 5)
+        CFI (cfiCond4) CFA_SP SP+-5
+        CFI Block cfiPicker5 Using cfiCommon1
+        CFI (cfiPicker5) NoFunction
+        CFI (cfiPicker5) Picker
+        MOVX    @DPTR,A
+        MOV     A,0x80
+        MOV     R2,A
+        MOV     A,0x90
+        MOV     R3,A
+        MOV     A,R2
+        RET
+        CFI EndBlock cfiCond3
+        CFI EndBlock cfiCond4
+        CFI EndBlock cfiPicker5
+
+        RSEG XDATA_ID:CODE:NOROOT(0)
+        DATA
+`?<Initializer for S005>`:
+        DB 5
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??init?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    init
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??Delay_ms?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    Delay_ms
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??PARKING?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    PARKING
+
+        END
+// 
+// 248 bytes in segment BANKED_CODE
+//  18 bytes in segment BANK_RELAYS
+//   2 bytes in segment SFR_AN
+//   1 byte  in segment XDATA_I
+//   1 byte  in segment XDATA_ID
+//   4 bytes in segment XDATA_Z
+// 
+// 267 bytes of CODE  memory
+//   0 bytes of DATA  memory (+ 2 bytes shared)
+//   5 bytes of XDATA memory
+//
+//Errors: none
+//Warnings: none

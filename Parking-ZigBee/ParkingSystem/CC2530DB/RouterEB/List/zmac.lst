@@ -1,0 +1,1939 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V7.51A/W32 for 8051                24/May/2015  19:07:21 #
+# Copyright 2004-2009 IAR Systems AB.                                         #
+#                                                                             #
+#    Core               =  plain                                              #
+#    Code model         =  banked                                             #
+#    Data model         =  large                                              #
+#    Calling convention =  xdata reentrant                                    #
+#    Constant location  =  data_rom                                           #
+#    Dptr setup         =  1,16                                               #
+#    Source file        =  C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Com #
+#                          ponents\zmac\f8w\zmac.c                            #
+#    Command line       =  -f "C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0 #
+#                          \Projects\zstack\Samples\ParkingS\CC2530DB\..\..\. #
+#                          .\Tools\CC2530DB\f8wRouter.cfg" (-DCPU32MHZ        #
+#                          -DROOT=__near_func -DMAC_CFG_APP_PENDING_QUEUE=TRU #
+#                          E -DRTR_NWK -DBLINK_LEDS) -f "C:\Texas             #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\Tools\CC253 #
+#                          0DB\f8wConfig.cfg" (-DSECURE=0                     #
+#                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                  #
+#                          -DDEFAULT_CHANLIST=0x00000800                      #
+#                          -DZDAPP_CONFIG_PAN_ID=0xFFFF                       #
+#                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MA #
+#                          SK=0x007F -DBEACON_REQUEST_DELAY=100               #
+#                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
+#                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_PO #
+#                          LLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7             #
+#                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3    #
+#                          -DNWK_MAX_DATA_RETRIES=2                           #
+#                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9         #
+#                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40           #
+#                          -DNWK_MAX_BINDING_ENTRIES=4                        #
+#                          -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,  #
+#                          0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00,    #
+#                          0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"         #
+#                          -DMAC_MAX_FRAME_SIZE=116 "-DCONST=const __code"    #
+#                          -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE     #
+#                          -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100            #
+#                          -DRESPONSE_POLL_RATE=100) -DREJOIN_POLL_RATE=440   #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Co #
+#                          mponents\zmac\f8w\zmac.c" -D ZTOOL_P1 -D MT_TASK   #
+#                          -D MT_SYS_FUNC -D MT_ZDO_FUNC -D                   #
+#                          LCD_SUPPORTED=DEBUG -lC "C:\Texas                  #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\RouterEB\List\" -lA  #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Pr #
+#                          ojects\zstack\Samples\ParkingS\CC2530DB\RouterEB\L #
+#                          ist\" --diag_suppress Pe001,Pa010 -o "C:\Texas     #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\RouterEB\Obj\" -e    #
+#                          --require_prototypes --debug --core=plain          #
+#                          --dptr=16,1 --data_model=large                     #
+#                          --code_model=banked --calling_convention=xdata_ree #
+#                          ntrant --place_constants=data_rom                  #
+#                          --nr_virtual_regs 16 -I "C:\Texas                  #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\" -I "C:\Texas       #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\SOURCE\" -I       #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Pr #
+#                          ojects\zstack\Samples\ParkingS\CC2530DB\..\..\..\Z #
+#                          MAIN\TI2530DB\" -I "C:\Texas                       #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\MT\" -I "C:\Texas Instruments\ZStack-CC2530- #
+#                          2.3.0-1.4.0\Projects\zstack\Samples\ParkingS\CC253 #
+#                          0DB\..\..\..\..\..\COMPONENTS\HAL\INCLUDE\" -I     #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Pr #
+#                          ojects\zstack\Samples\ParkingS\CC2530DB\..\..\..\. #
+#                          .\..\COMPONENTS\HAL\TARGET\CC2530EB\" -I           #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Pr #
+#                          ojects\zstack\Samples\ParkingS\CC2530DB\..\..\..\. #
+#                          .\..\COMPONENTS\OSAL\MCU\CCSOC\" -I "C:\Texas      #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\OSAL\INCLUDE\" -I "C:\Texas                  #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\STACK\AF\" -I "C:\Texas                      #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\STACK\NWK\" -I "C:\Texas                     #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\STACK\SEC\" -I "C:\Texas                     #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\STACK\SAPI\" -I "C:\Texas                    #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\STACK\SYS\" -I "C:\Texas                     #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\STACK\ZDO\" -I "C:\Texas                     #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\ZMAC\F8W\" -I "C:\Texas                      #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\ZMAC\" -I "C:\Texas                          #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\SERVICES\SADDR\" -I "C:\Texas                #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\SERVICES\SDATA\" -I "C:\Texas                #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\MAC\INCLUDE\" -I "C:\Texas                   #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\MAC\HIGH_LEVEL\" -I "C:\Texas                #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\MAC\LOW_LEVEL\srf04\" -I "C:\Texas           #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\MAC\LOW_LEVEL\srf04\SINGLE_CHIP\" -I         #
+#                          "C:\Program Files\IAR Systems\Embedded Workbench   #
+#                          5.3\8051\INC\" -I "C:\Program Files\IAR            #
+#                          Systems\Embedded Workbench 5.3\8051\INC\CLIB\"     #
+#                          -Ohz                                               #
+#    List file          =  C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Pro #
+#                          jects\zstack\Samples\ParkingS\CC2530DB\RouterEB\Li #
+#                          st\zmac.lst                                        #
+#    Object file        =  C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Pro #
+#                          jects\zstack\Samples\ParkingS\CC2530DB\RouterEB\Ob #
+#                          j\zmac.r51                                         #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Components\zmac\f8w\zmac.c
+      1          /**************************************************************************************************
+      2            Filename:       zmac.c
+      3            Revised:        $Date: 2010-01-08 14:36:19 -0800 (Fri, 08 Jan 2010) $
+      4            Revision:       $Revision: 21466 $
+      5          
+      6          
+      7            Description:    This file contains the ZStack MAC Porting Layer
+      8          
+      9          
+     10            Copyright 2005-2010 Texas Instruments Incorporated. All rights reserved.
+     11          
+     12            IMPORTANT: Your use of this Software is limited to those specific rights
+     13            granted under the terms of a software license agreement between the user
+     14            who downloaded the software, his/her employer (which must be your employer)
+     15            and Texas Instruments Incorporated (the "License").  You may not use this
+     16            Software unless you agree to abide by the terms of the License. The License
+     17            limits your use, and you acknowledge, that the Software may not be modified,
+     18            copied or distributed unless embedded on a Texas Instruments microcontroller
+     19            or used solely and exclusively in conjunction with a Texas Instruments radio
+     20            frequency transceiver, which is integrated into your product.  Other than for
+     21            the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+     22            works of, modify, distribute, perform, display or sell this Software and/or
+     23            its documentation for any purpose.
+     24          
+     25            YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+     26            PROVIDED “AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+     27            INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+     28            NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+     29            TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+     30            NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+     31            LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+     32            INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+     33            OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+     34            OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+     35            (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+     36          
+     37            Should you have any questions regarding your right to use this Software,
+     38            contact Texas Instruments Incorporated at www.TI.com.
+     39          **************************************************************************************************/
+     40          
+     41          /********************************************************************************************************
+     42           *                                               INCLUDES
+     43           ********************************************************************************************************/
+     44          
+     45          #include "ZComDef.h"
+     46          #include "OSAL.h"
+     47          #include "ZMAC.h"
+     48          #include "mac_main.h"
+     49          #include "ssp.h"
+     50          
+     51          #if !defined NONWK
+     52            #include "ZGlobals.h"
+     53          #endif
+     54          
+     55          /********************************************************************************************************
+     56           *                                                 MACROS
+     57           ********************************************************************************************************/
+     58          
+     59          /********************************************************************************************************
+     60           *                                               CONSTANTS
+     61           ********************************************************************************************************/
+     62          
+     63          /********************************************************************************************************
+     64           *                                               GLOBALS
+     65           ********************************************************************************************************/
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     66          uint32 _ScanChannels;
+   \                     _ScanChannels:
+   \   000000                DS 4
+   \   000004                REQUIRE __INIT_XDATA_Z
+     67          
+     68          extern uint8 aExtendedAddress[];
+     69          
+     70          /**************************************************************************************************
+     71           * @fn          MAC_SetRandomSeedCB
+     72           *
+     73           * @brief       MAC function: Set the function pointer for the random seed callback.
+     74           *
+     75           * input parameters
+     76           *
+     77           * @param       pCBFcn - function pointer of the random seed callback
+     78           *
+     79           * output parameters
+     80           *
+     81           * None.
+     82           *
+     83           * @return      none
+     84           **************************************************************************************************
+     85           */
+     86          extern void MAC_SetRandomSeedCB(macRNGFcn_t pCBFcn);
+     87          /********************************************************************************************************
+     88           *                                               LOCALS
+     89           ********************************************************************************************************/
+     90          
+     91          /* Pointer to scan result buffer */
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     92          void *ZMac_ScanBuf = NULL;
+   \                     ZMac_ScanBuf:
+   \   000000                DS 2
+   \   000002                REQUIRE __INIT_XDATA_Z
+     93          
+     94          /********************************************************************************************************
+     95           * LOCAL FUNCTION PROTOTYPES
+     96           ********************************************************************************************************/
+     97          
+     98          /********************************************************************************************************
+     99           *                                                TYPEDEFS
+    100           ********************************************************************************************************/
+    101          
+    102          
+    103          /********************************************************************************************************
+    104           *                                                FUNCTIONS
+    105           ********************************************************************************************************/
+    106          
+    107          /********************************************************************************************************
+    108           * @fn      ZMacInit
+    109           *
+    110           * @brief   Initialize MAC.
+    111           *
+    112           * @param   none.
+    113           *
+    114           * @return  status.
+    115           ********************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    116          uint8 ZMacInit( void )
+   \                     ZMacInit:
+    117          {
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+    118            uint8 stat;
+    119          
+    120          #if defined( ZCL_KEY_ESTABLISH )
+    121            /* Set the callback function for 16 byte random seed */
+    122            MAC_SetRandomSeedCB( SSP_StoreRandomSeedNV);
+    123          #endif
+    124            
+    125            MAC_Init();
+   \   000005                ; Setup parameters for call to function MAC_Init
+   \   000005   12....       LCALL   ??MAC_Init?relay
+    126            MAC_InitDevice();
+   \   000008                ; Setup parameters for call to function MAC_InitDevice
+   \   000008   12....       LCALL   ??MAC_InitDevice?relay
+    127          
+    128          #if !defined NONWK
+    129            if ( ZG_BUILD_RTR_TYPE )
+    130            {
+    131              MAC_InitCoord();
+   \   00000B                ; Setup parameters for call to function MAC_InitCoord
+   \   00000B   12....       LCALL   ??MAC_InitCoord?relay
+    132            }
+    133          #endif
+    134          
+    135            // If OK, initialize the MAC
+    136            stat = ZMacReset( TRUE );
+   \   00000E                ; Setup parameters for call to function ZMacReset
+   \   00000E   7901         MOV     R1,#0x1
+   \   000010   12....       LCALL   ??ZMacReset?relay
+   \   000013   E9           MOV     A,R1
+   \   000014   FE           MOV     R6,A
+    137          
+    138            // Turn off interrupts
+    139            osal_int_disable( INTS_ALL );
+   \   000015                ; Setup parameters for call to function osal_int_disable
+   \   000015   79FF         MOV     R1,#-0x1
+   \   000017   12....       LCALL   ??osal_int_disable?relay
+    140          
+    141            return ( stat );
+   \   00001A   EE           MOV     A,R6
+   \   00001B   F9           MOV     R1,A
+   \   00001C   80..         SJMP    ??Subroutine9_0
+    142          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine9_0:
+   \   000000   7F01         MOV     R7,#0x1
+   \   000002   02....       LJMP    ?BANKED_LEAVE_XDATA
+    143          
+    144          /********************************************************************************************************
+    145           * @fn      ZMacReset
+    146           *
+    147           * @brief   Reset the MAC.
+    148           *
+    149           * @param   Default to PIB defaults.
+    150           *
+    151           * @return  status.
+    152           ********************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine6:
+   \   000000   7401         MOV     A,#0x1
+   \   000002   12....       LCALL   ?DEALLOC_XSTACK8
+   \   000005                REQUIRE ??Subroutine9_0
+   \   000005                ; // Fall through to label ??Subroutine9_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    153          uint8 ZMacReset( bool SetDefaultPIB )
+   \                     ZMacReset:
+    154          {
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 1
+   \   000005   74FF         MOV     A,#-0x1
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+    155            byte stat;
+    156            byte value;
+    157          
+    158            stat = MAC_MlmeResetReq( SetDefaultPIB );
+   \   00000A                ; Setup parameters for call to function MAC_MlmeResetReq
+   \   00000A   12....       LCALL   ??MAC_MlmeResetReq?relay
+   \   00000D   E9           MOV     A,R1
+   \   00000E   FE           MOV     R6,A
+    159          
+    160            // Don't send PAN ID conflict
+    161            value = FALSE;
+   \   00000F   E4           CLR     A
+   \   000010   85..82       MOV     DPL,?XSP + 0
+   \   000013   85..83       MOV     DPH,?XSP + 1
+   \   000016   F0           MOVX    @DPTR,A
+    162            MAC_MlmeSetReq( MAC_ASSOCIATED_PAN_COORD, &value );
+   \   000017                ; Setup parameters for call to function MAC_MlmeSetReq
+   \   000017   AA82         MOV     R2,DPL
+   \   000019   AB83         MOV     R3,DPH
+   \   00001B   7956         MOV     R1,#0x56
+   \   00001D   12....       LCALL   ??MAC_MlmeSetReq?relay
+    163            MAC_MlmeSetReq( MAC_EXTENDED_ADDRESS, &aExtendedAddress );
+   \   000020                ; Setup parameters for call to function MAC_MlmeSetReq
+   \   000020   7A..         MOV     R2,#(aExtendedAddress & 0xff)
+   \   000022   7B..         MOV     R3,#((aExtendedAddress >> 8) & 0xff)
+   \   000024   79E2         MOV     R1,#-0x1e
+   \   000026   12....       LCALL   ??MAC_MlmeSetReq?relay
+    164          
+    165            if (ZMac_ScanBuf)
+   \   000029   90....       MOV     DPTR,#ZMac_ScanBuf
+   \   00002C   E0           MOVX    A,@DPTR
+   \   00002D   7002         JNZ     ??ZMacReset_0
+   \   00002F   A3           INC     DPTR
+   \   000030   E0           MOVX    A,@DPTR
+   \                     ??ZMacReset_0:
+   \   000031   6012         JZ      ??ZMacReset_1
+    166            {
+    167              osal_mem_free(ZMac_ScanBuf);
+   \   000033                ; Setup parameters for call to function osal_mem_free
+   \   000033   90....       MOV     DPTR,#ZMac_ScanBuf
+   \   000036   E0           MOVX    A,@DPTR
+   \   000037   FA           MOV     R2,A
+   \   000038   A3           INC     DPTR
+   \   000039   E0           MOVX    A,@DPTR
+   \   00003A   FB           MOV     R3,A
+   \   00003B   12....       LCALL   ??osal_mem_free?relay
+    168              ZMac_ScanBuf = NULL;
+   \   00003E   90....       MOV     DPTR,#ZMac_ScanBuf
+   \   000041   E4           CLR     A
+   \   000042   F0           MOVX    @DPTR,A
+   \   000043   A3           INC     DPTR
+   \   000044   F0           MOVX    @DPTR,A
+    169            }
+    170          
+    171            return ( stat );
+   \                     ??ZMacReset_1:
+   \   000045   EE           MOV     A,R6
+   \   000046   F9           MOV     R1,A
+   \   000047   80..         SJMP    ?Subroutine6
+    172          }
+    173          
+    174          
+    175          /********************************************************************************************************
+    176           * @fn      ZMacGetReq
+    177           *
+    178           * @brief   Read a MAC PIB attribute.
+    179           *
+    180           * @param   attr - PIB attribute to get
+    181           * @param   value - pointer to the buffer to store the attribute
+    182           *
+    183           * @return  status
+    184           ********************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    185          uint8 ZMacGetReq( uint8 attr, uint8 *value )
+   \                     ZMacGetReq:
+    186          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    187            if ( attr == ZMacExtAddr )
+   \   000004   74E2         MOV     A,#-0x1e
+   \   000006   69           XRL     A,R1
+   \   000007   700B         JNZ     ??ZMacGetReq_0
+    188            {
+    189              osal_cpyExtAddr( value, &aExtendedAddress );
+   \   000009                ; Setup parameters for call to function sAddrExtCpy
+   \   000009   7C..         MOV     R4,#(aExtendedAddress & 0xff)
+   \   00000B   7D..         MOV     R5,#((aExtendedAddress >> 8) & 0xff)
+   \   00000D   12....       LCALL   ??sAddrExtCpy?relay
+    190              return ZMacSuccess;
+   \   000010   7900         MOV     R1,#0x0
+   \   000012   8003         SJMP    ??ZMacGetReq_1
+    191            }
+    192          
+    193            return (ZMacStatus_t) MAC_MlmeGetReq( attr, value );
+   \                     ??ZMacGetReq_0:
+   \   000014                ; Setup parameters for call to function MAC_MlmeGetReq
+   \   000014   12....       LCALL   ??MAC_MlmeGetReq?relay
+   \                     ??ZMacGetReq_1:
+   \   000017   02....       LJMP    ??Subroutine11_0 & 0xFFFF
+    194          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine11_0:
+   \   000000   D083         POP     DPH
+   \   000002   D082         POP     DPL
+   \   000004   02....       LJMP    ?BRET
+    195          
+    196          
+    197          /********************************************************************************************************
+    198           * @fn      ZMacSetReq
+    199           *
+    200           * @brief   Write a MAC PIB attribute.
+    201           *
+    202           * @param   attr - PIB attribute to Set
+    203           * @param   value - pointer to the data
+    204           *
+    205           * @return  status
+    206           ********************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    207          uint8 ZMacSetReq( uint8 attr, byte *value )
+   \                     ZMacSetReq:
+    208          {
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+   \   000005   89..         MOV     ?V0 + 0,R1
+   \   000007   EA           MOV     A,R2
+   \   000008   FE           MOV     R6,A
+   \   000009   EB           MOV     A,R3
+   \   00000A   FF           MOV     R7,A
+    209            if ( attr == ZMacExtAddr )
+   \   00000B   74E2         MOV     A,#-0x1e
+   \   00000D   65..         XRL     A,?V0 + 0
+   \   00000F   700B         JNZ     ??ZMacSetReq_0
+    210            {
+    211              osal_cpyExtAddr( aExtendedAddress, value );
+   \   000011                ; Setup parameters for call to function sAddrExtCpy
+   \   000011   EE           MOV     A,R6
+   \   000012   FC           MOV     R4,A
+   \   000013   EF           MOV     A,R7
+   \   000014   FD           MOV     R5,A
+   \   000015   7A..         MOV     R2,#(aExtendedAddress & 0xff)
+   \   000017   7B..         MOV     R3,#((aExtendedAddress >> 8) & 0xff)
+   \   000019   12....       LCALL   ??sAddrExtCpy?relay
+    212            }
+    213          
+    214            return (ZMacStatus_t) MAC_MlmeSetReq( attr, value );
+   \                     ??ZMacSetReq_0:
+   \   00001C                ; Setup parameters for call to function MAC_MlmeSetReq
+   \   00001C   EE           MOV     A,R6
+   \   00001D   FA           MOV     R2,A
+   \   00001E   EF           MOV     A,R7
+   \   00001F   FB           MOV     R3,A
+   \   000020   A9..         MOV     R1,?V0 + 0
+   \   000022   12....       LCALL   ??MAC_MlmeSetReq?relay
+   \   000025   02....       LJMP    ??Subroutine9_0 & 0xFFFF
+    215          }
+    216          
+    217          /********************************************************************************************************
+    218           * @fn      ZMacAssociateReq
+    219           *
+    220           * @brief   Request an association with a coordinator.
+    221           *
+    222           * @param   structure with info need to associate.
+    223           *
+    224           * @return  status
+    225           ********************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    226          uint8 ZMacAssociateReq( ZMacAssociateReq_t *pData )
+   \                     ZMacAssociateReq:
+    227          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    228            /* Right now, set security to zero */
+    229            pData->Sec.SecurityLevel = false;
+   \   000004   EA           MOV     A,R2
+   \   000005   2416         ADD     A,#0x16
+   \   000007   12....       LCALL   ?Subroutine2 & 0xFFFF
+    230          
+    231            MAC_MlmeAssociateReq ( (macMlmeAssociateReq_t *)pData);
+   \                     ??CrossCallReturnLabel_9:
+   \   00000A                ; Setup parameters for call to function MAC_MlmeAssociateReq
+   \   00000A   12....       LCALL   ??MAC_MlmeAssociateReq?relay
+    232            return ( ZMacSuccess );
+   \   00000D   02....       LJMP    ?Subroutine7 & 0xFFFF
+    233          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine2:
+   \   000000   F582         MOV     DPL,A
+   \   000002   EB           MOV     A,R3
+   \   000003                REQUIRE ??Subroutine10_0
+   \   000003                ; // Fall through to label ??Subroutine10_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine10_0:
+   \   000000   12....       LCALL   ?Subroutine4 & 0xFFFF
+   \                     ??CrossCallReturnLabel_15:
+   \   000003   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine4:
+   \   000000   12....       LCALL   ??Subroutine12_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_21:
+   \   000003   E4           CLR     A
+   \   000004   F0           MOVX    @DPTR,A
+   \   000005   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine7:
+   \   000000   7900         MOV     R1,#0x0
+   \   000002                REQUIRE ??Subroutine11_0
+   \   000002                ; // Fall through to label ??Subroutine11_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine12_0:
+   \   000000   3400         ADDC    A,#0x0
+   \   000002   F583         MOV     DPH,A
+   \   000004   22           RET
+    234          
+    235          /********************************************************************************************************
+    236           * @fn      ZMacAssociateRsp
+    237           *
+    238           * @brief   Request to send an association response message.
+    239           *
+    240           * @param   structure with associate response and info needed to send it.
+    241           *
+    242           * @return  MAC_SUCCESS or MAC error code
+    243           ********************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    244          uint8 ZMacAssociateRsp( ZMacAssociateRsp_t *pData )
+   \                     ZMacAssociateRsp:
+    245          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    246            /* Right now, set security to zero */
+    247            pData->Sec.SecurityLevel = false;
+   \   000004   12....       LCALL   ?Subroutine0 & 0xFFFF
+    248          
+    249            return ( MAC_MlmeAssociateRsp( (macMlmeAssociateRsp_t *) pData ) );
+   \                     ??CrossCallReturnLabel_0:
+   \   000007                ; Setup parameters for call to function MAC_MlmeAssociateRsp
+   \   000007   12....       LCALL   ??MAC_MlmeAssociateRsp?relay
+   \   00000A   02....       LJMP    ??Subroutine11_0 & 0xFFFF
+    250          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   EA           MOV     A,R2
+   \   000001   2413         ADD     A,#0x13
+   \   000003   F582         MOV     DPL,A
+   \   000005   EB           MOV     A,R3
+   \   000006   12....       LCALL   ?Subroutine4 & 0xFFFF
+   \                     ??CrossCallReturnLabel_13:
+   \   000009   22           RET
+    251          
+    252          /********************************************************************************************************
+    253           * @fn      ZMacDisassociateReq
+    254           *
+    255           * @brief   Request to send a disassociate request message.
+    256           *
+    257           * @param   structure with info need send it.
+    258           *
+    259           * @return  status
+    260           ********************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    261          uint8 ZMacDisassociateReq( ZMacDisassociateReq_t *pData )
+   \                     ZMacDisassociateReq:
+    262          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    263            /* Right now, set security to zero */
+    264            pData->Sec.SecurityLevel = false;
+   \   000004   EA           MOV     A,R2
+   \   000005   2415         ADD     A,#0x15
+   \   000007   12....       LCALL   ?Subroutine2 & 0xFFFF
+    265          
+    266            MAC_MlmeDisassociateReq( (macMlmeDisassociateReq_t *)pData);
+   \                     ??CrossCallReturnLabel_10:
+   \   00000A                ; Setup parameters for call to function MAC_MlmeDisassociateReq
+   \   00000A   12....       LCALL   ??MAC_MlmeDisassociateReq?relay
+    267            return ( ZMacSuccess );
+   \   00000D   02....       LJMP    ?Subroutine7 & 0xFFFF
+    268          }
+    269          
+    270          /********************************************************************************************************
+    271           * @fn      ZMacOrphanRsp
+    272           *
+    273           * @brief   Allows next higher layer to respond to an orphan indication message.
+    274           *
+    275           * @param   structure with info need send it.
+    276           *
+    277           * @return  status
+    278           ********************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    279          uint8 ZMacOrphanRsp( ZMacOrphanRsp_t *pData )
+   \                     ZMacOrphanRsp:
+    280          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    281            /* Right now, set security to zero */
+    282            pData->Sec.SecurityLevel = false;
+   \   000004   12....       LCALL   ?Subroutine0 & 0xFFFF
+    283          
+    284            MAC_MlmeOrphanRsp( (macMlmeOrphanRsp_t *)pData);
+   \                     ??CrossCallReturnLabel_1:
+   \   000007                ; Setup parameters for call to function MAC_MlmeOrphanRsp
+   \   000007   12....       LCALL   ??MAC_MlmeOrphanRsp?relay
+    285            return ( ZMacSuccess );
+   \   00000A   02....       LJMP    ?Subroutine7 & 0xFFFF
+    286          }
+    287          
+    288          /********************************************************************************************************
+    289           * @fn      ZMacScanReq
+    290           *
+    291           * @brief   This function is called to perform a network scan.
+    292           *
+    293           * @param   param - structure with info need send it.
+    294           *
+    295           * @return  status
+    296           ********************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    297          uint8 ZMacScanReq( ZMacScanReq_t *pData )
+   \                     ZMacScanReq:
+    298          {
+   \   000000   74F4         MOV     A,#-0xc
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 12
+   \   000005                ; Auto size: 0
+   \   000005   EA           MOV     A,R2
+   \   000006   FE           MOV     R6,A
+   \   000007   EB           MOV     A,R3
+   \   000008   FF           MOV     R7,A
+    299            _ScanChannels = pData->ScanChannels;
+   \   000009   8E82         MOV     DPL,R6
+   \   00000B   8F83         MOV     DPH,R7
+   \   00000D   78..         MOV     R0,#?V0 + 0
+   \   00000F   12....       LCALL   ?L_MOV_X
+   \   000012   90....       MOV     DPTR,#_ScanChannels
+   \   000015   78..         MOV     R0,#?V0 + 0
+   \   000017   12....       LCALL   ?L_MOV_TO_X
+    300          
+    301            /* scan in progress */
+    302            if (ZMac_ScanBuf != NULL)
+   \   00001A   90....       MOV     DPTR,#ZMac_ScanBuf
+   \   00001D   E0           MOVX    A,@DPTR
+   \   00001E   7002         JNZ     ??ZMacScanReq_0
+   \   000020   A3           INC     DPTR
+   \   000021   E0           MOVX    A,@DPTR
+   \                     ??ZMacScanReq_0:
+   \   000022   6005         JZ      ??ZMacScanReq_1
+    303            {
+    304              return MAC_SCAN_IN_PROGRESS;
+   \   000024   79FC         MOV     R1,#-0x4
+   \   000026   02....       LJMP    ??ZMacScanReq_2 & 0xFFFF
+    305            }
+    306          
+    307            if (pData->ScanType != ZMAC_ORPHAN_SCAN)
+   \                     ??ZMacScanReq_1:
+   \   000029   8E82         MOV     DPL,R6
+   \   00002B   8F83         MOV     DPH,R7
+   \   00002D   A3           INC     DPTR
+   \   00002E   A3           INC     DPTR
+   \   00002F   A3           INC     DPTR
+   \   000030   A3           INC     DPTR
+   \   000031   E0           MOVX    A,@DPTR
+   \   000032   FA           MOV     R2,A
+   \   000033   7403         MOV     A,#0x3
+   \   000035   6A           XRL     A,R2
+   \   000036   7003         JNZ     $+5
+   \   000038   02....       LJMP    ??ZMacScanReq_3 & 0xFFFF
+    308            {
+    309              /* Allocate memory depends on the scan type */
+    310              if (pData->ScanType == ZMAC_ED_SCAN)
+   \   00003B   EE           MOV     A,R6
+   \   00003C   2413         ADD     A,#0x13
+   \   00003E   F5..         MOV     ?V0 + 0,A
+   \   000040   EF           MOV     A,R7
+   \   000041   3400         ADDC    A,#0x0
+   \   000043   F5..         MOV     ?V0 + 1,A
+   \   000045   EA           MOV     A,R2
+   \   000046   7043         JNZ     ??ZMacScanReq_4
+    311              {
+    312                if ((ZMac_ScanBuf = osal_mem_alloc(ZMAC_ED_SCAN_MAXCHANNELS)) == NULL)
+   \   000048                ; Setup parameters for call to function osal_mem_alloc
+   \   000048   7A1B         MOV     R2,#0x1b
+   \   00004A   7B00         MOV     R3,#0x0
+   \   00004C   12....       LCALL   ??osal_mem_alloc?relay
+   \   00004F   8A..         MOV     ?V0 + 2,R2
+   \   000051   8B..         MOV     ?V0 + 3,R3
+   \   000053   A8..         MOV     R0,?V0 + 2
+   \   000055   A9..         MOV     R1,?V0 + 3
+   \   000057   90....       MOV     DPTR,#ZMac_ScanBuf
+   \   00005A   E8           MOV     A,R0
+   \   00005B   F0           MOVX    @DPTR,A
+   \   00005C   A3           INC     DPTR
+   \   00005D   E9           MOV     A,R1
+   \   00005E   F0           MOVX    @DPTR,A
+   \   00005F   E8           MOV     A,R0
+   \   000060   7001         JNZ     ??ZMacScanReq_5
+   \   000062   E9           MOV     A,R1
+   \                     ??ZMacScanReq_5:
+   \   000063   7004         JNZ     ??ZMacScanReq_6
+    313                {
+    314                  return MAC_NO_RESOURCES;
+   \                     ??ZMacScanReq_7:
+   \   000065   791A         MOV     R1,#0x1a
+   \   000067   807F         SJMP    ??ZMacScanReq_2
+    315                }
+    316                osal_memset(ZMac_ScanBuf, 0, ZMAC_ED_SCAN_MAXCHANNELS);
+   \                     ??ZMacScanReq_6:
+   \   000069                ; Setup parameters for call to function osal_memset
+   \   000069   7C1B         MOV     R4,#0x1b
+   \   00006B   7D00         MOV     R5,#0x0
+   \   00006D   7900         MOV     R1,#0x0
+   \   00006F   12....       LCALL   ??osal_memset?relay
+    317                pData->Result.pEnergyDetect = ((uint8*)ZMac_ScanBuf) + MAC_CHAN_11;
+   \   000072   90....       MOV     DPTR,#ZMac_ScanBuf
+   \   000075   E0           MOVX    A,@DPTR
+   \   000076   240B         ADD     A,#0xb
+   \   000078   F8           MOV     R0,A
+   \   000079   A3           INC     DPTR
+   \   00007A   E0           MOVX    A,@DPTR
+   \   00007B   3400         ADDC    A,#0x0
+   \   00007D   F9           MOV     R1,A
+   \   00007E   85..82       MOV     DPL,?V0 + 0
+   \   000081   85..83       MOV     DPH,?V0 + 1
+   \   000084   E8           MOV     A,R0
+   \   000085   F0           MOVX    @DPTR,A
+   \   000086   A3           INC     DPTR
+   \   000087   E9           MOV     A,R1
+   \   000088   F0           MOVX    @DPTR,A
+   \   000089   8040         SJMP    ??ZMacScanReq_3
+    318              }
+    319              else if (pData->MaxResults > 0)
+   \                     ??ZMacScanReq_4:
+   \   00008B   8E82         MOV     DPL,R6
+   \   00008D   8F83         MOV     DPH,R7
+   \   00008F   A3           INC     DPTR
+   \   000090   A3           INC     DPTR
+   \   000091   A3           INC     DPTR
+   \   000092   A3           INC     DPTR
+   \   000093   A3           INC     DPTR
+   \   000094   A3           INC     DPTR
+   \   000095   A3           INC     DPTR
+   \   000096   E0           MOVX    A,@DPTR
+   \   000097   6032         JZ      ??ZMacScanReq_3
+    320              {
+    321                if ((ZMac_ScanBuf = pData->Result.pPanDescriptor =
+    322                     osal_mem_alloc( sizeof( ZMacPanDesc_t ) * pData->MaxResults )) == NULL)
+   \   000099                ; Setup parameters for call to function osal_mem_alloc
+   \   000099   75F021       MOV     B,#0x21
+   \   00009C   A4           MUL     AB
+   \   00009D   FA           MOV     R2,A
+   \   00009E   ABF0         MOV     R3,B
+   \   0000A0   12....       LCALL   ??osal_mem_alloc?relay
+   \   0000A3   85..82       MOV     DPL,?V0 + 0
+   \   0000A6   85..83       MOV     DPH,?V0 + 1
+   \   0000A9   EA           MOV     A,R2
+   \   0000AA   F0           MOVX    @DPTR,A
+   \   0000AB   A3           INC     DPTR
+   \   0000AC   EB           MOV     A,R3
+   \   0000AD   F0           MOVX    @DPTR,A
+   \   0000AE   85..82       MOV     DPL,?V0 + 0
+   \   0000B1   85..83       MOV     DPH,?V0 + 1
+   \   0000B4   E0           MOVX    A,@DPTR
+   \   0000B5   F8           MOV     R0,A
+   \   0000B6   A3           INC     DPTR
+   \   0000B7   E0           MOVX    A,@DPTR
+   \   0000B8   F9           MOV     R1,A
+   \   0000B9   90....       MOV     DPTR,#ZMac_ScanBuf
+   \   0000BC   E8           MOV     A,R0
+   \   0000BD   F0           MOVX    @DPTR,A
+   \   0000BE   A3           INC     DPTR
+   \   0000BF   E9           MOV     A,R1
+   \   0000C0   F0           MOVX    @DPTR,A
+   \   0000C1   90....       MOV     DPTR,#ZMac_ScanBuf
+   \   0000C4   E0           MOVX    A,@DPTR
+   \   0000C5   7002         JNZ     ??ZMacScanReq_8
+   \   0000C7   A3           INC     DPTR
+   \   0000C8   E0           MOVX    A,@DPTR
+   \                     ??ZMacScanReq_8:
+   \   0000C9   609A         JZ      ??ZMacScanReq_7
+    323                {
+    324                  return MAC_NO_RESOURCES;
+    325                }
+    326              }
+    327            }
+    328          
+    329            /* Right now, set security to zero */
+    330            pData->Sec.SecurityLevel = false;
+   \                     ??ZMacScanReq_3:
+   \   0000CB   EE           MOV     A,R6
+   \   0000CC   2410         ADD     A,#0x10
+   \   0000CE   F582         MOV     DPL,A
+   \   0000D0   EF           MOV     A,R7
+   \   0000D1   12....       LCALL   ??Subroutine10_0 & 0xFFFF
+    331          
+    332            /* Channel Page */
+    333            pData->ChannelPage = 0x00;
+   \                     ??CrossCallReturnLabel_7:
+   \   0000D4   8E82         MOV     DPL,R6
+   \   0000D6   8F83         MOV     DPH,R7
+   \   0000D8   A3           INC     DPTR
+   \   0000D9   A3           INC     DPTR
+   \   0000DA   A3           INC     DPTR
+   \   0000DB   A3           INC     DPTR
+   \   0000DC   A3           INC     DPTR
+   \   0000DD   A3           INC     DPTR
+   \   0000DE   F0           MOVX    @DPTR,A
+    334          
+    335            MAC_MlmeScanReq ((macMlmeScanReq_t *)pData);
+   \   0000DF                ; Setup parameters for call to function MAC_MlmeScanReq
+   \   0000DF   EE           MOV     A,R6
+   \   0000E0   FA           MOV     R2,A
+   \   0000E1   EF           MOV     A,R7
+   \   0000E2   FB           MOV     R3,A
+   \   0000E3   12....       LCALL   ??MAC_MlmeScanReq?relay
+    336          
+    337            return ZMacSuccess;
+   \   0000E6   7900         MOV     R1,#0x0
+   \                     ??ZMacScanReq_2:
+   \   0000E8                REQUIRE ?Subroutine8
+   \   0000E8                ; // Fall through to label ?Subroutine8
+    338          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine8:
+   \   000000   7F04         MOV     R7,#0x4
+   \   000002   02....       LJMP    ?BANKED_LEAVE_XDATA
+    339          
+    340          
+    341          /********************************************************************************************************
+    342           * @fn      ZMacStartReq
+    343           *
+    344           * @brief   This function is called to tell the MAC to transmit beacons
+    345           *          and become a coordinator.
+    346           *
+    347           * @param   structure with info need send it.
+    348           *
+    349           * @return  status
+    350           ********************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    351          uint8 ZMacStartReq( ZMacStartReq_t *pData )
+   \                     ZMacStartReq:
+    352          {
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 1
+   \   000005   74FF         MOV     A,#-0x1
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+   \   00000A   EA           MOV     A,R2
+   \   00000B   FE           MOV     R6,A
+   \   00000C   EB           MOV     A,R3
+   \   00000D   FF           MOV     R7,A
+    353            uint8 stat;
+    354          
+    355            // Probably want to keep the receiver on
+    356            stat = true;
+   \   00000E   7401         MOV     A,#0x1
+   \   000010   85..82       MOV     DPL,?XSP + 0
+   \   000013   85..83       MOV     DPH,?XSP + 1
+   \   000016   F0           MOVX    @DPTR,A
+    357            MAC_MlmeSetReq( MAC_RX_ON_WHEN_IDLE, &stat );
+   \   000017                ; Setup parameters for call to function MAC_MlmeSetReq
+   \   000017   AA82         MOV     R2,DPL
+   \   000019   AB83         MOV     R3,DPH
+   \   00001B   7952         MOV     R1,#0x52
+   \   00001D   12....       LCALL   ??MAC_MlmeSetReq?relay
+    358          
+    359            /* Right now, set security to zero */
+    360            pData->RealignSec.SecurityLevel = false;
+   \   000020   EE           MOV     A,R6
+   \   000021   2415         ADD     A,#0x15
+   \   000023   F582         MOV     DPL,A
+   \   000025   EF           MOV     A,R7
+   \   000026   12....       LCALL   ??Subroutine10_0 & 0xFFFF
+    361            pData->BeaconSec.SecurityLevel = false;
+   \                     ??CrossCallReturnLabel_8:
+   \   000029   EE           MOV     A,R6
+   \   00002A   2420         ADD     A,#0x20
+   \   00002C   12....       LCALL   ?Subroutine1 & 0xFFFF
+    362          
+    363          
+    364            MAC_MlmeStartReq((macMlmeStartReq_t *) pData);
+   \                     ??CrossCallReturnLabel_3:
+   \   00002F   12....       LCALL   ??MAC_MlmeStartReq?relay
+    365          
+    366            // MAC does not issue mlmeStartConfirm(), so we have to
+    367            // mlmeStartConfirm( stat );  This needs to be addressed some how
+    368          
+    369            return ZMacSuccess;
+   \   000032   7900         MOV     R1,#0x0
+   \   000034   02....       LJMP    ?Subroutine6 & 0xFFFF
+    370          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine1:
+   \   000000   F582         MOV     DPL,A
+   \   000002   EF           MOV     A,R7
+   \   000003   12....       LCALL   ?Subroutine4 & 0xFFFF
+   \                     ??CrossCallReturnLabel_14:
+   \   000006                ; Setup parameters for call to function MAC_MlmeStartReq
+   \   000006                ; Setup parameters for call to function MAC_McpsDataReq
+   \   000006   EE           MOV     A,R6
+   \   000007   FA           MOV     R2,A
+   \   000008   EF           MOV     A,R7
+   \   000009   FB           MOV     R3,A
+   \   00000A   22           RET
+    371          
+    372          /********************************************************************************************************
+    373           * @fn      ZMacSyncReq
+    374           *
+    375           * @brief   This function is called to request a sync to the current
+    376           *          networks beacons.
+    377           *
+    378           * @param   LogicalChannel -
+    379           * @param   TrackBeacon - true/false
+    380           *
+    381           * @return  status
+    382           ********************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    383          uint8 ZMacSyncReq( ZMacSyncReq_t *pData )
+   \                     ZMacSyncReq:
+    384          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    385            MAC_MlmeSyncReq( (macMlmeSyncReq_t *)pData);
+   \   000004                ; Setup parameters for call to function MAC_MlmeSyncReq
+   \   000004   12....       LCALL   ??MAC_MlmeSyncReq?relay
+    386            return ZMacSuccess;
+   \   000007   02....       LJMP    ?Subroutine7 & 0xFFFF
+    387          }
+    388          
+    389          /********************************************************************************************************
+    390           * @fn      ZMacPollReq
+    391           *
+    392           * @brief   This function is called to request MAC data request poll.
+    393           *
+    394           * @param   coordAddr -
+    395           * @param   coordPanId -
+    396           * @param   SecurityEnable - true or false.
+    397           *
+    398           * @return  status
+    399           ********************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    400          uint8 ZMacPollReq( ZMacPollReq_t *pData )
+   \                     ZMacPollReq:
+    401          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    402            /* Right now, set security to zero */
+    403            pData->Sec.SecurityLevel = false;
+   \   000004   12....       LCALL   ?Subroutine0 & 0xFFFF
+    404          
+    405            MAC_MlmePollReq ((macMlmePollReq_t *)pData);
+   \                     ??CrossCallReturnLabel_2:
+   \   000007                ; Setup parameters for call to function MAC_MlmePollReq
+   \   000007   12....       LCALL   ??MAC_MlmePollReq?relay
+    406            return ( ZMacSuccess );
+   \   00000A   02....       LJMP    ?Subroutine7 & 0xFFFF
+    407          }
+    408          
+    409          /********************************************************************************************************
+    410           * @fn      ZMacDataReqSec
+    411           *
+    412           * @brief   Send a MAC Data Frame packet, calls the passed in function to apply non-MAC security
+    413           *          on the MAC data field after the MAC buffer allocation.
+    414           *
+    415           * @param   pData - structure containing data and where to send it.
+    416           * @param   secCB - callback function to apply security, NULL indicates no security
+    417           *
+    418           * @return  status
+    419           ********************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    420          uint8 ZMacDataReqSec( ZMacDataReq_t *pData, applySecCB_t secCB )
+   \                     ZMacDataReqSec:
+    421          {
+   \   000000   74EA         MOV     A,#-0x16
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 22
+   \   000005                ; Auto size: 0
+   \   000005   8A..         MOV     ?V0 + 0,R2
+   \   000007   8B..         MOV     ?V0 + 1,R3
+   \   000009   8C..         MOV     ?V0 + 12,R4
+   \   00000B   8D..         MOV     ?V0 + 13,R5
+    422            macMcpsDataReq_t *pBuf;
+    423          
+    424            /* Allocate memory */
+    425            pBuf = MAC_McpsDataAlloc( pData->msduLength, MAC_SEC_LEVEL_NONE, MAC_KEY_ID_MODE_NONE );
+   \   00000D   EA           MOV     A,R2
+   \   00000E   241B         ADD     A,#0x1b
+   \   000010   F5..         MOV     ?V0 + 2,A
+   \   000012   EB           MOV     A,R3
+   \   000013   3400         ADDC    A,#0x0
+   \   000015   F5..         MOV     ?V0 + 3,A
+   \   000017                ; Setup parameters for call to function MAC_McpsDataAlloc
+   \   000017   7B00         MOV     R3,#0x0
+   \   000019   7A00         MOV     R2,#0x0
+   \   00001B   85..82       MOV     DPL,?V0 + 2
+   \   00001E   F583         MOV     DPH,A
+   \   000020   E0           MOVX    A,@DPTR
+   \   000021   F9           MOV     R1,A
+   \   000022   12....       LCALL   ??MAC_McpsDataAlloc?relay
+   \   000025   8A..         MOV     ?V0 + 4,R2
+   \   000027   8B..         MOV     ?V0 + 5,R3
+   \   000029   AE..         MOV     R6,?V0 + 4
+   \   00002B   AF..         MOV     R7,?V0 + 5
+    426          
+    427            if ( pBuf )
+   \   00002D   EE           MOV     A,R6
+   \   00002E   7001         JNZ     ??ZMacDataReqSec_0
+   \   000030   EF           MOV     A,R7
+   \                     ??ZMacDataReqSec_0:
+   \   000031   7003         JNZ     $+5
+   \   000033   02....       LJMP    ??ZMacDataReqSec_1 & 0xFFFF
+    428            {
+    429              /* Copy the addresses */
+    430              osal_memcpy( &pBuf->mac, pData, sizeof (macDataReq_t) );
+   \   000036                ; Setup parameters for call to function osal_memcpy
+   \   000036   85....       MOV     ?V0 + 4,?V0 + 0
+   \   000039   85....       MOV     ?V0 + 5,?V0 + 1
+   \   00003C   75..00       MOV     ?V0 + 6,#0x0
+   \   00003F   78..         MOV     R0,#?V0 + 4
+   \   000041   12....       LCALL   ?PUSH_XSTACK_I_THREE
+   \   000044   7C10         MOV     R4,#0x10
+   \   000046   7D00         MOV     R5,#0x0
+   \   000048   EE           MOV     A,R6
+   \   000049   2422         ADD     A,#0x22
+   \   00004B   FA           MOV     R2,A
+   \   00004C   EF           MOV     A,R7
+   \   00004D   3400         ADDC    A,#0x0
+   \   00004F   FB           MOV     R3,A
+   \   000050   12....       LCALL   ??osal_memcpy?relay
+   \   000053   7403         MOV     A,#0x3
+   \   000055   12....       LCALL   ?DEALLOC_XSTACK8
+    431          
+    432              /* Copy data */
+    433              pBuf->msdu.len = pData->msduLength;
+   \   000058   EE           MOV     A,R6
+   \   000059   2404         ADD     A,#0x4
+   \   00005B   F5..         MOV     ?V0 + 6,A
+   \   00005D   EF           MOV     A,R7
+   \   00005E   3400         ADDC    A,#0x0
+   \   000060   F5..         MOV     ?V0 + 7,A
+   \   000062   85..82       MOV     DPL,?V0 + 2
+   \   000065   85..83       MOV     DPH,?V0 + 3
+   \   000068   E0           MOVX    A,@DPTR
+   \   000069   85..82       MOV     DPL,?V0 + 6
+   \   00006C   85..83       MOV     DPH,?V0 + 7
+   \   00006F   F0           MOVX    @DPTR,A
+    434              osal_memcpy( pBuf->msdu.p, pData->msdu, pData->msduLength );
+   \   000070   EE           MOV     A,R6
+   \   000071   2402         ADD     A,#0x2
+   \   000073   F5..         MOV     ?V0 + 4,A
+   \   000075   EF           MOV     A,R7
+   \   000076   3400         ADDC    A,#0x0
+   \   000078   F5..         MOV     ?V0 + 5,A
+   \   00007A                ; Setup parameters for call to function osal_memcpy
+   \   00007A   E5..         MOV     A,?V0 + 0
+   \   00007C   241C         ADD     A,#0x1c
+   \   00007E   F582         MOV     DPL,A
+   \   000080   E5..         MOV     A,?V0 + 1
+   \   000082   12....       LCALL   ??Subroutine12_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_16:
+   \   000085   E0           MOVX    A,@DPTR
+   \   000086   F5..         MOV     ?V0 + 8,A
+   \   000088   A3           INC     DPTR
+   \   000089   E0           MOVX    A,@DPTR
+   \   00008A   F5..         MOV     ?V0 + 9,A
+   \   00008C   75..00       MOV     ?V0 + 10,#0x0
+   \   00008F   78..         MOV     R0,#?V0 + 8
+   \   000091   12....       LCALL   ?PUSH_XSTACK_I_THREE
+   \   000094   85..82       MOV     DPL,?V0 + 2
+   \   000097   85..83       MOV     DPH,?V0 + 3
+   \   00009A   E0           MOVX    A,@DPTR
+   \   00009B   FC           MOV     R4,A
+   \   00009C   7D00         MOV     R5,#0x0
+   \   00009E   85..82       MOV     DPL,?V0 + 4
+   \   0000A1   85..83       MOV     DPH,?V0 + 5
+   \   0000A4   E0           MOVX    A,@DPTR
+   \   0000A5   FA           MOV     R2,A
+   \   0000A6   A3           INC     DPTR
+   \   0000A7   E0           MOVX    A,@DPTR
+   \   0000A8   FB           MOV     R3,A
+   \   0000A9   12....       LCALL   ??osal_memcpy?relay
+   \   0000AC   7403         MOV     A,#0x3
+   \   0000AE   12....       LCALL   ?DEALLOC_XSTACK8
+    435              
+    436              /* Encrypt in place */
+    437              if ( secCB && pBuf->msdu.len && pBuf->msdu.p )
+   \   0000B1   E5..         MOV     A,?V0 + 12
+   \   0000B3   7002         JNZ     ??ZMacDataReqSec_2
+   \   0000B5   E5..         MOV     A,?V0 + 13
+   \                     ??ZMacDataReqSec_2:
+   \   0000B7   6030         JZ      ??ZMacDataReqSec_3
+   \   0000B9   85..82       MOV     DPL,?V0 + 6
+   \   0000BC   85..83       MOV     DPH,?V0 + 7
+   \   0000BF   E0           MOVX    A,@DPTR
+   \   0000C0   F9           MOV     R1,A
+   \   0000C1   6026         JZ      ??ZMacDataReqSec_3
+   \   0000C3   85..82       MOV     DPL,?V0 + 4
+   \   0000C6   85..83       MOV     DPH,?V0 + 5
+   \   0000C9   E0           MOVX    A,@DPTR
+   \   0000CA   FA           MOV     R2,A
+   \   0000CB   A3           INC     DPTR
+   \   0000CC   E0           MOVX    A,@DPTR
+   \   0000CD   FB           MOV     R3,A
+   \   0000CE   EA           MOV     A,R2
+   \   0000CF   7001         JNZ     ??ZMacDataReqSec_4
+   \   0000D1   EB           MOV     A,R3
+   \                     ??ZMacDataReqSec_4:
+   \   0000D2   6015         JZ      ??ZMacDataReqSec_3
+    438              {
+    439                if ( secCB( pBuf->msdu.len, pBuf->msdu.p ) != ZSuccess )
+   \   0000D4                ; Setup parameters for indirect call
+   \   0000D4   85..82       MOV     DPL,?V0 + 12
+   \   0000D7   85..83       MOV     DPH,?V0 + 13
+   \   0000DA   12....       LCALL   ?CALL_IND
+   \   0000DD   E9           MOV     A,R1
+   \   0000DE   6009         JZ      ??ZMacDataReqSec_3
+    440                {
+    441                  // Deallocate the buffer.  MAC_McpsDataAlloc() calls osal_msg_allocate() and
+    442                  // returns the same pointer.
+    443                  osal_msg_deallocate( (uint8 *)pBuf );
+   \   0000E0                ; Setup parameters for call to function osal_msg_deallocate
+   \   0000E0   EE           MOV     A,R6
+   \   0000E1   FA           MOV     R2,A
+   \   0000E2   EF           MOV     A,R7
+   \   0000E3   FB           MOV     R3,A
+   \   0000E4   12....       LCALL   ??osal_msg_deallocate?relay
+    444                  
+    445                  return ( MAC_NO_RESOURCES );
+   \   0000E7   800D         SJMP    ??ZMacDataReqSec_1
+    446                }
+    447              }
+    448          
+    449              /* Right now, set MAC security to off */
+    450              pBuf->sec.securityLevel = false;
+   \                     ??ZMacDataReqSec_3:
+   \   0000E9   EE           MOV     A,R6
+   \   0000EA   241F         ADD     A,#0x1f
+   \   0000EC   12....       LCALL   ?Subroutine1 & 0xFFFF
+    451          
+    452              /* Call Mac Data Request */
+    453              MAC_McpsDataReq( pBuf );
+   \                     ??CrossCallReturnLabel_4:
+   \   0000EF   12....       LCALL   ??MAC_McpsDataReq?relay
+    454          
+    455              return ( ZMacSuccess );
+   \   0000F2   7900         MOV     R1,#0x0
+   \   0000F4   8002         SJMP    ??ZMacDataReqSec_5
+    456            }
+    457          
+    458            return ( MAC_NO_RESOURCES );
+   \                     ??ZMacDataReqSec_1:
+   \   0000F6   791A         MOV     R1,#0x1a
+   \                     ??ZMacDataReqSec_5:
+   \   0000F8   7F0E         MOV     R7,#0xe
+   \   0000FA   02....       LJMP    ?BANKED_LEAVE_XDATA
+    459          }
+    460          
+    461          /********************************************************************************************************
+    462           * @fn      ZMacDataReq
+    463           *
+    464           * @brief   Send a MAC Data Frame packet.
+    465           *
+    466           * @param   structure containing data and where to send it.
+    467           *
+    468           * @return  status
+    469           ********************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    470          uint8 ZMacDataReq( ZMacDataReq_t *pData )
+   \                     ZMacDataReq:
+    471          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    472            return ZMacDataReqSec( pData, NULL );
+   \   000004                ; Setup parameters for call to function ZMacDataReqSec
+   \   000004   7C00         MOV     R4,#0x0
+   \   000006   7D00         MOV     R5,#0x0
+   \   000008   12....       LCALL   ??ZMacDataReqSec?relay
+   \   00000B   80..         SJMP    ??Subroutine11_0
+    473          }
+    474          
+    475          /********************************************************************************************************
+    476           * @fn      ZMacPurgeReq
+    477           *
+    478           * @brief   Purge a MAC Data Frame packet.
+    479           *
+    480           * @param   MSDU data handle.
+    481           *
+    482           * @return  status
+    483           ********************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    484          uint8 ZMacPurgeReq( byte Handle )
+   \                     ZMacPurgeReq:
+    485          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    486            MAC_McpsPurgeReq( Handle );
+   \   000004                ; Setup parameters for call to function MAC_McpsPurgeReq
+   \   000004   12....       LCALL   ??MAC_McpsPurgeReq?relay
+    487            return ZMacSuccess;
+   \   000007   80..         SJMP    ?Subroutine7
+    488          }
+    489          
+    490          /********************************************************************************************************
+    491           * @fn      ZMacSrcMatchEnable
+    492           *
+    493           * @brief   This function is call to enable AUTOPEND and source address matching.
+    494           *
+    495           * @param   addressType - address type that the application uses
+    496           *                        SADDR_MODE_SHORT or SADDR_MODE_EXT.
+    497           *          numEntries  - number of source address table entries to be used
+    498           *
+    499           * @return  status
+    500           ********************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    501          ZMacStatus_t ZMacSrcMatchEnable (uint8 addrType, uint8 numEntries)
+   \                     ZMacSrcMatchEnable:
+    502          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    503            return (MAC_SrcMatchEnable(addrType, numEntries));
+   \   000004                ; Setup parameters for call to function MAC_SrcMatchEnable
+   \   000004   12....       LCALL   ??MAC_SrcMatchEnable?relay
+   \   000007   80..         SJMP    ??Subroutine11_0
+    504          }
+    505          
+    506          /********************************************************************************************************
+    507           * @fn      ZMacSrcMatchAddEntry
+    508           *
+    509           * @brief   This function is called to add a short or extended address to source address table.
+    510           *
+    511           * @param   addr - a pointer to sAddr_t which contains addrMode
+    512           *                     and a union of a short 16-bit MAC address or an extended
+    513           *                     64-bit MAC address to be added to the source address table.
+    514           *          panID - the device PAN ID. It is only used when the addr is
+    515           *                      using short address
+    516           *
+    517           * @return  status
+    518           ********************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    519          ZMacStatus_t ZMacSrcMatchAddEntry (zAddrType_t *addr, uint16 panID)
+   \                     ZMacSrcMatchAddEntry:
+    520          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    521            return (MAC_SrcMatchAddEntry ((sAddr_t*)addr, panID));
+   \   000004                ; Setup parameters for call to function MAC_SrcMatchAddEntry
+   \   000004   12....       LCALL   ??MAC_SrcMatchAddEntry?relay
+   \   000007   80..         SJMP    ??Subroutine11_0
+    522          }
+    523          
+    524          /********************************************************************************************************
+    525           * @fn      ZMacSrcMatchDeleteEntry
+    526           *
+    527           * @brief   This function is called to delete a short or extended address from source address table.
+    528           *
+    529           * @param   addr - a pointer to sAddr_t which contains addrMode
+    530           *                     and a union of a short 16-bit MAC address or an extended
+    531           *                     64-bit MAC address to be added to the source address table.
+    532           *          panID - the device PAN ID. It is only used when the addr is
+    533           *                      using short address
+    534           *
+    535           * @return  status
+    536           ********************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    537          ZMacStatus_t ZMacSrcMatchDeleteEntry (zAddrType_t *addr, uint16 panID)
+   \                     ZMacSrcMatchDeleteEntry:
+    538          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    539            return (MAC_SrcMatchDeleteEntry ((sAddr_t*)addr, panID));
+   \   000004                ; Setup parameters for call to function MAC_SrcMatchDeleteEntry
+   \   000004   12....       LCALL   ??MAC_SrcMatchDeleteEntry?relay
+   \   000007   80..         SJMP    ??Subroutine11_0
+    540          }
+    541          
+    542          /********************************************************************************************************
+    543           * @fn       ZMacSrcMatchAckAllPending
+    544           *
+    545           * @brief    Enabled/disable acknowledging all packets with pending bit set
+    546           *           It is normally enabled when adding new entries to
+    547           *           the source address table fails due to the table is full, or
+    548           *           disabled when more entries are deleted and the table has
+    549           *           empty slots.
+    550           *
+    551           * @param    option - true (acknowledging all packets with pending field set)
+    552           *                    false (acknowledging all packets with pending field cleared)
+    553           *
+    554           * @return   status
+    555           ********************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    556          ZMacStatus_t ZMacSrcMatchAckAllPending (uint8 option)
+   \                     ZMacSrcMatchAckAllPending:
+    557          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    558            MAC_SrcMatchAckAllPending (option);
+   \   000004                ; Setup parameters for call to function MAC_SrcMatchAckAllPending
+   \   000004   12....       LCALL   ??MAC_SrcMatchAckAllPending?relay
+    559          
+    560            return ZMacSuccess;
+   \   000007   80..         SJMP    ?Subroutine7
+    561          }
+    562          
+    563          /********************************************************************************************************
+    564           * @fn       ZMacSrcMatchCheckAllPending
+    565           *
+    566           * @brief    This function is called to check if acknowledging all packets with pending bit set is enabled.
+    567           *
+    568           * @param    none
+    569           *
+    570           * @return   status
+    571           ********************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    572          ZMacStatus_t ZMacSrcMatchCheckAllPending (void)
+   \                     ZMacSrcMatchCheckAllPending:
+    573          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    574            return (MAC_SrcMatchCheckAllPending ());
+   \   000004                ; Setup parameters for call to function MAC_SrcMatchCheckAllPending
+   \   000004   12....       LCALL   ??MAC_SrcMatchCheckAllPending?relay
+   \   000007   80..         SJMP    ??Subroutine11_0
+    575          }
+    576          
+    577          /********************************************************************************************************
+    578           * @fn      - ZMACPwrOnReq
+    579           *
+    580           * @brief   - This function requests the MAC to power on the radio hardware
+    581           *            and wake up.  When the power on procedure is complete the MAC
+    582           *            will send a MAC_PWR_ON_CNF to the application.
+    583           *
+    584           * @input   - None.
+    585           *
+    586           * @output  - None.
+    587           *
+    588           * @return  - None.
+    589           ********************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    590          void ZMacPwrOnReq ( void )
+   \                     ZMacPwrOnReq:
+    591          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    592            MAC_PwrOnReq();
+   \   000004                ; Setup parameters for call to function MAC_PwrOnReq
+   \   000004   12....       LCALL   ??MAC_PwrOnReq?relay
+    593          }
+   \   000007   80..         SJMP    ??Subroutine11_0
+    594          
+    595          /********************************************************************************************************
+    596           * @fn          MAC_PwrMode
+    597           *
+    598           * @brief       This function returns the current power mode of the MAC.
+    599           *
+    600           * input parameters
+    601           *
+    602           * None.
+    603           *
+    604           * output parameters
+    605           *
+    606           * None.
+    607           *
+    608           * @return      The current power mode of the MAC.
+    609           ********************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    610          uint8 ZMac_PwrMode(void)
+   \                     ZMac_PwrMode:
+    611          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    612            return (MAC_PwrMode());
+   \   000004                ; Setup parameters for call to function MAC_PwrMode
+   \   000004   12....       LCALL   ??MAC_PwrMode?relay
+   \   000007   80..         SJMP    ??Subroutine11_0
+    613          }
+    614          
+    615          /********************************************************************************************************
+    616           * @fn      ZMacSetTransmitPower
+    617           *
+    618           * @brief   Set the transmitter power according to the level setting param.
+    619           *
+    620           * @param   Valid power level setting as defined in ZMAC.h.
+    621           *
+    622           * @return  ZMacSuccess if PHY_TRANSMIT_POWER found or ZMacUnsupportedAttribute.
+    623           ********************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    624          uint8 ZMacSetTransmitPower( ZMacTransmitPower_t level )
+   \                     ZMacSetTransmitPower:
+    625          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 1
+   \   000004   74FF         MOV     A,#-0x1
+   \   000006   12....       LCALL   ?ALLOC_XSTACK8
+   \   000009   E9           MOV     A,R1
+   \   00000A   85..82       MOV     DPL,?XSP + 0
+   \   00000D   85..83       MOV     DPH,?XSP + 1
+   \   000010   F0           MOVX    @DPTR,A
+    626            return MAC_MlmeSetReq( ZMacPhyTransmitPower, &level );
+   \   000011                ; Setup parameters for call to function MAC_MlmeSetReq
+   \   000011   AA82         MOV     R2,DPL
+   \   000013   AB83         MOV     R3,DPH
+   \   000015   79E0         MOV     R1,#-0x20
+   \   000017   12....       LCALL   ??MAC_MlmeSetReq?relay
+   \   00001A   7401         MOV     A,#0x1
+   \   00001C   12....       LCALL   ?DEALLOC_XSTACK8
+   \   00001F   80..         SJMP    ??Subroutine11_0
+    627          }
+    628          
+    629          /********************************************************************************************************
+    630           * @fn      ZMacSendNoData
+    631           *
+    632           * @brief   This function sends an empty msg
+    633           *
+    634           * @param   DstAddr   - destination short address
+    635           *          DstPANId  - destination pan id
+    636           *
+    637           * @return  None
+    638           ********************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    639          void ZMacSendNoData ( uint16 DstAddr, uint16 DstPANId )
+   \                     ZMacSendNoData:
+    640          {
+   \   000000   74F4         MOV     A,#-0xc
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 12
+   \   000005                ; Auto size: 0
+   \   000005   8A..         MOV     ?V0 + 0,R2
+   \   000007   8B..         MOV     ?V0 + 1,R3
+   \   000009   EC           MOV     A,R4
+   \   00000A   FE           MOV     R6,A
+   \   00000B   ED           MOV     A,R5
+   \   00000C   FF           MOV     R7,A
+    641            macMcpsDataReq_t *pBuf;
+    642          
+    643            /* Allocate memory */
+    644            pBuf = MAC_McpsDataAlloc(0, MAC_SEC_LEVEL_NONE, MAC_KEY_ID_MODE_NONE);
+   \   00000D                ; Setup parameters for call to function MAC_McpsDataAlloc
+   \   00000D   7B00         MOV     R3,#0x0
+   \   00000F   7A00         MOV     R2,#0x0
+   \   000011   7900         MOV     R1,#0x0
+   \   000013   12....       LCALL   ??MAC_McpsDataAlloc?relay
+    645          
+    646            if (pBuf)
+   \   000016   EA           MOV     A,R2
+   \   000017   7001         JNZ     ??ZMacSendNoData_0
+   \   000019   EB           MOV     A,R3
+   \                     ??ZMacSendNoData_0:
+   \   00001A   603A         JZ      ??ZMacSendNoData_1
+    647            {
+    648              /* Fill in src information */
+    649              pBuf->mac.srcAddrMode              = SADDR_MODE_SHORT;
+   \   00001C   EA           MOV     A,R2
+   \   00001D   242D         ADD     A,#0x2d
+   \   00001F   12....       LCALL   ?Subroutine3 & 0xFFFF
+    650          
+    651              /* Fill in dst information */
+    652              pBuf->mac.dstAddr.addr.shortAddr   = DstAddr;
+   \                     ??CrossCallReturnLabel_5:
+   \   000022   2422         ADD     A,#0x22
+   \   000024   12....       LCALL   ?Subroutine5 & 0xFFFF
+   \                     ??CrossCallReturnLabel_17:
+   \   000027   E5..         MOV     A,?V0 + 0
+   \   000029   F0           MOVX    @DPTR,A
+   \   00002A   A3           INC     DPTR
+   \   00002B   E5..         MOV     A,?V0 + 1
+   \   00002D   F0           MOVX    @DPTR,A
+    653              pBuf->mac.dstAddr.addrMode         = SADDR_MODE_SHORT;
+   \   00002E   EA           MOV     A,R2
+   \   00002F   242A         ADD     A,#0x2a
+   \   000031   12....       LCALL   ?Subroutine3 & 0xFFFF
+    654              pBuf->mac.dstPanId                 = DstPANId;
+   \                     ??CrossCallReturnLabel_6:
+   \   000034   242B         ADD     A,#0x2b
+   \   000036   12....       LCALL   ?Subroutine5 & 0xFFFF
+   \                     ??CrossCallReturnLabel_18:
+   \   000039   EE           MOV     A,R6
+   \   00003A   F0           MOVX    @DPTR,A
+   \   00003B   A3           INC     DPTR
+   \   00003C   EF           MOV     A,R7
+   \   00003D   F0           MOVX    @DPTR,A
+    655          
+    656              /* Misc information */
+    657              pBuf->mac.msduHandle               = 0;
+   \   00003E   EA           MOV     A,R2
+   \   00003F   242E         ADD     A,#0x2e
+   \   000041   12....       LCALL   ?Subroutine2 & 0xFFFF
+    658              pBuf->mac.txOptions                = ZMAC_TXOPTION_ACK | ZMAC_TXOPTION_NO_RETRANS | ZMAC_TXOPTION_NO_CNF;
+   \                     ??CrossCallReturnLabel_11:
+   \   000044   EA           MOV     A,R2
+   \   000045   242F         ADD     A,#0x2f
+   \   000047   12....       LCALL   ?Subroutine5 & 0xFFFF
+   \                     ??CrossCallReturnLabel_19:
+   \   00004A   7431         MOV     A,#0x31
+   \   00004C   F0           MOVX    @DPTR,A
+    659          
+    660              /* Right now, set security to zero */
+    661              pBuf->sec.securityLevel = false;
+   \   00004D   EA           MOV     A,R2
+   \   00004E   241F         ADD     A,#0x1f
+   \   000050   12....       LCALL   ?Subroutine2 & 0xFFFF
+    662          
+    663              /* Call Mac Data Request */
+    664              MAC_McpsDataReq(pBuf);
+   \                     ??CrossCallReturnLabel_12:
+   \   000053                ; Setup parameters for call to function MAC_McpsDataReq
+   \   000053   12....       LCALL   ??MAC_McpsDataReq?relay
+    665            }
+    666          
+    667          }
+   \                     ??ZMacSendNoData_1:
+   \   000056   02....       LJMP    ?Subroutine8 & 0xFFFF
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine5:
+   \   000000   F582         MOV     DPL,A
+   \   000002   EB           MOV     A,R3
+   \   000003                REQUIRE ??Subroutine12_0
+   \   000003                ; // Fall through to label ??Subroutine12_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine3:
+   \   000000   12....       LCALL   ?Subroutine5 & 0xFFFF
+   \                     ??CrossCallReturnLabel_20:
+   \   000003   7402         MOV     A,#0x2
+   \   000005   F0           MOVX    @DPTR,A
+   \   000006   EA           MOV     A,R2
+   \   000007   22           RET
+    668          
+    669          /********************************************************************************************************
+    670           * @fn      ZMacStateIdle
+    671           *
+    672           * @brief   This function returns true if the MAC state is idle.
+    673           *
+    674           * @param   none
+    675           *
+    676           * @return  TRUE if the MAC state is idle, FALSE otherwise.
+    677           ********************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    678          uint8 ZMacStateIdle( void )
+   \                     ZMacStateIdle:
+    679          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    680            return macStateIdle();
+   \   000004                ; Setup parameters for call to function macStateIdle
+   \   000004   12....       LCALL   ??macStateIdle?relay
+   \   000007   02....       LJMP    ??Subroutine11_0 & 0xFFFF
+    681          }
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??ZMacInit?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ZMacInit
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??ZMacReset?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ZMacReset
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??ZMacGetReq?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ZMacGetReq
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??ZMacSetReq?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ZMacSetReq
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??ZMacAssociateReq?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ZMacAssociateReq
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??ZMacAssociateRsp?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ZMacAssociateRsp
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??ZMacDisassociateReq?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ZMacDisassociateReq
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??ZMacOrphanRsp?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ZMacOrphanRsp
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??ZMacScanReq?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ZMacScanReq
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??ZMacStartReq?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ZMacStartReq
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??ZMacSyncReq?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ZMacSyncReq
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??ZMacPollReq?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ZMacPollReq
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??ZMacDataReqSec?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ZMacDataReqSec
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??ZMacDataReq?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ZMacDataReq
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??ZMacPurgeReq?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ZMacPurgeReq
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??ZMacSrcMatchEnable?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ZMacSrcMatchEnable
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??ZMacSrcMatchAddEntry?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ZMacSrcMatchAddEntry
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??ZMacSrcMatchDeleteEntry?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ZMacSrcMatchDeleteEntry
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??ZMacSrcMatchAckAllPending?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ZMacSrcMatchAckAllPending
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??ZMacSrcMatchCheckAllPending?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ZMacSrcMatchCheckAllPending
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??ZMacPwrOnReq?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ZMacPwrOnReq
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??ZMac_PwrMode?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ZMac_PwrMode
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??ZMacSetTransmitPower?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ZMacSetTransmitPower
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??ZMacSendNoData?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ZMacSendNoData
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??ZMacStateIdle?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ZMacStateIdle
+
+   Maximum stack usage in bytes:
+
+     Function                       ISTACK PSTACK XSTACK
+     --------                       ------ ------ ------
+     ZMacAssociateReq                   3      0      0
+       -> MAC_MlmeAssociateReq          4      0      0
+     ZMacAssociateRsp                   3      0      0
+       -> MAC_MlmeAssociateRsp          4      0      0
+     ZMacDataReq                        2      0      0
+       -> ZMacDataReqSec                4      0      0
+     ZMacDataReqSec                     1      0     25
+       -> MAC_McpsDataAlloc             0      0     44
+       -> osal_memcpy                   0      0     50
+       -> osal_memcpy                   0      0     50
+       -> osal_msg_deallocate           0      0     44
+       -> MAC_McpsDataReq               0      0     44
+     ZMacDisassociateReq                3      0      0
+       -> MAC_MlmeDisassociateReq       4      0      0
+     ZMacGetReq                         2      0      0
+       -> sAddrExtCpy                   4      0      0
+       -> MAC_MlmeGetReq                4      0      0
+     ZMacInit                           0      0      9
+       -> MAC_Init                      0      0     18
+       -> MAC_InitDevice                0      0     18
+       -> MAC_InitCoord                 0      0     18
+       -> ZMacReset                     0      0     18
+       -> osal_int_disable              0      0     18
+     ZMacOrphanRsp                      3      0      0
+       -> MAC_MlmeOrphanRsp             4      0      0
+     ZMacPollReq                        3      0      0
+       -> MAC_MlmePollReq               4      0      0
+     ZMacPurgeReq                       2      0      0
+       -> MAC_McpsPurgeReq              4      0      0
+     ZMacPwrOnReq                       2      0      0
+       -> MAC_PwrOnReq                  4      0      0
+     ZMacReset                          1      0     19
+       -> MAC_MlmeResetReq              0      0     20
+       -> MAC_MlmeSetReq                0      0     20
+       -> MAC_MlmeSetReq                0      0     20
+       -> osal_mem_free                 0      0     20
+     ZMacScanReq                        1      0     12
+       -> osal_mem_alloc                0      0     24
+       -> osal_memset                   0      0     24
+       -> osal_mem_alloc                0      0     24
+       -> MAC_MlmeScanReq               0      0     24
+     ZMacSendNoData                     1      0     12
+       -> MAC_McpsDataAlloc             0      0     24
+       -> MAC_McpsDataReq               0      0     24
+     ZMacSetReq                         0      0      9
+       -> sAddrExtCpy                   0      0     18
+       -> MAC_MlmeSetReq                0      0     18
+     ZMacSetTransmitPower               3      0      1
+       -> MAC_MlmeSetReq                4      0      2
+     ZMacSrcMatchAckAllPending          2      0      0
+       -> MAC_SrcMatchAckAllPending     4      0      0
+     ZMacSrcMatchAddEntry               2      0      0
+       -> MAC_SrcMatchAddEntry          4      0      0
+     ZMacSrcMatchCheckAllPending        2      0      0
+       -> MAC_SrcMatchCheckAllPending
+                                        4      0      0
+     ZMacSrcMatchDeleteEntry            2      0      0
+       -> MAC_SrcMatchDeleteEntry       4      0      0
+     ZMacSrcMatchEnable                 2      0      0
+       -> MAC_SrcMatchEnable            4      0      0
+     ZMacStartReq                       1      0     10
+       -> MAC_MlmeSetReq                0      0     20
+       -> MAC_MlmeStartReq              0      0     20
+     ZMacStateIdle                      2      0      0
+       -> macStateIdle                  4      0      0
+     ZMacSyncReq                        2      0      0
+       -> MAC_MlmeSyncReq               4      0      0
+     ZMac_PwrMode                       2      0      0
+       -> MAC_PwrMode                   4      0      0
+
+
+   Segment part sizes:
+
+     Function/Label                      Bytes
+     --------------                      -----
+     _ScanChannels                          4
+     ZMac_ScanBuf                           2
+     ZMacInit                              30
+     ??Subroutine9_0                        5
+     ?Subroutine6                           5
+     ZMacReset                             73
+     ZMacGetReq                            26
+     ??Subroutine11_0                       7
+     ZMacSetReq                            40
+     ZMacAssociateReq                      16
+     ?Subroutine2                           3
+     ??Subroutine10_0                       4
+     ?Subroutine4                           6
+     ?Subroutine7                           2
+     ??Subroutine12_0                       5
+     ZMacAssociateRsp                      13
+     ?Subroutine0                          10
+     ZMacDisassociateReq                   16
+     ZMacOrphanRsp                         13
+     ZMacScanReq                          232
+     ?Subroutine8                           5
+     ZMacStartReq                          55
+     ?Subroutine1                          11
+     ZMacSyncReq                           10
+     ZMacPollReq                           13
+     ZMacDataReqSec                       253
+     ZMacDataReq                           13
+     ZMacPurgeReq                           9
+     ZMacSrcMatchEnable                     9
+     ZMacSrcMatchAddEntry                   9
+     ZMacSrcMatchDeleteEntry                9
+     ZMacSrcMatchAckAllPending              9
+     ZMacSrcMatchCheckAllPending            9
+     ZMacPwrOnReq                           9
+     ZMac_PwrMode                           9
+     ZMacSetTransmitPower                  33
+     ZMacSendNoData                        89
+     ?Subroutine5                           3
+     ?Subroutine3                           8
+     ZMacStateIdle                         10
+     ??ZMacInit?relay                       6
+     ??ZMacReset?relay                      6
+     ??ZMacGetReq?relay                     6
+     ??ZMacSetReq?relay                     6
+     ??ZMacAssociateReq?relay               6
+     ??ZMacAssociateRsp?relay               6
+     ??ZMacDisassociateReq?relay            6
+     ??ZMacOrphanRsp?relay                  6
+     ??ZMacScanReq?relay                    6
+     ??ZMacStartReq?relay                   6
+     ??ZMacSyncReq?relay                    6
+     ??ZMacPollReq?relay                    6
+     ??ZMacDataReqSec?relay                 6
+     ??ZMacDataReq?relay                    6
+     ??ZMacPurgeReq?relay                   6
+     ??ZMacSrcMatchEnable?relay             6
+     ??ZMacSrcMatchAddEntry?relay           6
+     ??ZMacSrcMatchDeleteEntry?relay        6
+     ??ZMacSrcMatchAckAllPending?relay      6
+     ??ZMacSrcMatchCheckAllPending?relay    6
+     ??ZMacPwrOnReq?relay                   6
+     ??ZMac_PwrMode?relay                   6
+     ??ZMacSetTransmitPower?relay           6
+     ??ZMacSendNoData?relay                 6
+     ??ZMacStateIdle?relay                  6
+
+ 
+ 1 081 bytes in segment BANKED_CODE
+   150 bytes in segment BANK_RELAYS
+     6 bytes in segment XDATA_Z
+ 
+ 1 231 bytes of CODE  memory
+     6 bytes of XDATA memory
+
+Errors: none
+Warnings: none

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<Project>
+  <Desktop>
+    <Static>
+      <Debug-Log/>
+      <Build>
+        
+        
+        
+        
+      <ColumnWidth0>20</ColumnWidth0><ColumnWidth1>791</ColumnWidth1><ColumnWidth2>211</ColumnWidth2><ColumnWidth3>52</ColumnWidth3></Build>
+      <Workspace>
+        <ColumnWidths>
+          
+          
+          
+          
+        <Column0>133</Column0><Column1>27</Column1><Column2>27</Column2><Column3>27</Column3></ColumnWidths>
+      </Workspace>
+      <Disassembly>
+        
+        
+      <MixedMode>1</MixedMode><CodeCovShow>0</CodeCovShow></Disassembly>
+    </Static>
+    <Windows>
+      
+      
+      
+    <Wnd3>
+        <Tabs>
+          <Tab>
+            <Identity>TabID-22722-16917</Identity>
+            <TabName>Debug Log</TabName>
+            <Factory>Debug-Log</Factory>
+            <Session/>
+          </Tab>
+          <Tab>
+            <Identity>TabID-22199-16927</Identity>
+            <TabName>Build</TabName>
+            <Factory>Build</Factory>
+            <Session/>
+          </Tab>
+        </Tabs>
+        
+      <SelectedTab>0</SelectedTab></Wnd3><Wnd4>
+        <Tabs>
+          <Tab>
+            <Identity>TabID-702-16920</Identity>
+            <TabName>Workspace</TabName>
+            <Factory>Workspace</Factory>
+            <Session>
+              
+            <NodeDict><ExpandedNode>SampleApp</ExpandedNode><ExpandedNode>SampleApp/App</ExpandedNode></NodeDict></Session>
+          </Tab>
+        </Tabs>
+        
+      <SelectedTab>0</SelectedTab></Wnd4><Wnd5>
+        <Tabs>
+          <Tab>
+            <Identity>TabID-11451-16924</Identity>
+            <TabName>Disassembly</TabName>
+            <Factory>Disassembly</Factory>
+            <Session/>
+          </Tab>
+        </Tabs>
+        
+      <SelectedTab>0</SelectedTab></Wnd5></Windows>
+    <Editor>
+      
+      
+      
+      
+    <Pane><Tab><Factory>TextEditor</Factory><Filename>C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zstack\Samples\SampleApp_fan\Source\SampleApp.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>399</SelStart><SelEnd>399</SelEnd></Tab><ActiveTab>0</ActiveTab><Tab><Factory>TextEditor</Factory><Filename>C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zstack\Samples\SampleApp_fan\CC2530DB\Source\SampleAppHw.c</Filename><XPos>0</XPos><YPos>72</YPos><SelStart>3946</SelStart><SelEnd>3946</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zstack\Samples\SampleApp_fan\Source\SampleApp.h</Filename><XPos>0</XPos><YPos>48</YPos><SelStart>2982</SelStart><SelEnd>2982</SelEnd></Tab></Pane><ActivePane>0</ActivePane><Sizes><Pane><X>1000000</X><Y>1000000</Y></Pane></Sizes><SplitMode>1</SplitMode></Editor>
+    <Positions>
+      
+      
+      
+      
+      
+    <Top><Row0><Sizes><Toolbar-01b2f2c8><key>iaridepm.enu1</key></Toolbar-01b2f2c8></Sizes></Row0><Row1><Sizes><Toolbar-110f6758><key>debuggergui.enu1</key></Toolbar-110f6758></Sizes></Row1></Top><Left><Row0><Sizes><Wnd4><Rect><Top>-2</Top><Left>-2</Left><Bottom>817</Bottom><Right>207</Right><x>-2</x><y>-2</y><xscreen>-2392290</xscreen><yscreen>-1967088</yscreen><sizeHorzCX>-2147477557</sizeHorzCX><sizeHorzCY>-2147475982</sizeHorzCY><sizeVertCX>187612</sizeVertCX><sizeVertCY>894105</sizeVertCY></Rect></Wnd4></Sizes></Row0></Left><Right><Row0><Sizes><Wnd5><Rect><Top>-2</Top><Left>-2</Left><Bottom>817</Bottom><Right>31</Right><x>-2</x><y>-2</y><xscreen>-2392290</xscreen><yscreen>-1967088</yscreen><sizeHorzCX>-2147477557</sizeHorzCX><sizeHorzCY>-2147475982</sizeHorzCY><sizeVertCX>-2147477557</sizeVertCX><sizeVertCY>894105</sizeVertCY></Rect></Wnd5></Sizes></Row0></Right><Bottom><Row0><Sizes><Wnd3><Rect><Top>-2</Top><Left>-2</Left><Bottom>30</Bottom><Right>1116</Right><x>-2</x><y>-2</y><xscreen>1118</xscreen><yscreen>-1967088</yscreen><sizeHorzCX>1003591</sizeHorzCX><sizeHorzCY>-2147475982</sizeHorzCY><sizeVertCX>-2147477557</sizeVertCX><sizeVertCY>-2147475982</sizeVertCY></Rect></Wnd3></Sizes></Row0></Bottom><Float><Sizes/></Float></Positions>
+  </Desktop>
+</Project>
+
+

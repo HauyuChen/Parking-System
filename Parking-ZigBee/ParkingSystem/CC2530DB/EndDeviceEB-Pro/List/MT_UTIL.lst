@@ -1,0 +1,1134 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V7.51A/W32 for 8051                07/May/2015  10:56:06 #
+# Copyright 2004-2009 IAR Systems AB.                                         #
+#                                                                             #
+#    Core               =  plain                                              #
+#    Code model         =  banked                                             #
+#    Data model         =  large                                              #
+#    Calling convention =  xdata reentrant                                    #
+#    Constant location  =  data_rom                                           #
+#    Dptr setup         =  1,16                                               #
+#    Source file        =  C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Com #
+#                          ponents\mt\MT_UTIL.c                               #
+#    Command line       =  -f "C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0 #
+#                          \Projects\zstack\Samples\ParkingS\CC2530DB\..\..\. #
+#                          .\Tools\CC2530DB\f8wEndev.cfg" (-DCPU32MHZ         #
+#                          -DROOT=__near_func -DBLINK_LEDS) -f "C:\Texas      #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\Tools\CC253 #
+#                          0DB\f8wConfig.cfg" (-DSECURE=0                     #
+#                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                  #
+#                          -DDEFAULT_CHANLIST=0x00000800                      #
+#                          -DZDAPP_CONFIG_PAN_ID=0xFFFF                       #
+#                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MA #
+#                          SK=0x007F -DBEACON_REQUEST_DELAY=100               #
+#                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
+#                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_PO #
+#                          LLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7             #
+#                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3    #
+#                          -DNWK_MAX_DATA_RETRIES=2                           #
+#                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9         #
+#                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40           #
+#                          -DNWK_MAX_BINDING_ENTRIES=4                        #
+#                          -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,  #
+#                          0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00,    #
+#                          0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"         #
+#                          -DMAC_MAX_FRAME_SIZE=116 "-DCONST=const __code"    #
+#                          -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE     #
+#                          -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100            #
+#                          -DRESPONSE_POLL_RATE=100) -DREJOIN_POLL_RATE=440   #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Co #
+#                          mponents\mt\MT_UTIL.c" -D ZIGBEEPRO -D             #
+#                          NWK_AUTO_POLL -D ZTOOL_P1 -D MT_TASK -D            #
+#                          MT_SYS_FUNC -D MT_ZDO_FUNC -D LCD_SUPPORTED=DEBUG  #
+#                          -lC "C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4. #
+#                          0\Projects\zstack\Samples\ParkingS\CC2530DB\EndDev #
+#                          iceEB-Pro\List\" -lA "C:\Texas                     #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\EndDeviceEB-Pro\List #
+#                          \" --diag_suppress Pe001,Pa010 -o "C:\Texas        #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\EndDeviceEB-Pro\Obj\ #
+#                          " -e --require_prototypes --debug --core=plain     #
+#                          --dptr=16,1 --data_model=large                     #
+#                          --code_model=banked --calling_convention=xdata_ree #
+#                          ntrant --place_constants=data_rom                  #
+#                          --nr_virtual_regs 16 -I "C:\Texas                  #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\" -I "C:\Texas       #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\SOURCE\" -I       #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Pr #
+#                          ojects\zstack\Samples\ParkingS\CC2530DB\..\..\..\Z #
+#                          MAIN\TI2530DB\" -I "C:\Texas                       #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\MT\" -I "C:\Texas Instruments\ZStack-CC2530- #
+#                          2.3.0-1.4.0\Projects\zstack\Samples\ParkingS\CC253 #
+#                          0DB\..\..\..\..\..\COMPONENTS\HAL\INCLUDE\" -I     #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Pr #
+#                          ojects\zstack\Samples\ParkingS\CC2530DB\..\..\..\. #
+#                          .\..\COMPONENTS\HAL\TARGET\CC2530EB\" -I           #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Pr #
+#                          ojects\zstack\Samples\ParkingS\CC2530DB\..\..\..\. #
+#                          .\..\COMPONENTS\OSAL\MCU\CCSOC\" -I "C:\Texas      #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\OSAL\INCLUDE\" -I "C:\Texas                  #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\STACK\AF\" -I "C:\Texas                      #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\STACK\NWK\" -I "C:\Texas                     #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\STACK\SEC\" -I "C:\Texas                     #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\STACK\SAPI\" -I "C:\Texas                    #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\STACK\SYS\" -I "C:\Texas                     #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\STACK\ZDO\" -I "C:\Texas                     #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\ZMAC\F8W\" -I "C:\Texas                      #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\ZMAC\" -I "C:\Texas                          #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\SERVICES\SADDR\" -I "C:\Texas                #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\SERVICES\SDATA\" -I "C:\Texas                #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\MAC\INCLUDE\" -I "C:\Texas                   #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\MAC\HIGH_LEVEL\" -I "C:\Texas                #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\MAC\LOW_LEVEL\srf04\" -I "C:\Texas           #
+#                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zst #
+#                          ack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\MAC\LOW_LEVEL\srf04\SINGLE_CHIP\" -I         #
+#                          "C:\Program Files\IAR Systems\Embedded Workbench   #
+#                          5.3\8051\INC\" -I "C:\Program Files\IAR            #
+#                          Systems\Embedded Workbench 5.3\8051\INC\CLIB\"     #
+#                          -Ohz                                               #
+#    List file          =  C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Pro #
+#                          jects\zstack\Samples\ParkingS\CC2530DB\EndDeviceEB #
+#                          -Pro\List\MT_UTIL.lst                              #
+#    Object file        =  C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Pro #
+#                          jects\zstack\Samples\ParkingS\CC2530DB\EndDeviceEB #
+#                          -Pro\Obj\MT_UTIL.r51                               #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Components\mt\MT_UTIL.c
+      1          /***************************************************************************************************
+      2            Filename:       MT_UTIL.c
+      3            Revised:        $Date: 2009-12-29 18:31:22 -0800 (Tue, 29 Dec 2009) $
+      4            Revision:       $Revision: 21416 $
+      5          
+      6            Description:    MonitorTest Utility Functions
+      7          
+      8            Copyright 2007 - 2009 Texas Instruments Incorporated. All rights reserved.
+      9          
+     10            IMPORTANT: Your use of this Software is limited to those specific rights
+     11            granted under the terms of a software license agreement between the user
+     12            who downloaded the software, his/her employer (which must be your employer)
+     13            and Texas Instruments Incorporated (the "License").  You may not use this
+     14            Software unless you agree to abide by the terms of the License. The License
+     15            limits your use, and you acknowledge, that the Software may not be modified,
+     16            copied or distributed unless embedded on a Texas Instruments microcontroller
+     17            or used solely and exclusively in conjunction with a Texas Instruments radio
+     18            frequency transceiver, which is integrated into your product.  Other than for
+     19            the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+     20            works of, modify, distribute, perform, display or sell this Software and/or
+     21            its documentation for any purpose.
+     22          
+     23            YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+     24            PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+     25            INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+     26            NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+     27            TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+     28            NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+     29            LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+     30            INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+     31            OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+     32            OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+     33            (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+     34          
+     35            Should you have any questions regarding your right to use this Software,
+     36            contact Texas Instruments Incorporated at www.TI.com.
+     37          
+     38           ***************************************************************************************************/
+     39          
+     40          /***************************************************************************************************
+     41           * INCLUDES
+     42           ***************************************************************************************************/
+     43          #include "ZComDef.h"
+     44          
+     45          #include "AddrMgr.h"
+     46          #include "AssocList.h"
+     47          #include "OnBoard.h"   /* This is here because of the key reading */
+     48          #include "hal_key.h"
+     49          #include "hal_led.h"
+     50          #include "OSAL_Nv.h"
+     51          #include "NLMEDE.h"
+     52          #include "ZDApp.h"
+     53          #include "MT.h"
+     54          #include "MT_UTIL.h"
+     55          #include "MT_ZDO.h"
+     56          #include "MT_SAPI.h"
+     57          #include "MT_NWK.h"
+     58          #include "MT_AF.h"
+     59          #include "MT_MAC.h"
+     60          #if defined ZCL_KEY_ESTABLISH
+     61          #include "zcl_key_establish.h"
+     62          #endif
+     63          #if defined TC_LINKKEY_JOIN
+     64          #include "zcl_se.h"
+     65          #endif
+     66          
+     67          /***************************************************************************************************
+     68           * CONSTANTS
+     69           ***************************************************************************************************/
+     70          #define MT_UTIL_DEVICE_INFO_RESPONSE_LEN 14
+     71          
+     72          /***************************************************************************************************
+     73           * LOCAL VARIABLES
+     74           ***************************************************************************************************/
+     75          #if defined ZCL_KEY_ESTABLISH
+     76          uint8 zcl_key_establish_task_id;
+     77          #endif
+     78          
+     79          /***************************************************************************************************
+     80           * LOCAL FUNCTIONS
+     81           ***************************************************************************************************/
+     82          #if defined (MT_UTIL_FUNC)
+     83          void MT_UtilGetDeviceInfo(void);
+     84          void MT_UtilGetNvInfo(void);
+     85          void MT_UtilSetPanID(uint8 *pBuf);
+     86          void MT_UtilSetChannels(uint8 *pBuf);
+     87          void MT_UtilSetSecLevel(uint8 *pBuf);
+     88          void MT_UtilSetPreCfgKey(uint8 *pBuf);
+     89          void MT_UtilCallbackSub(uint8 *pData);
+     90          void MT_UtilKeyEvent(uint8 *pBuf);
+     91          void MT_UtilTimeAlive(void);
+     92          void MT_UtilLedControl(uint8 *pBuf);
+     93          static void MT_UtilAddrMgrExtAddrLookup(uint8 *pBuf);
+     94          static void MT_UtilAddrMgrEntryLookupNwk(uint8 *pBuf);
+     95          static void MT_UtilAPSME_LinkKeyDataGet(uint8 *pBuf);
+     96          static void MT_UtilAssocCount(uint8 *pBuf);
+     97          static void MT_UtilAssocFindDevice(uint8 *pBuf);
+     98          static void MT_UtilAssocGetWithAddress(uint8 *pBuf);
+     99          #if defined ZCL_KEY_ESTABLISH
+    100          static void MT_UtilzclGeneral_KeyEstablish_InitiateKeyEstablishment(uint8 *pBuf);
+    101          static void MT_UtilzclGeneral_KeyEstablishment_ECDSASign(uint8 *pBuf);
+    102          #endif
+    103          static void MT_UtilSync(void);
+    104          #endif /* MT_UTIL_FUNC */
+    105          
+    106          #if defined (MT_UTIL_FUNC)
+    107          /***************************************************************************************************
+    108           * @fn      MT_UtilProcessing
+    109           *
+    110           * @brief   Process all the DEBUG commands that are issued by test tool
+    111           *
+    112           * @param   pBuf  - pointer to received SPI data message
+    113           *
+    114           * @return  status
+    115           ***************************************************************************************************/
+    116          uint8 MT_UtilCommandProcessing(uint8 *pBuf)
+    117          {
+    118            uint8 status = MT_RPC_SUCCESS;
+    119          
+    120            switch (pBuf[MT_RPC_POS_CMD1])
+    121            {
+    122              case MT_UTIL_GET_DEVICE_INFO:
+    123                MT_UtilGetDeviceInfo();
+    124                break;
+    125          
+    126              case MT_UTIL_GET_NV_INFO:
+    127                MT_UtilGetNvInfo();
+    128                break;
+    129          
+    130              case MT_UTIL_SET_PANID:
+    131                MT_UtilSetPanID(pBuf);
+    132                break;
+    133          
+    134              case MT_UTIL_SET_CHANNELS:
+    135                MT_UtilSetChannels(pBuf);
+    136                break;
+    137          
+    138              case MT_UTIL_SET_SECLEVEL:
+    139                MT_UtilSetSecLevel(pBuf);
+    140                break;
+    141          
+    142              case MT_UTIL_SET_PRECFGKEY:
+    143                MT_UtilSetPreCfgKey(pBuf);
+    144                break;
+    145          
+    146              case MT_UTIL_CALLBACK_SUB_CMD:
+    147                MT_UtilCallbackSub(pBuf);
+    148                break;
+    149          
+    150              case MT_UTIL_KEY_EVENT:
+    151          #if (defined HAL_KEY) && (HAL_KEY == TRUE)
+    152                MT_UtilKeyEvent(pBuf);
+    153          #endif
+    154                break;
+    155          
+    156              case MT_UTIL_LED_CONTROL:
+    157          #if (defined HAL_LED) && (HAL_LED == TRUE)
+    158                MT_UtilLedControl(pBuf);
+    159          #endif
+    160                break;
+    161          
+    162              case MT_UTIL_TIME_ALIVE:
+    163                MT_UtilTimeAlive();
+    164                break;
+    165          
+    166              case MT_UTIL_ADDRMGR_EXT_ADDR_LOOKUP:
+    167                MT_UtilAddrMgrExtAddrLookup(pBuf);
+    168                break;
+    169          
+    170              case MT_UTIL_ADDRMGR_NWK_ADDR_LOOKUP:
+    171                MT_UtilAddrMgrEntryLookupNwk(pBuf);
+    172                break;
+    173          
+    174              case MT_UTIL_APSME_LINK_KEY_DATA_GET:
+    175                MT_UtilAPSME_LinkKeyDataGet(pBuf);
+    176                break;
+    177          
+    178              case MT_UTIL_ASSOC_COUNT:
+    179                MT_UtilAssocCount(pBuf);
+    180                break;
+    181          
+    182              case MT_UTIL_ASSOC_FIND_DEVICE:
+    183                MT_UtilAssocFindDevice(pBuf);
+    184                break;
+    185          
+    186              case MT_UTIL_ASSOC_GET_WITH_ADDRESS:
+    187                MT_UtilAssocGetWithAddress(pBuf);
+    188                break;
+    189          
+    190          #if defined ZCL_KEY_ESTABLISH
+    191              case MT_UTIL_ZCL_KEY_EST_INIT_EST:
+    192                MT_UtilzclGeneral_KeyEstablish_InitiateKeyEstablishment(pBuf);
+    193                break;
+    194          
+    195              case MT_UTIL_ZCL_KEY_EST_SIGN:
+    196                MT_UtilzclGeneral_KeyEstablishment_ECDSASign(pBuf);
+    197                break;
+    198          #endif
+    199          
+    200              case MT_UTIL_SYNC_REQ:
+    201                MT_UtilSync();
+    202                break;
+    203          
+    204              default:
+    205                status = MT_RPC_ERR_COMMAND_ID;
+    206                break;
+    207            }
+    208          
+    209            return status;
+    210          }
+    211          
+    212          /***************************************************************************************************
+    213           * @fn      MT_UtilGetDeviceInfo
+    214           *
+    215           * @brief   The Get Device Info serial message.
+    216           *
+    217           * @param   void
+    218           *
+    219           * @return  void
+    220           ***************************************************************************************************/
+    221          void MT_UtilGetDeviceInfo(void)
+    222          {
+    223            uint8  *buf;
+    224            uint8  *pBuf;
+    225            uint8  bufLen = MT_UTIL_DEVICE_INFO_RESPONSE_LEN;
+    226          #if !defined NONWK
+    227            uint8  assocCnt = 0;
+    228            uint16 *assocList = NULL;
+    229          
+    230            if (ZG_DEVICE_RTR_TYPE)
+    231            {
+    232              assocList = AssocMakeList( &assocCnt );
+    233              bufLen += (assocCnt * sizeof(uint16));
+    234            }
+    235          #endif
+    236          
+    237            buf = osal_mem_alloc( bufLen );
+    238            if ( buf )
+    239            {
+    240              pBuf = buf;
+    241          
+    242              *pBuf++ = ZSUCCESS; // Status
+    243          
+    244              osal_nv_read( ZCD_NV_EXTADDR, 0, Z_EXTADDR_LEN, pBuf );
+    245              pBuf += Z_EXTADDR_LEN;
+    246          
+    247          #if defined NONWK
+    248              // Skip past ZStack only parameters for NONWK
+    249              *pBuf++ = 0;
+    250              *pBuf++ = 0;
+    251              *pBuf++ = 0;
+    252              *pBuf++ = 0;
+    253              *pBuf = 0;
+    254          #else
+    255              {
+    256                uint16 shortAddr = NLME_GetShortAddr();
+    257                *pBuf++ = LO_UINT16( shortAddr );
+    258                *pBuf++ = HI_UINT16( shortAddr );
+    259              }
+    260          
+    261              /* Return device type */
+    262              *pBuf++ = ZSTACK_DEVICE_BUILD;
+    263          
+    264              /*Return device state */
+    265              *pBuf++ = (uint8)devState;
+    266          
+    267              if (ZG_DEVICE_RTR_TYPE)
+    268              {
+    269                *pBuf++ = assocCnt;
+    270          
+    271                if ( assocCnt )
+    272                {
+    273                  uint8 x;
+    274                  uint16 *puint16 = assocList;
+    275          
+    276                  for ( x = 0; x < assocCnt; x++, puint16++ )
+    277                  {
+    278                    *pBuf++ = LO_UINT16( *puint16 );
+    279                    *pBuf++ = HI_UINT16( *puint16 );
+    280                  }
+    281                }
+    282              }
+    283              else
+    284              {
+    285                *pBuf++ = 0;
+    286              }
+    287          #endif
+    288          
+    289              MT_BuildAndSendZToolResponse( ((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_UTIL),
+    290                                           MT_UTIL_GET_DEVICE_INFO,
+    291                                           bufLen, buf );
+    292          
+    293              osal_mem_free( buf );
+    294            }
+    295          
+    296            if ( assocList )
+    297            {
+    298              osal_mem_free( assocList );
+    299            }
+    300          }
+    301          
+    302          /***************************************************************************************************
+    303           * @fn      MT_UtilGetNvInfo
+    304           *
+    305           * @brief   The Get NV Info serial message.
+    306           *
+    307           * @param   byte *msg - pointer to the data
+    308           *
+    309           * @return  void
+    310           ***************************************************************************************************/
+    311          void MT_UtilGetNvInfo(void)
+    312          {
+    313            uint8 len;
+    314            uint8 stat;
+    315            uint8 *buf;
+    316            uint8 *pBuf;
+    317            uint16 tmp16;
+    318            uint32 tmp32;
+    319          
+    320            /*
+    321              Get required length of buffer
+    322              Status + ExtAddr + ChanList + PanID  + SecLevel + PreCfgKey
+    323            */
+    324            len = 1 + Z_EXTADDR_LEN + 4 + 2 + 1 + SEC_KEY_LEN;
+    325          
+    326            buf = osal_mem_alloc( len );
+    327            if ( buf )
+    328            {
+    329              /* Assume NV not available */
+    330              osal_memset( buf, 0xFF, len );
+    331          
+    332              /* Skip over status */
+    333              pBuf = buf + 1;
+    334          
+    335              /* Start with 64-bit extended address */
+    336              stat = osal_nv_read( ZCD_NV_EXTADDR, 0, Z_EXTADDR_LEN, pBuf );
+    337              if ( stat ) stat = 0x01;
+    338              pBuf += Z_EXTADDR_LEN;
+    339          
+    340              /* Scan channel list (bit mask) */
+    341              if (  osal_nv_read( ZCD_NV_CHANLIST, 0, sizeof( tmp32 ), &tmp32 ) )
+    342                stat |= 0x02;
+    343              else
+    344              {
+    345                pBuf[0] = BREAK_UINT32( tmp32, 3 );
+    346                pBuf[1] = BREAK_UINT32( tmp32, 2 );
+    347                pBuf[2] = BREAK_UINT32( tmp32, 1 );
+    348                pBuf[3] = BREAK_UINT32( tmp32, 0 );
+    349              }
+    350              pBuf += sizeof( tmp32 );
+    351          
+    352              /* ZigBee PanID */
+    353              if ( osal_nv_read( ZCD_NV_PANID, 0, sizeof( tmp16 ), &tmp16 ) )
+    354                stat |= 0x04;
+    355              else
+    356              {
+    357                pBuf[0] = LO_UINT16( tmp16 );
+    358                pBuf[1] = HI_UINT16( tmp16 );
+    359              }
+    360              pBuf += sizeof( tmp16 );
+    361          
+    362              /* Security level */
+    363              if ( osal_nv_read( ZCD_NV_SECURITY_LEVEL, 0, sizeof( uint8 ), pBuf++ ) )
+    364                stat |= 0x08;
+    365          
+    366              /* Pre-configured security key */
+    367              if ( osal_nv_read( ZCD_NV_PRECFGKEY, 0, SEC_KEY_LEN, pBuf ) )
+    368                stat |= 0x10;
+    369          
+    370              /* Status bit mask - bit=1 indicates failure */
+    371              *buf = stat;
+    372          
+    373              MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_UTIL), MT_UTIL_GET_NV_INFO,
+    374                                            len, buf );
+    375          
+    376              osal_mem_free( buf );
+    377            }
+    378          }
+    379          
+    380          /***************************************************************************************************
+    381           * @fn      MT_UtilSetPanID
+    382           *
+    383           * @brief   Set PanID message
+    384           *
+    385           * @param   byte *msg - pointer to the data
+    386           *
+    387           * @return  void
+    388           ***************************************************************************************************/
+    389          void MT_UtilSetPanID(uint8 *pBuf)
+    390          {
+    391            uint16 temp16;
+    392            uint8 retValue = ZFailure;
+    393            uint8 cmdId;
+    394          
+    395            /* parse header */
+    396            cmdId = pBuf[MT_RPC_POS_CMD1];
+    397            pBuf += MT_RPC_FRAME_HDR_SZ;
+    398          
+    399            temp16 = BUILD_UINT16(pBuf[0], pBuf[1]);
+    400            pBuf += sizeof(uint16);
+    401          
+    402            retValue = osal_nv_write(ZCD_NV_PANID, 0, osal_nv_item_len( ZCD_NV_PANID ), &temp16);
+    403          
+    404            /* Build and send back the response */
+    405            MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_UTIL), cmdId, 1, &retValue);
+    406          }
+    407          
+    408          /***************************************************************************************************
+    409           * @fn      MT_UtilSetChannels
+    410           *
+    411           * @brief   Set Channels
+    412           *
+    413           * @param   byte *msg - pointer to the data
+    414           *
+    415           * @return  void
+    416           ***************************************************************************************************/
+    417          void MT_UtilSetChannels(uint8 *pBuf)
+    418          {
+    419            uint32 tmp32;
+    420            uint8 retValue = ZFailure;
+    421            uint8 cmdId;
+    422          
+    423            /* parse header */
+    424            cmdId = pBuf[MT_RPC_POS_CMD1];
+    425            pBuf += MT_RPC_FRAME_HDR_SZ;
+    426          
+    427            tmp32 = BUILD_UINT32(pBuf[0], pBuf[1], pBuf[2], pBuf[3]);
+    428          
+    429            retValue = osal_nv_write(ZCD_NV_CHANLIST, 0, osal_nv_item_len( ZCD_NV_CHANLIST ), &tmp32);
+    430          
+    431            /* Build and send back the response */
+    432            MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_UTIL), cmdId, 1, &retValue);
+    433          }
+    434          
+    435          /***************************************************************************************************
+    436           * @fn      MT_UtilSetSecLevel
+    437           *
+    438           * @brief   Set Sec Level
+    439           *
+    440           * @param   byte *msg - pointer to the data
+    441           *
+    442           * @return  void
+    443           ***************************************************************************************************/
+    444          void MT_UtilSetSecLevel(uint8 *pBuf)
+    445          {
+    446            uint8 retValue = ZFailure;
+    447            uint8 cmdId;
+    448          
+    449            /* parse header */
+    450            cmdId = pBuf[MT_RPC_POS_CMD1];
+    451            pBuf += MT_RPC_FRAME_HDR_SZ;
+    452          
+    453            retValue = osal_nv_write( ZCD_NV_SECURITY_LEVEL, 0, osal_nv_item_len( ZCD_NV_SECURITY_LEVEL ), pBuf);
+    454          
+    455            /* Build and send back the response */
+    456            MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_UTIL), cmdId, 1, &retValue );
+    457          
+    458          }
+    459          
+    460          /***************************************************************************************************
+    461           * @fn      MT_UtilSetPreCfgKey
+    462           *
+    463           * @brief   Set Pre Cfg Key
+    464           *
+    465           * @param   byte *msg - pointer to the data
+    466           *
+    467           * @return  void
+    468           ***************************************************************************************************/
+    469          void MT_UtilSetPreCfgKey(uint8 *pBuf)
+    470          {
+    471            uint8 retValue = ZFailure;
+    472            uint8 cmdId;
+    473          
+    474            /* parse header */
+    475            cmdId = pBuf[MT_RPC_POS_CMD1];
+    476            pBuf += MT_RPC_FRAME_HDR_SZ;
+    477          
+    478            retValue = osal_nv_write( ZCD_NV_PRECFGKEY, 0, osal_nv_item_len( ZCD_NV_PRECFGKEY ), pBuf);
+    479          
+    480            /* Build and send back the response */
+    481            MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_UTIL), cmdId, 1, &retValue );
+    482          
+    483          }
+    484          
+    485          /***************************************************************************************************
+    486           * @fn      MT_UtilCallbackSub
+    487           *
+    488           * @brief   The Callback subscribe.
+    489           *
+    490           * @param   byte *msg - pointer to the data
+    491           *
+    492           * @return  void
+    493           ***************************************************************************************************/
+    494          void MT_UtilCallbackSub(uint8 *pBuf)
+    495          {
+    496            uint8 cmdId = pBuf[MT_RPC_POS_CMD1];
+    497            uint8 retValue = ZFailure;
+    498          
+    499          #if defined(MT_MAC_CB_FUNC) || defined(MT_NWK_CB_FUNC) || defined(MT_ZDO_CB_FUNC) || defined(MT_AF_CB_FUNC) || defined(MT_SAPI_CB_FUNC) || defined(MT_SAPI_CB_FUNC)
+    500            uint8 subSystem;
+    501            uint16 subscribed_command;
+    502          
+    503            // Move past header
+    504            retValue = ZSuccess;
+    505            pBuf += MT_RPC_FRAME_HDR_SZ;
+    506          
+    507            /* Command */
+    508            subscribed_command = BUILD_UINT16(pBuf[0], pBuf[1]);
+    509            pBuf += 2;
+    510          
+    511            /* Subsystem - 5 bits on the MSB of the command */
+    512            subSystem = HI_UINT16(subscribed_command) & 0x1F ;
+    513          
+    514            /* What is the action - SUBSCRIBE or !SUBSCRIBE */
+    515            if (*pBuf)
+    516            {
+    517              /* Turn ON */
+    518            #if defined( MT_MAC_CB_FUNC )
+    519              if ((subSystem == MT_RPC_SYS_MAC) || (subscribed_command == 0xFFFF))
+    520                _macCallbackSub = 0xFFFF;
+    521            #endif
+    522          
+    523            #if defined( MT_NWK_CB_FUNC )
+    524              if ((subSystem == MT_RPC_SYS_NWK) || (subscribed_command == 0xFFFF))
+    525                _nwkCallbackSub = 0xFFFF;
+    526            #endif
+    527          
+    528            #if defined( MT_ZDO_CB_FUNC )
+    529              if ((subSystem == MT_RPC_SYS_ZDO) || (subscribed_command == 0xFFFF))
+    530                _zdoCallbackSub = 0xFFFFFFFF;
+    531            #endif
+    532          
+    533            #if defined( MT_AF_CB_FUNC )
+    534              if ((subSystem == MT_RPC_SYS_AF) || (subscribed_command == 0xFFFF))
+    535                _afCallbackSub = 0xFFFF;
+    536            #endif
+    537          
+    538            #if defined( MT_SAPI_CB_FUNC )
+    539              if ((subSystem == MT_RPC_SYS_SAPI) || (subscribed_command == 0xFFFF))
+    540                _sapiCallbackSub = 0xFFFF;
+    541            #endif
+    542            }
+    543            else
+    544            {
+    545              /* Turn OFF */
+    546            #if defined( MT_MAC_CB_FUNC )
+    547              if ((subSystem == MT_RPC_SYS_MAC) || (subscribed_command == 0xFFFF))
+    548                _macCallbackSub = 0x0000;
+    549            #endif
+    550          
+    551            #if defined( MT_NWK_CB_FUNC )
+    552              if ((subSystem == MT_RPC_SYS_NWK) || (subscribed_command == 0xFFFF))
+    553                _nwkCallbackSub = 0x0000;
+    554            #endif
+    555          
+    556            #if defined( MT_ZDO_CB_FUNC )
+    557              if ((subSystem == MT_RPC_SYS_ZDO) || (subscribed_command == 0xFFFF))
+    558                _zdoCallbackSub = 0x00000000;
+    559            #endif
+    560          
+    561            #if defined( MT_AF_CB_FUNC )
+    562              if ((subSystem == MT_RPC_SYS_AF) || (subscribed_command == 0xFFFF))
+    563                _afCallbackSub = 0x0000;
+    564            #endif
+    565          
+    566            #if defined( MT_SAPI_CB_FUNC )
+    567              if ((subSystem == MT_RPC_SYS_SAPI) || (subscribed_command == 0xFFFF))
+    568                  _sapiCallbackSub = 0x0000;
+    569            #endif
+    570            }
+    571          #endif  // MT_MAC_CB_FUNC || MT_NWK_CB_FUNC || MT_ZDO_CB_FUNC || MT_AF_CB_FUNC || MT_SAPI_CB_FUNC || MT_SAPI_CB_FUNC
+    572          
+    573            /* Build and send back the response */
+    574            MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_UTIL), cmdId, 1, &retValue );
+    575          }
+    576          
+    577          #if (defined HAL_KEY) && (HAL_KEY == TRUE)
+    578          /***************************************************************************************************
+    579           * @fn      MT_UtilKeyEvent
+    580           *
+    581           * @brief   Process Key Event
+    582           *
+    583           * @param   byte *msg - pointer to the data
+    584           *
+    585           * @return  void
+    586           ***************************************************************************************************/
+    587          void MT_UtilKeyEvent(uint8 *pBuf)
+    588          {
+    589            uint8 x = 0;
+    590            uint8 retValue = ZFailure;
+    591            uint8 cmdId;
+    592          
+    593            /* parse header */
+    594            cmdId = pBuf[MT_RPC_POS_CMD1];
+    595            pBuf += MT_RPC_FRAME_HDR_SZ;
+    596          
+    597            /* Translate between SPI values to device values */
+    598            if ( *pBuf & 0x01 )
+    599              x |= HAL_KEY_SW_1;
+    600            if ( *pBuf & 0x02 )
+    601              x |= HAL_KEY_SW_2;
+    602            if ( *pBuf & 0x04 )
+    603              x |= HAL_KEY_SW_3;
+    604            if ( *pBuf & 0x08 )
+    605            x |= HAL_KEY_SW_4;
+    606          #if defined ( HAL_KEY_SW_5 )
+    607            if ( *pBuf & 0x10 )
+    608              x |= HAL_KEY_SW_5;
+    609          #endif
+    610          #if defined ( HAL_KEY_SW_6 )
+    611            if ( *pBuf & 0x20 )
+    612              x |= HAL_KEY_SW_6;
+    613          #endif
+    614          #if defined ( HAL_KEY_SW_7 )
+    615            if ( *pBuf & 0x40 )
+    616              x |= HAL_KEY_SW_7;
+    617          #endif
+    618          #if defined ( HAL_KEY_SW_8 )
+    619            if ( *pBuf & 0x80 )
+    620              x |= HAL_KEY_SW_8;
+    621          #endif
+    622            pBuf++;
+    623          
+    624            retValue = OnBoard_SendKeys(x, *pBuf);
+    625          
+    626            /* Build and send back the response */
+    627            MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_UTIL), cmdId, 1, &retValue );
+    628          }
+    629          #endif
+    630          
+    631          #if (defined HAL_LED) && (HAL_LED == TRUE)
+    632          /***************************************************************************************************
+    633           * @fn      MT_UtilLedControl
+    634           *
+    635           * @brief   Process the LED Control Message
+    636           *
+    637           * @param   pBuf - pointer to the received data
+    638           *
+    639           * @return  None
+    640           ***************************************************************************************************/
+    641          void MT_UtilLedControl(uint8 *pBuf)
+    642          {
+    643            uint8 iLed, Led, iMode, Mode, cmdId;
+    644            uint8 retValue = ZFailure;
+    645          
+    646            /* parse header */
+    647            cmdId = pBuf[MT_RPC_POS_CMD1];
+    648            pBuf += MT_RPC_FRAME_HDR_SZ;
+    649          
+    650            /* LED and Mode */
+    651            iLed = *pBuf++;
+    652            iMode = *pBuf;
+    653          
+    654            if ( iLed == 1 )
+    655              Led = HAL_LED_1;
+    656            else if ( iLed == 2 )
+    657              Led = HAL_LED_2;
+    658            else if ( iLed == 3 )
+    659              Led = HAL_LED_3;
+    660            else if ( iLed == 4 )
+    661              Led = HAL_LED_4;
+    662            else if ( iLed == 0xFF )
+    663              Led = HAL_LED_ALL;
+    664            else
+    665              Led = 0;
+    666          
+    667            if ( iMode == 0 )
+    668              Mode = HAL_LED_MODE_OFF;
+    669            else if ( iMode == 1 )
+    670              Mode = HAL_LED_MODE_ON;
+    671            else if ( iMode == 2 )
+    672              Mode = HAL_LED_MODE_BLINK;
+    673            else if ( iMode == 3 )
+    674              Mode = HAL_LED_MODE_FLASH;
+    675            else if ( iMode == 4 )
+    676              Mode = HAL_LED_MODE_TOGGLE;
+    677            else
+    678              Led = 0;
+    679          
+    680            if ( Led != 0 )
+    681            {
+    682              HalLedSet (Led, Mode);
+    683              retValue = ZSuccess;
+    684            }
+    685          
+    686            /* Build and send back the response */
+    687            MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_UTIL), cmdId, 1, &retValue );
+    688          
+    689          }
+    690          #endif /* HAL_LED */
+    691          
+    692          /***************************************************************************************************
+    693           * @fn      MT_UtilTimeAlive
+    694           *
+    695           * @brief   Process Time Alive
+    696           *
+    697           * @param   pBuf - pointer to the received data
+    698           *
+    699           * @return  None
+    700           ***************************************************************************************************/
+    701          void MT_UtilTimeAlive(void)
+    702          {
+    703            uint8 timeAlive[4];
+    704            uint32 tmp32;
+    705          
+    706            /* Time since last reset (seconds) */
+    707            tmp32 = osal_GetSystemClock() / 1000;
+    708          
+    709            /* Convert to high byte first into temp buffer */
+    710            timeAlive[0] = BREAK_UINT32(tmp32, 0);
+    711            timeAlive[1] = BREAK_UINT32(tmp32, 1);
+    712            timeAlive[2] = BREAK_UINT32(tmp32, 2);
+    713            timeAlive[3] = BREAK_UINT32(tmp32, 3);
+    714          
+    715            /* Build and send back the response */
+    716            MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_UTIL), MT_UTIL_TIME_ALIVE,
+    717                                         sizeof(tmp32), timeAlive );
+    718          }
+    719          
+    720          /***************************************************************************************************
+    721           * @fn      MT_UtilAddrMgrExtAddrLookup
+    722           *
+    723           * @brief   Proxy the AddrMgrExtAddrLookup() function.
+    724           *
+    725           * @param   pBuf - pointer to the received buffer
+    726           *
+    727           * @return  void
+    728           ***************************************************************************************************/
+    729          static void MT_UtilAddrMgrExtAddrLookup(uint8 *pBuf)
+    730          {
+    731            uint8 cmdId = pBuf[MT_RPC_POS_CMD1];
+    732            pBuf += MT_RPC_FRAME_HDR_SZ;
+    733          
+    734            (void)AddrMgrExtAddrLookup(BUILD_UINT16(pBuf[Z_EXTADDR_LEN], pBuf[Z_EXTADDR_LEN+1]), pBuf);
+    735            MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_NWK), cmdId,
+    736                                                                         Z_EXTADDR_LEN, (uint8 *)pBuf);
+    737          }
+    738          
+    739          /***************************************************************************************************
+    740           * @fn      MT_UtilAddrMgrEntryLookupNwk
+    741           *
+    742           * @brief   Proxy the AddrMgrEntryLookupNwk() function.
+    743           *
+    744           * @param   pBuf - pointer to the received buffer
+    745           *
+    746           * @return  void
+    747           ***************************************************************************************************/
+    748          static void MT_UtilAddrMgrEntryLookupNwk(uint8 *pBuf)
+    749          {
+    750            AddrMgrEntry_t entry;
+    751            uint8 cmdId = pBuf[MT_RPC_POS_CMD1];
+    752            pBuf += MT_RPC_FRAME_HDR_SZ;
+    753          
+    754            entry.nwkAddr = BUILD_UINT16(pBuf[0], pBuf[1]);
+    755            (void)AddrMgrEntryLookupNwk(&entry);
+    756            MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_NWK), cmdId,
+    757                                                                            Z_EXTADDR_LEN, entry.extAddr);
+    758          }
+    759          
+    760          /***************************************************************************************************
+    761           * @fn      MT_UtilAPSME_LinkKeyDataGet
+    762           *
+    763           * @brief   Proxy the APSME_LinkKeyDataGet() function.
+    764           *
+    765           * @param   pBuf - pointer to the received buffer
+    766           *
+    767           * @return  void
+    768           ***************************************************************************************************/
+    769          static void MT_UtilAPSME_LinkKeyDataGet(uint8 *pBuf)
+    770          {
+    771            // Status + LinkKeyDataLen + Tx+Rx Frame counter.
+    772            #define MT_APSME_LINKKEY_GET_RSP_LEN (1 + SEC_KEY_LEN + 4 + 4)
+    773            uint8 rsp[MT_APSME_LINKKEY_GET_RSP_LEN];
+    774            APSME_LinkKeyData_t *pData;
+    775            uint8 cmdId = pBuf[MT_RPC_POS_CMD1];
+    776            pBuf += MT_RPC_FRAME_HDR_SZ;
+    777          
+    778            *rsp = APSME_LinkKeyDataGet(pBuf, &pData);
+    779          
+    780            if (SUCCESS == *rsp)
+    781            {
+    782              uint8 *ptr = rsp+1;
+    783              (void)osal_memcpy(ptr, pData->key, SEC_KEY_LEN);
+    784              ptr += SEC_KEY_LEN;
+    785              *ptr++ = BREAK_UINT32(pData->txFrmCntr, 0);
+    786              *ptr++ = BREAK_UINT32(pData->txFrmCntr, 1);
+    787              *ptr++ = BREAK_UINT32(pData->txFrmCntr, 2);
+    788              *ptr++ = BREAK_UINT32(pData->txFrmCntr, 3);
+    789              *ptr++ = BREAK_UINT32(pData->rxFrmCntr, 0);
+    790              *ptr++ = BREAK_UINT32(pData->rxFrmCntr, 1);
+    791              *ptr++ = BREAK_UINT32(pData->rxFrmCntr, 2);
+    792              *ptr++ = BREAK_UINT32(pData->rxFrmCntr, 3);
+    793            }
+    794          
+    795            MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_NWK), cmdId, 
+    796                                                 MT_APSME_LINKKEY_GET_RSP_LEN, rsp);
+    797          }
+    798          
+    799          /***************************************************************************************************
+    800           * @fn      MT_UtilAssocCount
+    801           *
+    802           * @brief   Proxy the AssocCount() function.
+    803           *
+    804           * @param   pBuf - pointer to the received buffer
+    805           *
+    806           * @return  void
+    807           ***************************************************************************************************/
+    808          static void MT_UtilAssocCount(uint8 *pBuf)
+    809          {
+    810            uint16 cnt;
+    811            uint8 cmdId = pBuf[MT_RPC_POS_CMD1];
+    812            pBuf += MT_RPC_FRAME_HDR_SZ;
+    813            
+    814            cnt = AssocCount(pBuf[0], pBuf[1]);
+    815            pBuf[0] = LO_UINT16(cnt);
+    816            pBuf[1] = HI_UINT16(cnt);
+    817          
+    818            MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_NWK), cmdId, 2, pBuf);
+    819          }
+    820          
+    821          /***************************************************************************************************
+    822           * @fn      MT_UtilAssocFindDevice
+    823           *
+    824           * @brief   Get an associated device by index.
+    825           *
+    826           * @param   pBuf - pointer to the received buffer
+    827           *
+    828           * @return  void
+    829           ***************************************************************************************************/
+    830          static void MT_UtilAssocFindDevice(uint8 *pBuf)
+    831          {
+    832            associated_devices_t *pDev;
+    833            uint8 cmdId = pBuf[MT_RPC_POS_CMD1];
+    834          
+    835            pDev = AssocFindDevice(pBuf[MT_RPC_FRAME_HDR_SZ]);
+    836          
+    837            if (NULL != pDev)
+    838            {
+    839              MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_NWK), cmdId,
+    840                                             sizeof(associated_devices_t), (uint8 *)pDev);
+    841            }
+    842            else
+    843            {
+    844              associated_devices_t dev;
+    845          
+    846              dev.shortAddr = INVALID_NODE_ADDR;
+    847              MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_NWK), cmdId,
+    848                                             sizeof(associated_devices_t), (uint8 *)(&dev));
+    849            }
+    850          }
+    851          
+    852          /***************************************************************************************************
+    853           * @fn      MT_UtilAssocGetWithAddress
+    854           *
+    855           * @brief   Get an associated device by address.
+    856           *
+    857           * @param   pBuf - pointer to the received buffer
+    858           *
+    859           * @return  void
+    860           ***************************************************************************************************/
+    861          static void MT_UtilAssocGetWithAddress(uint8 *pBuf)
+    862          {
+    863            extern associated_devices_t *AssocGetWithAddress(uint8 *extAddr, uint16 shortAddr);
+    864            associated_devices_t *pDev;
+    865            uint8 cmdId = pBuf[MT_RPC_POS_CMD1];
+    866          
+    867            pBuf += MT_RPC_FRAME_HDR_SZ;
+    868            pDev = AssocGetWithAddress(((AddrMgrExtAddrValid(pBuf)) ? pBuf : NULL),
+    869                                         BUILD_UINT16(pBuf[Z_EXTADDR_LEN], pBuf[Z_EXTADDR_LEN+1]));
+    870          
+    871            if (NULL != pDev)
+    872            {
+    873              MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_NWK), cmdId,
+    874                                             sizeof(associated_devices_t), (uint8 *)pDev);
+    875            }
+    876            else
+    877            {
+    878              associated_devices_t dev;
+    879          
+    880              dev.shortAddr = INVALID_NODE_ADDR;
+    881              MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_NWK), cmdId,
+    882                                             sizeof(associated_devices_t), (uint8 *)(&dev));
+    883            }
+    884          }
+    885          
+    886          #if defined ZCL_KEY_ESTABLISH
+    887          /***************************************************************************************************
+    888           * @fn      MT_UtilzclGeneral_KeyEstablish_InitiateKeyEstablishment
+    889           *
+    890           * @brief   Proxy the zclGeneral_KeyEstablish_InitiateKeyEstablishment() function.
+    891           *
+    892           * @param   pBuf - pointer to the received buffer
+    893           *
+    894           * @return  void
+    895           ***************************************************************************************************/
+    896          static void MT_UtilzclGeneral_KeyEstablish_InitiateKeyEstablishment(uint8 *pBuf)
+    897          {
+    898            afAddrType_t partnerAddr;
+    899            uint8 cmdId = pBuf[MT_RPC_POS_CMD1];
+    900            pBuf += MT_RPC_FRAME_HDR_SZ;
+    901          
+    902            partnerAddr.panId = 0;  // Not an inter-pan message.
+    903            partnerAddr.endPoint = pBuf[2];
+    904            partnerAddr.addrMode = (afAddrMode_t)pBuf[3];
+    905            if (afAddr64Bit == partnerAddr.addrMode)
+    906            {
+    907              (void)osal_memcpy(partnerAddr.addr.extAddr, pBuf+4, Z_EXTADDR_LEN);
+    908            }
+    909            else
+    910            {
+    911              partnerAddr.addr.shortAddr = BUILD_UINT16(pBuf[4], pBuf[4]);
+    912            }
+    913          
+    914            zcl_key_establish_task_id = pBuf[0];
+    915            *pBuf = zclGeneral_KeyEstablish_InitiateKeyEstablishment(MT_TaskID, &partnerAddr, pBuf[1]);
+    916            MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_UTIL), cmdId, 1, pBuf);
+    917          }
+    918          
+    919          /***************************************************************************************************
+    920           * @fn      MT_UtilzclGeneral_KeyEstablishment_ECDSASign
+    921           *
+    922           * @brief   Proxy the zclGeneral_KeyEstablishment_ECDSASign() function.
+    923           *
+    924           * @param   pBuf - pointer to the received buffer
+    925           *
+    926           * @return  void
+    927           ***************************************************************************************************/
+    928          static void MT_UtilzclGeneral_KeyEstablishment_ECDSASign(uint8 *pBuf)
+    929          {
+    930          #if defined TC_LINKKEY_JOIN
+    931            uint8 *output = osal_mem_alloc(SE_PROFILE_SIGNATURE_LENGTH+1);
+    932            uint8 cmdId = pBuf[MT_RPC_POS_CMD1];
+    933            pBuf += MT_RPC_FRAME_HDR_SZ;
+    934          
+    935            if (NULL == output)
+    936            {
+    937              *pBuf = FAILURE;
+    938              MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_UTIL), cmdId, 1, pBuf);
+    939            }
+    940            else
+    941            {
+    942              *output = zclGeneral_KeyEstablishment_ECDSASign(pBuf+1, *pBuf, output+1);
+    943              MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_UTIL), cmdId,
+    944                                                   SE_PROFILE_SIGNATURE_LENGTH+1, output);
+    945              osal_mem_free(output);
+    946            }
+    947          #endif
+    948          }
+    949          
+    950          /***************************************************************************************************
+    951           * @fn      MT_UtilKeyEstablishInd
+    952           *
+    953           * @brief   Proxy the ZCL_KEY_ESTABLISH_IND command.
+    954           *
+    955           * @param   None
+    956           *
+    957           * @return  None
+    958           ***************************************************************************************************/
+    959          void MT_UtilKeyEstablishInd(keyEstablishmentInd_t *pInd)
+    960          {
+    961            uint8 msg[6];
+    962          
+    963            msg[0] = zcl_key_establish_task_id;
+    964            msg[1] = pInd->hdr.event;
+    965            msg[2] = pInd->hdr.status;
+    966            msg[3] = pInd->waitTime;
+    967            msg[4] = LO_UINT16(pInd->keyEstablishmentSuite);
+    968            msg[5] = HI_UINT16(pInd->keyEstablishmentSuite);
+    969          
+    970            MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_AREQ | (uint8)MT_RPC_SYS_UTIL),
+    971                                                 MT_UTIL_ZCL_KEY_ESTABLISH_IND, 6, msg);
+    972          }
+    973          #endif
+    974          
+    975          /***************************************************************************************************
+    976           * @fn      MT_UtilSync
+    977           *
+    978           * @brief   Process the MT_UTIL_SYNC command
+    979           *
+    980           * @param   None
+    981           *
+    982           * @return  None
+    983           ***************************************************************************************************/
+    984          static void MT_UtilSync(void)
+    985          {
+    986           MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_AREQ|(uint8)MT_RPC_SYS_UTIL),MT_UTIL_SYNC_REQ,0,0);
+    987          }
+    988          
+    989          #endif /* MT_UTIL_FUNC */
+    990          /**************************************************************************************************
+    991           **************************************************************************************************/
+
+
+ 
+ 
+ 0 bytes of memory
+
+Errors: none
+Warnings: none

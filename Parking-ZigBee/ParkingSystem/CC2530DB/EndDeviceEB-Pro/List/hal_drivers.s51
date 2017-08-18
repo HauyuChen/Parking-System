@@ -1,0 +1,1111 @@
+///////////////////////////////////////////////////////////////////////////////
+//                                                                            /
+// IAR C/C++ Compiler V7.51A/W32 for 8051               07/May/2015  10:56:14 /
+// Copyright 2004-2009 IAR Systems AB.                                        /
+//                                                                            /
+//    Core               =  plain                                             /
+//    Code model         =  banked                                            /
+//    Data model         =  large                                             /
+//    Calling convention =  xdata reentrant                                   /
+//    Constant location  =  data_rom                                          /
+//    Dptr setup         =  1,16                                              /
+//    Source file        =  C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Co /
+//                          mponents\hal\common\hal_drivers.c                 /
+//    Command line       =  -f "C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4. /
+//                          0\Projects\zstack\Samples\ParkingS\CC2530DB\..\.. /
+//                          \..\Tools\CC2530DB\f8wEndev.cfg" (-DCPU32MHZ      /
+//                          -DROOT=__near_func -DBLINK_LEDS) -f "C:\Texas     /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\..\..\..\Tools\CC2 /
+//                          530DB\f8wConfig.cfg" (-DSECURE=0                  /
+//                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                 /
+//                          -DDEFAULT_CHANLIST=0x00000800                     /
+//                          -DZDAPP_CONFIG_PAN_ID=0xFFFF                      /
+//                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_M /
+//                          ASK=0x007F -DBEACON_REQUEST_DELAY=100             /
+//                          -DBEACON_REQ_DELAY_MASK=0x00FF                    /
+//                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_P /
+//                          OLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7           /
+//                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3   /
+//                          -DNWK_MAX_DATA_RETRIES=2                          /
+//                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9        /
+//                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40          /
+//                          -DNWK_MAX_BINDING_ENTRIES=4                       /
+//                          -DMAX_BINDING_CLUSTER_IDS=4                       /
+//                          "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07, 0x09,     /
+//                          0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08,   /
+//                          0x0A, 0x0C, 0x0D}" -DMAC_MAX_FRAME_SIZE=116       /
+//                          "-DCONST=const __code" -DGENERIC=__generic        /
+//                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000       /
+//                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)  /
+//                          -DREJOIN_POLL_RATE=440 "C:\Texas                  /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Components\ /
+//                          hal\common\hal_drivers.c" -D ZIGBEEPRO -D         /
+//                          NWK_AUTO_POLL -D ZTOOL_P1 -D MT_TASK -D           /
+//                          MT_SYS_FUNC -D MT_ZDO_FUNC -D                     /
+//                          LCD_SUPPORTED=DEBUG -lC "C:\Texas                 /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\EndDeviceEB-Pro\Li /
+//                          st\" -lA "C:\Texas Instruments\ZStack-CC2530-2.3. /
+//                          0-1.4.0\Projects\zstack\Samples\ParkingS\CC2530DB /
+//                          \EndDeviceEB-Pro\List\" --diag_suppress           /
+//                          Pe001,Pa010 -o "C:\Texas                          /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\EndDeviceEB-Pro\Ob /
+//                          j\" -e --require_prototypes --debug --core=plain  /
+//                          --dptr=16,1 --data_model=large                    /
+//                          --code_model=banked --calling_convention=xdata_re /
+//                          entrant --place_constants=data_rom                /
+//                          --nr_virtual_regs 16 -I "C:\Texas                 /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\" -I "C:\Texas     /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\..\SOURCE\" -I     /
+//                          "C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\P /
+//                          rojects\zstack\Samples\ParkingS\CC2530DB\..\..\.. /
+//                          \ZMAIN\TI2530DB\" -I "C:\Texas                    /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COM /
+//                          PONENTS\MT\" -I "C:\Texas                         /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COM /
+//                          PONENTS\HAL\INCLUDE\" -I "C:\Texas                /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COM /
+//                          PONENTS\HAL\TARGET\CC2530EB\" -I "C:\Texas        /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COM /
+//                          PONENTS\OSAL\MCU\CCSOC\" -I "C:\Texas             /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COM /
+//                          PONENTS\OSAL\INCLUDE\" -I "C:\Texas               /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COM /
+//                          PONENTS\STACK\AF\" -I "C:\Texas                   /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COM /
+//                          PONENTS\STACK\NWK\" -I "C:\Texas                  /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COM /
+//                          PONENTS\STACK\SEC\" -I "C:\Texas                  /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COM /
+//                          PONENTS\STACK\SAPI\" -I "C:\Texas                 /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COM /
+//                          PONENTS\STACK\SYS\" -I "C:\Texas                  /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COM /
+//                          PONENTS\STACK\ZDO\" -I "C:\Texas                  /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COM /
+//                          PONENTS\ZMAC\F8W\" -I "C:\Texas                   /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COM /
+//                          PONENTS\ZMAC\" -I "C:\Texas                       /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COM /
+//                          PONENTS\SERVICES\SADDR\" -I "C:\Texas             /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COM /
+//                          PONENTS\SERVICES\SDATA\" -I "C:\Texas             /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COM /
+//                          PONENTS\MAC\INCLUDE\" -I "C:\Texas                /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COM /
+//                          PONENTS\MAC\HIGH_LEVEL\" -I "C:\Texas             /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COM /
+//                          PONENTS\MAC\LOW_LEVEL\srf04\" -I "C:\Texas        /
+//                          Instruments\ZStack-CC2530-2.3.0-1.4.0\Projects\zs /
+//                          tack\Samples\ParkingS\CC2530DB\..\..\..\..\..\COM /
+//                          PONENTS\MAC\LOW_LEVEL\srf04\SINGLE_CHIP\" -I      /
+//                          "C:\Program Files\IAR Systems\Embedded Workbench  /
+//                          5.3\8051\INC\" -I "C:\Program Files\IAR           /
+//                          Systems\Embedded Workbench 5.3\8051\INC\CLIB\"    /
+//                          -Ohz                                              /
+//    List file          =  C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Pr /
+//                          ojects\zstack\Samples\ParkingS\CC2530DB\EndDevice /
+//                          EB-Pro\List\hal_drivers.s51                       /
+//                                                                            /
+//                                                                            /
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME hal_drivers
+
+        RTMODEL "__calling_convention", "xdata_reentrant"
+        RTMODEL "__code_model", "banked"
+        RTMODEL "__core", "plain"
+        RTMODEL "__data_model", "large"
+        RTMODEL "__dptr_size", "16"
+        RTMODEL "__extended_stack", "disabled"
+        RTMODEL "__location_for_constants", "data"
+        RTMODEL "__number_of_dptrs", "1"
+        RTMODEL "__rt_version", "1"
+
+        RSEG DOVERLAY:DATA:NOROOT(0)
+        RSEG IOVERLAY:IDATA:NOROOT(0)
+        RSEG ISTACK:IDATA:NOROOT(0)
+        RSEG PSTACK:XDATA:NOROOT(0)
+        RSEG XSTACK:XDATA:NOROOT(0)
+
+        EXTERN ?BANKED_ENTER_XDATA
+        EXTERN ?BANKED_LEAVE_XDATA
+        EXTERN ?BDISPATCH
+        EXTERN ?BRET
+        EXTERN __INIT_XDATA_Z
+
+        PUBLIC ??HalDriverInit?relay
+        FUNCTION ??HalDriverInit?relay,0203H
+        PUBLIC ??Hal_Init?relay
+        FUNCTION ??Hal_Init?relay,0203H
+        PUBLIC ??Hal_ProcessEvent?relay
+        FUNCTION ??Hal_ProcessEvent?relay,0203H
+        PUBLIC ??Hal_ProcessPoll?relay
+        FUNCTION ??Hal_ProcessPoll?relay,0203H
+        PUBLIC HalDriverInit
+        FUNCTION HalDriverInit,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 2, STACK
+        PUBLIC Hal_Init
+        FUNCTION Hal_Init,0203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 2, STACK
+        PUBLIC Hal_ProcessEvent
+        FUNCTION Hal_ProcessEvent,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME XSTACK, 10, STACK
+        PUBLIC Hal_ProcessPoll
+        FUNCTION Hal_ProcessPoll,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 2, STACK
+        PUBLIC Hal_TaskID
+        
+        CFI Names cfiNames0
+        CFI StackFrame CFA_SP SP IDATA
+        CFI StackFrame CFA_PSP16 PSP16 XDATA
+        CFI StackFrame CFA_XSP16 XSP16 XDATA
+        CFI StaticOverlayFrame CFA_IOVERLAY IOVERLAY
+        CFI StaticOverlayFrame CFA_DOVERLAY DOVERLAY
+        CFI Resource `PSW.CY`:1, `B.BR0`:1, `B.BR1`:1, `B.BR2`:1, `B.BR3`:1
+        CFI Resource `B.BR4`:1, `B.BR5`:1, `B.BR6`:1, `B.BR7`:1, `VB.BR8`:1
+        CFI Resource `VB.BR9`:1, `VB.BR10`:1, `VB.BR11`:1, `VB.BR12`:1
+        CFI Resource `VB.BR13`:1, `VB.BR14`:1, `VB.BR15`:1, VB:8, B:8, A:8
+        CFI Resource PSW:8, DPL0:8, DPH0:8, R0:8, R1:8, R2:8, R3:8, R4:8, R5:8
+        CFI Resource R6:8, R7:8, V0:8, V1:8, V2:8, V3:8, V4:8, V5:8, V6:8, V7:8
+        CFI Resource V8:8, V9:8, V10:8, V11:8, V12:8, V13:8, V14:8, V15:8, SP:8
+        CFI Resource PSPH:8, PSPL:8, PSP16:16, XSPH:8, XSPL:8, XSP16:16
+        CFI VirtualResource ?RET:24
+        CFI Resource ?BRET_EXT:8
+        CFI VirtualResource ?RET_HIGH:8, ?RET_LOW:8
+        CFI ResourceParts PSP16 PSPH, PSPL
+        CFI ResourceParts XSP16 XSPH, XSPL
+        CFI ResourceParts ?RET ?BRET_EXT, ?RET_HIGH, ?RET_LOW
+        CFI EndNames cfiNames0
+        
+        CFI Common cfiCommon0 Using cfiNames0
+        CFI CodeAlign 1
+        CFI DataAlign -1
+        CFI ReturnAddress ?RET CODE
+        CFI CFA_DOVERLAY Used
+        CFI CFA_IOVERLAY Used
+        CFI CFA_SP SP+-3
+        CFI CFA_PSP16 PSP16+0
+        CFI CFA_XSP16 XSP16+0
+        CFI `PSW.CY` SameValue
+        CFI `B.BR0` SameValue
+        CFI `B.BR1` SameValue
+        CFI `B.BR2` SameValue
+        CFI `B.BR3` SameValue
+        CFI `B.BR4` SameValue
+        CFI `B.BR5` SameValue
+        CFI `B.BR6` SameValue
+        CFI `B.BR7` SameValue
+        CFI `VB.BR8` SameValue
+        CFI `VB.BR9` SameValue
+        CFI `VB.BR10` SameValue
+        CFI `VB.BR11` SameValue
+        CFI `VB.BR12` SameValue
+        CFI `VB.BR13` SameValue
+        CFI `VB.BR14` SameValue
+        CFI `VB.BR15` SameValue
+        CFI VB SameValue
+        CFI B Undefined
+        CFI A Undefined
+        CFI PSW SameValue
+        CFI DPL0 SameValue
+        CFI DPH0 SameValue
+        CFI R0 Undefined
+        CFI R1 Undefined
+        CFI R2 Undefined
+        CFI R3 Undefined
+        CFI R4 Undefined
+        CFI R5 Undefined
+        CFI R6 SameValue
+        CFI R7 SameValue
+        CFI V0 SameValue
+        CFI V1 SameValue
+        CFI V2 SameValue
+        CFI V3 SameValue
+        CFI V4 SameValue
+        CFI V5 SameValue
+        CFI V6 SameValue
+        CFI V7 SameValue
+        CFI V8 SameValue
+        CFI V9 SameValue
+        CFI V10 SameValue
+        CFI V11 SameValue
+        CFI V12 SameValue
+        CFI V13 SameValue
+        CFI V14 SameValue
+        CFI V15 SameValue
+        CFI PSPH Undefined
+        CFI PSPL Undefined
+        CFI XSPH Undefined
+        CFI XSPL Undefined
+        CFI ?RET Concat
+        CFI ?BRET_EXT Frame(CFA_SP, 3)
+        CFI ?RET_HIGH Frame(CFA_SP, 2)
+        CFI ?RET_LOW Frame(CFA_SP, 1)
+        CFI EndCommon cfiCommon0
+        
+HalAdcInit          SYMBOL "HalAdcInit"
+HalDmaInit          SYMBOL "HalDmaInit"
+HalFlashInit        SYMBOL "HalFlashInit"
+HalAesInit          SYMBOL "HalAesInit"
+HalLcdInit          SYMBOL "HalLcdInit"
+HalLedInit          SYMBOL "HalLedInit"
+HalUARTInit         SYMBOL "HalUARTInit"
+HalKeyInit          SYMBOL "HalKeyInit"
+osal_msg_receive    SYMBOL "osal_msg_receive"
+osal_msg_deallocate SYMBOL "osal_msg_deallocate"
+HalLedUpdate        SYMBOL "HalLedUpdate"
+HalKeyPoll          SYMBOL "HalKeyPoll"
+osal_start_timerEx  SYMBOL "osal_start_timerEx"
+HalUARTPoll         SYMBOL "HalUARTPoll"
+??HalAdcInit?relay  SYMBOL "?relay", HalAdcInit
+??HalAesInit?relay  SYMBOL "?relay", HalAesInit
+??HalDmaInit?relay  SYMBOL "?relay", HalDmaInit
+??HalFlashInit?relay SYMBOL "?relay", HalFlashInit
+??HalKeyInit?relay  SYMBOL "?relay", HalKeyInit
+??HalKeyPoll?relay  SYMBOL "?relay", HalKeyPoll
+??HalLcdInit?relay  SYMBOL "?relay", HalLcdInit
+??HalLedInit?relay  SYMBOL "?relay", HalLedInit
+??HalLedUpdate?relay SYMBOL "?relay", HalLedUpdate
+??HalUARTInit?relay SYMBOL "?relay", HalUARTInit
+??HalUARTPoll?relay SYMBOL "?relay", HalUARTPoll
+??osal_msg_deallocate?relay SYMBOL "?relay", osal_msg_deallocate
+??osal_msg_receive?relay SYMBOL "?relay", osal_msg_receive
+??osal_start_timerEx?relay SYMBOL "?relay", osal_start_timerEx
+HalDriverInit       SYMBOL "HalDriverInit"
+??HalDriverInit?relay SYMBOL "?relay", HalDriverInit
+Hal_Init            SYMBOL "Hal_Init"
+??Hal_Init?relay    SYMBOL "?relay", Hal_Init
+Hal_ProcessEvent    SYMBOL "Hal_ProcessEvent"
+??Hal_ProcessEvent?relay SYMBOL "?relay", Hal_ProcessEvent
+Hal_ProcessPoll     SYMBOL "Hal_ProcessPoll"
+??Hal_ProcessPoll?relay SYMBOL "?relay", Hal_ProcessPoll
+
+        EXTERN HalAdcInit
+        FUNCTION HalAdcInit,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN HalDmaInit
+        FUNCTION HalDmaInit,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN HalFlashInit
+        FUNCTION HalFlashInit,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN HalAesInit
+        FUNCTION HalAesInit,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN HalLcdInit
+        FUNCTION HalLcdInit,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN HalLedInit
+        FUNCTION HalLedInit,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN HalUARTInit
+        FUNCTION HalUARTInit,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN HalKeyInit
+        FUNCTION HalKeyInit,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN osal_msg_receive
+        FUNCTION osal_msg_receive,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN osal_msg_deallocate
+        FUNCTION osal_msg_deallocate,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN HalLedUpdate
+        FUNCTION HalLedUpdate,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN HalKeyPoll
+        FUNCTION HalKeyPoll,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN osal_start_timerEx
+        FUNCTION osal_start_timerEx,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN HalUARTPoll
+        FUNCTION HalUARTPoll,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN ??HalAdcInit?relay
+        FUNCTION ??HalAdcInit?relay,00H
+        EXTERN ??HalAesInit?relay
+        FUNCTION ??HalAesInit?relay,00H
+        EXTERN ??HalDmaInit?relay
+        FUNCTION ??HalDmaInit?relay,00H
+        EXTERN ??HalFlashInit?relay
+        FUNCTION ??HalFlashInit?relay,00H
+        EXTERN ??HalKeyInit?relay
+        FUNCTION ??HalKeyInit?relay,00H
+        EXTERN ??HalKeyPoll?relay
+        FUNCTION ??HalKeyPoll?relay,00H
+        EXTERN ??HalLcdInit?relay
+        FUNCTION ??HalLcdInit?relay,00H
+        EXTERN ??HalLedInit?relay
+        FUNCTION ??HalLedInit?relay,00H
+        EXTERN ??HalLedUpdate?relay
+        FUNCTION ??HalLedUpdate?relay,00H
+        EXTERN ??HalUARTInit?relay
+        FUNCTION ??HalUARTInit?relay,00H
+        EXTERN ??HalUARTPoll?relay
+        FUNCTION ??HalUARTPoll?relay,00H
+        EXTERN ??osal_msg_deallocate?relay
+        FUNCTION ??osal_msg_deallocate?relay,00H
+        EXTERN ??osal_msg_receive?relay
+        FUNCTION ??osal_msg_receive?relay,00H
+        EXTERN ??osal_start_timerEx?relay
+        FUNCTION ??osal_start_timerEx?relay,00H
+        EXTERN Hal_KeyIntEnable
+
+// C:\Texas Instruments\ZStack-CC2530-2.3.0-1.4.0\Components\hal\common\hal_drivers.c
+//    1 /**************************************************************************************************
+//    2   Filename:       hal_drivers.c
+//    3   Revised:        $Date: 2007-07-06 10:42:24 -0700 (Fri, 06 Jul 2007) $
+//    4   Revision:       $Revision: 13579 $
+//    5 
+//    6   Description:    This file contains the interface to the Drivers Service.
+//    7 
+//    8 
+//    9   Copyright 2005-2009 Texas Instruments Incorporated. All rights reserved.
+//   10 
+//   11   IMPORTANT: Your use of this Software is limited to those specific rights
+//   12   granted under the terms of a software license agreement between the user
+//   13   who downloaded the software, his/her employer (which must be your employer)
+//   14   and Texas Instruments Incorporated (the "License").  You may not use this
+//   15   Software unless you agree to abide by the terms of the License. The License
+//   16   limits your use, and you acknowledge, that the Software may not be modified,
+//   17   copied or distributed unless embedded on a Texas Instruments microcontroller
+//   18   or used solely and exclusively in conjunction with a Texas Instruments radio
+//   19   frequency transceiver, which is integrated into your product.  Other than for
+//   20   the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+//   21   works of, modify, distribute, perform, display or sell this Software and/or
+//   22   its documentation for any purpose.
+//   23 
+//   24   YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+//   25   PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+//   26   INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+//   27   NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+//   28   TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+//   29   NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+//   30   LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+//   31   INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+//   32   OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+//   33   OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+//   34   (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+//   35 
+//   36   Should you have any questions regarding your right to use this Software,
+//   37   contact Texas Instruments Incorporated at www.TI.com.
+//   38 **************************************************************************************************/
+//   39 
+//   40 
+//   41 /**************************************************************************************************
+//   42  *                                            INCLUDES
+//   43  **************************************************************************************************/
+//   44 #include "hal_types.h"
+//   45 #include "OSAL.h"
+//   46 #include "hal_drivers.h"
+//   47 #include "hal_adc.h"
+//   48 #if (defined HAL_DMA) && (HAL_DMA == TRUE)
+//   49   #include "hal_dma.h"
+//   50 #endif
+//   51 #include "hal_flash.h"
+//   52 #include "hal_key.h"
+//   53 #include "hal_lcd.h"
+//   54 #include "hal_led.h"
+//   55 #include "hal_timer.h"
+//   56 #include "hal_uart.h"
+//   57 #include "hal_sleep.h"
+//   58 #if (defined HAL_AES) && (HAL_AES == TRUE)
+//   59   #include "hal_aes.h"
+//   60 #endif
+//   61 
+//   62 #if (defined HAL_SPI) && (HAL_SPI == TRUE)
+//   63   #include "hal_spi.h"
+//   64 #endif
+//   65 #if (defined HAL_HID) && (HAL_HID == TRUE)
+//   66   #include "usb_hid.h"
+//   67 #endif
+//   68 
+//   69 /**************************************************************************************************
+//   70  *                                            MACROS
+//   71  **************************************************************************************************/
+//   72 
+//   73 
+//   74 
+//   75 /**************************************************************************************************
+//   76  *                                          CONSTANTS
+//   77  **************************************************************************************************/
+//   78 
+//   79 
+//   80 /**************************************************************************************************
+//   81  *                                          TYPEDEFS
+//   82  **************************************************************************************************/
+//   83 
+//   84 
+//   85 /**************************************************************************************************
+//   86  *                                      GLOBAL VARIABLES
+//   87  **************************************************************************************************/
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+//   88 uint8 Hal_TaskID;
+Hal_TaskID:
+        DS 1
+        REQUIRE __INIT_XDATA_Z
+//   89 
+//   90 extern void HalLedUpdate( void ); /* Notes: This for internal only so it shouldn't be in hal_led.h */
+//   91 
+//   92 /**************************************************************************************************
+//   93  *                                      FUNCTIONS - API
+//   94  **************************************************************************************************/
+//   95 
+//   96 /**************************************************************************************************
+//   97  * @fn      Hal_Init
+//   98  *
+//   99  * @brief   Hal Initialization function.
+//  100  *
+//  101  * @param   task_id - Hal TaskId
+//  102  *
+//  103  * @return  None
+//  104  **************************************************************************************************/
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  105 void Hal_Init( uint8 task_id )
+Hal_Init:
+        CFI Block cfiBlock0 Using cfiCommon0
+        CFI Function Hal_Init
+//  106 {
+        PUSH    DPL
+        CFI DPL0 Frame(CFA_SP, 4)
+        CFI CFA_SP SP+-4
+        PUSH    DPH
+        CFI DPH0 Frame(CFA_SP, 5)
+        CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 0
+//  107   /* Register task ID */
+//  108   Hal_TaskID = task_id;
+        MOV     A,R1
+        MOV     DPTR,#Hal_TaskID
+        MOVX    @DPTR,A
+        CFI EndBlock cfiBlock0
+//  109 }
+        REQUIRE ?Subroutine0
+        ; // Fall through to label ?Subroutine0
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+?Subroutine0:
+        CFI Block cfiBlock1 Using cfiCommon0
+        CFI NoFunction
+        CFI CFA_SP SP+-5
+        CFI DPL0 Frame(CFA_SP, 4)
+        CFI DPH0 Frame(CFA_SP, 5)
+        POP     DPH
+        CFI CFA_SP SP+-4
+        CFI DPH0 SameValue
+        POP     DPL
+        CFI CFA_SP SP+-3
+        CFI DPL0 SameValue
+        LJMP    ?BRET
+        CFI EndBlock cfiBlock1
+//  110 
+//  111 /**************************************************************************************************
+//  112  * @fn      Hal_DriverInit
+//  113  *
+//  114  * @brief   Initialize HW - These need to be initialized before anyone.
+//  115  *
+//  116  * @param   task_id - Hal TaskId
+//  117  *
+//  118  * @return  None
+//  119  **************************************************************************************************/
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  120 void HalDriverInit (void)
+HalDriverInit:
+        CFI Block cfiBlock2 Using cfiCommon0
+        CFI Function HalDriverInit
+//  121 {
+        FUNCALL HalDriverInit, HalAdcInit
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL HalDriverInit, HalDmaInit
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL HalDriverInit, HalFlashInit
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL HalDriverInit, HalAesInit
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL HalDriverInit, HalLcdInit
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL HalDriverInit, HalLedInit
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL HalDriverInit, HalUARTInit
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL HalDriverInit, HalKeyInit
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        PUSH    DPL
+        CFI DPL0 Frame(CFA_SP, 4)
+        CFI CFA_SP SP+-4
+        PUSH    DPH
+        CFI DPH0 Frame(CFA_SP, 5)
+        CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 0
+//  122   /* TIMER */
+//  123 #if (defined HAL_TIMER) && (HAL_TIMER == TRUE)
+//  124   HalTimerInit();
+//  125 #endif
+//  126 
+//  127   /* ADC */
+//  128 #if (defined HAL_ADC) && (HAL_ADC == TRUE)
+//  129   HalAdcInit();
+        ; Setup parameters for call to function HalAdcInit
+        LCALL   ??HalAdcInit?relay
+//  130 #endif
+//  131 
+//  132   /* DMA */
+//  133 #if (defined HAL_DMA) && (HAL_DMA == TRUE)
+//  134   // Must be called before the init call to any module that uses DMA.
+//  135   HalDmaInit();
+        ; Setup parameters for call to function HalDmaInit
+        LCALL   ??HalDmaInit?relay
+//  136 #endif
+//  137 
+//  138   /* Flash */
+//  139 #if (defined HAL_FLASH) && (HAL_FLASH == TRUE)
+//  140   // Must be called before the init call to any module that uses Flash access or NV.
+//  141   HalFlashInit();
+        ; Setup parameters for call to function HalFlashInit
+        LCALL   ??HalFlashInit?relay
+//  142 #endif
+//  143 
+//  144   /* AES */
+//  145 #if (defined HAL_AES) && (HAL_AES == TRUE)
+//  146   HalAesInit();
+        ; Setup parameters for call to function HalAesInit
+        LCALL   ??HalAesInit?relay
+//  147 #endif
+//  148 
+//  149   /* LCD */
+//  150 #if (defined HAL_LCD) && (HAL_LCD == TRUE)
+//  151   HalLcdInit();
+        ; Setup parameters for call to function HalLcdInit
+        LCALL   ??HalLcdInit?relay
+//  152 #endif
+//  153 
+//  154   /* LED */
+//  155 #if (defined HAL_LED) && (HAL_LED == TRUE)
+//  156   HalLedInit();
+        ; Setup parameters for call to function HalLedInit
+        LCALL   ??HalLedInit?relay
+//  157 #endif
+//  158 
+//  159   /* UART */
+//  160 #if (defined HAL_UART) && (HAL_UART == TRUE)
+//  161   HalUARTInit();
+        ; Setup parameters for call to function HalUARTInit
+        LCALL   ??HalUARTInit?relay
+//  162 #endif
+//  163 
+//  164   /* KEY */
+//  165 #if (defined HAL_KEY) && (HAL_KEY == TRUE)
+//  166   HalKeyInit();
+        ; Setup parameters for call to function HalKeyInit
+        LCALL   ??HalKeyInit?relay
+//  167 #endif
+//  168 
+//  169   /* SPI */
+//  170 #if (defined HAL_SPI) && (HAL_SPI == TRUE)
+//  171   HalSpiInit();
+//  172 #endif
+//  173 
+//  174   /* HID */
+//  175 #if (defined HAL_HID) && (HAL_HID == TRUE)
+//  176   usbHidInit();
+//  177 #endif
+//  178 }
+        SJMP    ?Subroutine0
+        CFI EndBlock cfiBlock2
+//  179 
+//  180 
+//  181 /**************************************************************************************************
+//  182  * @fn      Hal_ProcessEvent
+//  183  *
+//  184  * @brief   Hal Process Event
+//  185  *
+//  186  * @param   task_id - Hal TaskId
+//  187  *          events - events
+//  188  *
+//  189  * @return  None
+//  190  **************************************************************************************************/
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  191 uint16 Hal_ProcessEvent( uint8 task_id, uint16 events )
+Hal_ProcessEvent:
+        CFI Block cfiBlock3 Using cfiCommon0
+        CFI Function Hal_ProcessEvent
+//  192 {
+        FUNCALL Hal_ProcessEvent, osal_msg_receive
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 10, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL Hal_ProcessEvent, osal_msg_deallocate
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 10, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL Hal_ProcessEvent, osal_msg_receive
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 10, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL Hal_ProcessEvent, HalLedUpdate
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 10, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL Hal_ProcessEvent, HalKeyPoll
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 10, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL Hal_ProcessEvent, osal_start_timerEx
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 10, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        MOV     A,#-0xa
+        LCALL   ?BANKED_ENTER_XDATA
+        CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+        CFI CFA_SP SP+0
+        CFI CFA_XSP16 add(XSP16, 10)
+        ; Saved register size: 10
+        ; Auto size: 0
+        MOV     A,R2
+        MOV     R6,A
+        MOV     A,R3
+        MOV     R7,A
+//  193   uint8 *msgPtr;
+//  194   
+//  195   (void)task_id;  // Intentionally unreferenced parameter
+//  196 
+//  197   if ( events & SYS_EVENT_MSG )
+        MOV     A,#-0x80
+        ANL     A,R7
+        MOV     R1,A
+        CLR     A
+        JNZ     ??Hal_ProcessEvent_0
+        MOV     A,R1
+??Hal_ProcessEvent_0:
+        JZ      ??Hal_ProcessEvent_1
+//  198   {
+//  199     msgPtr = osal_msg_receive(Hal_TaskID);
+        ; Setup parameters for call to function osal_msg_receive
+        SJMP    ??Hal_ProcessEvent_2
+//  200 
+//  201     while (msgPtr)
+//  202     {
+//  203       /* Do something here - for now, just deallocate the msg and move on */
+//  204 
+//  205       /* De-allocate */
+//  206       osal_msg_deallocate( msgPtr );
+??Hal_ProcessEvent_3:
+        ; Setup parameters for call to function osal_msg_deallocate
+        LCALL   ??osal_msg_deallocate?relay
+//  207       /* Next */
+//  208       msgPtr = osal_msg_receive( Hal_TaskID );
+        ; Setup parameters for call to function osal_msg_receive
+??Hal_ProcessEvent_2:
+        MOV     DPTR,#Hal_TaskID
+        MOVX    A,@DPTR
+        MOV     R1,A
+        LCALL   ??osal_msg_receive?relay
+//  209     }
+        MOV     A,R2
+        JNZ     ??Hal_ProcessEvent_4
+        MOV     A,R3
+??Hal_ProcessEvent_4:
+        JNZ     ??Hal_ProcessEvent_3
+//  210     return events ^ SYS_EVENT_MSG;
+        MOV     A,R6
+        MOV     R2,A
+        MOV     A,#-0x80
+        XRL     A,R7
+??Hal_ProcessEvent_5:
+        MOV     R3,A
+        SJMP    ??Hal_ProcessEvent_6
+//  211   }
+//  212 
+//  213   if ( events & HAL_LED_BLINK_EVENT )
+??Hal_ProcessEvent_1:
+        MOV     A,R6
+        ANL     A,#0x2
+        JZ      ??Hal_ProcessEvent_7
+//  214   {
+//  215 #if (defined (BLINK_LEDS)) && (HAL_LED == TRUE)
+//  216     HalLedUpdate();
+        ; Setup parameters for call to function HalLedUpdate
+        LCALL   ??HalLedUpdate?relay
+//  217 #endif /* BLINK_LEDS && HAL_LED */
+//  218     return events ^ HAL_LED_BLINK_EVENT;
+        MOV     A,#0x2
+??Hal_ProcessEvent_8:
+        XRL     A,R6
+        MOV     R2,A
+        MOV     A,R7
+        SJMP    ??Hal_ProcessEvent_5
+//  219   }
+//  220 
+//  221   if (events & HAL_KEY_EVENT)
+??Hal_ProcessEvent_7:
+        MOV     A,R6
+        MOV     C,0xE0 /* A   */.0
+        JNC     ??Hal_ProcessEvent_9
+//  222   {
+//  223 
+//  224 #if (defined HAL_KEY) && (HAL_KEY == TRUE)
+//  225     /* Check for keys */
+//  226     HalKeyPoll();
+        ; Setup parameters for call to function HalKeyPoll
+        LCALL   ??HalKeyPoll?relay
+//  227 
+//  228     /* if interrupt disabled, do next polling */
+//  229     if (!Hal_KeyIntEnable)
+        MOV     DPTR,#Hal_KeyIntEnable
+        MOVX    A,@DPTR
+        JNZ     ??Hal_ProcessEvent_10
+//  230     {
+//  231       osal_start_timerEx( Hal_TaskID, HAL_KEY_EVENT, 100);
+        ; Setup parameters for call to function osal_start_timerEx
+        MOV     R4,#0x64
+        MOV     R5,#0x0
+        MOV     R2,#0x1
+        MOV     R3,#0x0
+        MOV     DPTR,#Hal_TaskID
+        MOVX    A,@DPTR
+        MOV     R1,A
+        LCALL   ??osal_start_timerEx?relay
+//  232     }
+//  233 #endif // HAL_KEY
+//  234 
+//  235     return events ^ HAL_KEY_EVENT;
+??Hal_ProcessEvent_10:
+        MOV     A,#0x1
+        SJMP    ??Hal_ProcessEvent_8
+//  236   }
+//  237 
+//  238 #ifdef POWER_SAVING
+//  239   if ( events & HAL_SLEEP_TIMER_EVENT )
+//  240   {
+//  241     halRestoreSleepLevel();
+//  242     return events ^ HAL_SLEEP_TIMER_EVENT;
+//  243   }
+//  244 #endif
+//  245 
+//  246   /* Nothing interested, discard the message */
+//  247   return 0;
+??Hal_ProcessEvent_9:
+        MOV     R2,#0x0
+        MOV     R3,#0x0
+??Hal_ProcessEvent_6:
+        MOV     R7,#0x2
+        LJMP    ?BANKED_LEAVE_XDATA
+        CFI EndBlock cfiBlock3
+//  248 
+//  249 }
+//  250 
+//  251 /**************************************************************************************************
+//  252  * @fn      Hal_ProcessPoll
+//  253  *
+//  254  * @brief   This routine will be called by OSAL to poll UART, TIMER...
+//  255  *
+//  256  * @param   task_id - Hal TaskId
+//  257  *
+//  258  * @return  None
+//  259  **************************************************************************************************/
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  260 void Hal_ProcessPoll ()
+Hal_ProcessPoll:
+        CFI Block cfiBlock4 Using cfiCommon0
+        CFI Function Hal_ProcessPoll
+//  261 {
+        FUNCALL Hal_ProcessPoll, HalUARTPoll
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        PUSH    DPL
+        CFI DPL0 Frame(CFA_SP, 4)
+        CFI CFA_SP SP+-4
+        PUSH    DPH
+        CFI DPH0 Frame(CFA_SP, 5)
+        CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 0
+//  262 
+//  263   /* Timer Poll */
+//  264 #if (defined HAL_TIMER) && (HAL_TIMER == TRUE)
+//  265   HalTimerTick();
+//  266 #endif
+//  267 
+//  268   /* UART Poll */
+//  269 #if (defined HAL_UART) && (HAL_UART == TRUE)
+//  270   HalUARTPoll();
+        ; Setup parameters for call to function HalUARTPoll
+        LCALL   ??HalUARTPoll?relay
+//  271 #endif  
+//  272 
+//  273   /* SPI Poll */
+//  274 #if (defined HAL_SPI) && (HAL_SPI == TRUE)
+//  275   HalSpiPoll();
+//  276 #endif
+//  277 
+//  278   /* HID poll */
+//  279 #if (defined HAL_HID) && (HAL_HID == TRUE)
+//  280   usbHidProcessEvents();
+//  281 #endif
+//  282 
+//  283 }
+        LJMP    ?Subroutine0 & 0xFFFF
+        CFI EndBlock cfiBlock4
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??Hal_Init?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    Hal_Init
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??HalDriverInit?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    HalDriverInit
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??Hal_ProcessEvent?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    Hal_ProcessEvent
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??Hal_ProcessPoll?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    Hal_ProcessPoll
+
+        END
+//  284 
+//  285 
+//  286 /**************************************************************************************************
+//  287 **************************************************************************************************/
+//  288 
+// 
+// 160 bytes in segment BANKED_CODE
+//  24 bytes in segment BANK_RELAYS
+//   1 byte  in segment XDATA_Z
+// 
+// 184 bytes of CODE  memory
+//   1 byte  of XDATA memory
+//
+//Errors: none
+//Warnings: none
