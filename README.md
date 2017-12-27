@@ -2,4 +2,4 @@
 
 待补充
 
-系统简介：[](http://chenhy.com/post/zb-zigbee-parking/) 
+系统简介：[http://chenhy.com/post/zb-zigbee-parking/](http://chenhy.com/post/zb-zigbee-parking/) 
